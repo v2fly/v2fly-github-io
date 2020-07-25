@@ -36,13 +36,11 @@ v2ray [-version] [-test] [-config=config.json] [-format=json]
 * `json`: JSON 格式；
 * `pb` 或 `protobuf`: Protobuf 格式；
 
-{% hint style='info' %}
+:::tip 
 当`-config`没有指定时，V2Ray 将先后尝试从以下路径加载`config.json`:
-
 * 工作目录（Working Directory）
 * [环境变量](../chapter_02/env.md)中`v2ray.location.asset`所指定的路径
-
-{% endhint %}
+:::
 
 ## V2Ctl
 
