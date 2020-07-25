@@ -1,6 +1,9 @@
 module.exports = {
-    title: 'Project V 官方网站',
+    title: 'Project V',
     description: 'Project V 是一个工具集合，它可以帮助你打造专属的基础通信网络',
+    plugins: [
+        'vuepress-plugin-mermaidjs'
+    ],
 
     themeConfig: {
         sidebar: 'auto',
@@ -12,11 +15,10 @@ module.exports = {
                 label: '简体中文',
                 editLinkText: '在 GitHub 上编辑此页',
                 nav: [
-                    {text: '首页', link: '/'},
                     {
                         text: '起步',
                         items: [
-                            {text: '工作流程', link: '/chapter_00/workflow'},
+                            {text: '使用方式', link: '/chapter_00/workflow'},
                             {text: '下载安装', link: '/chapter_00/install'},
                             {text: '新手上路', link: '/chapter_00/start'},
                             {text: '命令参数', link: '/chapter_00/command'},

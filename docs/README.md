@@ -3,7 +3,6 @@ home: true
 heroImage: /v2ray_1024.png
 heroText: Project V
 tagline: 帮助你打造专属的基础通信网络
-actionText: null
 features:
 - title: 多入口多出口
   details: 一个 V2Ray 进程可并发支持多个入站和出站协议，每个协议可独立工作。
@@ -17,7 +16,7 @@ features:
   details: 通用的反向代理支持，可实现内网穿透功能。
 - title: 多平台支持
   details: 原生支持所有常见平台，如 Windows、macOS 和 Linux，并已有第三方支持移动平台。
-footer: CC-BY-SA Licensed | Copyright © 2020-present V2Fly
+footer: CC-BY-SA Licensed | Copyright © 2020-present V2Fly Team
 ---
 
 ## 👷 贡献
