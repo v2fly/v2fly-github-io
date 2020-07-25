@@ -21,7 +21,7 @@ V2Ray 在以下平台中可用：
 
 预编译的压缩包可以在如下几个站点找到：
 
-1. Github Release：[github.com/v2ray/v2ray-core](https://github.com/v2ray/v2ray-core/releases)
+1. Github Release：[github.com/v2fly/v2ray-core](https://github.com/v2fly/v2ray-core/releases)
 2. Github 分流：[github.com/v2ray/dist](https://github.com/v2ray/dist/)
 3. Homebrew：[github.com/v2ray/homebrew-v2ray](https://github.com/v2ray/homebrew-v2ray)
 4. Arch Linux：[packages/community/x86_64/v2ray/](https://www.archlinux.org/packages/community/x86_64/v2ray/)
@@ -34,7 +34,7 @@ V2Ray 在以下平台中可用：
 V2Ray 提供两种验证方式：
 
 1. 安装包 ZIP 文件的 SHA1 / SHA256 摘要，在每个安装包对应的 `.dgst` 文件中可以找到。
-2. 可运行程序（v2ray 或 v2ray.exe）的 GPG 签名，文件位于安装包中的 `v2ray.sig` 或 `v2ray.exe.sig`。签名公钥可以 [在代码库中](https://raw.githubusercontent.com/v2ray/v2ray-core/master/release/verify/official_release.asc) 找到。
+2. 可运行程序（v2ray 或 v2ray.exe）的 GPG 签名，文件位于安装包中的 `v2ray.sig` 或 `v2ray.exe.sig`。签名公钥可以 [在代码库中](https://raw.githubusercontent.com/v2fly/v2ray-core/master/release/verify/official_release.asc) 找到。
 
 ## Windows 和 macOS 安装方式
 
@@ -42,7 +42,7 @@ V2Ray 提供两种验证方式：
 
 ## Linux 发行版仓库
 
-部分发行版可能已收录 V2Ray 到其官方维护和支持的软件仓库／软件源中。出于兼容性和适配性考虑，建議选用由您所使用的发行版，其维护团队维护的软件包，然后再考虑使用下文的安装脚本，亦或基于已发布的二进制文件或源代码，进行手动安装。
+部分发行版可能已收录 V2Ray 到其官方维护和支持的软件仓库／软件源中。出于兼容性和适配性考虑，建议选用由您所使用的发行版，其维护团队维护的软件包，然后再考虑使用下文的安装脚本，亦或基于已发布的二进制文件或源代码，进行手动安装。
 
 ## Linux 安装脚本
 
