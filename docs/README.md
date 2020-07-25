@@ -18,7 +18,7 @@ features:
   details: 通用的反向代理支持，可实现内网穿透功能。
 - title: 多平台支持
   details: 原生支持所有常见平台，如 Windows、macOS 和 Linux，并已有第三方支持移动平台。
-footer: MIT Licensed | Copyright © 2018-present Evan You
+footer: MIT Licensed | Copyright © 2018-present V2Fly
 ---
 
 
