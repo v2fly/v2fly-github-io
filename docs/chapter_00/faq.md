@@ -84,7 +84,7 @@ Project V 使用以下方式进行授权。
 
 源代码以官方发布的安装包，使用 MIT 协议授权。包括以下代码仓库中的源代码及安装包：
 
-* [v2ray/v2ray-core](https://www.github.com/v2ray/v2ray-core/)
+* [v2fly/v2ray-core](https://www.github.com/v2fly/v2ray-core/)
 * [v2ray/ext](https://www.github.com/v2ray/ext)
 
 ### 官方网站
