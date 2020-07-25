@@ -10,9 +10,9 @@ refcn: chapter_02/multiple_config
 
 ## 多文件启动信息例子
 
-{% hint style='info' %}
+:::tip
 启动信息中会提示依次读入的每个配置文件，留意启动信息是否符合你预设的顺序。
-{% endhint %}
+:::
 
 ```shell
 $ v2ray -c v2ray.json -c 00_base.json -c 01_info.json -c 02_log.json -c outbound.json
