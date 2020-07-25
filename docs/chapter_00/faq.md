@@ -93,7 +93,7 @@ Project V 使用以下方式进行授权。
 
 * 包括网站中所有可见的文字内容和图片。
 * 包括 <a href="https://www.v2ray.com/resources/v2ray_1024.png" target="_blank">Project V 图标文件</a>。
-* 包括生成网站所使用到的源代码，即 [v2fly/manual](https://www.github.com/v2fly/manual)。
+* 包括生成网站所使用到的源代码，即 [v2fly/manual-vuepress](https://github.com/v2fly/manual-vuepress)。
 
 ### 软件截图和其它文件
 
