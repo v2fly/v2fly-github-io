@@ -31,9 +31,9 @@ JSON，全称 [JavaScript Object Notation](https://en.wikipedia.org/wiki/JSON)�
 }
 ```
 
-{% hint style='info' %}
+:::tip
 V2Ray 的 JSON 格式支持注释，可使用“//”或者“/\* \*/”来进行注释。在不支持注释的编辑器中可能被显示为“错误”，但实际上是可以正常使用的。
-{% endhint %}
+:::
 
 ## JSON 数据类型
 
@@ -59,9 +59,9 @@ V2Ray 的 JSON 格式支持注释，可使用“//”或者“/\* \*/”来进�
 
 对象，一组键值对。样例见本文上方的示例。
 
-{% hint style='tip' %}
+:::tip
 通常一个键值对的后面需要有一个逗号","，但如果这个键值对后面紧跟一个大括号"｝"的话，则一定不能有逗号。
-{% endhint %}
+:::
 
 ## V2Ray 常用数据类型
 
