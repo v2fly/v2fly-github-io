@@ -5,7 +5,7 @@ refen: welcome/install
 
 # 下载安装
 
-## 平台支持 {#platform}
+## 平台支持
 
 V2Ray 在以下平台中可用：
 
@@ -17,7 +17,7 @@ V2Ray 在以下平台中可用：
 * OpenBSD (x86 / amd64)；
 * Dragonfly BSD (amd64)；
 
-## 下载 V2Ray {#download}
+## 下载 V2Ray
 
 预编译的压缩包可以在如下几个站点找到：
 
@@ -29,7 +29,7 @@ V2Ray 在以下平台中可用：
 
 压缩包均为 ZIP 格式，找到对应平台的压缩包，下载解压即可使用。
 
-## 验证安装包 {#verify}
+## 验证安装包
 
 V2Ray 提供两种验证方式：
 
@@ -40,11 +40,11 @@ V2Ray 提供两种验证方式：
 
 通过上述方式下载的压缩包，解压之后可看到 v2ray 或 v2ray.exe。直接运行即可。
 
-## Linux 发行版仓库 {#linuxrepo}
+## Linux 发行版仓库
 
 部分发行版可能已收录 V2Ray 到其官方维护和支持的软件仓库／软件源中。出于兼容性和适配性考虑，建議选用由您所使用的发行版，其维护团队维护的软件包，然后再考虑使用下文的安装脚本，亦或基于已发布的二进制文件或源代码，进行手动安装。
 
-## Linux 安装脚本 {#linuxscript}
+## Linux 安装脚本
 
 原安装脚本已被弃置，由 [fhs-install-v2ray](https://github.com/v2fly/fhs-install-v2ray) 替换。
 
@@ -143,7 +143,7 @@ uid=65534(nobody) gid=65534(nobody) groups=65534(nobody)
 
 ---
 
-原 go.sh 不再推薦使用。
+原 go.sh 不再推荐使用。
 
 V2Ray 提供了一个在 Linux 中的自动化安装脚本。这个脚本会自动检测有没有安装过 V2Ray，如果没有，则进行完整的安装和配置；如果之前安装过 V2Ray，则只更新 V2Ray 二进制程序而不更新配置。
 
@@ -176,7 +176,7 @@ bash <(curl -L -s https://install.direct/go.sh)
 2. 运行 systemctl start v2ray 来启动 V2Ray 进程；
 3. 之后可以使用 systemctl start | stop | restart | enable | disable | status v2ray 控制 V2Ray 的运行。
 
-### go.sh 参数 {#gosh}
+### go.sh 参数
 
 go.sh 支持如下参数，可在手动安装时根据实际情况调整：
 
@@ -190,7 +190,7 @@ go.sh 支持如下参数，可在手动安装时根据实际情况调整：
 * 使用地址为 127.0.0.1:1080 的 SOCKS 代理下载并安装最新版本：```./go.sh -p socks5://127.0.0.1:1080```
 * 安装本地的 v1.13 版本：```./go.sh --version v1.13 --local /path/to/v2ray.zip```
 
-## Docker {#docker}
+## Docker
 
 V2Ray 提供了预编译的 Docker image：
 
