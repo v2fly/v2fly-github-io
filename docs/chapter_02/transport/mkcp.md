@@ -41,9 +41,9 @@ mKCP 使用 UDP 来模拟 TCP 连接，请确定主机上的防火墙配置正�
 
 下行链路容量，即主机接收数据所用的最大带宽，单位 MB/s，默认值 `20`。注意是 Byte 而非 bit。可以设置为 `0`，表示一个非常小的带宽。
 
-{% hint style='info' %}
+:::tip
 `uplinkCapacity` 和 `downlinkCapacity` 决定了 mKCP 的传输速度。以客户端发送数据为例，客户端的 `uplinkCapacity` 指定了发送数据的速度，而服务器端的 `downlinkCapacity` 指定了接收数据的速度。两者的值以较小的一个为准。推荐把 `downlinkCapacity` 设置为一个较大的值，比如 100，而 `uplinkCapacity` 设为实际的网络速度。当速度不够时，可以逐渐增加 `uplinkCapacity` 的值，直到带宽的两倍左右。
-{% endhint %}
+:::
 
 > `congestion`: true | false
 
@@ -57,9 +57,9 @@ mKCP 使用 UDP 来模拟 TCP 连接，请确定主机上的防火墙配置正�
 
 单个连接的写入缓冲区大小，单位是 MB。默认值为 `2`。
 
-{% hint style='info' %}
+:::tip
 `readBufferSize` 和 `writeBufferSize` 指定了单个连接所使用的内存大小。在需要高速传输时，指定较大的 `readBufferSize` 和 `writeBufferSize` 会在一定程度上提高速度，但也会使用更多的内存。在网速不超过 20MB/s 时，默认值 1MB 可以满足需求；超过之后，可以适当增加 `readBufferSize` 和 `writeBufferSize` 的值，然后手动平衡速度和内存的关系。
-{% endhint %}
+:::
 
 > `header`: [HeaderObject](#headerobject)
 
@@ -68,7 +68,6 @@ mKCP 使用 UDP 来模拟 TCP 连接，请确定主机上的防火墙配置正�
 > `seed`: string
 
 可选项混淆密码， v4.24 后加入。可以使用 AES-128-GCM 算法混淆流量数据，客户端和服务器端需要保持一致。此设置可能可以对抗部分封锁。本混淆机制不能用于保证通信内容的安全。在开发者测试环境下开启此设置后没有出现原版未混淆版本的封端口状况。启用后会输出"NewAEADAESGCMBasedOnSeed Used"到命令行。
-
 
 
 ### HeaderObject
@@ -90,7 +89,7 @@ mKCP 使用 UDP 来模拟 TCP 连接，请确定主机上的防火墙配置正�
 * `"dtls"`：伪装成 DTLS 1.2 数据包。
 * `"wireguard"`：伪装成 WireGuard 数据包。（并不是真正的 WireGuard 协议）
 
-## 鸣谢 {#credits}
+## 鸣谢
 
 * @skywind3000 发明并实现了 KCP 协议。
 * @xtaci 将 KCP 由 C 语言实现翻译成 Go。
