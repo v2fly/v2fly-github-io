@@ -7,9 +7,9 @@ refen: configuration/transport/websocket
 
 使用标准的 WebSocket 来传输数据。WebSocket 连接可以被其它 HTTP 服务器（如 Nginx）分流。
 
-{% hint style='info' %}
+:::tip
 Websocket 会识别 HTTP 请求的 X-Forwarded-For 头来用做流量的源地址。
-{% endhint %}
+:::
 
 ## 示例配置
 
