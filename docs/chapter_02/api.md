@@ -30,9 +30,9 @@ V2Ray 中可以开放一些 API 以便远程调用。这些 API 都基于 [gRPC]
 
 > `services`: \[string\]
 
-开启的 API 列表，可选的值见 [API 列表](#api-list)。
+开启的 API 列表，可选的值见 [API 列表](#支持的-api-列表)。
 
-## 支持的 API 列表 {#api-list}
+## 支持的 API 列表
 
 ### HandlerService
 
