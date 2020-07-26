@@ -72,7 +72,7 @@ module.exports = {
                                 text: '协议细节', items: [
                                     {text: 'Vmess 协议', link: '/developer/protocols/vmess'},
                                     {text: 'mKCP 协议', link: '/developer/protocols/mkcp'},
-                                    {text: 'Mux.Cool 协议', link: '/developer/protocols/muxcoll'},
+                                    {text: 'Mux.Cool 协议', link: '/developer/protocols/muxcool'},
                                 ]
                             },
                         ]
