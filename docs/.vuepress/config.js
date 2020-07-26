@@ -17,7 +17,7 @@ module.exports = {
                 editLinkText: '在 GitHub 上编辑此页',
                 nav: [
                     {
-                        text: '起步',
+                        text: '开始',
                         items: [
                             {text: '使用方式', link: '/chapter_00/workflow'},
                             {text: '下载安装', link: '/chapter_00/install'},
@@ -29,7 +29,6 @@ module.exports = {
                         text: '配置文件',
                         items: [
                             {text: '文件格式', link: '/chapter_02/01_overview'},
-                            {text: '协议列表', link: '/chapter_02/01_overview'},
                             {text: '策略', link: '/chapter_02/policy'},
                             {text: '路由', link: '/chapter_02/03_routing'},
                             {text: 'DNS 配置', link: '/chapter_02/04_dns'},
@@ -37,7 +36,6 @@ module.exports = {
                             {text: 'API 配置', link: '/chapter_02/api'},
                             {text: '统计信息', link: '/chapter_02/stats'},
                             {text: '反向代理', link: '/chapter_02/reverse'},
-                            {text: '传输配置', link: '/chapter_02/reverse'},
                         ]
                     },
                     {
