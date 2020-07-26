@@ -1,9 +1,6 @@
----
-refcn: chapter_00/faq
-refen: welcome/faq
----
-
 # 常见问题
+
+奇奇怪怪的问题和答案
 
 ## 一般问题
 
@@ -30,12 +27,6 @@ refen: welcome/faq
 
 * 如果你使用 Linux 并开启了 systemd，可以使用 `journalctl -u v2ray` 查看 V2Ray 退出时的日志。
 * 一般情况可以手动运行 `v2ray -config=<config-file> -test` 来查看错误信息。
-
-### 兼容性保证
-
-* 配置文件向后兼容至少一个大版本，即 V2Ray 4.x 可以正常加载 3.x 的配置文件。
-* 所有基于 Protobuf 的通信协议，如 Api，向后兼容至少一个大版本。
-* 所有基于二进制的通信协议，如 Shadowsocks 和 VMess。当服务器版本不低于客户端版本时，保持永久兼容；当客户端版本超过服务器版本时，保持至少 12 个小版本的兼容性。
 
 ## V2Ray 错误信息
 
@@ -85,14 +76,13 @@ Project V 使用以下方式进行授权。
 源代码以官方发布的安装包，使用 MIT 协议授权。包括以下代码仓库中的源代码及安装包：
 
 * [v2fly/v2ray-core](https://www.github.com/v2fly/v2ray-core/)
-* [v2ray/ext](https://www.github.com/v2ray/ext)
 
 ### 官方网站
 
 官方网站（[v2fly.org](https://www.v2fly.org/)）以 [知识共享署名 4.0 国际许可协议](https://creativecommons.org/licenses/by/4.0/deed.zh) 协议授权。
 
 * 包括网站中所有可见的文字内容和图片。
-* 包括 <a href="https://www.v2ray.com/resources/v2ray_1024.png" target="_blank">Project V 图标文件</a>。
+* 包括 Project V 图标文件。
 * 包括生成网站所使用到的源代码，即 [v2fly/manual-vuepress](https://github.com/v2fly/manual-vuepress)。
 
 ### 软件截图和其它文件
