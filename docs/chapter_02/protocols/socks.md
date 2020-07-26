@@ -58,9 +58,9 @@ Socks 服务器列表，其中每一项是一个服务器配置。
 
 服务器地址。
 
-{% hint style='info' %}
+:::tip
 仅支持连接到 Socks 5 服务器。
-{% endhint %}
+:::
 
 > `port`: number
 
