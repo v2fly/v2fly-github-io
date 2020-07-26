@@ -48,7 +48,7 @@ Shadowsocks 的配置分为两部分，`InboundConfigurationObject` 和 `Outboun
 
 > `method`: string
 
-必填。可选的值见 [加密方式列表](#encryption-list)
+必填。可选的值见 [加密方式列表](#加密方式列表)
 
 > `password`: string
 
@@ -118,7 +118,7 @@ Shadowsocks 服务器端口。必填。
 
 > `method`: string
 
-必填。可选的值见[加密方式列表](#encryption-list)
+必填。可选的值见[加密方式列表](#加密方式列表)
 
 > `password`: string
 
@@ -134,7 +134,7 @@ Shadowsocks 服务器端口。必填。
 
 用户等级
 
-## 加密方式列表 {#encryption-list}
+## 加密方式列表
 
 * `"aes-256-cfb"`
 * `"aes-128-cfb"`

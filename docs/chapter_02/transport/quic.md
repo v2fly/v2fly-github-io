@@ -69,6 +69,6 @@ QUIC 的配置对应传输配置中的 `quicSettings` 项。对接的两端的�
 * `"dtls"`：伪装成 DTLS 1.2 数据包。
 * `"wireguard"`：伪装成 WireGuard 数据包。（并不是真正的 WireGuard 协议）
 
-{% hint style='info' %}
+:::tip
 当加密和伪装都不启用时，数据包即为原始的 QUIC 数据包，可以与其它的 QUIC 工具对接。为了避免被探测，建议加密或伪装至少开启一项。
-{% endhint %}
+:::
