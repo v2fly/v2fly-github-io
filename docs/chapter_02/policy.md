@@ -37,9 +37,9 @@ refen: configuration/policy
 
 一组键值对，每个键是一个字符串形式的数字（JSON 的要求），比如 `"0"`、`"1"` 等，双引号不能省略，这个数字对应用户等级。每一个值是一个 [LevelPolicyObject](#levelpolicyobject).
 
-{% hint style='info' %}
+:::tip
 每个入站出站代理现在都可以设置用户等级，V2Ray 会根据实际的用户等级应用不同的本地策略。
-{% endhint %}
+:::
 
 > `system`: [SystemPolicyObject](#systempolicyobject)
 
@@ -75,9 +75,9 @@ V2Ray 系统的策略
 
 当连接上行线路关闭后的时间限制。单位为秒。默认值为 `5`。当客户端（如浏览器）关闭上行连接时，入站代理会在等待 `downlinkOnly` 时间后中断连接。
 
-{% hint style='tip' %}
+:::tip
 在 HTTP 浏览的场景中，可以将 `uplinkOnly` 和 `downlinkOnly` 设为 `0`，以提高连接关闭的效率。
-{% endhint %}
+:::
 
 > `statsUserUplink`: true | false
 
@@ -102,9 +102,9 @@ V2Ray 系统的策略
 * 在 ARM、MIPS、MIPSLE、ARM64、MIPS64、MIPS64LE 平台上，默认值为 `16`。
 * 在其它平台上，默认值为 `2048`。
 
-{% hint style='info' %}
+:::tip
 `bufferSize` 选项会覆盖 [环境变量](env.md#buffer-size)中 `v2ray.ray.buffer.size` 的设定。
-{% endhint %}
+:::
 
 ### SystemPolicyObject
 
