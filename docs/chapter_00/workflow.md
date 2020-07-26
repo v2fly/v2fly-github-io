@@ -1,8 +1,3 @@
----
-refcn: chapter_00/workflow
-refen: welcome/workflow
----
-
 # 工作机制
 
 ## 单服务器模式

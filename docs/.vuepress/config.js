@@ -19,7 +19,7 @@ module.exports = {
                     {
                         text: '开始',
                         items: [
-                            {text: '使用方式', link: '/chapter_00/workflow'},
+                            {text: '工作机制', link: '/chapter_00/workflow'},
                             {text: '下载安装', link: '/chapter_00/install'},
                             {text: '新手上路', link: '/chapter_00/start'},
                             {text: '命令参数', link: '/chapter_00/command'},

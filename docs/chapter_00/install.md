@@ -1,17 +1,12 @@
----
-refcn: chapter_00/install
-refen: welcome/install
----
-
 # 下载安装
 
 ## 平台支持
 
 V2Ray 在以下平台中可用：
 
-* Windows 7 及之后版本（x86 / amd64）；
+* Windows 7 及之后版本（x86 / amd64 / arm32）；
 * macOS 10.10 Yosemite 及之后版本（amd64）；
-* Linux 2.6.23 及之后版本（x86 / amd64 / arm / arm64 / mips64 / mips）；
+* Linux 2.6.23 及之后版本（x86 / amd64 / arm / arm64 / mips64 / mips / ppc64 / s390x / riscv64）；
   * 包括但不限于 Debian 7 / 8、Ubuntu 12.04 / 14.04 及后续版本、CentOS 6 / 7、Arch Linux 等；
 * FreeBSD (x86 / amd64)；
 * OpenBSD (x86 / amd64)；
@@ -22,10 +17,8 @@ V2Ray 在以下平台中可用：
 预编译的压缩包可以在如下几个站点找到：
 
 1. Github Release：[github.com/v2fly/v2ray-core](https://github.com/v2fly/v2ray-core/releases)
-2. Github 分流：[github.com/v2ray/dist](https://github.com/v2ray/dist/)
-3. Homebrew：[github.com/v2ray/homebrew-v2ray](https://github.com/v2ray/homebrew-v2ray)
-4. Arch Linux：[packages/community/x86_64/v2ray/](https://www.archlinux.org/packages/community/x86_64/v2ray/)
-5. Snapcraft：[snapcraft.io/v2ray-core](https://snapcraft.io/v2ray-core)
+2. Homebrew：[github.com/v2ray/homebrew-v2ray](https://github.com/v2ray/homebrew-v2ray)
+3. Arch Linux：[packages/community/x86_64/v2ray/](https://www.archlinux.org/packages/community/x86_64/v2ray/)
 
 压缩包均为 ZIP 格式，找到对应平台的压缩包，下载解压即可使用。
 
@@ -34,7 +27,7 @@ V2Ray 在以下平台中可用：
 V2Ray 提供两种验证方式：
 
 1. 安装包 ZIP 文件的 SHA1 / SHA256 摘要，在每个安装包对应的 `.dgst` 文件中可以找到。
-2. 可运行程序（v2ray 或 v2ray.exe）的 GPG 签名，文件位于安装包中的 `v2ray.sig` 或 `v2ray.exe.sig`。签名公钥可以 [在代码库中](https://raw.githubusercontent.com/v2fly/v2ray-core/master/release/verify/official_release.asc) 找到。
+2. 使用 v2ctl verify --sig=Release example-file
 
 ## Windows 和 macOS 安装方式
 
