@@ -93,9 +93,9 @@ VMess 用户的主 ID。必须是一个合法的 UUID。
 * `"auto"`：默认值，自动选择（运行框架为 AMD64、ARM64 或 s390x 时为 aes-128-gcm 加密方式，其他情况则为 Chacha20-Poly1305 加密方式）
 * `"none"`：不加密
 
-{% hint style='info' %}
+:::tip
 推荐使用`"auto"`加密方式，这样可以永久保证安全性和兼容性。
-{% endhint %}
+:::
 
 > `testsEnabled`: "VMessAEAD" | "none"
 
@@ -175,9 +175,9 @@ VMess 的用户 ID。必须是一个合法的 UUID。
 
 用户邮箱地址，用于区分不同用户的流量。
 
-{% hint style='info' %}
+:::tip
 `alterId` 取值的大小和流量特征没有必然联系。对于日常使用，`16` 以内的值已经够用了。
-{% endhint %}
+:::
 
 ### DetourObject
 
