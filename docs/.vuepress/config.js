@@ -43,13 +43,13 @@ module.exports = {
                         text: '协议列表',
                         items: [
                             {text: 'Blackhole', link: '/chapter_02/protocols/blackhole'},
-                            {text: 'Dns', link: '/chapter_02/protocols/dns'},
+                            {text: 'DNS', link: '/chapter_02/protocols/dns'},
                             {text: 'Dokodemo', link: '/chapter_02/protocols/dokodemo'},
                             {text: 'Http', link: '/chapter_02/protocols/http'},
                             {text: 'MTProto', link: '/chapter_02/protocols/mtproto'},
                             {text: 'Shadowsocks', link: '/chapter_02/protocols/shadowsocks'},
                             {text: 'Socks', link: '/chapter_02/protocols/socks'},
-                            {text: 'Vmess', link: '/chapter_02/protocols/vmess'},
+                            {text: 'VMess', link: '/chapter_02/protocols/vmess'},
                         ]
                     },
                     {
