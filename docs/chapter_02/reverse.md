@@ -7,9 +7,9 @@ refen: configuration/reverse
 
 反向代理是一个 V2Ray 的附加功能，可以把服务器端的流量向客户端转发，即逆向流量转发。
 
-{% hint style='tip' %}
+:::tip
 反向代理功能在 V2Ray 4.0+ 可用。目前处于测试阶段，可能会有一些问题。
-{% endhint %}
+:::
 
 反向代理的大致工作原理如下:
 
@@ -19,9 +19,9 @@ refen: configuration/reverse
 * `bridge` 在收到公网流量之后，会将其原封不动地发给主机 A 中的网页服务器。当然，这一步需要路由的协作。
 * `bridge` 会根据流量的大小进行动态的负载均衡。
 
-{% hint style='danger' %}
+:::warning
 反向代理默认已开启 [Mux](mux.md)，请不要在其用到的出站代理上再次开启 Mux。
-{% endhint %}
+:::
 
 ## ReverseObject
 
@@ -79,9 +79,9 @@ refen: configuration/reverse
 
 一个域名。当 `portal` 接收到流量时，如果流量的目标域名是此域名，则 `portal` 认为当前连接上 `bridge` 发来的通信连接。而其它流量则会被当成需要转发的流量。`portal` 所做的工作就是把这两类连接进行识别并拼接。
 
-{% hint style='tip' %}
+:::tip
 和其它配置一样，一个 V2Ray 既可以作为 `bridge`，也可以作为 `portal`，也可以同时两者，以适用于不同的场景需要。
-{% endhint %}
+:::
 
 ## 完整配置
 
@@ -220,6 +220,6 @@ refen: configuration/reverse
 }
 ```
 
-{% hint style='tip' %}
+:::tip
 在运行过程中，建议先启用 `bridge`，再启用 `portal`。
-{% endhint %}
+:::
