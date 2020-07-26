@@ -9,13 +9,13 @@ V2Ray 内置了一个 DNS 服务器，其有两大主要用途：根据域名的
 
 由此 DNS 服务器所发出的 DNS 查询请求，会自动根据路由配置进行转发，无需额外配置。
 
-{% hint style='info' %}
+:::tip
 由于 DNS 协议的复杂性，V2Ray 只支持最基本的 IP 查询（A 和 AAAA 记录）。推荐使用本机 DNS 配合一个额外的 DNS 服务器来做 DNS 查询，如 [CoreDNS](https://coredns.io/)，以使用完整的 DNS 功能。
-{% endhint %}
+:::
 
-{% hint style='info' %}
+:::warning
 注意：在 `freedom` 协议的 `outbound` 中，`domainStrategy` 默认值为 `AsIs`，不会使用本 DNS 服务器进行目的地址解析，如果需要使用应配置为 `UseIP`。
-{% endhint %}
+:::
 
 ## DNS 处理流程
 
@@ -78,13 +78,11 @@ DNS 服务器的处理流程示意图如下：
 
 当值是 `"https+local://host:port/dns-query"` 的形式，如 `"https+local://dns.google/dns-query"`，V2Ray 会使用 `DOH本地模式` 进行查询，即 DOH 请求不会经过 Routing/Outbound 等组件，直接对外请求，以降低耗时。一般适合在服务端使用。也可使用非标端口和路径。(4.22.0+)
 
-{% hint style='info' %}
-
+:::tip
 当使用 `localhost` 时，本机的 DNS 请求不受 V2Ray 控制，需要额外的配置才可以使 DNS 请求由 V2Ray 转发。
 
 不同规则初始化得到的 DNS 客户端会在 V2Ray 启动日志中以 `info` 级别体现，比如 `local DOH`、`remote DOH` 和 `udp` 等模式。（4.22.0+）
-
-{% endhint %}
+:::
 
 > `clientIp`: string
 
