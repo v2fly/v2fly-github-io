@@ -12,9 +12,11 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v2
 
+      - name: Install lint-md-cli
+        run: npm install -g lint-md-cli
+
       - name: Fix Chinese Copywriting
-        run: |
-          for MARKDOWN in $(find docs/ -name "*.md"); do lint-md $MARKDOWN; done
+        run: for MARKDOWN in $(find docs/ -name "*.md"); do lint-md $MARKDOWN; donegit
 
       - name: Install and Build
         run: |
