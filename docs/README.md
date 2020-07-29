@@ -1,6 +1,6 @@
 ---
 home: true
-heroImage: /v2ray_1024.png
+heroImage: v2ray_1024.png
 heroText: Project V
 tagline: 帮助你打造专属的基础通信网络
 features:
