@@ -180,18 +180,27 @@ V2Ray 内建了一个简单的路由功能，可以将入站数据按需求由�
 
 如果匹配到多个出站协议，负载均衡器目前会从中随机选出一个作为最终的出站协议。
 
-## 预定义域名列表 {#dlc}
+## 预定义域名列表 dlc
 
-此列表由 [domain-list-community](https://github.com/v2ray/domain-list-community) 项目维护，预置于每一个 V2Ray 的安装包中，文件名为 `geosite.dat`。
+此列表由 [domain-list-community](https://github.com/v2fly/domain-list-community) 项目维护，预置于每一个 V2Ray 的安装包中，文件名为 `geosite.dat`。这个文件包含了一些常见的域名，使用方式：`geosite:filename`，如 `geosite:google` 表示对 `domain-list-community` 项目 `data` 目录里的 `google` 文件内包含的域名，进行路由筛选或 DNS 筛选。
 
-这个文件包含了一些常见的域名，可用于路由和 DNS 筛选。常用的域名有：
+:::tip
+如在使用 `geosite.dat` 过程中，遇到问题或发现缺少某些域名，欢迎到 [v2fly/domain-list-community](https://github.com/v2fly/domain-list-community) 提 [issue](https://github.com/v2fly/domain-list-community/issues) 或 [pull request](https://github.com/v2fly/domain-list-community/pulls)。
+:::
+
+常见的域名有：
 
 * `category-ads`：包含了常见的广告域名。
 * `category-ads-all`：包含了常见的广告域名，以及广告提供商的域名。
 * `cn`：相当于 `geolocation-cn` 和 `tld-cn` 的合集。
-* `google`：包含了 Google 旗下的所有域名。
-* `facebook`：包含了 Facebook 旗下的所有域名。
-* `geolocation-cn`：包含了常见的国内站点的域名。
-* `geolocation-!cn`：包含了常见的非国内站点的域名。
-* `speedtest`：包含了所有 Speedtest 所用的域名。
-* `tld-cn`：包含了所有 .cn 和 .中国 结尾的域名。
+* `apple`：包含了 Apple 旗下绝大部分域名。
+* `google`：包含了 Google 旗下绝大部分域名。
+* `microsoft`：包含了 Microsoft 旗下绝大部分域名。
+* `facebook`：包含了 Facebook 旗下绝大部分域名。
+* `twitter`：包含了 Twitter 旗下绝大部分域名。
+* `telegram`：包含了 Telegram 旗下绝大部分域名。
+* `geolocation-cn`：包含了常见的大陆站点域名。
+* `geolocation-!cn`：包含了常见的非大陆站点域名，同时包含了 `tld-!cn`。
+* `tld-cn`：包含了 CNNIC 管理的用于中国大陆的顶级域名，如以 `.cn`、`.中国` 结尾的域名。
+* `tld-!cn`：包含了非中国大陆使用的顶级域名，如以 `.hk`（香港）、`.tw`（台湾）、`.jp`（日本）、`.sg`（新加坡）、`.us`（美国）`.ca`（加拿大）等结尾的域名。
+* 更多域名类别，请查看 [data 目录](https://github.com/v2fly/domain-list-community/tree/master/data)。
