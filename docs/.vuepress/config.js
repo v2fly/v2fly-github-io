@@ -86,6 +86,7 @@ module.exports = {
                         ]
                     },
                     {text: '常见问题', link: '/chapter_00/faq'},
+                    {text: '工具列表', link: '/awesome/tools'},
                     {text: 'Github', link: 'https://github.com/v2fly/v2ray-core'},
                 ],
             },
