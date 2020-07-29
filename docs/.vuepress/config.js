@@ -17,7 +17,7 @@ module.exports = {
     themeConfig: {
         sidebar: 'auto',
         smoothScroll: true,
-        logo: 'v2ray_1024.png',
+        logo: '/v2ray_1024.png',
         locales: {
             '/': {
                 selectText: '选择语言',
