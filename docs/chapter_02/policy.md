@@ -103,7 +103,7 @@ V2Ray 系统的策略
 * 在其它平台上，默认值为 `2048`。
 
 :::tip
-`bufferSize` 选项会覆盖 [环境变量](env.md#buffer-size)中 `v2ray.ray.buffer.size` 的设定。
+`bufferSize` 选项会覆盖 [环境变量](env.md#每个连接的缓存大小)中 `v2ray.ray.buffer.size` 的设定。
 :::
 
 ### SystemPolicyObject

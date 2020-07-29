@@ -46,7 +46,7 @@ v2ctl> [ outbound.json ] updated outbound with tag:  proxy
 # v2ray -c cf1.json -c cf2.json -confdir /etc/v2ray/confs
 ```
 
-也可使用 [环境变量](env.md#confdir) `v2ray.location.confdir` 或 `V2RAY_LOCATION_CONFDIR` 指定 `confdir`。参数 `-confdir` 的作用优先于环境变量，如果参数指定了有效的目录则不再读取环境变量中的路径。
+也可使用 [环境变量](env.md#多配置目录) `v2ray.location.confdir` 或 `V2RAY_LOCATION_CONFDIR` 指定 `confdir`。参数 `-confdir` 的作用优先于环境变量，如果参数指定了有效的目录则不再读取环境变量中的路径。
 
 ### 规则说明
 
