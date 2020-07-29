@@ -92,8 +92,8 @@ V2Ray 内建了一个简单的路由功能，可以将入站数据按需求由�
 * 正则表达式：由 `"regexp:"` 开始，余下部分是一个正则表达式。当此正则表达式匹配目标域名时，该规则生效。例如 "regexp:\\\\.goo.*\\\\.com$" 匹配 "www.google.com"、"fonts.googleapis.com"，但不匹配 "google.com"。
 * 子域名（推荐）：由 `"domain:"` 开始，余下部分是一个域名。当此域名是目标域名或其子域名时，该规则生效。例如 "domain:v2ray.com" 匹配 "www.v2ray.com"、"v2ray.com"，但不匹配 "xv2ray.com"。
 * 完整匹配：由 `"full:"` 开始，余下部分是一个域名。当此域名完整匹配目标域名时，该规则生效。例如 "full:v2ray.com" 匹配 "v2ray.com" 但不匹配 "www.v2ray.com"。
-* 预定义域名列表：由 `"geosite:"` 开头，余下部分是一个名称，如 `geosite:google` 或者 `geosite:cn`。名称及域名列表参考 [预定义域名列表](#dlc)。
-* 从文件中加载域名：形如 `"ext:file:tag"`，必须以 `ext:`（小写）开头，后面跟文件名和标签，文件存放在 [资源目录](env.md#asset-location) 中，文件格式与 `geosite.dat` 相同，标签必须在文件中存在。
+* 预定义域名列表：由 `"geosite:"` 开头，余下部分是一个名称，如 `geosite:google` 或者 `geosite:cn`。名称及域名列表参考 [预定义域名列表](#预定义域名列表)。
+* 从文件中加载域名：形如 `"ext:file:tag"`，必须以 `ext:`（小写）开头，后面跟文件名和标签，文件存放在 [资源目录](env.md#资源文件路径) 中，文件格式与 `geosite.dat` 相同，标签必须在文件中存在。
 
 > `ip`: \[string\]
 
@@ -103,7 +103,7 @@ V2Ray 内建了一个简单的路由功能，可以将入站数据按需求由�
 * [CIDR](https://en.wikipedia.org/wiki/Classless_Inter-Domain_Routing)：形如 `"10.0.0.0/8"`。
 * GeoIP：形如 `"geoip:cn"`，必须以 `geoip:`（小写）开头，后面跟双字符国家代码，支持几乎所有可以上网的国家。
   * 特殊值：`"geoip:private"`（V2Ray 3.5+），包含所有私有地址，如 `127.0.0.1`。
-* 从文件中加载 IP：形如 `"ext:file:tag"`，必须以 `ext:`（小写）开头，后面跟文件名和标签，文件存放在 [资源目录](env.md#asset-location) 中，文件格式与 `geoip.dat` 相同标签必须在文件中存在。
+* 从文件中加载 IP：形如 `"ext:file:tag"`，必须以 `ext:`（小写）开头，后面跟文件名和标签，文件存放在 [资源目录](env.md#资源文件路径) 中，文件格式与 `geoip.dat` 相同标签必须在文件中存在。
 
 :::tip
 `"ext:geoip.dat:cn"` 等价于 `"geoip:cn"`
@@ -180,7 +180,7 @@ V2Ray 内建了一个简单的路由功能，可以将入站数据按需求由�
 
 如果匹配到多个出站协议，负载均衡器目前会从中随机选出一个作为最终的出站协议。
 
-## 预定义域名列表 dlc
+## 预定义域名列表
 
 此列表由 [domain-list-community](https://github.com/v2fly/domain-list-community) 项目维护，预置于每一个 V2Ray 的安装包中，文件名为 `geosite.dat`。这个文件包含了一些常见的域名，使用方式：`geosite:filename`，如 `geosite:google` 表示对 `domain-list-community` 项目 `data` 目录里的 `google` 文件内包含的域名，进行路由筛选或 DNS 筛选。
 
