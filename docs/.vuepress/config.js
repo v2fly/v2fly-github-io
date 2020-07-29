@@ -52,6 +52,7 @@ module.exports = {
                             {text: 'Blackhole', link: '/chapter_02/protocols/blackhole'},
                             {text: 'DNS', link: '/chapter_02/protocols/dns'},
                             {text: 'Dokodemo', link: '/chapter_02/protocols/dokodemo'},
+                            {text: 'Freedom', link: '/chapter_02/protocols/freedom'},
                             {text: 'Http', link: '/chapter_02/protocols/http'},
                             {text: 'MTProto', link: '/chapter_02/protocols/mtproto'},
                             {text: 'Shadowsocks', link: '/chapter_02/protocols/shadowsocks'},
