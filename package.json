@@ -3,10 +3,15 @@
   "version": "1.0.0",
   "scripts": {
     "dev": "vuepress dev docs",
-    "build": "vuepress build docs"
+    "build": "vuepress build docs",
+    "precommit": "lint-staged"
+  },
+  "lint-staged": {
+    "docs/**/*.{md,markdown}": "lint-md"
   },
   "devDependencies": {
     "@vuepress/plugin-back-to-top": "^1.5.2",
+    "lint-staged": "^10.2.11",
     "vuepress": "^1.5.2",
     "vuepress-plugin-mermaidjs": "^1.5.1"
   }
