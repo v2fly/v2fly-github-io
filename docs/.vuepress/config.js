@@ -89,7 +89,7 @@ module.exports = {
                     {text: '常见问题', link: '/chapter_00/faq'},
                     {text: '工具列表', link: '/awesome/tools'},
                     {text: '新白话文指南', link: 'https://guide.v2fly.org/'},
-                    {text: 'Github', link: 'https://github.com/v2fly/v2ray-core'},
+                    {text: 'GitHub', link: 'https://github.com/v2fly/v2ray-core'},
                 ],
             },
             '/en/': {
@@ -101,7 +101,7 @@ module.exports = {
                     {text: 'Home', link: '/'},
                     {text: 'Guide', link: '/guide/'},
                     {text: 'Developer', link: '/developer/'},
-                    {text: 'Github', link: 'https://github.com/v2fly/v2ray-core'},
+                    {text: 'GitHub', link: 'https://github.com/v2fly/v2ray-core'},
                 ],
             },
         }
