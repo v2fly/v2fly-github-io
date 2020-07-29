@@ -1,5 +1,5 @@
 module.exports = {
-    title: 'V2FLY ORG',
+    title: 'Project V',
     description: 'Project V 是一个工具集合，它可以帮助你打造专属的基础通信网络',
     head: [
         [
