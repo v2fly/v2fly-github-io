@@ -52,7 +52,7 @@ refen: configuration/reverse
 
 一个数组，每一项表示一个 `portal`。每个 `portal` 的配置是一个 [PortalObject](bridgeobject)。
 
-### BridgeObject
+## BridgeObject
 
 ```json
 {
@@ -69,7 +69,14 @@ refen: configuration/reverse
 
 一个域名。`bridge` 向 `portal` 建立的连接，都会使用这个域名进行发送。这个域名只作为 `bridge` 和 `portal` 的通信用途，不必真实存在。
 
-### PortalObject
+## PortalObject
+
+```json
+{
+    "tag": "portal",
+    "domain": "test.v2ray.com"
+}
+```
 
 > `tag`: string
 
