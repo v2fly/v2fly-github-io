@@ -3,7 +3,7 @@ refcn: chapter_02/03_routing
 refen: configuration/routing
 ---
 
-# Routing 路由功能
+# Routing 路由
 
 V2Ray 内建了一个简单的路由功能，可以将入站数据按需求由不同的出站连接发出，以达到按需代理的目的。这一功能的常见用法是分流国内外流量，V2Ray 可以通过内部机制判断不同地区的流量，然后将它们发送到不同的出站代理。
 
