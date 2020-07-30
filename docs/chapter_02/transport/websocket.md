@@ -11,7 +11,7 @@ refen: configuration/transport/websocket
 Websocket 会识别 HTTP 请求的 X-Forwarded-For 头来用做流量的源地址。
 :::
 
-## 示例配置
+## WebSocketObject
 
 ```json
 {
