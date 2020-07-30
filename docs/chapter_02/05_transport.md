@@ -111,7 +111,7 @@ TLS 配置。TLS 由 Golang 提供，支持 TLS 1.3，不支持 DTLS。
 
 用作透明代理的配置。
 
-### TLSObject
+## TLSObject
 
 ```json
 {
@@ -250,7 +250,7 @@ TLS 配置。TLS 由 Golang 提供，支持 TLS 1.3，不支持 DTLS。
 当 `usage` 为 `"verify"` 时，`keyFile` 和 `key` 可均为空。
 {% endhint %}
 
-### SockoptObject
+## SockoptObject
 
 ```json
 {
