@@ -44,7 +44,7 @@ refen: configuration/transport
 
 针对 Domain Socket 连接的配置。
 
-> `quicSettings`: [QUICObject](transport/quic.md)
+> `quicSettings`: [QuicObject](transport/quic.md)
 
 针对 QUIC 连接的配置。
 
