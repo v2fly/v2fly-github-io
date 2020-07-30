@@ -15,7 +15,6 @@ module.exports = {
         '@vuepress/back-to-top'
     ],
     themeConfig: {
-        sidebar: 'auto',
         smoothScroll: true,
         logo: '/v2ray_1024.png',
         locales: {
@@ -26,64 +25,21 @@ module.exports = {
                 nav: [
                     {
                         text: '开始',
+                        link: '/chapter_00/workflow',
+                    },
+                    {
+                        text: '配置',
                         items: [
-                            {text: '工作机制', link: '/chapter_00/workflow'},
-                            {text: '下载安装', link: '/chapter_00/install'},
-                            {text: '新手上路', link: '/chapter_00/start'},
-                            {text: '命令参数', link: '/chapter_00/command'},
+                            { text: '配置文件', link: '/chapter_02/01_overview' },
+                            { text: '协议列表', link: '/chapter_02/protocols/blackhole' },
+                            { text: '传输配置', link: '/chapter_02/transport/tcp' },
                         ]
                     },
                     {
-                        text: '配置文件',
+                        text: '开发',
                         items: [
-                            {text: '文件格式', link: '/chapter_02/01_overview'},
-                            {text: '策略', link: '/chapter_02/policy'},
-                            {text: '路由', link: '/chapter_02/03_routing'},
-                            {text: 'DNS 配置', link: '/chapter_02/04_dns'},
-                            {text: 'Mux 配置', link: '/chapter_02/mux'},
-                            {text: 'API 配置', link: '/chapter_02/api'},
-                            {text: '统计信息', link: '/chapter_02/stats'},
-                            {text: '反向代理', link: '/chapter_02/reverse'},
-                        ]
-                    },
-                    {
-                        text: '协议列表',
-                        items: [
-                            {text: 'Blackhole', link: '/chapter_02/protocols/blackhole'},
-                            {text: 'DNS', link: '/chapter_02/protocols/dns'},
-                            {text: 'Dokodemo', link: '/chapter_02/protocols/dokodemo'},
-                            {text: 'Freedom', link: '/chapter_02/protocols/freedom'},
-                            {text: 'HTTP', link: '/chapter_02/protocols/http'},
-                            {text: 'MTProto', link: '/chapter_02/protocols/mtproto'},
-                            {text: 'Shadowsocks', link: '/chapter_02/protocols/shadowsocks'},
-                            {text: 'Socks', link: '/chapter_02/protocols/socks'},
-                            {text: 'VMess', link: '/chapter_02/protocols/vmess'},
-                        ]
-                    },
-                    {
-                        text: '传输配置',
-                        items: [
-                            {text: 'TCP', link: '/chapter_02/transport/tcp'},
-                            {text: 'mKCP', link: '/chapter_02/transport/mkcp'},
-                            {text: 'WebSocket', link: '/chapter_02/transport/websocket'},
-                            {text: 'HTTP/2', link: '/chapter_02/transport/h2'},
-                            {text: 'DomainSocket', link: '/chapter_02/transport/domainsocket'},
-                            {text: 'QUIC', link: '/chapter_02/transport/quic'},
-                        ]
-                    },
-                    {
-                        text: '开发手册',
-                        items: [
-                            {text: '开发指引', link: '/developer/intro/guide'},
-                            {text: '核心设计', link: '/developer/intro/design'},
-                            {text: '配置开发环境', link: '/developer/intro/compile'},
-                            {
-                                text: '协议细节', items: [
-                                    {text: 'VMess 协议', link: '/developer/protocols/vmess'},
-                                    {text: 'mKCP 协议', link: '/developer/protocols/mkcp'},
-                                    {text: 'Mux.Cool 协议', link: '/developer/protocols/muxcool'},
-                                ]
-                            },
+                            { text: '开发手册', link: '/developer/intro/guide' },
+                            { text: '协议细节', link: '/developer/protocols/vmess' },
                         ]
                     },
                     {text: '常见问题', link: '/chapter_00/faq'},
@@ -104,6 +60,58 @@ module.exports = {
                     {text: 'GitHub', link: 'https://github.com/v2fly/v2ray-core'},
                 ],
             },
-        }
+        },
+        sidebar: {
+            '/chapter_00/faq': 'auto',
+            '/chapter_00/help': 'auto',
+            '/chapter_00/': [
+                'workflow',
+                'install',
+                'start',
+                'command',
+            ],
+
+            '/chapter_02/protocols/': [
+                'blackhole',
+                'dns',
+                'dokodemo',
+                'freedom',
+                'http',
+                'mtproto',
+                'shadowsocks',
+                'socks',
+                'vmess',
+            ],
+            '/chapter_02/transport/': [
+                'tcp',
+                'mkcp',
+                'websocket',
+                'h2',
+                'domainsocket',
+                'quic',
+            ],
+            '/chapter_02/': [
+                '01_overview',
+                'policy',
+                '03_routing',
+                '04_dns',
+                'mux',
+                'api',
+                'stats',
+                'reverse',
+            ],
+
+            '/developer/intro/': [
+                'guide',
+                'design',
+                'compile',
+            ],
+            '/developer/protocols/': [
+                'vmess',
+                'mkcp',
+                'muxcool',
+            ],
+            '/': 'auto',
+        },
     },
 }
