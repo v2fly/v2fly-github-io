@@ -92,7 +92,7 @@ DNS 服务器的处理流程示意图如下：
 
 （V2Ray 4.13+）由此 DNS 发出的查询流量，除 `localhost` 和 `DOHL_` 模式外，都会带有此标识，可在路由使用 `inboundTag` 进行匹配。
 
-### ServerObject
+## ServerObject
 
 ```json
 {
