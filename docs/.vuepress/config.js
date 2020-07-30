@@ -118,6 +118,7 @@ module.exports = {
                             collapsable: false,
                             children: [
                                 '01_overview',
+                                'multiple_config',
                                 'policy',
                                 '03_routing',
                                 '04_dns',
