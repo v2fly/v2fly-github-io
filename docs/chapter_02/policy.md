@@ -45,7 +45,7 @@ refen: configuration/policy
 
 V2Ray 系统的策略
 
-### LevelPolicyObject
+## LevelPolicyObject
 
 ```json
 {
@@ -106,7 +106,7 @@ V2Ray 系统的策略
 `bufferSize` 选项会覆盖 [环境变量](env.md#每个连接的缓存大小)中 `v2ray.ray.buffer.size` 的设定。
 :::
 
-### SystemPolicyObject
+## SystemPolicyObject
 
 ```json
 {
