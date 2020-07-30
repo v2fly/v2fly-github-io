@@ -3,7 +3,7 @@ refcn: chapter_02/transport/mkcp
 refen: configuration/transport/mkcp
 ---
 
-# mKCP 传输方式
+# mKCP
 
 mKCP 使用 UDP 来模拟 TCP 连接，请确定主机上的防火墙配置正确。mKCP 牺牲带宽来降低延迟。传输同样的内容，mKCP 一般比 TCP 消耗更多的流量。
 

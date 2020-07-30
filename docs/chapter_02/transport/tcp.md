@@ -3,7 +3,7 @@ refcn: chapter_02/transport/tcp
 refen: configuration/transport/tcp
 ---
 
-# TCP 传输方式
+# TCP
 
 ## TcpObject
 
