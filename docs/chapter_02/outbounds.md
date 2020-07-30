@@ -5,7 +5,7 @@ refen: configuration/outbounds
 
 # Outbounds
 
-出站连接用于向远程网站或下一级代理服务器发送数据，可用的协议请见 [协议列表](02_protocols.md)。
+出站连接用于向远程网站或下一级代理服务器发送数据，可用的协议请见协议列表。
 
 ## OutboundObject
 
