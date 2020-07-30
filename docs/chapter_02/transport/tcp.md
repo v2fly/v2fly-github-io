@@ -19,7 +19,7 @@ refen: configuration/transport/tcp
 
 数据包头部伪装设置，默认值为 `NoneHeaderObject`。
 
-### NoneHeaderObject
+## NoneHeaderObject
 
 不进行伪装
 
@@ -33,7 +33,7 @@ refen: configuration/transport/tcp
 
 指定不进行伪装
 
-### HttpHeaderObject
+## HttpHeaderObject
 
 HTTP 伪装配置必须在对应的入站出站连接上同时配置，且内容必须一致。
 
@@ -57,7 +57,7 @@ HTTP 请求
 
 HTTP 响应
 
-### HTTPRequestObject
+## HTTPRequestObject
 
 ```json
 {
@@ -102,7 +102,7 @@ HTTP 方法，默认值为 `"GET"`。
 
 HTTP 头，一个键值对，每个键表示一个 HTTP 头的名称，对应的值是一个数组。每次请求会附上所有的键，并随机选择一个对应的值。默认值见上方示例。
 
-### HTTPResponseObject
+## HTTPResponseObject
 ```json
 {
     "version": "1.1",
