@@ -3,7 +3,7 @@ refcn: chapter_02/05_transport
 refen: configuration/transport
 ---
 
-# 底层传输配置
+# Transport
 
 底层传输方式（transport）是当前 V2Ray 节点和其它节点对接的方式。底层传输方式提供了稳定的数据传输通道。通常来说，一个网络连接的两端需要有对称的传输方式。比如一端用了 WebSocket，那么另一个端也必须使用 WebSocket，否则无法建立连接。
 
