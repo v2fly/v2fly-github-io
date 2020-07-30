@@ -84,6 +84,7 @@ module.exports = {
                             title: '传输配置',
                             collapsable: false,
                             children: [
+                                '05_transport',
                                 'transport/tcp',
                                 'transport/mkcp',
                                 'transport/websocket',
