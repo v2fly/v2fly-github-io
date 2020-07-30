@@ -29,24 +29,93 @@ module.exports = {
                     },
                     {
                         text: '配置',
-                        items: [
-                            { text: '配置文件', link: '/chapter_02/01_overview' },
-                            { text: '协议列表', link: '/chapter_02/protocols/blackhole' },
-                            { text: '传输配置', link: '/chapter_02/transport/tcp' },
-                        ]
+                        link: '/chapter_02/01_overview',
                     },
                     {
                         text: '开发',
-                        items: [
-                            { text: '开发手册', link: '/developer/intro/guide' },
-                            { text: '协议细节', link: '/developer/protocols/vmess' },
-                        ]
+                        link: '/developer/intro/guide',
                     },
                     {text: '常见问题', link: '/chapter_00/faq'},
                     {text: '工具列表', link: '/awesome/tools'},
                     {text: '新白话文指南', link: 'https://guide.v2fly.org/'},
                     {text: 'GitHub', link: 'https://github.com/v2fly/v2ray-core'},
                 ],
+                sidebar: {
+                    '/chapter_00/faq': 'auto',
+                    '/chapter_00/help': 'auto',
+                    '/chapter_00/': [
+                        'workflow',
+                        'install',
+                        'start',
+                        'command',
+                    ],
+
+                    '/chapter_02/': [
+                        {
+                            title: '配置文件',
+                            collapsable: false,
+                            children: [
+                                '01_overview',
+                                'policy',
+                                '03_routing',
+                                '04_dns',
+                                'mux',
+                                'api',
+                                'stats',
+                                'reverse',
+                            ],
+                        },
+                        {
+                            title: '协议列表',
+                            collapsable: false,
+                            children: [
+                                'protocols/blackhole',
+                                'protocols/dns',
+                                'protocols/dokodemo',
+                                'protocols/freedom',
+                                'protocols/http',
+                                'protocols/mtproto',
+                                'protocols/shadowsocks',
+                                'protocols/socks',
+                                'protocols/vmess',
+                            ],
+                        },
+                        {
+                            title: '传输配置',
+                            collapsable: false,
+                            children: [
+                                'transport/tcp',
+                                'transport/mkcp',
+                                'transport/websocket',
+                                'transport/h2',
+                                'transport/domainsocket',
+                                'transport/quic',
+                            ],
+                        },
+                    ],
+                    '/developer/': [
+                        {
+                            title: '开发手册',
+                            collapsable: false,
+                            children: [
+                                'intro/guide',
+                                'intro/design',
+                                'intro/compile',
+                            ]
+                        },
+                        {
+                            title: '协议细节',
+                            collapsable: false,
+                            children: [
+                                'protocols/vmess',
+                                'protocols/mkcp',
+                                'protocols/muxcool',
+                            ]
+                        }
+                    ],
+
+                    '/': 'auto',
+                },
             },
             '/en/': {
                 selectText: 'Languages',
@@ -61,57 +130,6 @@ module.exports = {
                 ],
             },
         },
-        sidebar: {
-            '/chapter_00/faq': 'auto',
-            '/chapter_00/help': 'auto',
-            '/chapter_00/': [
-                'workflow',
-                'install',
-                'start',
-                'command',
-            ],
-
-            '/chapter_02/protocols/': [
-                'blackhole',
-                'dns',
-                'dokodemo',
-                'freedom',
-                'http',
-                'mtproto',
-                'shadowsocks',
-                'socks',
-                'vmess',
-            ],
-            '/chapter_02/transport/': [
-                'tcp',
-                'mkcp',
-                'websocket',
-                'h2',
-                'domainsocket',
-                'quic',
-            ],
-            '/chapter_02/': [
-                '01_overview',
-                'policy',
-                '03_routing',
-                '04_dns',
-                'mux',
-                'api',
-                'stats',
-                'reverse',
-            ],
-
-            '/developer/intro/': [
-                'guide',
-                'design',
-                'compile',
-            ],
-            '/developer/protocols/': [
-                'vmess',
-                'mkcp',
-                'muxcool',
-            ],
-            '/': 'auto',
-        },
+        sidebar: 'auto',
     },
 }
