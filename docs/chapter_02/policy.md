@@ -3,7 +3,7 @@ refcn: chapter_02/policy
 refen: configuration/policy
 ---
 
-# 本地策略
+# Policy 本地策略
 
 本地策略可以配置一些用户相关的权限，比如连接超时设置。V2Ray 处理的每一个连接，都对应到一个用户，按照这个用户的等级（level）应用不同的策略。本地策略可按照等级的不同而变化。
 

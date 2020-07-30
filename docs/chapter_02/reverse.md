@@ -3,7 +3,7 @@ refcn: chapter_02/reverse
 refen: configuration/reverse
 ---
 
-# 反向代理
+# Reverse 反向代理
 
 反向代理是一个 V2Ray 的附加功能，可以把服务器端的流量向客户端转发，即逆向流量转发。
 
