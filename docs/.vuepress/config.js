@@ -81,7 +81,7 @@ module.exports = {
                             ],
                         },
                         {
-                            title: '传输配置',
+                            title: '传输方式',
                             collapsable: false,
                             children: [
                                 '05_transport',
