@@ -124,6 +124,7 @@ module.exports = {
                                 'policy',
                                 'inbounds',
                                 'outbounds',
+                                '05_transport',
                                 'api',
                                 'stats',
                                 'reverse',
@@ -148,7 +149,6 @@ module.exports = {
                             title: '传输方式',
                             collapsable: false,
                             children: [
-                                '05_transport',
                                 'transport/tcp',
                                 'transport/mkcp',
                                 'transport/websocket',
