@@ -5,8 +5,70 @@ module.exports = {
         [
             "link",
             {
+                rel: "apple-touch-icon",
+                size: "180x180",
+                href: "/apple-touch-icon.png"
+            }
+        ],
+        [
+            "link",
+            {
                 rel: "icon",
-                href: "/logo.png"
+                type: "image/png",
+                size: "32x32",
+                href: "/favicon-32x32.png"
+            }
+        ],
+        [
+            "link",
+            {
+                rel: "icon",
+                type: "image/png",
+                size: "16x16",
+                href: "/favicon-16x16.png"
+            }
+        ],
+        [
+            "link",
+            {
+                rel: "manifest",
+                href: "/site.webmanifest"
+            }
+        ],
+        [
+            "link",
+            {
+                rel: "mask-icon",
+                color: "#5bbad5",
+                href: "/safari-pinned-tab.svg"
+            }
+        ],
+        [
+            "meta",
+            {
+                name: "apple-mobile-web-app-title",
+                content: "Project V"
+            }
+        ],
+        [
+            "meta",
+            {
+                name: "application-name",
+                content: "Project V"
+            }
+        ],
+        [
+            "meta",
+            {
+                name: "msapplication-TileColor",
+                content: "#da532c"
+            }
+        ],
+        [
+            "meta",
+            {
+                name: "msapplication-TileColor",
+                content: "#da532c"
             }
         ]
     ],
@@ -16,7 +78,7 @@ module.exports = {
     ],
     themeConfig: {
         smoothScroll: true,
-        logo: '/v2ray_1024.png',
+        logo: '/v2ray.png',
         locales: {
             '/': {
                 selectText: '选择语言',
@@ -42,10 +104,10 @@ module.exports = {
                             { text: '协议细节', link: '/developer/protocols/vmess' },
                         ]
                     },
-                    {text: '常见问题', link: '/chapter_00/faq'},
-                    {text: '工具列表', link: '/awesome/tools'},
-                    {text: '新白话文指南', link: 'https://guide.v2fly.org/'},
-                    {text: 'GitHub', link: 'https://github.com/v2fly/v2ray-core'},
+                    { text: '常见问题', link: '/chapter_00/faq' },
+                    { text: '工具列表', link: '/awesome/tools' },
+                    { text: '新白话文指南', link: 'https://guide.v2fly.org/' },
+                    { text: 'GitHub', link: 'https://github.com/v2fly/v2ray-core' },
                 ],
             },
             '/en/': {
@@ -54,10 +116,10 @@ module.exports = {
                 ariaLabel: 'Languages',
                 editLinkText: 'Edit this page on GitHub',
                 nav: [
-                    {text: 'Home', link: '/'},
-                    {text: 'Guide', link: '/guide/'},
-                    {text: 'Developer', link: '/developer/'},
-                    {text: 'GitHub', link: 'https://github.com/v2fly/v2ray-core'},
+                    { text: 'Home', link: '/' },
+                    { text: 'Guide', link: '/guide/' },
+                    { text: 'Developer', link: '/developer/' },
+                    { text: 'GitHub', link: 'https://github.com/v2fly/v2ray-core' },
                 ],
             },
         },
