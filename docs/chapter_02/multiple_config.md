@@ -26,7 +26,7 @@ v2ctl> Read config:  outbound.json
 v2ctl> [ outbound.json ] updated outbound with tag:  proxy
 ```
 
-### 用法说明
+## 用法说明
 
 命令行的`-config`可以多次指定。（也可以简写为`-c`，完全等效。）
 
@@ -48,7 +48,7 @@ v2ctl> [ outbound.json ] updated outbound with tag:  proxy
 
 也可使用 [环境变量](env.md#多配置目录) `v2ray.location.confdir` 或 `V2RAY_LOCATION_CONFDIR` 指定 `confdir`。参数 `-confdir` 的作用优先于环境变量，如果参数指定了有效的目录则不再读取环境变量中的路径。
 
-### 规则说明
+## 规则说明
 
 #### 普通对象（`{}`）
 
