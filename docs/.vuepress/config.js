@@ -79,7 +79,7 @@ module.exports = {
                             {text: '配置开发环境', link: '/developer/intro/compile'},
                             {
                                 text: '协议细节', items: [
-                                    {text: 'Vmess 协议', link: '/developer/protocols/vmess'},
+                                    {text: 'VMess 协议', link: '/developer/protocols/vmess'},
                                     {text: 'mKCP 协议', link: '/developer/protocols/mkcp'},
                                     {text: 'Mux.Cool 协议', link: '/developer/protocols/muxcool'},
                                 ]
