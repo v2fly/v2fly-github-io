@@ -125,7 +125,6 @@ module.exports = {
                                 'inbounds',
                                 'outbounds',
                                 '05_transport',
-                                'api',
                                 'stats',
                                 'reverse',
                             ],
