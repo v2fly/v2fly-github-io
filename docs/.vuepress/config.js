@@ -118,7 +118,6 @@ module.exports = {
                             collapsable: false,
                             children: [
                                 '01_overview',
-                                'multiple_config',
                                 '04_dns',
                                 '03_routing',
                                 'policy',
@@ -127,6 +126,7 @@ module.exports = {
                                 '05_transport',
                                 'stats',
                                 'reverse',
+                                'multiple_config',
                             ],
                         },
                         {
