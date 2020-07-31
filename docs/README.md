@@ -2,7 +2,7 @@
 home: true
 heroImage: v2ray.png
 heroText: Project V
-tagline: 帮助你打造专属的基础通信网络
+tagline: 助你打造专属基础通信网络
 actionText: 快速开始 →
 actionLink: /guide/start.html
 features:
@@ -32,7 +32,7 @@ footer: CC-BY-SA Licensed | Copyright © 2015-present V2Fly Team
 - ⚙️ **帮助开发 V2Fly**！ 克隆仓库，签出代码，提交高质量的 Pull request！
 - 📆  **社区维护** 帮助我们创建、维护 V2Fly 的社区！
 - ...你还可以做更多！
-- ...如果拥有 2+ 个PR，就可以申请加入 GitHub 团队
+- ...如果拥有 2+ 个PR，就可以申请加入 V2Fly 团队
 
 ## 授权
 
