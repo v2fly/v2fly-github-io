@@ -22,7 +22,7 @@ Freedom 是一个出站协议，可以用来向任意网络发送（正常的）
 
 > `domainStrategy`: "AsIs" | "UseIP" | "UseIPv4" | "UseIPv6"
 
-在目标地址为域名时，Freedom 可以直接向此域名发出连接（`"AsIs"`），或者将域名解析为 IP 之后再建立连接（`"UseIP"`、`"UseIPv4"` 和 `"UseIPv6"`）。解析 IP 的步骤会使用 V2Ray [内建的 DNS](../04_dns.md)。默认值为 `"AsIs"`。
+在目标地址为域名时，Freedom 可以直接向此域名发出连接（`"AsIs"`），或者将域名解析为 IP 之后再建立连接（`"UseIP"`、`"UseIPv4"` 和 `"UseIPv6"`）。解析 IP 的步骤会使用 V2Ray [内建的 DNS](../dns.md)。默认值为 `"AsIs"`。
 
 (V2Ray 4.6+) 当使用 `"UseIP"` 模式，并且 [出站连接配置](../overview.md#outboundobject) 中指定了 `sendThrough` 时，Freedom 会根据 `sendThrough` 的值自动判断所需的 IP 类型，IPv4 或 IPv6。
 

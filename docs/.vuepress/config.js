@@ -143,7 +143,7 @@ module.exports = {
                             collapsable: false,
                             children: [
                                 'overview',
-                                '04_dns',
+                                'dns',
                                 'routing',
                                 'policy',
                                 'inbounds',
