@@ -6,14 +6,6 @@
 
 VLESS VMess User ID 生成工具 [uuidgenerator.net](https://www.uuidgenerator.net)
 
-> VeekXT V2Ray 配置生成
-
-支持 4.x 版本的配置文件生成器 [veekxt.com](https://www.veekxt.com/utils/v2ray_gen)
-
-> V2Ray 配置生成器
-
-静态 V2Ray 配置文件生成页面 [GitHub](https://github.com/htfy96/v2ray-config-gen)
-
 ## 图形客户端
 
 <Tool
@@ -46,6 +38,6 @@ VLESS VMess User ID 生成工具 [uuidgenerator.net](https://www.uuidgenerator.n
 
 ## 其它
 
-> v2ray-rules-dat
+> V2Ray Rules Dat
 
 V2Ray 路由规则文件加强版，可代替官方 `geoip.dat` 和 `geosite.dat` [GitHub](https://github.com/Loyalsoldier/v2ray-rules-dat)
