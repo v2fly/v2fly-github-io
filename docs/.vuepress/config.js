@@ -87,11 +87,11 @@ module.exports = {
                 nav: [
                     {
                         text: '快速开始',
-                        link: '/chapter_00/start',
+                        link: '/guide/start',
                     },
                     {
                         text: '配置文档',
-                        link: '/chapter_02/01_overview',
+                        link: '/config/01_overview',
                     },
                     {
                         text: '工具列表',
@@ -111,7 +111,7 @@ module.exports = {
                     },
                 ],
                 sidebar: {
-                    '/chapter_00/': [
+                    '/guide/': [
                         {
                             title: '快速开始',
                             collapsable: false,
@@ -137,7 +137,7 @@ module.exports = {
                             ],
                         },
                     ],
-                    '/chapter_02/': [
+                    '/config/': [
                         {
                             title: '配置文件',
                             collapsable: false,
