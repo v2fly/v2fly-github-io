@@ -83,7 +83,7 @@ Project V 使用以下方式进行授权。
 
 * 包括网站中所有可见的文字内容和图片。
 * 包括 Project V 图标文件。
-* 包括生成网站所使用到的源代码，即 [v2fly/manual-vuepress](https://github.com/v2fly/manual-vuepress)。
+* 包括生成网站所使用到的源代码，即 [v2fly/v2fly-github-io](https://github.com/v2fly/v2fly-github-io)。
 
 ### 软件截图和其它文件
 
