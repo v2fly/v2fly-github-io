@@ -23,7 +23,7 @@ V2Ray 内置了一个 DNS 服务器，其有两大主要用途：根据域名的
 
 DNS 服务器的处理流程示意图如下：
 
-![](/resources/dns_flowchart.svg)
+![](/dns_flowchart.svg)
 
 ## DnsObject
 
