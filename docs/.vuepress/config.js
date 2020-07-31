@@ -87,7 +87,7 @@ module.exports = {
                 nav: [
                     {
                         text: '快速开始',
-                        link: '/chapter_00/workflow',
+                        link: '/chapter_00/start',
                     },
                     {
                         text: '配置文档',
@@ -112,12 +112,30 @@ module.exports = {
                 ],
                 sidebar: {
                     '/chapter_00/': [
-                        'workflow',
-                        'install',
-                        'start',
-                        'command',
-                        'faq',
-                        'help',
+                        {
+                            title: '快速开始',
+                            collapsable: false,
+                            children: [
+                                'install',
+                                'start',
+                            ],
+                        },
+                        {
+                            title: '原理',
+                            collapsable: false,
+                            children: [
+                                'workflow',
+                                'command',
+                            ],
+                        },
+                        {
+                            title: '更多',
+                            collapsable: false,
+                            children: [
+                                'faq',
+                                'help',
+                            ],
+                        },
                     ],
                     '/chapter_02/': [
                         {
