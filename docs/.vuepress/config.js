@@ -98,10 +98,6 @@ module.exports = {
                         link: '/awesome/tools'
                     },
                     {
-                        text: '常见问题',
-                        link: '/chapter_00/faq'
-                    },
-                    {
                         text: '开发手册',
                         link: '/developer/intro/guide',
                     },
@@ -115,15 +111,14 @@ module.exports = {
                     },
                 ],
                 sidebar: {
-                    '/chapter_00/faq': 'auto',
-                    '/chapter_00/help': 'auto',
                     '/chapter_00/': [
                         'workflow',
                         'install',
                         'start',
                         'command',
+                        'faq',
+                        'help',
                     ],
-
                     '/chapter_02/': [
                         {
                             title: '配置文件',
