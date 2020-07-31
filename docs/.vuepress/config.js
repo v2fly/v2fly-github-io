@@ -86,21 +86,33 @@ module.exports = {
                 editLinkText: '在 GitHub 上编辑此页',
                 nav: [
                     {
-                        text: '开始',
+                        text: '快速开始',
                         link: '/chapter_00/workflow',
                     },
                     {
-                        text: '配置',
+                        text: '配置文档',
                         link: '/chapter_02/01_overview',
                     },
                     {
-                        text: '开发',
+                        text: '工具列表',
+                        link: '/awesome/tools'
+                    },
+                    {
+                        text: '常见问题',
+                        link: '/chapter_00/faq'
+                    },
+                    {
+                        text: '开发手册',
                         link: '/developer/intro/guide',
                     },
-                    { text: '常见问题', link: '/chapter_00/faq' },
-                    { text: '工具列表', link: '/awesome/tools' },
-                    { text: '新白话文指南', link: 'https://guide.v2fly.org/' },
-                    { text: 'GitHub', link: 'https://github.com/v2fly/v2ray-core' },
+                    {
+                        text: '新白话文指南',
+                        link: 'https://guide.v2fly.org/'
+                    },
+                    {
+                        text: 'GitHub',
+                        link: 'https://github.com/v2fly/v2ray-core'
+                    },
                 ],
                 sidebar: {
                     '/chapter_00/faq': 'auto',
