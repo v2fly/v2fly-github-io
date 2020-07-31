@@ -23,7 +23,7 @@ footer: CC-BY-SA Licensed | Copyright © 2020-present V2Fly Team
 
 ## Project V 由谁主导开发
 
-我们是一群爱好自由的人们。由于政策压力，我们倾向于保持匿名，尽可能地不透露任何身份信息。
+我们是一群爱好自由的人们。我们倾向于保持匿名，尽可能地不透露任何身份信息。
 
 ## 贡献
 
