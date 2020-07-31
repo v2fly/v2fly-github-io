@@ -14,5 +14,8 @@
     "lint-staged": "^10.2.11",
     "vuepress": "^1.5.2",
     "vuepress-plugin-mermaidjs": "^1.5.1"
+  },
+  "dependencies": {
+    "uuid": "^8.3.0"
   }
 }

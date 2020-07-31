@@ -2,9 +2,12 @@
 
 ## 在线工具
 
-> UUID Generator
+> UUID 生成器
 
-VLESS VMess User ID 生成工具 [uuidgenerator.net](https://www.uuidgenerator.net)
+<Uuid />
+
+另有第三方的 UUID 生成器 [uuidgenerator.net](https://www.uuidgenerator.net)
+
 
 ## 图形客户端
 
