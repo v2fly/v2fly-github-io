@@ -45,3 +45,7 @@ VLESS VMess User ID 生成工具 [uuidgenerator.net](https://www.uuidgenerator.n
 />
 
 ## 其它
+
+> v2ray-rules-dat
+
+V2Ray 路由规则文件加强版，可代替官方 `geoip.dat` 和 `geosite.dat` [GitHub](https://github.com/Loyalsoldier/v2ray-rules-dat)
