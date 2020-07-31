@@ -1,5 +1,19 @@
 # 神一样的工具们
 
+## 在线工具
+
+> UUID Generator
+
+VLESS VMess User ID 生成工具 [uuidgenerator.net](https://www.uuidgenerator.net)
+
+> VeekXT V2Ray 配置生成
+
+支持 4.x 版本的配置文件生成器 [veekxt.com](https://www.veekxt.com/utils/v2ray_gen)
+
+> V2Ray 配置生成器
+
+静态 V2Ray 配置文件生成页面 [GitHub](https://github.com/htfy96/v2ray-config-gen)
+
 ## 图形客户端
 
 <Tool
@@ -30,16 +44,4 @@
     description="跨平台 V2Ray 客户端，支持 Linux、Windows、macOS，可通过插件系统支持 SSR / Trojan / Trojan-Go / NaiveProxy 等协议，不支持批量测速，不支持自动更新，不建议小白使用。"
 />
 
-## 在线工具/资源
-
-> VeekXT V2Ray 配置生成
-
-支持 4.x 版本的配置文件生成器 [veekxt.com](https://www.veekxt.com/utils/v2ray_gen)
-
-> V2Ray 配置生成器
-
-静态 V2Ray 配置文件生成页面 [GitHub](https://github.com/htfy96/v2ray-config-gen)
-
-> UUID Generator
-
-VMess User ID 生成工具 [uuidgenerator.net](https://www.uuidgenerator.net)
+## 其它
