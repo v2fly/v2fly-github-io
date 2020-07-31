@@ -21,10 +21,27 @@ features:
 footer: CC-BY-SA Licensed | Copyright © 2020-present V2Fly Team
 ---
 
-## 👷 贡献
+## Project V 由谁主导开发
+
+我们是一群爱好自由的人们。由于政策压力，我们倾向于保持匿名，尽可能地不透露任何身份信息。
+
+## 贡献
 
 欢迎参与该项目的贡献中来！就算你不懂如何写代码，也还是有许多种方法可以帮助完善的。 这里有一些例子：
 
 - ⚙️ **帮助开发 V2Fly**！ 克隆仓库，签出代码，提交高质量的 Pull request！
 - 📆  **社区维护** 帮助我们创建、维护 V2Fly 的社区！
 - ...你还可以做更多！
+- ...如果拥有 2+ 个PR，就可以申请加入 GitHub 团队
+
+## 授权
+
+- Core 使用 MIT 协议
+- 官方网站（[v2fly.org](https://www.v2fly.org/)）以 [CC BY SA 4.0 国际许可协议](https://creativecommons.org/licenses/by/4.0/deed.zh) 授权。
+    * 包括网站中所有可见的文字内容和图片。
+    * 包括 Project V 图标文件。
+    * 包括生成网站所使用到的源代码，即 [v2fly/v2fly-github-io](https://github.com/v2fly/v2fly-github-io)。
+- 第三方所创作的内容，其版权归其创作者所有。Project V 放弃对这些内容的所有权。
+    * 包括 Project V 使用过程中的截图。
+    * 包括运行 Project V 所需的配置文件。
+    * 包括 Project V 运行时产生的日志文件。
