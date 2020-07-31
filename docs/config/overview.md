@@ -33,9 +33,9 @@ V2Ray 的配置文件形式如下，客户端和服务器通用一种形式，�
 
 内置的 DNS 服务器，若此项不存在，则默认使用本机的 DNS 设置。详见[DNS 配置](04_dns.md)
 
-> `routing`: [RoutingObject](03_routing.md)
+> `routing`: [RoutingObject](routing.md)
 
-[路由配置](03_routing.md)
+[路由配置](routing.md)
 
 > `policy`: [PolicyObject](policy.md)
 
@@ -49,9 +49,9 @@ V2Ray 的配置文件形式如下，客户端和服务器通用一种形式，�
 
 一个数组，每个元素是一个[出站连接配置](outbounds.md#outboundobject)。列表中的第一个元素作为主出站协议。当路由匹配不存在或没有匹配成功时，流量由主出站协议发出。
 
-> `transport`: [TransportObject](05_transport.md)
+> `transport`: [TransportObject](transport.md)
 
-用于配置 V2Ray 如何与其它服务器建立和使用网络连接。详见[底层传输配置](05_transport.md)
+用于配置 V2Ray 如何与其它服务器建立和使用网络连接。详见[底层传输配置](transport.md)
 
 > `stats`: [StatsObject](stats.md)
 
@@ -93,7 +93,7 @@ V2Ray 的配置文件形式如下，客户端和服务器通用一种形式，�
 
 V2Ray 中可以开放一些 API 以便远程调用。这些 API 都基于 [gRPC](https://grpc.io/)。大多数用户并不会用到 API，新手可以直接忽略这一项。
 
-当远程控制开启时，V2Ray 会自建一个出站代理，以 `tag` 配置的值为标识。用户必须手动将所有的 gRPC 入站连接通过 [路由](03_routing.md) 指向这一出站代理。
+当远程控制开启时，V2Ray 会自建一个出站代理，以 `tag` 配置的值为标识。用户必须手动将所有的 gRPC 入站连接通过 [路由](routing.md) 指向这一出站代理。
 
 ```json
 {

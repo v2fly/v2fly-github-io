@@ -17,7 +17,7 @@ VMess 是一个基于 TCP 的协议，所有数据使用 TCP 传输。
 ID 等价于 [UUID](https://en.wikipedia.org/wiki/Universally_unique_identifier)，是一个 16 字节长的随机数，它的作用相当于一个令牌（Token）。
 一个 ID 形如：de305d54-75b4-431b-adb2-eb6b9e546014，几乎完全随机，可以使用任何的 UUID 生成器来生成，比如[这个](https://www.uuidgenerator.net/)。
 
-用户 ID 可在[配置文件](../chapter_02/01_overview.md)中指定。
+用户 ID 可在[配置文件](../chapter_02/overview.md)中指定。
 
 ### 函数
 

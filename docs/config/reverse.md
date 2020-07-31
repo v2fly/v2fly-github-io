@@ -63,7 +63,7 @@ refen: configuration/reverse
 
 > `tag`: string
 
-一个标识，所有由 `bridge` 发出的连接，都会带有这个标识。可以在 [路由](03_routing.md) 中使用 `inboundTag` 进行识别。
+一个标识，所有由 `bridge` 发出的连接，都会带有这个标识。可以在 [路由](routing.md) 中使用 `inboundTag` 进行识别。
 
 > `domain`: string
 
@@ -80,7 +80,7 @@ refen: configuration/reverse
 
 > `tag`: string
 
-`portal` 的标识。在 [路由](03_routing.md) 中使用 `outboundTag` 将流量转发到这个 `portal`。
+`portal` 的标识。在 [路由](routing.md) 中使用 `outboundTag` 将流量转发到这个 `portal`。
 
 > `domain`: string
 

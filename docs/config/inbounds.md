@@ -54,9 +54,9 @@ refen: configuration/inbounds
 
 具体的配置内容，视协议不同而不同。详见每个协议中的 `InboundConfigurationObject`。
 
-> `streamSettings`: [StreamSettingsObject](05_transport.md#perproxy)。
+> `streamSettings`: [StreamSettingsObject](transport.md#perproxy)。
 
-[底层传输配置](05_transport.md#perproxy)
+[底层传输配置](transport.md#perproxy)
 
 > `tag`: string
 

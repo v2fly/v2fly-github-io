@@ -91,7 +91,7 @@ module.exports = {
                     },
                     {
                         text: '配置文档',
-                        link: '/config/01_overview',
+                        link: '/config/overview',
                     },
                     {
                         text: '工具列表',
@@ -142,13 +142,13 @@ module.exports = {
                             title: '配置文件',
                             collapsable: false,
                             children: [
-                                '01_overview',
+                                'overview',
                                 '04_dns',
-                                '03_routing',
+                                'routing',
                                 'policy',
                                 'inbounds',
                                 'outbounds',
-                                '05_transport',
+                                'transport',
                                 'stats',
                                 'reverse',
                                 'multiple_config',

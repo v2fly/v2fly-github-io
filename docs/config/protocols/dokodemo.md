@@ -45,7 +45,7 @@ V2Ray 3.1 后等价于对应用户等级的 `connIdle` 策略
 
 > `followRedirect`: true | false
 
-当值为 `true` 时，dokodemo-door 会识别出由 iptables 转发而来的数据，并转发到相应的目标地址。详见 [传输配置](../05_transport.md) 中的 `tproxy` 设置。
+当值为 `true` 时，dokodemo-door 会识别出由 iptables 转发而来的数据，并转发到相应的目标地址。详见 [传输配置](../transport.md) 中的 `tproxy` 设置。
 
 > `userLevel`: number
 
