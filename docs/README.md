@@ -3,8 +3,8 @@ home: true
 heroImage: v2ray.png
 heroText: Project V
 tagline: 帮助你打造专属的基础通信网络
-actionText: Quick Start
-actionLink: /chapter_00/workflow.html
+actionText: 快速开始 →
+actionLink: /chapter_00/start.html
 features:
 - title: 多入口多出口
   details: 一个 V2Ray 进程可并发支持多个入站和出站协议，每个协议可独立工作。
