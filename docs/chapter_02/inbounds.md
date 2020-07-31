@@ -48,7 +48,7 @@ refen: configuration/inbounds
 
 > `protocol`: string
 
-连接协议名称，可选的值见 [协议列表](02_protocols.md)。
+连接协议名称，可选的值见协议列表。
 
 > `settings`: InboundConfigurationObject
 
