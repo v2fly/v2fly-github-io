@@ -66,5 +66,8 @@ export default {
       copyTime: 0,
     };
   },
+  beforeDestroy() {
+    stopRoll();
+  }
 };
 </script>
