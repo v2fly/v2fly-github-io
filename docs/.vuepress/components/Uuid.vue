@@ -33,7 +33,7 @@ export default {
     startRoll() {
       this.timerHandles.push(setInterval(this.generate, 50));
     },
-    stopRoll() {  
+    stopRoll() {
       for (let currTimer = this.timerHandles.shift(); currTimer !== undefined; currTimer = this.timerHandles.shift()) {
         clearInterval(currTimer);
       }
@@ -45,13 +45,11 @@ export default {
     copy() {
       navigator.clipboard.writeText(this.uuid).then(this.copySuccess);
     },
-
     copySuccess() {
       this.copied = true;
       this.copyTime = new Date().getTime();
       setTimeout(this.copySuccessDelay, 2000);
     },
-
     copySuccessDelay() {
       const now = new Date().getTime();
       if (now - this.copyTime < 1900) return;
