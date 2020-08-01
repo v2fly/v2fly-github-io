@@ -17,6 +17,10 @@ button {
   background-color: #ea0880;
   border-radius: 4px;
   color: #fff;
+  transition: background-color .1s ease;
+}
+button:hover {
+  background-color: #f7168d;
 }
 </style>
 <script>
