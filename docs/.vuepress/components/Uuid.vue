@@ -1,7 +1,7 @@
 <template>
   <section>
     <pre><code>{{ uuid }}</code></pre>
-    <button @click="generate">生成</button>
+    <button @mousedown="startRoll" @mouseup="stopRoll" @mouseleave="stopRoll">生成</button>
     <button @click="copy">{{copied?'已复制':'复制'}}</button>
   </section>
 </template>
@@ -22,11 +22,22 @@ button {
 button:hover {
   background-color: #f7168d;
 }
+button:active {
+  background-color: #9b0f5a;
+}
 </style>
 <script>
 const { v4: uuidv4 } = require("uuid");
 export default {
   methods: {
+    startRoll() {
+      this.timerHandles.push(setInterval(this.generate, 50));
+    },
+    stopRoll() {  
+      for (let currTimer = this.timerHandles.shift(); currTimer !== undefined; currTimer = this.timerHandles.shift()) {
+        clearInterval(currTimer);
+      }
+    },
     generate() {
       this.uuid = uuidv4();
       this.copied = false;
@@ -50,9 +61,13 @@ export default {
   data: function () {
     return {
       uuid: uuidv4(),
+      timerHandles: [],
       copied: false,
       copyTime: 0,
     };
   },
+  beforeDestroy() {
+    stopRoll();
+  }
 };
 </script>
