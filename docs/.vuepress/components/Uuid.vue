@@ -8,6 +8,7 @@
 <!--TODO: intergrate with vuepress theme-->
 <style scoped>
 button {
+  outline: none;
   border: none;
   width: 10rem;
   text-align: center;
