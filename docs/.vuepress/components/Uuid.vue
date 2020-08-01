@@ -1,7 +1,7 @@
 <template>
   <section>
     <pre><code>{{ uuid }}</code></pre>
-    <button @mousedown="startRoll" @mouseup="stopRoll" @mouseleave="stopRoll">生成</button>
+    <button @mousedown.left="startRoll" @mouseup.left="stopRoll" @mouseleave="stopRoll">生成</button>
     <button @click="copy">{{copied?'已复制':'复制'}}</button>
   </section>
 </template>
