@@ -144,7 +144,7 @@ TLS 配置。TLS 由 Golang 提供，支持 TLS 1.3，不支持 DTLS。
 
 > `disableSystemRoot`: true | false
 
-（V2Ray 4.18+）是否禁用操作系统自带的 CA 证书。默认值为 `false`。当值为 `true` 时，V2Ray 只会使用 `certificates` 中指定的证书进行 TLS 握手。
+（V2Ray 4.18+）是否禁用操作系统自带的 CA 证书。默认值为 `false`。当值为 `true` 时，V2Ray 只会使用 `certificates` 中指定的证书进行 TLS 握手。当值为 `false` 时，V2Ray 只会使用操作系统自带的 CA 证书进行 TLS 握手。
 
 > `certificates`: \[ [CertificateObject](#certificateobject) \]
 
