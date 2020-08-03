@@ -32,11 +32,11 @@ chapter_02/03_routing.html
 
 ### 入站代理
 
-* 实现 [proxy.Inbound](https://github.com/v2fly/v2ray-core/blob/master/proxy/proxy.go#L14) 接口；
+* 实现 [proxy.Inbound](https://github.com/v2fly/v2ray-core/blob/master/proxy/proxy.go#L19) 接口；
 
 ### 出站代理
 
-* 实现 [proxy.Outbound](https://github.com/v2fly/v2ray-core/blob/master/proxy/proxy.go#L21) 接口；
+* 实现 [proxy.Outbound](https://github.com/v2fly/v2ray-core/blob/master/proxy/proxy.go#L28) 接口；
 
 ## 传输层
 
