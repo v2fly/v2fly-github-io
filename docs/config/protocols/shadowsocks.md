@@ -16,16 +16,21 @@ refen: configuration/protocols/shadowsocks
 * 支持 [OTA](https://web.archive.org/web/20161221022225/https://shadowsocks.org/en/spec/one-time-auth.html)；
   * 客户端可选开启或关闭；
   * 服务器端可强制开启、关闭或自适应；
+* 插件：
+  * 通过 Standalone 模式支持 obfs
 * 加密方式（其中 [AEAD](https://shadowsocks.org/en/spec/AEAD-Ciphers.html) 加密方式在 V2Ray 3.0 中加入）：
   * aes-256-cfb
   * aes-128-cfb
   * chacha20
   * chacha20-ietf
-  * aes-256-gcm
-  * aes-128-gcm
-  * chacha20-poly1305 或称 chacha20-ietf-poly1305
-* 插件：
-  * 通过 Standalone 模式支持 obfs
+  * （V2Ray 3.0+） aes-256-gcm
+  * （V2Ray 3.0+） aes-128-gcm
+  * （V2Ray 3.0+） chacha20-poly1305 或称 chacha20-ietf-poly1305
+  * （V2Ray 4.27.0+） none 或称 plain
+
+::: warning
+"none" 不加密方式下，服务器端不会验证 "password" 中的密码。一般需要加上 TLS 并在传输层使用安全配置，例如 WebSocket 配置较长的 path
+:::
 
 Shadowsocks 的配置分为两部分，`InboundConfigurationObject` 和 `OutboundConfigurationObject`，分别对应入站和出站协议配置中的 `settings` 项。
 
@@ -143,3 +148,4 @@ Shadowsocks 服务器端口。必填。
 * `"aes-256-gcm"`
 * `"aes-128-gcm"`
 * `"chacha20-poly1305"` 或 `"chacha20-ietf-poly1305"`
+* `"none"` 或 `"plain"`
