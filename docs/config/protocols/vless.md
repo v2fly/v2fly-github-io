@@ -118,7 +118,7 @@ VLESS 的用户 ID，必须是一个合法的 UUID，你可以用 [在线工具]
 
 > `fallback`：\[ [FallbackObject](#fallbackobject) \]
 
-可选 & 强烈建议使用：基于首包长度分流（VLESS 原创）的新型协议回落模式，相对于其它协议回落方案，更简洁、高效、安全，功能也更强大。
+可选 & 强烈建议使用：基于首包长度分流（VLESS 原创）的新型协议回落模式，相较于其它协议回落方案，更简洁、高效、安全，功能也更强大。
 
 ### ClientObject
 
@@ -144,7 +144,7 @@ VLESS 的用户 ID，必须是一个合法的 UUID，你也可以用 [v2ctl](htt
 
 ## FallbackObject
 
-**强烈建议使用：基于首包长度分流（VLESS 原创）的新型协议回落模式，相对于其它协议回落方案，更简洁、高效、安全，功能也更强大。**
+**强烈建议使用：基于首包长度分流（VLESS 原创）的新型协议回落模式，相较于其它协议回落方案，更简洁、高效、安全，功能也更强大。**
 
 ```json
 {
@@ -178,7 +178,7 @@ UNIX domain socket，绝对路径，可在开头加 @ 代表 [abstract](https://
 > `xver`: number
 
 [PROXY protocol](https://www.haproxy.org/download/2.2/doc/proxy-protocol.txt)，专用于传递请求的真实来源 IP 和端口，填版本 1 或 2，默认为 0，即不启用。</br>
-目前填 1 或 2，功能完全相同，只是结构不同，且前者可打印，后者为二进制。1 的开销小一些，若有需要建议填 1。
+目前填 1 或 2，功能完全相同，只是结构不同，且前者可打印，后者为二进制。若有需要建议填 1。
 
 :::tip
 若你正在 [配置 Nginx 接收 PROXY protocol](https://docs.nginx.com/nginx/admin-guide/load-balancer/using-proxy-protocol/#configuring-nginx-to-accept-the-proxy-protocol)，除了设置 proxy_protocol 外，还需设置 set_real_ip_from，否则可能会出问题。
