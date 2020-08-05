@@ -155,11 +155,11 @@ VLESS 的用户 ID，必须是一个合法的 UUID，你也可以用 [v2ctl](htt
 }
 ```
 
-`fallback` 项是可选的，通常用于 TCP+TLS 传输组合。该项存在时，[inbound TLS](https://www.v2fly.org/config/transport.html#tlsobject) 需设置 `"alpn":["http/1.1"]`。</br>
+**`fallback`** 项是可选的，通常用于 TCP+TLS 传输组合。**该项存在时，[inbound TLS](https://www.v2fly.org/config/transport.html#tlsobject) 需设置 `"alpn":["http/1.1"]`。**</br>
 VLESS 会把首包长度 < 18，或协议版本无效或身份认证失败的流量转发到该项指定的地址。</br>
 其它传输组合不建议填写该项，此时也不会开启协议回落模式，VLESS 会等待读够所需长度，协议版本无效或身份认证失败时，将直接断开连接。
 
-`fallback_h2` 项也是可选的，和 fallback 的参数完全相同。该项存在时，[inbound TLS](https://www.v2fly.org/config/transport.html#tlsobject) 需设置 `"alpn":["h2","http/1.1"]`。</br>
+**`fallback_h2`** 项也是可选的，和 fallback 的参数完全相同。**该项存在时，[inbound TLS](https://www.v2fly.org/config/transport.html#tlsobject) 需设置 `"alpn":["h2","http/1.1"]`。**</br>
 VLESS 若发现连接是 TLS 且 ALPN 协商结果为 h2，回落时会把流量转发到该项指定的地址。</br>
 这个设定解决了 Nginx 的 h2c 服务不能同时兼容 http/1.1 的问题，也就是说此时 Nginx 需要开两个 http 服务，一个 1.1，一个 2。
 
@@ -181,7 +181,7 @@ UNIX domain socket，绝对路径，可在开头加 @ 代表 [abstract](https://
 目前填 1 或 2，功能完全相同，只是结构不同，且前者可打印，后者为二进制。1 的开销小一些，若有需要建议填 1。
 
 :::tip
-若你正在 [配置 Nginx 接收 PROXY protocol headers](https://docs.nginx.com/nginx/admin-guide/load-balancer/using-proxy-protocol/)，除了设置 proxy_protocol 外，还需设置 set_real_ip_from。
+若你正在 [配置 Nginx 接收 PROXY protocol](https://docs.nginx.com/nginx/admin-guide/load-balancer/using-proxy-protocol/#configuring-nginx-to-accept-the-proxy-protocol)，除了设置 proxy_protocol 外，还需设置 set_real_ip_from，否则可能会出问题。
 :::
 
 ## 一些说明
