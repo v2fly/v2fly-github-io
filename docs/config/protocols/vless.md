@@ -132,7 +132,7 @@ VLESS 的用户 ID，必须是一个合法的 UUID，你可以用 [在线工具]
 
 > `id`: string
 
-VLESS 的用户 ID，必须是一个合法的 UUID，你也可以用 [v2ctl](https://www.v2fly.org/guide/command.html#v2ctl) 生成它。
+VLESS 的用户 ID，必须是一个合法的 UUID，你也可以用 [V2Ctl](https://www.v2fly.org/guide/command.html#v2ctl) 生成它。
 
 > `level`: number
 
