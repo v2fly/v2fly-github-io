@@ -88,7 +88,7 @@ v2ctl <command> <options>
 
 > `--domain`
 
-证书的 Alternative Name 项。该参数可以多次使用，来指定多个域名。比如`--domain=v2ray.com --domain=v2ray.cool`。
+证书的 Subject Alternative Name(SAN) 项。该参数可以多次使用，来指定多个域名。比如`--domain=v2ray.com --domain=v2ray.cool`。
 
 > `--expire`
 
@@ -96,7 +96,7 @@ v2ctl <command> <options>
 
 > `--name`
 
-证书的 Command Name 项。
+证书的 Common Name(CN) 项。
 
 > `--org`
 
