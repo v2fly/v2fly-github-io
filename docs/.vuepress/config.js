@@ -166,6 +166,7 @@ module.exports = {
                                 'protocols/mtproto',
                                 'protocols/shadowsocks',
                                 'protocols/socks',
+                                'protocols/vless',
                                 'protocols/vmess',
                             ],
                         },
