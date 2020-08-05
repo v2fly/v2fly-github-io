@@ -144,6 +144,8 @@ VLESS 的用户 ID，必须是一个合法的 UUID，你也可以用 [v2ctl](htt
 
 ## FallbackObject
 
+**强烈建议使用：基于首包长度分流（VLESS 原创）的新型协议回落模式，相对于其它协议回落方案，更简洁、高效、安全，功能也更强大。**
+
 ```json
 {
     "addr": "127.0.0.1",
@@ -152,8 +154,6 @@ VLESS 的用户 ID，必须是一个合法的 UUID，你也可以用 [v2ctl](htt
     "xver": 0
 }
 ```
-
-强烈建议使用：基于首包长度分流（VLESS 原创）的新型协议回落模式，相对于其它协议回落方案，更简洁、高效、安全，功能也更强大。
 
 **fallback 项是可选的，通常用于 TCP+TLS 传输组合。该项存在时，[inbound TLS](https://www.v2fly.org/config/transport.html#tlsobject) 需设置 `"alpn":["http/1.1"]`。**</br>
 VLESS 会把首包长度 < 18，或协议版本无效或身份认证失败的流量转发到该项指定的地址。</br>
