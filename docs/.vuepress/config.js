@@ -221,5 +221,9 @@ module.exports = {
             },
         },
         sidebar: 'auto',
+        docsRepo: 'v2fly/v2fly-github-io',
+        docsDir: 'docs',
+        editLinks: true,
+        lastUpdated: '更新时间',
     },
 }
