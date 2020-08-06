@@ -31,7 +31,7 @@ V2Ray 提供两种验证方式：
 
 ## Windows 和 macOS 安装方式
 
-通过上述方式下载的压缩包，解压之后可看到 v2ray 或 v2ray.exe。直接运行即可。
+通过上述方式下载的压缩包，解压之后可看到 v2ray 或 v2ray.exe。[通过命令行带参数运行](command.md) 即可。
 
 ## Linux 发行版仓库
 
