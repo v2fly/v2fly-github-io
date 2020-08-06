@@ -17,7 +17,7 @@ VLESS 的内测仓库为 [rprx/v2ray-vless](https://github.com/rprx/v2ray-vless)
 
 VLESS 是一个无状态的轻量传输协议，它分为入站和出站两部分，可以作为 V2Ray 客户端和服务器之间的桥梁。
 
-VLESS 不依赖于系统时间，认证方式同样为 UUID，但不需要 alterId。
+与 [VMess](vmess.md) 不同，VLESS 不依赖于系统时间，认证方式同样为 UUID，但不需要 alterId。
 
 VLESS 的配置分为两部分，`InboundConfigurationObject` 和 `OutboundConfigurationObject`，分别对应入站和出站协议配置中的 `settings` 项。
 
@@ -79,7 +79,7 @@ VLESS 的配置分为两部分，`InboundConfigurationObject` 和 `OutboundConfi
 
 > `id`：string
 
-VLESS 的用户 ID，必须是一个合法的 UUID，你可以用 [在线工具](https://www.v2fly.org/awesome/tools.html#%E5%9C%A8%E7%BA%BF%E5%B7%A5%E5%85%B7) 生成它。
+VLESS 的用户 ID，必须是一个合法的 UUID，你可以用 [在线工具](../../awesome/tools.md#%E5%9C%A8%E7%BA%BF%E5%B7%A5%E5%85%B7) 生成它。
 
 > `encryption`："none"
 
@@ -132,7 +132,7 @@ VLESS 的用户 ID，必须是一个合法的 UUID，你可以用 [在线工具]
 
 > `id`: string
 
-VLESS 的用户 ID，必须是一个合法的 UUID，你也可以用 [V2Ctl](https://www.v2fly.org/guide/command.html#v2ctl) 生成它。
+VLESS 的用户 ID，必须是一个合法的 UUID，你也可以用 [V2Ctl](../../guide/command.md#v2ctl) 生成它。
 
 > `level`: number
 
@@ -155,11 +155,11 @@ VLESS 的用户 ID，必须是一个合法的 UUID，你也可以用 [V2Ctl](htt
 }
 ```
 
-**`fallback`** 项是可选的，通常用于 TCP+TLS 传输组合。**该项存在时，[inbound TLS](https://www.v2fly.org/config/transport.html#tlsobject) 需设置 `"alpn":["http/1.1"]`。**</br>
+**`fallback`** 项是可选的，通常用于 TCP+TLS 传输组合。**该项存在时，[inbound TLS](../../config/transport.md#tlsobject) 需设置 `"alpn":["http/1.1"]`。**</br>
 VLESS 会把首包长度 < 18，或协议版本无效或身份认证失败的流量转发到该项指定的地址。</br>
 其它传输组合建议删掉该项，此时也不会开启协议回落模式，VLESS 会等待读够所需长度，协议版本无效或身份认证失败时，将直接断开连接。
 
-**`fallback_h2`** 项也是可选的，和前者的参数完全相同。**该项存在时，[inbound TLS](https://www.v2fly.org/config/transport.html#tlsobject) 需设置 `"alpn":["h2","http/1.1"]`。**</br>
+**`fallback_h2`** 项也是可选的，和前者的参数完全相同。**该项存在时，[inbound TLS](../../config/transport.md#tlsobject) 需设置 `"alpn":["h2","http/1.1"]`。**</br>
 VLESS 若发现连接是 TLS 且 ALPN 协商结果为 h2，回落时会把流量转发到该项指定的地址。</br>
 这个设定解决了 Nginx 的 h2c 服务不能同时兼容 http/1.1 的问题，也就是说此时 Nginx 需要开两个 http 服务，一个 1.1，一个 2。
 
