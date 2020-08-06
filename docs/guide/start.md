@@ -97,4 +97,4 @@ refen: welcome/start
 * 在 Windows 和 macOS 中，配置文件通常是 V2Ray 同目录下的 `config.json` 文件。直接运行 `v2ray` 或 `v2ray.exe` 即可。
 * 在 Linux 中，配置文件通常位于 `/etc/v2ray/` 或 `/usr/local/etc/v2ray/` 目录下。运行 `v2ray --config=/etc/v2ray/config.json`，或使用 systemd 等工具把 V2Ray 作为服务在后台运行。
 
-更多详见的说明可以参考 [配置文档](../config/overview.md) 和 [新白话文指南](https://guide.v2fly.org/)。
+更多详细的说明可以参考 [配置文档](../config/overview.md) 和 [新白话文指南](https://guide.v2fly.org/)。
