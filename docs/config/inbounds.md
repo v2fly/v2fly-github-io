@@ -9,6 +9,8 @@ refen: configuration/inbounds
 
 ## InboundObject
 
+`InboundObject` 对应配置文件中的 `inbounds` 项的一个元素。
+
 ```json
 {
     "port": 1080,
