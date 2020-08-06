@@ -9,6 +9,8 @@ refen: configuration/outbounds
 
 ## OutboundObject
 
+`OutboundObject` 对应配置文件中的 `outbounds` 项的一个元素。
+
 ```json
 {
     "sendThrough": "0.0.0.0",
