@@ -157,7 +157,7 @@ VLESS 的用户 ID，必须是一个合法的 UUID，你也可以用 [V2Ctl](htt
 
 **`fallback`** 项是可选的，通常用于 TCP+TLS 传输组合。**该项存在时，[inbound TLS](https://www.v2fly.org/config/transport.html#tlsobject) 需设置 `"alpn":["http/1.1"]`。**</br>
 VLESS 会把首包长度 < 18，或协议版本无效或身份认证失败的流量转发到该项指定的地址。</br>
-其它传输组合不建议填写该项，此时也不会开启协议回落模式，VLESS 会等待读够所需长度，协议版本无效或身份认证失败时，将直接断开连接。
+其它传输组合建议删掉该项，此时也不会开启协议回落模式，VLESS 会等待读够所需长度，协议版本无效或身份认证失败时，将直接断开连接。
 
 **`fallback_h2`** 项也是可选的，和前者的参数完全相同。**该项存在时，[inbound TLS](https://www.v2fly.org/config/transport.html#tlsobject) 需设置 `"alpn":["h2","http/1.1"]`。**</br>
 VLESS 若发现连接是 TLS 且 ALPN 协商结果为 h2，回落时会把流量转发到该项指定的地址。</br>
