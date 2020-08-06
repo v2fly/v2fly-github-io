@@ -25,6 +25,8 @@ footer: CC-BY-SA Licensed | Copyright © 2015-present V2Fly Team
 
 我们是一群爱好自由的人们。我们倾向于保持匿名，尽可能地不透露任何身份信息。
 
+你可以通过 GitHub、Telegram、Email [与我们讨论](https://www.v2fly.org/guide/help.html)。
+
 ## 贡献
 
 欢迎参与该项目的贡献中来！就算你不懂如何写代码，也还是有许多种方法可以帮助完善的。 这里有一些例子：
