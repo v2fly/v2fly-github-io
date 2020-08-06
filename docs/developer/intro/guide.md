@@ -82,7 +82,7 @@ v2ray-core
 ├── app        // 应用模块
 │   ├── router // 路由
 ├── common     // 公用代码
-├── proxy      // 通讯协议，参见[协议列表](../chapter_02/02_protocols.md)
+├── proxy      // 通讯协议
 │   ├── blackhole
 │   ├── dokodemo-door
 │   ├── freedom
