@@ -9,7 +9,7 @@ V2Ray 内建了一个简单的路由功能，可以将入站数据按需求由�
 
 ## RoutingObject
 
-`RoutingObject` 对应配置文件中的 `routing` 项。
+`RoutingObject` 对应配置文件的 `routing` 项。
 
 ```json
 {

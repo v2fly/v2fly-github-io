@@ -9,7 +9,7 @@ refen: configuration/outbounds
 
 ## OutboundObject
 
-`OutboundObject` 对应配置文件中的 `outbounds` 项的一个元素。
+`OutboundObject` 对应配置文件中 `outbounds` 项的一个子元素。
 
 ```json
 {

@@ -9,7 +9,7 @@ refen: configuration/policy
 
 ## PolicyObject
 
-`PolicyObject` 对应配置文件中的 `policy` 项。
+`PolicyObject` 对应配置文件的 `policy` 项。
 
 ```json
 {

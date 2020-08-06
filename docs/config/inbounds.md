@@ -9,7 +9,7 @@ refen: configuration/inbounds
 
 ## InboundObject
 
-`InboundObject` 对应配置文件中的 `inbounds` 项的一个元素。
+`InboundObject` 对应配置文件中 `inbounds` 项的一个子元素。
 
 ```json
 {

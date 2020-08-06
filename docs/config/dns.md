@@ -27,7 +27,7 @@ DNS 服务器的处理流程示意图如下：
 
 ## DnsObject
 
-`DnsObject` 对应配置文件中的 `dns` 项。
+`DnsObject` 对应配置文件的 `dns` 项。
 
 ```json
 {

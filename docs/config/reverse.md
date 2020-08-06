@@ -25,7 +25,7 @@ refen: configuration/reverse
 
 ## ReverseObject
 
-`ReverseObject` 对应配置文件中的 `reverse` 项。
+`ReverseObject` 对应配置文件的 `reverse` 项。
 
 ```json
 {
