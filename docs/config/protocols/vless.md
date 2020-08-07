@@ -41,7 +41,7 @@ VLESS 的配置分为两部分，`InboundConfigurationObject` 和 `OutboundConfi
 }
 ```
 
-> `vnext`：\[ [ServerObject](#serverobject) \]
+> `vnext`: \[ [ServerObject](#serverobject) \]
 
 一个数组，包含一系列指向服务端的配置。
 
@@ -77,11 +77,11 @@ VLESS 的配置分为两部分，`InboundConfigurationObject` 和 `OutboundConfi
 }
 ```
 
-> `id`：string
+> `id`: string
 
 VLESS 的用户 ID，必须是一个合法的 UUID，你可以用 [在线工具](../../awesome/tools.md#%E5%9C%A8%E7%BA%BF%E5%B7%A5%E5%85%B7) 生成它。
 
-> `encryption`："none"
+> `encryption`: "none"
 
 现阶段需要填 `"none"`，不能留空。该要求是为了提醒使用者没有加密，也为了以后出加密方式时，防止使用者填错属性名或填错位置导致裸奔。</br>
 若未正确设置 encryption 的值，使用 v2ray 或 -test 时会收到错误信息。
@@ -111,12 +111,12 @@ VLESS 的用户 ID，必须是一个合法的 UUID，你可以用 [在线工具]
 
 一组服务端认可的用户。
 
-> `decryption`："none"
+> `decryption`: "none"
 
 注意这里是 decryption，和 clients 同级。现阶段同样需要填 `"none"`，不能留空。decryption 和 encryption 的位置不同，是因为若套一层约定加密，服务端需要先解密才能知道是哪个用户。</br>
 若未正确设置 decryption 的值，使用 v2ray 或 -test 时会收到错误信息。
 
-> `fallback`：\[ [FallbackObject](#fallbackobject) \]
+> `fallback`: \[ [FallbackObject](#fallbackobject) \]
 
 可选 & 强烈建议使用：基于首包长度分流（VLESS 原创）的新型协议回落模式，相较于其它协议回落方案，更简洁、高效、安全，功能也更强大。
 
@@ -155,9 +155,9 @@ VLESS 的用户 ID，必须是一个合法的 UUID，你也可以用 [V2Ctl](../
 }
 ```
 
-**`fallback`** 项是可选的，通常用于 TCP+TLS 传输组合。**该项存在时，[inbound TLS](../../config/transport.md#tlsobject) 需设置 `"alpn":["http/1.1"]`。**</br>
+**`fallback`** 项是可选的，只能用于 TCP+TLS 传输组合。**该项存在时，[inbound TLS](../../config/transport.md#tlsobject) 需设置 `"alpn":["http/1.1"]`。**</br>
 VLESS 会把首包长度 < 18，或协议版本无效或身份认证失败的流量转发到该项指定的地址。</br>
-其它传输组合建议删掉该项，此时也不会开启协议回落模式，VLESS 会等待读够所需长度，协议版本无效或身份认证失败时，将直接断开连接。
+其它传输组合 **必须删掉该项**，此时也不会开启协议回落模式，VLESS 会等待读够所需长度，协议版本无效或身份认证失败时，将直接断开连接。
 
 **`fallback_h2`** 项也是可选的，和前者的参数完全相同。**该项存在时，[inbound TLS](../../config/transport.md#tlsobject) 需设置 `"alpn":["h2","http/1.1"]`。**</br>
 VLESS 若发现连接是 TLS 且 ALPN 协商结果为 h2，回落时会把流量转发到该项指定的地址。</br>
