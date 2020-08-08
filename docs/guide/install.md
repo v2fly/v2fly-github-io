@@ -92,7 +92,7 @@ V2Ray 提供两种验证方式：
 }
 ```
 
-如果你需要 V2Ray 直接使用证书文件：
+如需 V2Ray 直接使用证书文件：
 
 假设证书文件的所在路径为 `/srv/http/`，文件分别为 `/srv/http/example.com.key` 和 `/srv/http/example.com.pem`。
 
@@ -122,7 +122,7 @@ uid=65534(nobody) gid=65534(nogroup) groups=65534(nogroup)
 uid=65534(nobody) gid=65534(nobody) groups=65534(nobody)
 ```
 
-相应的，只需要执行：
+相应的，只需执行：
 
 ```plain
 # chown -R nobody:nogroup /srv/http/
@@ -142,7 +142,7 @@ V2Ray 提供了一个在 Linux 中的自动化安装脚本。这个脚本会自�
 
 以下指令假设已在 su 环境下，如果不是，请先运行 sudo su。
 
-运行下面的指令下载并安装 V2Ray。当 yum 或 apt-get 可用的情况下，此脚本会自动安装 unzip 和 daemon。这两个组件是安装 V2Ray 的必要组件。如果你使用的系统不支持 yum 或 apt-get，请自行安装 unzip 和 daemon
+运行以下的指令下载并安装 V2Ray。当 yum 或 apt-get 可用的情况下，此脚本会自动安装 unzip 以及 daemon。这两个组件是安装 V2Ray 的必要组件。如果你使用的系统不支持 yum 或 apt-get，请自行安装 unzip 和 daemon
 
 ```bash
 bash <(curl -L -s https://install.direct/go.sh)
@@ -165,9 +165,9 @@ bash <(curl -L -s https://install.direct/go.sh)
 
 脚本运行完成后，你需要：
 
-1. 编辑 /etc/v2ray/config.json 文件来配置你需要的代理方式；
-2. 运行 systemctl start v2ray 来启动 V2Ray 进程；
-3. 之后可以使用 systemctl start|stop|restart|enable|disable|status v2ray 控制 V2Ray 的运行。
+1. 编辑 `/etc/v2ray/config.json` 文件来配置你需要的代理方式；
+2. 执行 `systemctl start v2ray` 以启动 V2Ray 进程；
+3. 之后可使用 `systemctl start|stop|restart|enable|disable|status v2ray` 控制 V2Ray 的运行。
 
 ### go.sh 参数
 
@@ -185,14 +185,14 @@ go.sh 支持如下参数，可在手动安装时根据实际情况调整：
 
 ## Docker
 
-V2Ray 提供了预编译的 Docker image：
+V2Ray 提供了预编译的 Docker Image：
 
 * [v2fly/v2ray-core](https://hub.docker.com/r/v2fly/v2fly-core)：其中`latest`标签会跟随[v2fly](https://github.com/v2fly/docker-fly)编译仓库提交保持最新，而各个版本以 tag 方式发布，比如`4.21.3`。
 
-docker image 的文件结构跟 Linux 下安装的路径相同：
+Docker Image 的文件结构跟 Linux 下安装的路径相同：
 
-* /etc/v2ray/config.json：配置文件
-* /usr/bin/v2ray/v2ray：V2Ray 主程序
-* /usr/bin/v2ray/v2ctl：V2Ray 辅助工具
-* /usr/bin/v2ray/geoip.dat：IP 数据文件
-* /usr/bin/v2ray/geosite.dat：域名数据文件
+* `/etc/v2ray/config.json`：配置文件
+* `/usr/bin/v2ray/v2ray`：V2Ray 主程序
+* `/usr/bin/v2ray/v2ctl`：V2Ray 辅助工具
+* `/usr/bin/v2ray/geoip.dat`：IP 数据文件
+* `/usr/bin/v2ray/geosite.dat：`域名数据文件

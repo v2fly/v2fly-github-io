@@ -5,7 +5,7 @@ refen: welcome/start
 
 # 新手上路
 
-[下载并安装](install.md) 了 V2Ray 之后，你需要对它进行一下配置。为了演示，这里只介绍一下简单的配置方式，如需配置更复杂的功能，请参考后续的 [配置文档](../config/overview.md)。
+[下载并安装](install.md) 了 V2Ray 之后，你需要对它进行一下配置。为了演示，这里只介绍简单的配置方式，如需配置更复杂的功能，请参考后续的 [配置文档](../config/overview.md)。
 
 ## 服务器
 
@@ -38,7 +38,7 @@ refen: welcome/start
 
 ## 客户端
 
-在你的 PC（或手机）中，你需要运行 V2Ray 并使用下面的配置：
+在你的 PC（或手机）中，需要用以下配置运行 V2Ray ：
 
 ```json
 {
@@ -89,11 +89,11 @@ refen: welcome/start
 }
 ```
 
-上述配置唯一要改的地方就是你的服务器 IP，配置中已注明。上述配置会把除了局域网（比如访问路由器）之外的所有流量转发到你的服务器。
+上述配置唯一要更改的地方是你的服务器 IP，配置中已注明。上述配置会把除局域网（比如访问路由器）以外的所有流量转发至你的服务器。
 
 ## 运行
 
 * 在 Windows 和 macOS 中，配置文件通常是 V2Ray 同目录下的 `config.json` 文件。直接运行 `v2ray` 或 `v2ray.exe` 即可。
-* 在 Linux 中，配置文件通常位于 `/etc/v2ray/` 或 `/usr/local/etc/v2ray/` 目录下。运行 `v2ray --config=/etc/v2ray/config.json`，或使用 systemd 等工具把 V2Ray 作为服务在后台运行。
+* 在 Linux 中，配置文件通常位于 `/etc/v2ray/` 或 `/usr/local/etc/v2ray/` 目录下。运行 `v2ray --config=/etc/v2ray/config.json`，或使用 systemd 等工具将 V2Ray 作为服务在后台运行。
 
 更多详细的说明可以参考 [配置文档](../config/overview.md) 和 [新白话文指南](https://guide.v2fly.org/)。
