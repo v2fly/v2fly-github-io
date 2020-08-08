@@ -28,19 +28,19 @@ v2ctl> [ outbound.json ] updated outbound with tag:  proxy
 
 ## 用法说明
 
-命令行的`-config`可以多次指定。（也可以简写为`-c`，完全等效。）
+命令行的 `-config` 可以多次指定。（也可以简写为 `-c` ，完全等效。）
 
 ```plain
 # v2ray -config base.json -config cf1.json -c cf2.json -c cf3.json
 ```
 
-或者用`-confdir`参数指定一个目录，程序会按文件名顺序读取目录内的`.json`文件。
+或者用 `-confdir` 参数指定一个目录，程序会按文件名顺序读取目录内的 `.json` 文件。
 
 ```plain
 # v2ray -confdir /etc/v2ray/confs
 ```
 
-也可组合使用。（注意，目录内的配置级别作用在`-config`参数后，不管`-confdir`参数的位置）
+也可组合使用。（注意，目录内的配置级别作用在 `-config` 参数后，不管 `-confdir` 参数的位置）
 
 ```plain
 # v2ray -c cf1.json -c cf2.json -confdir /etc/v2ray/confs
@@ -87,7 +87,7 @@ v2ctl> [ outbound.json ] updated outbound with tag:  proxy
 
 这两个配置文件的就等效于合成一起的整配置。当需要修改出口节点，只需要修改 `outbounds.json` 内容。
 
-如果需要改编日志 log 的级别，也不需要改 `base.json`，后续加一个配置：
+如果需要改编日志 log 的级别，也不需要改 `base.json`，只需后续增加一个配置：
 
 * debuglog.json
 
@@ -104,7 +104,6 @@ v2ctl> [ outbound.json ] updated outbound with tag:  proxy
 ```plain
 # v2ray -c base.json -c outbounds.json -c debuglog.json
 ```
-
 
 #### 数组（`[]`）
 

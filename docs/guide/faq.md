@@ -36,7 +36,7 @@
 
 1. 客户端和服务器端的用户 ID 不匹配。
 1. 客户端和服务器端的用户 alterId 不匹配。
-1. 客户端与服务器的时间不匹配，误差不能超过 90 秒钟。
+1. 客户端与服务器的时间不匹配，误差超过 90 秒钟。
 
 ### Shadowsocks: Unknown address type
 
@@ -58,7 +58,7 @@
 
 ### 访问 Google 时，浏览器中显示证书无效
 
-错误信息：攻击者可能会试图从 www.google.com 窃取您的信息（例如：密码、通讯内容或信用卡信息）。了解详情 NET::ERR_CERT_COMMON_NAME_INVALID
+错误信息：攻击者可能试图从 www.google.com 窃取您的信息（例如：密码、通讯内容或信用卡信息）。了解详情 NET::ERR_CERT_COMMON_NAME_INVALID
 
 原因：你的 DNS 缓存可能已被污染。
 
