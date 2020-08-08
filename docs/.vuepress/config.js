@@ -86,6 +86,10 @@ module.exports = {
     themeConfig: {
         smoothScroll: true,
         logo: '/v2ray.png',
+        algolia: {
+            apiKey: '1c152ce7991c1da9adc5413104712c5a',
+            indexName: 'v2fly'
+        },
         locales: {
             '/': {
                 selectText: '选择语言',
