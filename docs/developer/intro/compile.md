@@ -48,7 +48,7 @@ chmod 755 user-package.sh
 
 以上脚本直接执行即可在当前目录生成类似 `v2ray-custom-linux-amd64-20190710-000000.zip` 的文件，其即为发布包。
 
-此脚本可用一些参数以编译出自行定制的发布包：
+你可以使用一些个性化参数来定制发布包：
 
 * `windows` 构建 Windows 版本的发布包
 * `darwin` 构建 darwin（macOS）版本的发布包
@@ -56,8 +56,8 @@ chmod 755 user-package.sh
 * `386` 构建成 32 位程序
 * `arm` 构建适合 arm 架构 CPU 的程序，arm arm64
 * `mips` 同上，请参阅 golang 的交叉编译文档
-* `nodat` 不包含地址库 `geoip.dat` 、 `geosite.dat` ， 可以减小发布包的大小
-* `noconf` 不要包括范例 json, systemd/systemv 等配置文件
+* `nodat` 不包含域名/IP数据库 `geoip.dat` 、 `geosite.dat` ， 可以减小发布包的大小
+* `noconf` 不包含范例 json, systemd/systemv 等配置文件
 * `nosource` 不要执行`go get ...`，避免已拉取至本地的 v2ray 源码被覆盖
 
 以上参数没有次序要求，只需要按需传给脚本。以构建一个适合 Windows 32 位，不带地址库，不带样例配置的发布包为例：
