@@ -108,7 +108,7 @@ v2ctl <command> <options>
 
 > `--file`
 
-将证书以 PEM 格式输出到文件。当指定 `--file=a` 时，将生成 `a_cert.pem` 和 `a_key.pem` 两个文件。
+将证书以 PEM 格式输出到文件。当指定时，将会生成证书与密钥两个文件。示例：当键入 `--file=a` 时，将生成 `a_cert.pem` 和 `a_key.pem` 两个文件。
 
 ### V2Ctl Fetch
 
@@ -134,7 +134,7 @@ v2ctl <command> <options>
 
 `v2ctl verify [--sig=/path/to/sigfile] <filepath>`
 
-此命令用于验证一个文件是否由 Project V 官方签名。
+此命令用于验证文件是否由 Project V 官方签名。
 
 > `--sig`
 
