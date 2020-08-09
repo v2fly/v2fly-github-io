@@ -186,6 +186,8 @@ UNIX domain socket，绝对路径，可在开头加 @ 代表 [abstract](https://
 
 ## 一些说明
 
+[v2ray-examples](https://github.com/v2fly/v2ray-examples) 有完整的 VLESS 配置示例供参考。（但目前不能保证其它协议的配置示例质量）
+
 待补充
 
 ## 新型协议回落模式解析
