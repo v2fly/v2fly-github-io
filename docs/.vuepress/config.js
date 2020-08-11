@@ -110,7 +110,7 @@ module.exports = {
                     },
                     {
                         text: '开发手册',
-                        link: '/developer/intro/guide',
+                        link: '/developer/intro/compile',
                     },
                     {
                         text: '新白话文指南',
@@ -199,9 +199,9 @@ module.exports = {
                             title: '开发手册',
                             collapsable: false,
                             children: [
-                                'intro/guide',
-                                'intro/design',
                                 'intro/compile',
+                                'intro/design',
+                                'intro/guide',
                             ]
                         },
                         {
