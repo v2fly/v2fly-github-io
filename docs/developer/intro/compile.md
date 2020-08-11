@@ -1,6 +1,8 @@
-# 配置开发环境
+# 第一步：学会编译
 
 V2Ray 使用 [Golang](https://golang.org/) 作为主要编程语言。团队发布流程上使用 [Bazel](https://bazel.build/) 作为构建工具。推荐使用 macOS 或 Linux 进行开发，少量的脚本可能无法在 Windows 上正常运行。
+
+[[Tutorial] Windows 下手动编译、交叉编译 V2Ray 的详细方法](https://github.com/v2ray/discussion/issues/756)
 
 ## 前序工作
 
