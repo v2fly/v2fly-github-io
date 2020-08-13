@@ -148,7 +148,7 @@ TLS 配置。TLS 由 Golang 提供，支持 TLS 1.3，不支持 DTLS。
 
 > `certificates`: \[ [CertificateObject](#certificateobject) \]
 
-证书列表，其中每一项表示一个证书
+证书列表，其中每一项表示一个证书（建议 fullchain）。
 
 ### CertificateObject
 
