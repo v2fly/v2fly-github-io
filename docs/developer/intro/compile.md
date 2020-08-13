@@ -2,9 +2,7 @@
 
 ## Windows
 
-若你使用的是 Windows 系统，只需参考这篇文章：
-
-[[Tutorial] Windows 下手动编译、交叉编译 V2Ray 的详细方法](https://github.com/v2ray/discussion/issues/756)
+若你正在使用 Windows，只需参考这篇文章：[[Tutorial] Windows 下手动编译、交叉编译 V2Ray 的详细方法](https://github.com/v2ray/discussion/issues/756)
 
 ## 前序工作
 
