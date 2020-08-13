@@ -205,6 +205,7 @@ UNIX domain socket，绝对路径，可在开头加 @ 代表 [abstract](https://
 - [Qv2ray](https://github.com/Qv2ray/Qv2ray)（v2.6.3+），支持 Linux、macOS、Windows
 - [v2rayN](https://github.com/2dust/v2rayN)（v3.21+），支持 Windows
 - [v2rayNG](https://github.com/2dust/v2rayNG)（v1.3.0+），支持 Android
+- [PassWall](https://github.com/xiaorouji/openwrt-package)（v3.9.35+），支持 OpenWrt
 
 ## VLESS 分享链接标准
 
