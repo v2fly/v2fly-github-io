@@ -1,10 +1,14 @@
 # 第一步：学会编译
 
-V2Ray 使用 [Golang](https://golang.org/) 作为主要编程语言。团队发布流程上使用 [Bazel](https://bazel.build/) 作为构建工具。推荐使用 macOS 或 Linux 进行开发，少量的脚本可能无法在 Windows 上正常运行。
+## Windows
+
+若你使用的是 Windows 系统，只需参考这篇文章：
 
 [[Tutorial] Windows 下手动编译、交叉编译 V2Ray 的详细方法](https://github.com/v2ray/discussion/issues/756)
 
 ## 前序工作
+
+V2Ray 使用 [Golang](https://golang.org/) 作为主要编程语言。团队发布流程上使用 [Bazel](https://bazel.build/) 作为构建工具。推荐使用 macOS 或 Linux 进行开发，少量的脚本可能无法在 Windows 上正常运行。
 
 * 安装 Golang: [golang.org/doc/install](https://golang.org/doc/install)
 * 安装 Bazel: [docs.bazel.build/install](https://docs.bazel.build/versions/master/install.html) （手工/脚本编译方式无需）
