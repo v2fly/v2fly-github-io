@@ -31,11 +31,15 @@ V2Ray 提供两种验证方式：
 
 ## Windows 和 macOS 安装方式
 
-通过上述方式下载的压缩包，解压之后可看到 v2ray 或 v2ray.exe。[通过命令行带参数运行](command.md) 即可。
+通过上述方式下载的压缩包，解压之后可看到 v2ray 或 v2ray.exe。
+
+然後 [通过命令行带参数运行](command.md) 即可。
 
 ## Linux 发行版仓库
 
 部分发行版可能已收录 V2Ray 到其官方维护和支持的软件仓库／软件源中。出于兼容性和适配性考虑，建议选用由您所使用的发行版，其维护团队维护的软件包，然后再考虑使用下文的安装脚本，亦或基于已发布的二进制文件或源代码，进行手动安装。
+
+* Debian：[golang-v2ray-core](https://tracker.debian.org/pkg/golang-v2ray-core)。
 
 ## Linux 安装脚本
 
@@ -50,89 +54,13 @@ V2Ray 提供两种验证方式：
 * 停止对 System V 的支援。
 * 启动服务由 root 用户替换为 nobody 用户。
 
-迁移方案：
+### 解决问题
 
-1. 确认该发行版不是上古版本。
-2. 确认该发行版使用 systemd：
-
-    ```plain
-    # ls -l /sbin/init
-    ```
-
-    出现 `/sbin/init -> ../lib/systemd/systemd` 即可。
-
-3. 移除原安装脚本的安装：
-
-    ```plain
-    # bash <(curl -L https://install.direct/go.sh) --remove
-
-    # rm -r /var/log/v2ray/
-    ```
-
-4. 迁移配置文件路径：
-
-    ```plain
-    # mv /etc/v2ray/ /usr/local/etc/
-    ```
-
-5. 使用新的安装脚本：
-
-    ```plain
-    # bash <(curl https://raw.githubusercontent.com/v2fly/fhs-install-v2ray/master/install-release.sh)
-    ```
-
-请将 Log 修改至 `/var/log/v2ray/` 文件夹下：
-
-```json
-{
-    "log": {
-        "access": "/var/log/v2ray/access.log",
-        "error": "/var/log/v2ray/error.log"
-    }
-}
-```
-
-如需 V2Ray 直接使用证书文件：
-
-假设证书文件的所在路径为 `/srv/http/`，文件分别为 `/srv/http/example.com.key` 和 `/srv/http/example.com.pem`。
-
-`/srv/http/` 的默认权限一般为 755，`/srv/http/example.com.key` 的默认权限一般为 600，`/srv/http/example.com.pem` 的默认权限一般为 644。
-
-将 `/srv/http/example.com.key` 修改为 644 即可：
-
-```plain
-# chmod 644 /srv/http/example.com.key
-```
-
-除此之外，还有另一个方法。
-
-```plain
-# id nobody
-```
-
-显示出来的结果可能是：
-
-```plain
-uid=65534(nobody) gid=65534(nogroup) groups=65534(nogroup)
-```
-
-也可能是：
-
-```plain
-uid=65534(nobody) gid=65534(nobody) groups=65534(nobody)
-```
-
-相应的，只需执行：
-
-```plain
-# chown -R nobody:nogroup /srv/http/
-```
-
-或是：
-
-```plain
-# chown -R nobody:nobody /srv/http/
-```
+* 「[不安装或更新 geoip.dat 和 geosite.dat](https://github.com/v2fly/fhs-install-v2ray/wiki/Do-not-install-or-update-geoip.dat-and-geosite.dat)」。
+* 「[使用证书时权限不足](https://github.com/v2fly/fhs-install-v2ray/wiki/Insufficient-permissions-when-using-certificates)」。
+* 「[从旧脚本迁移至此](https://github.com/v2fly/fhs-install-v2ray/wiki/Migrate-from-the-old-script-to-this)」。
+* 「[将 .dat 文档由 lib 目录移动到 share 目录](https://github.com/v2fly/fhs-install-v2ray/wiki/Move-.dat-files-from-lib-directory-to-share-directory)」。
+* 「[使用 VLESS 协议](https://github.com/v2fly/fhs-install-v2ray/wiki/To-use-the-VLESS-protocol)」。
 
 ## Docker
 
