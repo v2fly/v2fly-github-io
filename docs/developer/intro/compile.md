@@ -13,8 +13,8 @@ V2Ray 使用 [Golang](https://golang.org/) 作为主要编程语言。团队发�
 
 ## 拉取 V2Ray 源代码
 
-```go
-go get -u v2ray.com/core/...
+```bash
+go get -v -insecure v2ray.com/core/...
 ```
 
 注意在无法正常访问 Google 的网络环境，此命令无法正常完成。遇情况，需先配置好一个本地的 HTTP 代理服务器，并配置本地环境变量，比如
@@ -91,7 +91,7 @@ bazel 构建工具主要是发布团队使用。
 如果只需构建某个特定平台的安装包，如 Linux / AMD64:
 
 ```bash
-cd $GOPATH/src/v2ray.com/core
+cd $(go env GOPATH)/src/v2ray.com/core
 bazel build --action_env=PATH=$PATH --action_env=SPWD=$PWD --action_env=GOPATH=$(go env GOPATH) --action_env=GOCACHE=$(go env GOCACHE) --spawn_strategy local //release:v2ray_linux_amd64_package
 #Output: bazel-bin/release/v2ray-linux-64.zip
 ```
@@ -99,7 +99,7 @@ bazel build --action_env=PATH=$PATH --action_env=SPWD=$PWD --action_env=GOPATH=$
 构建所有安装包:
 
 ```bash
-cd $GOPATH/src/v2ray.com/core
+cd $(go env GOPATH)/src/v2ray.com/core
 bazel build --action_env=PATH=$PATH --action_env=SPWD=$PWD --action_env=GOPATH=$(go env GOPATH) --action_env=GOCACHE=$(go env GOCACHE) --spawn_strategy local //release:all
 ```
 
