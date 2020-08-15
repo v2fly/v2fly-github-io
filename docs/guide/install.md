@@ -66,9 +66,9 @@ V2Ray 提供两种验证方式：
 
 V2Ray 提供了预编译的 Docker Image：
 
-* [v2fly/v2ray-core](https://hub.docker.com/r/v2fly/v2fly-core)：其中`latest`标签会跟随[v2fly](https://github.com/v2fly/docker-fly)编译仓库提交保持最新，而各个版本以 tag 方式发布，比如`4.21.3`。
+* [v2fly/v2ray-core](https://hub.docker.com/r/v2fly/v2fly-core)：其中`latest`标签会跟随[v2fly](https://github.com/v2fly/docker-fly)编译仓库提交保持最新，而各个版本以 tag 方式发布，比如`4.27.0`。
 
-Docker Image 的文件结构跟 Linux 下安装的路径相同：
+Docker Image 的文件结构：
 
 * `/etc/v2ray/config.json`：配置文件
 * `/usr/bin/v2ray/v2ray`：V2Ray 主程序
