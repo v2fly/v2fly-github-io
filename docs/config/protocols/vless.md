@@ -116,7 +116,7 @@ VLESS 的用户 ID，必须是一个合法的 UUID，你可以用 [在线工具]
 注意这里是 decryption，和 clients 同级。现阶段同样需要填 `"none"`，不能留空。decryption 和 encryption 的位置不同，是因为若套一层约定加密，服务端需要先解密才能知道是哪个用户。</br>
 若未正确设置 decryption 的值，使用 v2ray 或 -test 时会收到错误信息。
 
-> `fallback`: \[ [FallbackObject](#fallbackobject) \]
+> `fallback`: [FallbackObject](#fallbackobject)
 
 可选 & 强烈建议使用：基于首包长度分流（VLESS 原创）的新型协议回落模式，相较于其它协议回落方案，更简洁、高效、安全，功能也更强大。
 
