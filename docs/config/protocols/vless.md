@@ -6,7 +6,7 @@
 **当前版本：VLESS PREVIEW 1.3（v2ray-core v4.27.0+）**
 
 :::warning
-VLESS 被设计工作于可靠信道，如 TLS。<br>
+目前 VLESS 没有自带加密，请用于可靠信道，如 TLS。<br>
 VLESS 处于公测阶段，测试期间请确保客户端与服务端的 v2ray-core 均为最新版本。</br>
 VLESS 的内测仓库为 [rprx/v2ray-vless](https://github.com/rprx/v2ray-vless)，其中 PREVIEW 系列的新版本会在发布一段时间后并入 [v2fly/v2ray-core](https://github.com/v2fly/v2ray-core)。
 :::
