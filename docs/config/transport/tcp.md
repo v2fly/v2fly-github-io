@@ -9,11 +9,16 @@ refen: configuration/transport/tcp
 
 ```json
 {
+    "acceptProxyProtocol": false,
     "header": {
         "type": "none"
     }
 }
 ```
+
+> `acceptProxyProtocol`: true | false
+
+（v4.27.1+）仅用于 inbound，是否接收 [PROXY protocol](https://www.haproxy.org/download/2.2/doc/proxy-protocol.txt)，默认值为 `false`。填写 `true` 时，请求必须带有 PROXY protocol v1 或 v2 的 header。
 
 > `header`: NoneHeaderObject | HttpHeaderobject
 
