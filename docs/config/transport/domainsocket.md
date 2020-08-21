@@ -15,7 +15,7 @@ Domain Socket 使用标准的 Unix domain socket 来传输数据。它的优势�
 
 ## DomainSocketObject
 
-`DomainSocketObject` 对应传输配置中的 `dsSettings` 项。
+`DomainSocketObject` 对应传输配置的 `dsSettings` 项。
 
 ```json
 {

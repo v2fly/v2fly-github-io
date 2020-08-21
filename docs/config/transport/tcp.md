@@ -7,6 +7,8 @@ refen: configuration/transport/tcp
 
 ## TcpObject
 
+`TcpObject` 对应传输配置的 `tcpSettings` 项。
+
 ```json
 {
     "acceptProxyProtocol": false,
