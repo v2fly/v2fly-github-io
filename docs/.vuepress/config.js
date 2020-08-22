@@ -160,6 +160,7 @@ module.exports = {
                                 'inbounds',
                                 'outbounds',
                                 'transport',
+                                'api',
                                 'stats',
                                 'reverse',
                                 'multiple_config',
