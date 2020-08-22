@@ -1,8 +1,3 @@
----
-refcn: chapter_02/04_dns
-refen: configuration/dns
----
-
 # DNS 服务器
 
 V2Ray 内置了一个 DNS 服务器，其有两大主要用途：根据域名的解析 IP 匹配路由规则，以及像传统的 DNS 功能，解析目标地址进行连接。

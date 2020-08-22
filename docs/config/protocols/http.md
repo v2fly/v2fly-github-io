@@ -1,8 +1,3 @@
----
-refcn: chapter_02/protocols/http
-refen: configuration/protocols/http
----
-
 # HTTP
 
 * 名称：`http`

@@ -1,8 +1,3 @@
----
-refcn: chapter_02/env
-refen: configuration/env
----
-
 # 环境变量
 
 V2Ray 提供以下环境变量以供修改 V2Ray 的一些底层配置。

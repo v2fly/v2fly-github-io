@@ -1,8 +1,3 @@
----
-refcn: chapter_02/protocols/socks
-refen: configuration/protocols/socks
----
-
 # Socks
 
 * 名称：`socks`

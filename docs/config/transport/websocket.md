@@ -1,8 +1,3 @@
----
-refcn: chapter_02/transport/websocket
-refen: configuration/transport/websocket
----
-
 # WebSocket
 
 使用标准的 WebSocket 来传输数据。WebSocket 连接可以被其它 HTTP 服务器（如 Nginx）分流。

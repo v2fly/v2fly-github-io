@@ -1,8 +1,3 @@
----
-refcn: chapter_00/start
-refen: welcome/start
----
-
 # 新手上路
 
 [下载并安装](install.md) 了 V2Ray 之后，你需要对它进行一下配置。为了演示，这里只介绍简单的配置方式，如需配置更复杂的功能，请参考后续的 [配置文档](../config/overview.md)。

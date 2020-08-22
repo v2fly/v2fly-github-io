@@ -1,8 +1,3 @@
----
-refcn: chapter_02/transport/quic
-refen: configuration/transport/quic
----
-
 # QUIC
 
 QUIC 全称 Quick UDP Internet Connection，是由 Google 提出的使用 UDP 进行多路并发传输的协议。其主要优势是:

@@ -1,8 +1,3 @@
----
-refcn: chapter_00/command
-refen: welcome/command
----
-
 # 命令行参数
 
 ## V2Ray

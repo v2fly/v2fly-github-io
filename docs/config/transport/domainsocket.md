@@ -1,8 +1,3 @@
----
-refcn: chapter_02/transport/domainsocket
-refen: configuration/transport/domainsocket
----
-
 # DomainSocket
 
 Domain Socket 使用标准的 Unix domain socket 来传输数据。它的优势是使用了操作系统内建的传输通道，而不会占用网络缓存。相比起本地环回网络（local loopback）来说，Domain socket 速度略快一些。

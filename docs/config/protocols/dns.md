@@ -1,8 +1,3 @@
----
-refcn: chapter_02/protocols/dns
-refen: configuration/protocols/dns
----
-
 # DNS
 
 * 名称：`dns`

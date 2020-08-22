@@ -1,8 +1,3 @@
----
-refcn: chapter_02/protocols/vmess
-refen: configuration/protocols/vmess
----
-
 # VMess
 
 * 名称：`vmess`

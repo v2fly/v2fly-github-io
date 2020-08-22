@@ -1,8 +1,3 @@
----
-refcn: chapter_02/inbounds
-refen: configuration/inbounds
----
-
 # Inbounds
 
 入站连接用于接收从客户端（浏览器或上一级代理服务器）发来的数据，可用的协议请见协议列表。

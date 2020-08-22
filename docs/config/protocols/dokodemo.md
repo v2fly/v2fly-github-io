@@ -1,8 +1,3 @@
----
-refcn: chapter_02/protocols/dokodemo
-refen: configuration/protocols/dokodemo
----
-
 # Dokodemo-door
 
 * 名称：`dokodemo-door`

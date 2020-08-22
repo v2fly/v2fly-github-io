@@ -1,8 +1,3 @@
----
-refcn: chapter_02/protocols/shadowsocks
-refen: configuration/protocols/shadowsocks
----
-
 # Shadowsocks
 
 * 名称：`shadowsocks`
