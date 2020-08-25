@@ -118,7 +118,7 @@ module.exports = {
                     },
                     {
                         text: 'GitHub',
-                        link: 'https://github.com/v2fly/v2ray-core'
+                        link: 'https://github.com/v2fly'
                     },
                 ],
                 sidebar: {
