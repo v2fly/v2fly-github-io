@@ -22,7 +22,7 @@ Websocket 会识别 HTTP 请求的 X-Forwarded-For 头来覆写流量的源地�
 
 > `acceptProxyProtocol`: true | false
 
-（v4.27.1+）仅用于 inbound，是否接收 [PROXY protocol](https://www.haproxy.org/download/2.2/doc/proxy-protocol.txt)，默认值为 `false`。填写 `true` 时，最底层 TCP 连接建立后，请求方必须先发送 PROXY protocol v1 或 v2，否则连接会被关闭。
+v4.27.1+，仅用于 inbound，是否接收 [PROXY protocol](https://www.haproxy.org/download/2.2/doc/proxy-protocol.txt)，默认值为 `false`。填写 `true` 时，最底层 TCP 连接建立后，请求方必须先发送 PROXY protocol v1 或 v2，否则连接会被关闭。
 
 PROXY protocol 专用于传递请求的真实来源 IP 和端口，若你不了解它，建议先忽略该项。常见的反代软件（如 HAProxy、Nginx）都可以配置发送它，VLESS fallbacks xver 也可以发送它。
 
