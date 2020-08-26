@@ -19,7 +19,7 @@
 
 > `header`: NoneHeaderObject | HttpHeaderobject
 
-数据包头部伪装设置，默认值为 `NoneHeaderObject`。
+数据包头部伪装设置，默认值为 `NoneHeaderObject`。HTTP 伪装无法被其它 HTTP 服务器（如 Nginx）分流，但可以被 VLESS fallbacks path 分流。
 
 ## NoneHeaderObject
 
