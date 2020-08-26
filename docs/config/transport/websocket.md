@@ -1,9 +1,9 @@
 # WebSocket
 
-使用标准的 WebSocket 来传输数据。WebSocket 连接可以被其它 HTTP 服务器（如 Nginx）分流。
+使用标准的 WebSocket 来传输数据。WebSocket 连接可以被其它 HTTP 服务器（如 Nginx）分流，也可以被 VLESS fallbacks path 分流。
 
 :::tip
-Websocket 会识别 HTTP 请求的 X-Forwarded-For 头来用做流量的源地址，优先级高于 PROXY protocol。
+Websocket 会识别 HTTP 请求的 X-Forwarded-For 头来覆写流量的源地址，优先级高于 PROXY protocol。
 :::
 
 ## WebSocketObject
