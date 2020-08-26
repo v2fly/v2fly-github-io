@@ -15,7 +15,7 @@
 
 > `acceptProxyProtocol`: true | false
 
-（v4.27.1+）仅用于 inbound，是否接收 [PROXY protocol](https://www.haproxy.org/download/2.2/doc/proxy-protocol.txt)，默认值为 `false`。填写 `true` 时，请求必须带有 PROXY protocol v1 或 v2 的 header。
+（v4.27.1+）仅用于 inbound，是否接收 [PROXY protocol](https://www.haproxy.org/download/2.2/doc/proxy-protocol.txt)，默认值为 `false`。填写 `true` 时，最底层 TCP 连接建立后，请求方必须先发送 PROXY protocol v1 或 v2，否则连接会被关闭。
 
 > `header`: NoneHeaderObject | HttpHeaderobject
 
