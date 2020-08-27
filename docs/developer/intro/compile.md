@@ -56,7 +56,7 @@ chmod 755 user-package.sh
 
 * `windows` 构建 Windows 版本的发布包
 * `darwin` 构建 darwin（macOS）版本的发布包
-* `tgz` 最后打包为 `tar.gz` 而不是 `zip` 格式
+* `tgz` 打包为 `tar.gz`
 * `386` 构建成 32 位程序
 * `arm` 构建适合 arm 架构 CPU 的程序，arm arm64
 * `mips` 同上，请参阅 golang 的交叉编译文档
