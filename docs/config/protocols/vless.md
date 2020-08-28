@@ -158,7 +158,7 @@ VLESS 的用户 ID，必须是一个合法的 UUID，你也可以用 [V2Ctl](../
 VLESS 会把首包长度 < 18，或协议版本无效或身份认证失败的流量转发到 `dest` 指定的地址。</br>
 其它传输组合 **必须删掉该项或所有子元素**，此时也不会开启协议回落模式，VLESS 会等待读够所需长度，协议版本无效或身份认证失败时，将直接断开连接。
 
-注意：`fallbacks` 是一个数组（v4.27.2+），这里是子元素的配置说明，参数不同于以前的 `fallback`。</br>
+注意：**`fallbacks`** 是一个数组（v4.27.2+），这里是子元素的配置说明，参数不同于以前的 `fallback`。</br>
 通常，你需要先设置一组 `alpn` 和 `path` 均为空的默认回落，然后再按需配置其它回落。
 
 > `alpn`: string
@@ -177,12 +177,12 @@ VLESS 会把首包长度 < 18，或协议版本无效或身份认证失败的流
 实际用途：分流**其它 inbound** 的 WebSocket 流量或 HTTP 伪装流量。没有多余处理、纯粹转发流量，实测比 Nginx 反代更强。</br>
 注意事项：千万注意 fallbacks 所在入站本身必须是 TCP+TLS，这是分流给其它 WS 入站用的，被分流的入站就无需 TLS 了。
 
-> `dest`: number | string
+> `dest`: string | number
 
 决定流量的去向，目前支持两类地址：（该项必填，否则无法启动）
 
 1. TCP，格式为 addr:port，其中 addr 支持域名、IPv4、IPv6，若填写域名，将直接发起连接（而不走内置的 DNS）。
-2. Unix domain socket，格式为绝对路径，可在开头加 @ 代表 [abstract](https://www.man7.org/linux/man-pages/man7/unix.7.html) domain socket。
+2. Unix domain socket，格式为绝对路径，形如 `"/dev/shm/domain.socket"`，可在开头加 `"@"` 代表 [abstract](https://www.man7.org/linux/man-pages/man7/unix.7.html)。
 
 若只填 port，数字或字符串均可，形如 `80`、`"80"`，通常指向一个明文 http 服务（addr 会被补为 `127.0.0.1`）。
 
