@@ -3,10 +3,10 @@
 - 名称：`vless`
 - 类型：入站 / 出站
 
-**当前版本：VLESS PREVIEW 1.3（v2ray-core v4.27.0+）**
+**当前版本：VLESS PREVIEW 1.5（v2ray-core v4.27.2+）**
 
 :::warning
-目前 VLESS 没有自带加密，请用于可靠信道，如 TLS。<br>
+目前 VLESS 没有自带加密，请用于可靠信道，如 TLS。</br>
 VLESS 处于公测阶段，测试期间请确保客户端与服务端的 v2ray-core 均为最新版本。</br>
 VLESS 的内测仓库为 [rprx/v2ray-vless](https://github.com/rprx/v2ray-vless)，其中 PREVIEW 系列的新版本会在发布一段时间后并入 [v2fly/v2ray-core](https://github.com/v2fly/v2ray-core)。
 :::
@@ -98,8 +98,11 @@ VLESS 的用户 ID，必须是一个合法的 UUID，你可以用 [在线工具]
         }
     ],
     "decryption": "none",
-    "fallback": {},
-    "fallback_h2": {}
+    "fallbacks": [
+        {
+            "dest": 80
+        }
+    ]
 }
 ```
 
@@ -112,7 +115,7 @@ VLESS 的用户 ID，必须是一个合法的 UUID，你可以用 [在线工具]
 注意这里是 decryption，和 clients 同级。现阶段同样需要填 `"none"`，不能留空。decryption 和 encryption 的位置不同，是因为若套一层约定加密，服务端需要先解密才能知道是哪个用户。</br>
 若未正确设置 decryption 的值，使用 v2ray 或 -test 时会收到错误信息。
 
-> `fallback`: [FallbackObject](#fallbackobject)
+> `fallbacks`: \[ [FallbackObject](#fallbackobject) \]
 
 可选 & 强烈建议使用：基于首包长度分流（VLESS 原创）的新型协议回落模式，相较于其它协议回落方案，更简洁、高效、安全，功能也更强大。
 
@@ -144,36 +147,49 @@ VLESS 的用户 ID，必须是一个合法的 UUID，你也可以用 [V2Ctl](../
 
 ```json
 {
-    "addr": "127.0.0.1",
-    "port": 80,
-    "unix": "/dev/shm/domain.socket",
+    "alpn": "",
+    "path": "",
+    "dest": 80,
     "xver": 0
 }
 ```
 
-**`fallback`** 项是可选的，只能用于 TCP+TLS 传输组合。**该项存在时，[inbound TLS](../../config/transport.md#tlsobject) 需设置 `"alpn":["http/1.1"]`。**</br>
-VLESS 会把首包长度 < 18，或协议版本无效或身份认证失败的流量转发到该项指定的地址。</br>
-其它传输组合 **必须删掉该项**，此时也不会开启协议回落模式，VLESS 会等待读够所需长度，协议版本无效或身份认证失败时，将直接断开连接。
+**`fallbacks`** 项是可选的，只能用于 TCP+TLS 传输组合。**该项有子元素时，[inbound TLS](../../config/transport.md#tlsobject) 需设置 `"alpn":["http/1.1"]`。**</br>
+VLESS 会把首包长度 < 18，或协议版本无效或身份认证失败的流量转发到 `dest` 指定的地址。</br>
+其它传输组合 **必须删掉该项或所有子元素**，此时也不会开启协议回落模式，VLESS 会等待读够所需长度，协议版本无效或身份认证失败时，将直接断开连接。
 
-**`fallback_h2`** 项也是可选的，和前者的参数完全相同。**该项存在时，[inbound TLS](../../config/transport.md#tlsobject) 需设置 `"alpn":["h2","http/1.1"]`。**</br>
-VLESS 若发现连接是 TLS 且 ALPN 协商结果为 h2，回落时会把流量转发到该项指定的地址。</br>
-这个设定解决了 Nginx 的 h2c 服务不能同时兼容 http/1.1 的问题，也就是说此时 Nginx 需要开两个 http 服务，一个 1.1，一个 2。
+注意：`fallbacks` 是一个数组（v4.27.2+），这里是子元素的配置说明，参数不同于以前的 `fallback`。</br>
+通常，你需要先设置一组 `alpn` 和 `path` 均为空的默认回落，然后再按需配置其它回落。
 
-> `addr`: string
+> `alpn`: string
 
-地址，支持域名、IPv4、IPv6，默认值为 `127.0.0.1`。若填写域名，将直接发起连接（而不走内置的 DNS）。
+（新手先忽略）尝试匹配 TLS ALPN **协商结果**，空为任意，默认为空。建议只按需用两种值：留空或填 `"h2"`。
 
-> `port`: number
+智能说明：有需要时，VLESS 才会尝试读取 TLS ALPN 协商结果，若成功，输出 info `realAlpn =` 到日志。</br>
+实际用途：解决了 Nginx 的 h2c 服务不能同时兼容 http/1.1 的问题，此时需要开两个 http 服务，分别是 1.1 和 2。</br>
+注意事项：fallbacks alpn 存在 `"h2"` 时，[inbound TLS](../../config/transport.md#tlsobject) 需设置 `"alpn":["h2","http/1.1"]`，以支持 h2 访问。
 
-端口，通常为一个明文 http 服务，无默认值。fallback 项存在且未填写 unix 时，该值必填，否则无法启动。
+> `path`: string
 
-> `unix`: string
+（新手先忽略）尝试匹配首包中的 HTTP PATH，空为任意，默认为空。非空必须以 `"/"` 开头，暂不支持 h2c。
 
-UNIX domain socket，绝对路径，可在开头加 @ 代表 [abstract](https://www.man7.org/linux/man-pages/man7/unix.7.html)，默认为空。若填写了该值，addr 和 port 将被忽略。
+智能说明：有需要时，VLESS 才会尝试看一眼 PATH（最快算法，并不完整解析 HTTP），若成功，输出 info `realPath =` 到日志。</br>
+实际用途：分流**其它 inbound** 的 WebSocket 流量或 HTTP 伪装流量。没有多余处理、纯粹转发流量，实测比 Nginx 反代更强。</br>
+注意事项：千万注意 fallbacks 所在入站本身必须是 TCP+TLS，这是分流给其它 WS 入站用的，被分流的入站就无需 TLS 了。
+
+> `dest`: number | string
+
+决定流量的去向，目前支持两类地址：（该项必填，否则无法启动）
+
+1. TCP，格式为 addr:port，其中 addr 支持域名、IPv4、IPv6，若填写域名，将直接发起连接（而不走内置的 DNS）。
+2. Unix domain socket，格式为绝对路径，可在开头加 @ 代表 [abstract](https://www.man7.org/linux/man-pages/man7/unix.7.html) domain socket。
+
+若只填 port，数字或字符串均可，形如 `80`、`"80"`，通常指向一个明文 http 服务（addr 会被补为 `127.0.0.1`）。
 
 > `xver`: number
 
-[PROXY protocol](https://www.haproxy.org/download/2.2/doc/proxy-protocol.txt)，专用于传递请求的真实来源 IP 和端口，填版本 1 或 2，默认为 0，即不启用。</br>
+（新手先忽略）发送 [PROXY protocol](https://www.haproxy.org/download/2.2/doc/proxy-protocol.txt)，专用于传递请求的真实来源 IP 和端口，填版本 1 或 2，默认为 0，即不启用。
+
 目前填 1 或 2，功能完全相同，只是结构不同，且前者可打印，后者为二进制。若有需要建议填 1。
 
 :::tip
