@@ -189,9 +189,9 @@ VLESS 会把 TLS 解密后首包长度 < 18 或协议版本无效、身份认证
 
 > `xver`: number
 
-（新手先忽略）发送 [PROXY protocol](https://www.haproxy.org/download/2.2/doc/proxy-protocol.txt)，专用于传递请求的真实来源 IP 和端口，填版本 1 或 2，默认为 0，即不启用。
+（新手先忽略）发送 [PROXY protocol](https://www.haproxy.org/download/2.2/doc/proxy-protocol.txt)，专用于传递请求的真实来源 IP 和端口，填版本 1 或 2，默认为 0，即不发送。若有需要建议填 1。
 
-目前填 1 或 2，功能完全相同，只是结构不同，且前者可打印，后者为二进制。若有需要建议填 1。V2Ray 的 TCP 和 WS 入站均已支持接收 PROXY protocol。
+目前填 1 或 2，功能完全相同，只是结构不同，且前者可打印，后者为二进制。V2Ray 的 TCP 和 WS 入站均已支持接收 PROXY protocol。
 
 :::tip
 若你正在 [配置 Nginx 接收 PROXY protocol](https://docs.nginx.com/nginx/admin-guide/load-balancer/using-proxy-protocol/#configuring-nginx-to-accept-the-proxy-protocol)，除了设置 proxy_protocol 外，还需设置 set_real_ip_from，否则可能会出问题。
