@@ -174,8 +174,8 @@ VLESS 会把首包长度 < 18，或协议版本无效或身份认证失败的流
 （新手先忽略）尝试匹配首包中的 HTTP PATH，空为任意，默认为空。非空必须以 `"/"` 开头，暂不支持 h2c。
 
 智能说明：有需要时，VLESS 才会尝试看一眼 PATH（最快算法，并不完整解析 HTTP），若成功，输出 info `realPath =` 到日志。</br>
-实际用途：分流**其它 inbound** 的 WebSocket 流量或 HTTP 伪装流量。没有多余处理、纯粹转发流量，实测比 Nginx 反代更强。</br>
-注意事项：千万注意 fallbacks 所在入站本身必须是 TCP+TLS，这是分流给其它 WS 入站用的，被分流的入站就无需 TLS 了。
+实际用途：分流其它 inbound 的 WebSocket 流量或 HTTP 伪装流量。没有多余处理、纯粹转发流量，实测比 Nginx 反代更强。</br>
+注意事项：**千万注意 fallbacks 所在入站本身必须是 TCP+TLS**，这是分流至其它 WS 入站用的，被分流的入站就无需 TLS 了。
 
 > `dest`: string | number
 
