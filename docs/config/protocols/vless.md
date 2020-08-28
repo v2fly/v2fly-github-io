@@ -154,7 +154,7 @@ VLESS 的用户 ID，必须是一个合法的 UUID，你也可以用 [V2Ctl](../
 }
 ```
 
-**`fallbacks` 是一个数组（v4.27.2+），这里是其中一个子元素的配置说明，参数也不同于以前的 `fallback`。**
+**`fallbacks` 是一个数组（v4.27.2+），这里是其中一个子元素的配置说明，参数不同于以前的 fallback 项。**
 
 `fallbacks` 项是可选的，只能用于 TCP+TLS 传输组合。**该项有子元素时，[inbound TLS](../../config/transport.md#tlsobject) 需设置 `"alpn":["http/1.1"]`。**</br>
 通常，你需要先设置一组 `alpn` 和 `path` 均省略或为空的默认回落，然后再按需配置其它回落。</br>
