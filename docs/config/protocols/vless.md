@@ -154,13 +154,13 @@ VLESS 的用户 ID，必须是一个合法的 UUID，你也可以用 [V2Ctl](../
 }
 ```
 
-**注意：`fallbacks` 是一个数组（v4.27.2+），这里是其中一个子元素的配置说明，参数不同于以前的 `fallback`。**
+**注意：`fallbacks` 是一个数组（v4.27.2+），这里是其中一个子元素的配置说明，参数也不同于以前的 `fallback`。**
 
 **`fallbacks` 项是可选的，只能用于 TCP+TLS 传输组合。该项有子元素时，[inbound TLS](../../config/transport.md#tlsobject) 需设置 `"alpn":["http/1.1"]`。**</br>
 通常，你需要先设置一组 `alpn` 和 `path` 均省略或为空的默认回落，然后再按需配置其它回落。</br>
 VLESS 会把 TLS 解密后首包长度 < 18 或协议版本无效、身份认证失败的流量转发到 `dest` 指定的地址。</br>
 
-其它传输组合必须删掉该项或所有子元素，此时也不会开启协议回落模式，VLESS 会等待读够所需长度，协议版本无效或身份认证失败时，将直接断开连接。
+其它传输组合必须删掉 `fallbacks` 项或所有子元素，此时也不会开启协议回落模式，VLESS 会等待读够所需长度，协议版本无效或身份认证失败时，将直接断开连接。
 
 > `alpn`: string
 
@@ -191,7 +191,7 @@ VLESS 会把 TLS 解密后首包长度 < 18 或协议版本无效、身份认证
 
 （新手先忽略）发送 [PROXY protocol](https://www.haproxy.org/download/2.2/doc/proxy-protocol.txt)，专用于传递请求的真实来源 IP 和端口，填版本 1 或 2，默认为 0，即不启用。
 
-目前填 1 或 2，功能完全相同，只是结构不同，且前者可打印，后者为二进制。若有需要建议填 1。
+目前填 1 或 2，功能完全相同，只是结构不同，且前者可打印，后者为二进制。若有需要建议填 1。V2Ray 的 TCP 和 WS 入站均已支持接收 PROXY protocol。
 
 :::tip
 若你正在 [配置 Nginx 接收 PROXY protocol](https://docs.nginx.com/nginx/admin-guide/load-balancer/using-proxy-protocol/#configuring-nginx-to-accept-the-proxy-protocol)，除了设置 proxy_protocol 外，还需设置 set_real_ip_from，否则可能会出问题。
