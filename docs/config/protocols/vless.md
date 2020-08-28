@@ -166,17 +166,17 @@ VLESS 会把 TLS 解密后首包长度 < 18 或协议版本无效、身份认证
 
 （新手先忽略）尝试匹配 TLS ALPN **协商结果**，空为任意，默认为空。建议只按需用两种填法：省略、填 `"h2"`。
 
-智能说明：有需要时，VLESS 才会尝试读取 TLS ALPN 协商结果，若成功，输出 info `realAlpn =` 到日志。</br>
-实际用途：解决了 Nginx 的 h2c 服务不能同时兼容 http/1.1 的问题，此时需要开两个 http 服务，分别是 1.1 和 2。</br>
-注意事项：fallbacks alpn 存在 `"h2"` 时，[inbound TLS](../../config/transport.md#tlsobject) 需设置 `"alpn":["h2","http/1.1"]`，以支持 h2 访问。
+智能：有需要时，VLESS 才会尝试读取 TLS ALPN 协商结果，若成功，输出 info `realAlpn =` 到日志。</br>
+用途：解决了 Nginx 的 h2c 服务不能同时兼容 http/1.1 的问题，此时需要开两个 http 服务，分别是 1.1 和 2。</br>
+注意：fallbacks alpn 存在 `"h2"` 时，[inbound TLS](../../config/transport.md#tlsobject) 需设置 `"alpn":["h2","http/1.1"]`，以支持 h2 访问。
 
 > `path`: string
 
 （新手先忽略）尝试匹配首包中的 HTTP PATH，空为任意，默认为空。非空则必须以 `"/"` 开头，暂不支持 h2c。
 
-智能说明：有需要时，VLESS 才会尝试看一眼 PATH（最快算法，并不完整解析 HTTP），若成功，输出 info `realPath =` 到日志。</br>
-实际用途：分流其它 inbound 的 WebSocket 流量或 HTTP 伪装流量，没有多余处理、纯粹转发流量，实测比 Nginx 反代更强。</br>
-注意事项：**千万注意 fallbacks 所在入站本身必须是 TCP+TLS**，这是分流至其它 WS 入站用的，被分流的入站则无需配置 TLS 了。
+智能：有需要时，VLESS 才会尝试看一眼 PATH（最快算法，并不完整解析 HTTP），若成功，输出 info `realPath =` 到日志。</br>
+用途：分流其它 inbound 的 WebSocket 流量或 HTTP 伪装流量，没有多余处理、纯粹转发流量，实测比 Nginx 反代更强。</br>
+注意：**千万注意 fallbacks 所在入站本身必须是 TCP+TLS**，这是分流至其它 WS 入站用的，被分流的入站则无需配置 TLS 了。
 
 > `dest`: string | number
 
