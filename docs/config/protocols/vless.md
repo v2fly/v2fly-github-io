@@ -117,7 +117,7 @@ VLESS 的用户 ID，必须是一个合法的 UUID，你可以用 [在线工具]
 
 > `fallbacks`: \[ [FallbackObject](#fallbackobject) \]
 
-可选 & 强烈建议使用：基于首包长度分流（VLESS 原创）的新型协议回落模式，相较于其它协议回落方案，更简洁、高效、安全，功能也更强大。
+一个数组，包含一系列强大的回落配置（可选）。
 
 ### ClientObject
 
