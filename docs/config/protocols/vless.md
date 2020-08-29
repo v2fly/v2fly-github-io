@@ -157,14 +157,14 @@ VLESS 的用户 ID，必须是一个合法的 UUID，你也可以用 [V2Ctl](../
 **`fallbacks` 是一个数组（v4.27.2+），这里是其中一个子元素的配置说明，参数不同于以前的 fallback 项。**
 
 `fallbacks` 项是可选的，只能用于 TCP+TLS 传输组合。**该项有子元素时，[inbound TLS](../../config/transport.md#tlsobject) 需设置 `"alpn":["http/1.1"]`。**</br>
-通常，你需要先设置一组 `alpn` 和 `path` 均省略或为空的默认回落，然后再按需配置其它回落。</br>
+通常，你需要先设置一组 `alpn` 和 `path` 均省略或为空的默认回落，然后再按需配置其它分流。</br>
 VLESS 会把 TLS 解密后首包长度 < 18 或协议版本无效、身份认证失败的流量转发到 `dest` 指定的地址。</br>
 
 其它传输组合必须删掉 `fallbacks` 项或所有子元素，此时也不会开启协议回落模式，VLESS 会等待读够所需长度，协议版本无效或身份认证失败时，将直接断开连接。
 
 > `alpn`: string
 
-（新手先忽略）尝试匹配 TLS ALPN **协商结果**，空为任意，默认为空。建议只按需用两种填法：省略、填 `"h2"`。
+（新手先忽略）尝试匹配 TLS ALPN **协商结果**，空为任意，默认为空。**建议只按需用两种填法：省略、填 `"h2"`。**
 
 智能：有需要时，VLESS 才会尝试读取 TLS ALPN 协商结果，若成功，输出 info `realAlpn =` 到日志。</br>
 用途：解决了 Nginx 的 h2c 服务不能同时兼容 http/1.1 的问题，此时需要开两个 http 服务，分别是 1.1 和 2。</br>
@@ -176,7 +176,7 @@ VLESS fallbacks 设置的 "alpn" 是匹配实际协商出的 ALPN，而 inbound 
 
 > `path`: string
 
-（新手先忽略）尝试匹配首包中的 HTTP PATH，空为任意，默认为空。非空则必须以 `"/"` 开头，暂不支持 h2c。
+（新手先忽略）尝试匹配首包中的 HTTP PATH，空为任意，默认为空。**非空则必须以 `"/"` 开头，暂不支持 h2c。**
 
 智能：有需要时，VLESS 才会尝试看一眼 PATH（最快算法，并不完整解析 HTTP），若成功，输出 info `realPath =` 到日志。</br>
 用途：分流其它 inbound 的 WebSocket 流量或 HTTP 伪装流量，没有多余处理、纯粹转发流量，[实测比 Nginx 反代更强](https://github.com/badO1a5A90/v2ray-doc/blob/master/v2ray%20speed%20test%20v4.27.2.md)。</br>
