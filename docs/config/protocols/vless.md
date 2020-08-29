@@ -171,7 +171,7 @@ VLESS 会把 TLS 解密后首包长度 < 18 或协议版本无效、身份认证
 注意：fallbacks alpn 存在 `"h2"` 时，[inbound TLS](../../config/transport.md#tlsobject) 需设置 `"alpn":["h2","http/1.1"]`，以支持 h2 访问。
 
 :::tip
-inbound TLS 设置的 "alpn" 是握手时可选的 ALPN 列表，而 VLESS fallbacks 设置的 "alpn" 是匹配实际协商出的 ALPN，两者含义不同。
+VLESS fallbacks 设置的 "alpn" 是匹配实际协商出的 ALPN，而 inbound TLS 设置的 "alpn" 是握手时可选的 ALPN 列表，两者含义不同。
 :::
 
 > `path`: string
