@@ -5,6 +5,8 @@
 
 **当前版本：VLESS PREVIEW 1.5（v2ray-core v4.27.2+）**
 
+**推荐配置：[VLESS TCP over TLS + 回落 & 分流 to WebSocket](<https://github.com/v2fly/v2ray-examples/tree/master/VLESS-TCP-TLS-WS%20(recommended)>)**
+
 :::warning
 目前 VLESS 没有自带加密，请用于可靠信道，如 TLS。</br>
 VLESS 处于公测阶段，测试期间请确保客户端与服务端的 v2ray-core 均为最新版本。</br>
