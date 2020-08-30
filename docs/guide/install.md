@@ -27,7 +27,7 @@ V2Ray 在以下平台中可用：
 V2Ray 提供两种验证方式：
 
 1. 安装包 ZIP 文件的 SHA1 / SHA256 摘要，在每个安装包对应的 `.dgst` 文件中可以找到。
-2. 使用 v2ctl verify --sig=Release example-file
+2. 使用 `v2ctl verify --sig=Release example-file`
 
 ## Windows 和 macOS 安装方式
 
@@ -74,4 +74,4 @@ Docker Image 的文件结构：
 * `/usr/bin/v2ray/v2ray`：V2Ray 主程序
 * `/usr/bin/v2ray/v2ctl`：V2Ray 辅助工具
 * `/usr/bin/v2ray/geoip.dat`：IP 数据文件
-* `/usr/bin/v2ray/geosite.dat：`域名数据文件
+* `/usr/bin/v2ray/geosite.dat`：域名数据文件
