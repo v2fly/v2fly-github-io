@@ -160,7 +160,7 @@ VLESS 的用户 ID，必须是一个合法的 UUID，你也可以用 [V2Ctl](../
 
 `fallbacks` 项是可选的，只能用于 TCP+TLS 传输组合。**该项有子元素时，[inbound TLS](../../config/transport.md#tlsobject) 需设置 `"alpn":["http/1.1"]`。**</br>
 通常，你需要先设置一组 `alpn` 和 `path` 均省略或为空的默认回落，然后再按需配置其它分流。</br>
-VLESS 会把 **TLS 解密后** 首包长度 < 18 或协议版本无效、身份认证失败的流量转发到 `dest` 指定的地址。</br>
+VLESS 会把 TLS **解密后** 首包长度 < 18 或协议版本无效、身份认证失败的流量转发到 `dest` 指定的地址。</br>
 
 其它传输组合必须删掉 `fallbacks` 项或所有子元素，此时也不会开启协议回落模式，VLESS 会等待读够所需长度，协议版本无效或身份认证失败时，将直接断开连接。
 
@@ -186,7 +186,7 @@ VLESS fallbacks 设置的 "alpn" 是匹配实际协商出的 ALPN，而 inbound 
 
 > `dest`: string | number
 
-决定 **TLS 解密后** 流量的去向，目前支持两类地址：（该项必填，否则无法启动）
+决定 TLS **解密后** 流量的去向，目前支持两类地址：（该项必填，否则无法启动）
 
 1. TCP，格式为 `"addr:port"`，其中 addr 支持域名、IPv4、IPv6，若填写域名，将直接发起连接（而不走内置的 DNS）。
 2. Unix domain socket，格式为绝对路径，形如 `"/dev/shm/domain.socket"`，可在开头加 `"@"` 代表 [abstract](https://www.man7.org/linux/man-pages/man7/unix.7.html)。
