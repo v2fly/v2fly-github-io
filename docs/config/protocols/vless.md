@@ -169,7 +169,7 @@ VLESS 会把 TLS **解密后** 首包长度 < 18 或协议版本无效、身份�
 （新手先忽略）尝试匹配 TLS ALPN **协商结果**，空为任意，默认为空。**建议只按需用两种填法：省略、填 `"h2"`。**
 
 智能：有需要时，VLESS 才会尝试读取 TLS ALPN 协商结果，若成功，输出 info `realAlpn =` 到日志。</br>
-用途：解决了 Nginx 的 h2c 服务不能同时兼容 http/1.1 的问题，此时需要写两行 listen，分别用于 1.1 和 h2c。</br>
+用途：解决了 Nginx 的 h2c 服务不能同时兼容 http/1.1 的问题，Nginx 需要写两行 listen，分别用于 1.1 和 h2c。</br>
 注意：fallbacks alpn 存在 `"h2"` 时，[inbound TLS](../../config/transport.md#tlsobject) 需设置 `"alpn":["h2","http/1.1"]`，以支持 h2 访问。
 
 :::tip
