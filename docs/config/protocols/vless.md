@@ -207,6 +207,8 @@ VLESS fallbacks 设置的 "alpn" 是匹配实际协商出的 ALPN，而 inbound 
 
 [v2ray-examples](https://github.com/v2fly/v2ray-examples) 有完整的 VLESS 配置示例供参考。（但目前不能保证其它协议的配置示例质量）
 
+VLESS 和 VMess 的日志策略不同，遇到了异常情况，前者通常是 Warning，后者通常是 Info。
+
 待补充
 
 ## 新型协议回落模式解析
