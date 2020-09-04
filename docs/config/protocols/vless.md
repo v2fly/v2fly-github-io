@@ -8,7 +8,7 @@
 **推荐配置：[VLESS over TCP with TLS + 回落 & 分流 to WebSocket](<https://github.com/v2fly/v2ray-examples/tree/master/VLESS-TCP-TLS-WS%20(recommended)>)**
 
 :::warning
-目前 VLESS 没有自带加密，请用于可靠信道，如 TLS。</br>
+目前 VLESS 没有自带加密，请用于可靠信道，如 TLS。目前 VLESS 不支持分享。</br>
 VLESS 处于公测阶段，测试期间请确保客户端与服务端的 v2ray-core 均为最新版本。</br>
 VLESS 的内测仓库为 [rprx/v2ray-vless](https://github.com/rprx/v2ray-vless)，其中 PREVIEW 系列的新版本会在发布一段时间后并入 [v2fly/v2ray-core](https://github.com/v2fly/v2ray-core)。
 :::
@@ -231,4 +231,6 @@ VLESS 和 VMess 的日志策略不同，遇到了异常情况，前者通常是 
 
 ## VLESS 分享链接标准
 
-v2ray-core v4.28.0 会增强 TLS，VLESS 的分享链接标准也会同时出炉。为了避免生态混乱，在此之前请勿支持分享，更勿自创分享链接方案。
+v2ray-core v4.28.0 会增强 TLS，~~VLESS 的分享链接标准也会同时出炉~~。为了避免生态混乱，在此之前请勿支持分享，更勿自创分享链接方案。
+
+更新：经过综合考虑，VLESS 应于正式版再出分享链接标准（不是近期）。
