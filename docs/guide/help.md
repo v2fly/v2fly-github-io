@@ -10,6 +10,10 @@ Project V 团队支持中文和英文，为避免一些不必要的误会，请�
 
 * [v2ray-core](https://github.com/v2fly/v2ray-core/issues)
 
+## Twitter News
+
+* [@realV2Fly](https://twitter.com/realV2Fly)
+
 ## Telegram 讨论组
 
 Project V 提供了下列讨论组，用于讨论不同类型的问题。
