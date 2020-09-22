@@ -61,11 +61,11 @@
 
 > `sniffing`: [SniffingObject](#sniffingobject)
 
-尝试探测流量的类型
+尝试探测流量的类型。
 
 > `allocate`: [AllocateObject](#allocateobject)
 
-端口分配设置
+端口分配设置。
 
 ## SniffingObject
 
@@ -81,11 +81,11 @@
 
 > `enabled`: true | false
 
-是否开启流量探测。
+是否开启流量探测，默认值为false。由于socks不关心应用协议，只负责传输，因此开启sniffing后方可嗅探socks中的http/tls流量，然后才能获取http请求域名，此时的socks代理才能触发domain路由规则。如果关闭sniffing，socks协议只能等待被解析后走IP路由，此时'domain'类型的路由规则不生效。由于http协议已经明确协议类型，因此不需要sniffing。
 
 > `destOverride`: \["http" | "tls"\]
 
-当流量为指定类型时，按其中包括的目标地址重置当前连接的目标。
+当流量为指定类型时，按路由规则中对应的规则进行路由。
 
 ## AllocateObject
 
