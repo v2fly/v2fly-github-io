@@ -219,7 +219,7 @@ VLESS fallbacks 设置的 "alpn" 是匹配实际协商出的 ALPN，而 inbound 
 
 [rprx/v2ray-vless/releases](https://github.com/rprx/v2ray-vless/releases) 有关于 [XTLS Project](https://github.com/XTLS/Go) 原理的一些介绍。
 
-经实测，XTLS 在低性能或没有 AES 硬解的设备上效果出众，如在硬路由上换用 XTLS，同样跑满 CPU 时实现网速翻倍，或是相同网速时 CPU 占用率减半，树莓派上也有明显提升。</br>
+经实测，XTLS 在低性能或没有 AES 硬解的设备上效果出众，如在硬路由上换用 XTLS，同样跑满 CPU 时实现网速 **翻倍**，或是相同网速时 CPU 占用率减半，树莓派上也有明显提升。</br>
 但对于性能充足的设备，XTLS 带来的提升似乎并不明显，更具体的仍有待测试。而对于移动设备，计算量减少意味着省电。XTLS 以后还会推出其它的算法，进一步减少计算量。
 
 **配置方法**
