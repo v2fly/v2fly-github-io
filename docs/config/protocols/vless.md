@@ -3,7 +3,7 @@
 - 名称：`vless`
 - 类型：入站 / 出站
 
-**当前版本：VLESS PREVIEW 1.5（v2ray-core v4.27.2+）**
+**当前版本：VLESS PREVIEW 2（v2ray-core v4.29.0+）**
 
 **推荐配置：[VLESS over TCP with TLS + 回落 & 分流 to WebSocket](<https://github.com/v2fly/v2ray-examples/tree/master/VLESS-TCP-TLS-WS%20(recommended)>)**
 
@@ -30,6 +30,7 @@ VLESS 的配置分为两部分，`InboundConfigurationObject` 和 `OutboundConfi
             "users": [
                 {
                     "id": "27848739-7e62-4138-9fd3-098a63964b6b",
+                    "flow": "",
                     "encryption": "none",
                     "level": 0
                 }
@@ -70,6 +71,7 @@ VLESS 的配置分为两部分，`InboundConfigurationObject` 和 `OutboundConfi
 ```json
 {
     "id": "27848739-7e62-4138-9fd3-098a63964b6b",
+    "flow": "",
     "encryption": "none",
     "level": 0
 }
@@ -78,6 +80,10 @@ VLESS 的配置分为两部分，`InboundConfigurationObject` 和 `OutboundConfi
 > `id`: string
 
 VLESS 的用户 ID，必须是一个合法的 UUID，你可以用 [在线工具](../../awesome/tools.md#%E5%9C%A8%E7%BA%BF%E5%B7%A5%E5%85%B7) 生成它。
+
+> `flow`: string
+
+v4.29.0+，流控，目前仅用于选择 [XTLS](#xtls) 的算法。
 
 > `encryption`: "none"
 
@@ -95,6 +101,7 @@ VLESS 的用户 ID，必须是一个合法的 UUID，你可以用 [在线工具]
     "clients": [
         {
             "id": "27848739-7e62-4138-9fd3-098a63964b6b",
+            "flow": "",
             "level": 0,
             "email": "love@v2fly.org"
         }
@@ -126,6 +133,7 @@ VLESS 的用户 ID，必须是一个合法的 UUID，你可以用 [在线工具]
 ```json
 {
     "id": "27848739-7e62-4138-9fd3-098a63964b6b",
+    "flow": "",
     "level": 0,
     "email": "love@v2fly.org"
 }
@@ -134,6 +142,10 @@ VLESS 的用户 ID，必须是一个合法的 UUID，你可以用 [在线工具]
 > `id`: string
 
 VLESS 的用户 ID，必须是一个合法的 UUID，你也可以用 [V2Ctl](../../guide/command.md#v2ctl) 生成它。
+
+> `flow`: string
+
+v4.29.0+，流控，目前仅用于选择 [XTLS](#xtls) 的算法。
 
 > `level`: number
 
@@ -203,6 +215,24 @@ VLESS fallbacks 设置的 "alpn" 是匹配实际协商出的 ALPN，而 inbound 
 若你正在 [配置 Nginx 接收 PROXY protocol](https://docs.nginx.com/nginx/admin-guide/load-balancer/using-proxy-protocol/#configuring-nginx-to-accept-the-proxy-protocol)，除了设置 proxy_protocol 外，还需设置 set_real_ip_from，否则可能会出问题。
 :::
 
+## XTLS
+
+[rprx/v2ray-vless/releases](https://github.com/rprx/v2ray-vless/releases) 有关于 [XTLS Project](https://github.com/XTLS/Go) 原理的一些介绍。
+
+经实测，XTLS 在低性能或没有 AES 硬解的设备上效果出众，如在硬路由上换用 XTLS，同样跑满 CPU 时实现网速翻倍，或是相同网速时 CPU 占用率减半，树莓派上也有明显提升。但对于性能充足的设备，XTLS 带来的提升并不明显，更具体的情况仍有待测试。而对于移动设备，计算量减少意味着省电。
+
+配置方法
+
+1. 确认服务端与客户端的 v2ray-core 均为 v4.29.0+，并已配置 VLESS over TCP with TLS + 回落 & 可选分流。
+2. 将服务端与客户端 VLESS streamSettings 的 `tls`、`tlsSettings` 改为 `xtls`、`xtlsSettings`。
+3. 服务端与客户端的 VLESS flow 均填写 `xtls-rprx-origin`（服务端的代表允许，客户端的代表使用）。
+
+注意事项
+
+1. 为了防止上层应用使用 QUIC，使用 XTLS 时客户端 VLESS 会自动拦截 UDP/443 的请求。若不需拦截，请在客户端填写 `xtls-rprx-origin-udp443`，服务端不变。
+2. 设置环境变量 `V2RAY_VLESS_XTLS_SHOW = true` 以显示 XTLS 的输出，适用于服务端与客户端。
+3. 不能开启 Mux。XTLS 需要获得原始的数据流，所以原理上也不会支持 WebSocket、不适用于 VMess。
+
 ## 一些说明
 
 [v2ray-examples](https://github.com/v2fly/v2ray-examples) 有完整的 VLESS 配置示例供参考。（但目前不能保证其它协议的配置示例质量）
@@ -219,7 +249,7 @@ VLESS 和 VMess 的日志策略不同，遇到了异常情况，前者通常是 
 
 1. VLESS 协议本身还会有不兼容升级，但客户端配置文件参数基本上是只增不减的。**所以如果你开发了用 core 的客户端，现在就可以适配。** iOS 客户端的协议实现则需紧跟升级。
 2. **视觉标准：UI 标识请统一用 VLESS**，而不是 VLess / Vless / vless，配置文件不受影响，代码内则顺其自然。
-3. `encryption` 应做成输入框而不是选择框，新配置的默认值应为 `none`，若用户置空则应代填 `none`。
+3. `encryption` 应做成输入框而不是选择框，新配置的默认值应为 `none`，若用户置空则应代填 `none`。`flow` 也应做成输入框，新配置的默认值应为空。
 
 **以下为已支持图形化配置 VLESS 的部分客户端列表，推荐使用：**（按实现时间先后顺序排列）
 
