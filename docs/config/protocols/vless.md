@@ -83,7 +83,7 @@ VLESS 的用户 ID，必须是一个合法的 UUID，你可以用 [在线工具]
 
 > `flow`: string
 
-v4.29.0+，流控，目前仅用于选择 [XTLS](#xtls) 的算法。
+v4.29.0+，流控，目前仅用于选择 [XTLS](#xtls-黑科技) 的算法。
 
 > `encryption`: "none"
 
@@ -145,7 +145,7 @@ VLESS 的用户 ID，必须是一个合法的 UUID，你也可以用 [V2Ctl](../
 
 > `flow`: string
 
-v4.29.0+，流控，目前仅用于选择 [XTLS](#xtls) 的算法。
+v4.29.0+，流控，目前仅用于选择 [XTLS](#xtls-黑科技) 的算法。
 
 > `level`: number
 
@@ -215,19 +215,20 @@ VLESS fallbacks 设置的 "alpn" 是匹配实际协商出的 ALPN，而 inbound 
 若你正在 [配置 Nginx 接收 PROXY protocol](https://docs.nginx.com/nginx/admin-guide/load-balancer/using-proxy-protocol/#configuring-nginx-to-accept-the-proxy-protocol)，除了设置 proxy_protocol 外，还需设置 set_real_ip_from，否则可能会出问题。
 :::
 
-## XTLS
+## XTLS 黑科技
 
 [rprx/v2ray-vless/releases](https://github.com/rprx/v2ray-vless/releases) 有关于 [XTLS Project](https://github.com/XTLS/Go) 原理的一些介绍。
 
-经实测，XTLS 在低性能或没有 AES 硬解的设备上效果出众，如在硬路由上换用 XTLS，同样跑满 CPU 时实现网速翻倍，或是相同网速时 CPU 占用率减半，树莓派上也有明显提升。但对于性能充足的设备，XTLS 带来的提升并不明显，更具体的情况仍有待测试。而对于移动设备，计算量减少意味着省电。
+经实测，XTLS 在低性能或没有 AES 硬解的设备上效果出众，如在硬路由上换用 XTLS，同样跑满 CPU 时实现网速翻倍，或是相同网速时 CPU 占用率减半，树莓派上也有明显提升。</br>
+但对于性能充足的设备，XTLS 带来的提升并不明显，更具体的情况仍有待测试。而对于移动设备，计算量减少意味着省电。
 
-配置方法
+**配置方法**
 
 1. 确认服务端与客户端的 v2ray-core 均为 v4.29.0+，并已配置 VLESS over TCP with TLS + 回落 & 可选分流。
 2. 将服务端与客户端 VLESS streamSettings 的 `tls`、`tlsSettings` 改为 `xtls`、`xtlsSettings`。
 3. 服务端与客户端的 VLESS flow 均填写 `xtls-rprx-origin`（服务端的代表允许，客户端的代表使用）。
 
-注意事项
+**注意事项**
 
 1. 为了防止上层应用使用 QUIC，使用 XTLS 时客户端 VLESS 会自动拦截 UDP/443 的请求。若不需拦截，请在客户端填写 `xtls-rprx-origin-udp443`，服务端不变。
 2. 设置环境变量 `V2RAY_VLESS_XTLS_SHOW = true` 以显示 XTLS 的输出，适用于服务端与客户端。
