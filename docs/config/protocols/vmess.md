@@ -8,7 +8,7 @@
 VMess 依赖于系统时间，请确保使用 V2Ray 的系统 UTC 时间误差在 90 秒之内，时区无关。在 Linux 系统中可以安装`ntp`服务来自动同步系统时间。
 
 :::tip
-在 v4.28.1 版本后，AlterID 设置为 0 代表启用 VMessAEAD
+在 v4.28.1 版本后，客户端 AlterID 设置为 0 代表启用 VMessAEAD ；服务端为自动适配，可同时兼容启用和未开启 VMessAEAD 的客户端。
 :::
 
 VMess 的配置分为两部分，`InboundConfigurationObject`和`OutboundConfigurationObject`，分别对应入站和出站协议配置中的`settings`项。
@@ -78,6 +78,10 @@ VMess 用户的主 ID。必须是一个合法的 UUID。
 > `alterId`：number
 
 为了进一步防止被探测，一个用户可以在主 ID 的基础上，再额外生成多个 ID。这里只需要指定额外的 ID 的数量，推荐值为 0 代表启用 VMessAEAD。不指定的话，默认值是 `0`。最大值 `65535`。这个值不能超过服务器端所指定的值。
+
+:::tip
+客户端可通过设置环境变量 `V2RAY_VMESS_AEAD_DISABLED=true` 强行禁用 VMessAEAD （不推荐，仅用于兼容服务端版本在 v4.28.1 前**且**设置了 `alterId=0` ）
+:::
 
 > `level`: number
 
