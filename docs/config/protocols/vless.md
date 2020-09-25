@@ -236,6 +236,8 @@ fallbacks 的匹配会选择最精确的那个，与子元素的排列顺序无�
 2. 可设置环境变量 `V2RAY_VLESS_XTLS_SHOW = true` 以显示 XTLS 的输出，适用于服务端与客户端（仅用于确信 XTLS 生效了，千万别设成永久性的，不然会很卡）。
 3. 不能开启 Mux。XTLS 需要获得原始的数据流，所以原理上也不会支持 WebSocket、不适用于 VMess。
 
+根据使用多台服务器进行 [测试](https://github.com/badO1a5A90/v2ray-doc/tree/master/speed%20test) 的结果，XTLS 现在的算法仍有很大提升空间，也会继续优化（主要是接收方行为）。
+
 ## 一些说明
 
 [v2ray-examples](https://github.com/v2fly/v2ray-examples) 有完整的 VLESS 配置示例供参考。（但目前不能保证其它协议的配置示例质量）
