@@ -226,7 +226,7 @@ fallbacks 的匹配会选择最精确的那个，与子元素的排列顺序无�
 
 **配置方法**
 
-1. 确认服务端与客户端的 v2ray-core 均为 v4.29.0+，并已配置 VLESS over TCP with TLS + 回落 & 可选分流。
+1. 确认服务端与客户端的 v2ray-core 均为 v4.29.0+，并已配置 VLESS over TCP with TLS + 回落 & 可选分流，或者直接参考 [终极配置](https://github.com/v2fly/v2ray-examples/tree/master/VLESS-TCP-XTLS-WHATEVER)。
 2. 将服务端与客户端 VLESS streamSettings 的 `tls`、`tlsSettings` 改为 `xtls`、`xtlsSettings`（服务端 XTLS 可以接收普通 TLS 请求，也不影响回落分流）。
 3. 服务端与客户端的 VLESS flow 均填写 `xtls-rprx-origin` 即可，服务端的代表允许，客户端的代表使用（该用户仍可不填 flow、用普通 TLS 连上服务端）。
 
