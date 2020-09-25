@@ -81,7 +81,7 @@
 
 > `enabled`: true | false
 
-是否开启流量探测，默认值为false。由于socks不关心应用协议，只负责传输，因此开启sniffing后方可嗅探socks中的http/tls流量，然后才能获取http请求域名，此时的socks代理才能触发domain路由规则。如果关闭sniffing，socks协议只能等待被解析后走IP路由，此时'domain'类型的路由规则不生效。由于http协议已经明确协议类型，因此不需要sniffing。
+是否开启流量探测，默认值为`false`。由于 SOCKS 不关心应用协议，只负责传输，因此开启`sniffing`后方可嗅探 SOCKS 中的 http/tls 流量，然后才能获取 http 请求域名，此时的 SOCKS 代理才能触发`domain`路由规则。如果关闭`sniffing`，SOCKS 协议只能等待被解析后走`IP`路由，此时`domain`路由规则不生效。由于 http 协议已经明确协议类型，因此不需要`sniffing`。
 
 > `destOverride`: \["http" | "tls"\]
 
