@@ -225,9 +225,6 @@ VLESS fallbacks 设置的 "alpn" 是匹配实际协商出的 ALPN，而 inbound 
 
 [rprx/v2ray-vless/releases](https://github.com/rprx/v2ray-vless/releases) 有关于 [XTLS Project](https://github.com/XTLS/Go) 原理的一些介绍。
 
-经实测，XTLS 在低性能或没有 AES 硬解的设备上效果出众，如在硬路由上换用 XTLS，同样跑满 CPU 时实现网速 **翻倍**，或是相同网速时 CPU 占用率减半，树莓派上也有明显提升。</br>
-但对于性能充足的设备，XTLS 带来的提升似乎并不明显，更具体的仍有待测试。而对于移动设备，计算量减少意味着省电。XTLS 以后还会推出其它的算法，进一步减少计算量。
-
 **配置方法**
 
 1. 确认服务端与客户端的 v2ray-core 均为 v4.29.0+，并已配置 VLESS over TCP with TLS + 回落 & 可选分流，或者直接参考 [终极配置](https://github.com/v2fly/v2ray-examples/tree/master/VLESS-TCP-XTLS-WHATEVER)。
@@ -238,9 +235,13 @@ VLESS fallbacks 设置的 "alpn" 是匹配实际协商出的 ALPN，而 inbound 
 
 1. 为了防止上层应用使用 QUIC，启用 XTLS 时客户端 VLESS 会自动拦截 UDP/443 的请求。若不需拦截，请在客户端填写 `xtls-rprx-origin-udp443`，服务端不变。
 2. 可设置环境变量 `V2RAY_VLESS_XTLS_SHOW = true` 以显示 XTLS 的输出，适用于服务端与客户端（仅用于确信 XTLS 生效了，千万别设成永久性的，不然会很卡）。
-3. 不能开启 Mux。XTLS 需要获得原始的数据流，所以原理上也不会支持 WebSocket、不适用于 VMess。
+3. 不能开启 Mux。XTLS 需要获得原始的数据流，所以原理上也不会支持 WebSocket、不适用于 VMess。此外，UDP over TCP 时，VLESS 不会开启 XTLS 的特殊功能。
 
-根据使用多台服务器进行 [测试](https://github.com/badO1a5A90/v2ray-doc/tree/master/speed%20test) 的结果，XTLS 现在的算法仍有很大提升空间，也会继续优化（主要是接收方行为）。
+**性能测试**
+
+1. XTLS 作为一个特殊的实用性技术，实际测试及模拟测试应当符合它的实用场景，即代理大流量 TLS 数据（16k），且最好是独立机器以便观察。若测试方式有误，甚至有可能不如普通 TLS。
+2. 目前有两类测试结果：一类是实测在硬路由（无 AES 硬解）上换用 XTLS，一位用户同样跑满 CPU 时网速 **翻倍**，另一位用户相同网速时 CPU 使用率减半，还有一位用户的树莓派上也有明显提升，这些反馈均来自 v2fly TG 群。另一类是用多台服务器（有 AES 硬解）和 CPU limit 进行模拟测试，详细的数据、结论等可以看 [这里](https://github.com/badO1a5A90/v2ray-doc/tree/master/performance_test/XTLS)。暂时可以有这样的综合结论：仅对 v2ray-core 而言，XTLS 目前在无 AES 硬解的设备上可以提升 100% 左右，在有 AES 硬解的设备上可以提升 50% 左右。一般来说，设备性能越弱、TLS 流量越大，XTLS 带来的提升就会越明显。而对于移动设备，计算量减少意味着省电。
+3. 根据上面的测试，XTLS 现在的 `xtls-rprx-origin` 算法仍有很大提升空间，也会继续优化（主要是接收方行为）。XTLS 以后还会推出其它的算法，进一步减少计算量。
 
 ## 一些说明
 
