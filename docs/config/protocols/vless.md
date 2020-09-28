@@ -217,6 +217,8 @@ VLESS fallbacks 设置的 "alpn" 是匹配实际协商出的 ALPN，而 inbound 
 
 fallbacks 的匹配会选择最精确的那个，与子元素的排列顺序无关。若配置了几个 alpn 和 path 均相同的子元素，则会以最后的为准。
 
+fallbacks 暂未支持 SNI 分流，若有多个域名，推荐前置 Nginx 等并配置 stream SNI 分流。
+
 ## XTLS 黑科技
 
 [rprx/v2ray-vless/releases](https://github.com/rprx/v2ray-vless/releases) 有关于 [XTLS Project](https://github.com/XTLS/Go) 原理的一些介绍。
