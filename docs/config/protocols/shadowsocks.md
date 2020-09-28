@@ -8,7 +8,7 @@
 与官方版本的兼容性：
 
 * 支持 TCP 和 UDP 数据包转发，其中 UDP 可选择性关闭；
-* 加密方式（其中 [AEAD](https://shadowsocks.org/en/spec/AEAD-Ciphers.html) 加密方式在 V2Ray 3.0 中加入）：
+* 加密方式：
   * AES-256-GCM
   * AES-128-GCM
   * ChaCha20-Poly1305 或称 ChaCha20-IETF-Poly1305
