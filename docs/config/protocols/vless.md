@@ -215,9 +215,11 @@ VLESS fallbacks 设置的 "alpn" 是匹配实际协商出的 ALPN，而 inbound 
 若你正在 [配置 Nginx 接收 PROXY protocol](https://docs.nginx.com/nginx/admin-guide/load-balancer/using-proxy-protocol/#configuring-nginx-to-accept-the-proxy-protocol)，除了设置 proxy_protocol 外，还需设置 set_real_ip_from，否则可能会出问题。
 :::
 
-fallbacks 的匹配会选择最精确的那个，与子元素的排列顺序无关。若配置了几个 alpn 和 path 均相同的子元素，则会以最后的为准。
+**补充说明**
 
-fallbacks 暂未支持 SNI 分流，若有多个域名，推荐前置 Nginx 等并配置 stream SNI 分流。
+1. 将匹配到最精确的子元素，与子元素的排列顺序无关。若配置了几个 alpn 和 path 均相同的子元素，则会以最后的为准。
+2. 回落分流均是 **解密后** TCP 层的转发，而不是 HTTP 层，只是有需要时会尝试看一眼 **首包中的** PATH。
+3. 暂不支持按域名分流。若有此需求，建议前置 Nginx 等并配置 stream SNI 分流。
 
 ## XTLS 黑科技
 
