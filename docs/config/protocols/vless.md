@@ -3,7 +3,7 @@
 - 名称：`vless`
 - 类型：入站 / 出站
 
-**当前版本：VLESS PREVIEW 2（v2ray-core v4.29.0+）**
+**当前版本：VLESS PREVIEW 2.1（v2ray-core v4.30.0+）**
 
 **终极配置：[VLESS over TCP with XTLS + 回落 & 分流 to WHATEVER](<https://github.com/v2fly/v2ray-examples/tree/master/VLESS-TCP-XTLS-WHATEVER>)**
 
