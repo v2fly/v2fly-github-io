@@ -77,7 +77,7 @@ Git
 
 ### 代码结构
 
-```text
+```bash
 v2ray-core
 ├── app        // 应用模块
 │   ├── router // 路由

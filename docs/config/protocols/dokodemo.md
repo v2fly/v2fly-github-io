@@ -60,7 +60,7 @@ V2Ray 中增加一个 dokodemo-door 的入站协议：
 
 配置 iptables：
 
-```plain
+```bash
 # Create new chain
 iptables -t nat -N V2RAY
 iptables -t mangle -N V2RAY
