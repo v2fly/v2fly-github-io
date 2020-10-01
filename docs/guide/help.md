@@ -22,7 +22,7 @@ Project V 提供了下列讨论组，用于讨论不同类型的问题。
   * 话题限定
   * 只允许发送特定表情
   
-* [日常](https://t.me/joinchat/JiDjBEzQFLN5R_BdpMpelw)
+* [日常](https://t.me/joinchat/JiDjBEzQFLNeBl_-JUrm_A)
   * 用于其它不相关的话题。
 
 ::: warning
