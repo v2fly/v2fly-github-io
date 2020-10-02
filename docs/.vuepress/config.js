@@ -81,7 +81,9 @@ module.exports = {
     ],
     plugins: [
         'vuepress-plugin-mermaidjs',
-        '@vuepress/back-to-top'
+        '@vuepress/back-to-top',
+        '@vuepress/active-header-links',
+        '@vuepress/nprogress'
     ],
     themeConfig: {
         smoothScroll: true,
