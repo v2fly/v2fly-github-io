@@ -72,7 +72,7 @@ chmod 755 user-package.sh
 
 脚本编译的 v2ray，其启动信息会变成用户编译的时间，以做区分：
 
-```text
+```bash
 V2Ray 4.20.0 (user) 20190710-010000
 A unified platform for anti-censorship.
 ```
