@@ -23,7 +23,7 @@ module.exports = {
             title: 'V2Fly.org',
             description: 'Project V 是一个工具集合，它可以帮助你打造专属的基础通信网络',
         },
-        '/en/': {
+        '/en-US/': {
             lang: 'en-US',
             title: 'V2Fly.org',
             description: 'Project V is a collection of tools that can help you build your own basic communication network',
