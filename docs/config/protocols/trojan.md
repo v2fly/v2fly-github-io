@@ -73,7 +73,7 @@ Trojan 的配置分为两部分，`InboundConfigurationObject` 和 `OutboundConf
 
 v4.31.0+，V2Ray 的 Trojan 有完整的 VLESS fallbacks 支持，配置方式完全一致，后续 VLESS fallbacks 升级时会同步跟进。
 
-触发回落的方式也基本相同：首包长度 < 58 或第 57 个字节不为 '\r'（因为 Trojan 没有协议版本）或身份认证失败。
+触发回落的条件也基本相同：首包长度 < 58 或第 57 个字节不为 '\r'（因为 Trojan 没有协议版本）或身份认证失败。
 
 ## OutboundConfigurationObject
 
