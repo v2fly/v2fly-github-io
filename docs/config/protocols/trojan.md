@@ -17,9 +17,14 @@ Trojan 的配置分为两部分，`InboundConfigurationObject` 和 `OutboundConf
 {
     "clients":[
         {
-            "password":"password",
+            "password": "password",
             "email": "love@v2fly.org",
             "level": 0,
+        }
+    ],
+    "fallbacks": [
+        {
+            "dest": 80
         }
     ]
 }
@@ -29,11 +34,15 @@ Trojan 的配置分为两部分，`InboundConfigurationObject` 和 `OutboundConf
 
 一个数组，其中每一项是一个 [ClientObject](#clientobject)。
 
+> `fallbacks`: \[[FallbackObject](#fallbackobject)\]
+
+一个数组，包含一系列强大的回落分流配置（可选）。
+
 ### ClientObject
 
 ```json
 {
-    "password":"password",
+    "password": "password",
     "email": "love@v2fly.org",
     "level": 0,
 }
@@ -51,6 +60,20 @@ Trojan 的配置分为两部分，`InboundConfigurationObject` 和 `OutboundConf
 
 用户等级，默认值为 `0`。详见 [本地策略](../policy.md)。
 
+### FallbackObject
+
+```json
+{
+    "alpn": "",
+    "path": "",
+    "dest": 80,
+    "xver": 0
+}
+```
+
+v4.31.0+，V2Ray 的 Trojan 有完整的 VLESS fallbacks 支持，配置方式完全一致，后续 VLESS fallbacks 升级时会同步跟进。
+
+触发回落的方式也基本相同：首包长度 < 58 或第 57 个字节不为 '\r'（因为 Trojan 没有协议版本）或身份认证失败。
 
 ## OutboundConfigurationObject
 
