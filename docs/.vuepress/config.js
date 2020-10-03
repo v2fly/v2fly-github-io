@@ -151,7 +151,7 @@ module.exports = {
                     '/': 'auto',
                 },
             },
-            '/en/': {
+            '/en-US/': {
                 label: 'English',
                 selectText: 'Languages',
                 ariaLabel: 'Select language',
