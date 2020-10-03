@@ -30,11 +30,11 @@ Trojan 的配置分为两部分，`InboundConfigurationObject` 和 `OutboundConf
 }
 ```
 
-> `clients`: \[[ClientObject](#clientobject)\]
+> `clients`: \[ [ClientObject](#clientobject) \]
 
 一个数组，其中每一项是一个 [ClientObject](#clientobject)。
 
-> `fallbacks`: \[[FallbackObject](#fallbackobject)\]
+> `fallbacks`: \[ [FallbackObject](#fallbackobject) \]
 
 一个数组，包含一系列强大的回落分流配置（可选）。
 
@@ -91,7 +91,7 @@ v4.31.0+，V2Ray 的 Trojan 有完整的 VLESS fallbacks 支持，配置方式�
 }
 ```
 
-> `servers`: \[[ServerObject](#serverobject)\]
+> `servers`: \[ [ServerObject](#serverobject) \]
 
 一个数组，其中每一项是一个 [ServerObject](#serverobject)。
 
