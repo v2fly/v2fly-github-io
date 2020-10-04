@@ -225,7 +225,7 @@ VLESS fallbacks 设置的 "alpn" 是匹配实际协商出的 ALPN，而 inbound 
 
 [rprx/v2ray-vless/releases](https://github.com/rprx/v2ray-vless/releases) 有关于 [XTLS Project](https://github.com/XTLS/Go) 原理的一些介绍。
 
-XTLS 无缝拼接了内外两条货真价实的 TLS，此时代理本身无需再对数据加解密。也可以理解为是增强版 ECH，即多支持代理转发、明文加密、UDP over TCP（VLESS 提供）。
+XTLS 无缝拼接了内外两条货真价实的 TLS，此时代理本身无需再对数据加解密。VLESS & XTLS 可以理解为是增强版 ECH，即多支持身份认证、代理转发、明文加密、UDP over TCP 等。
 
 **配置方法**
 
