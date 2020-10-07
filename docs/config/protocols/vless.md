@@ -3,7 +3,7 @@
 - 名称：`vless`
 - 类型：入站 / 出站
 
-**当前版本：VLESS PREVIEW 2.1（v2ray-core v4.30.0+）**
+**当前版本：VLESS PREVIEW 2.4（v2ray-core v4.31.0+）**
 
 **终极配置：[VLESS over TCP with XTLS + 回落 & 分流 to WHATEVER](<https://github.com/v2fly/v2ray-examples/tree/master/VLESS-TCP-XTLS-WHATEVER>)**
 
@@ -241,9 +241,10 @@ XTLS 无缝拼接了内外两条货真价实的 TLS，此时代理本身无需�
 
 **性能测试**
 
-1. XTLS 作为一个特殊的实用性技术，实际测试及模拟测试应当符合它的实用场景，即代理大流量 TLS 数据（16k data record），且最好是独立机器以便观察。若测试方式有误，甚至有可能不如普通 TLS，比如使用 XTLS 且开启它的特殊功能（flow）后只跑非 TLS 数据，会不断产生尝试识别 TLS data record 的开销（下个版本会解决此问题）。
+1. XTLS 作为一个特殊的实用性技术，实际测试及模拟测试应当符合它的实用场景，即代理大流量 TLS 数据（16k data record），且最好是独立机器以便观察。若测试方式有误，甚至有可能不如普通 TLS，比如使用 XTLS 且开启它的特殊功能（flow）后只跑非 TLS 数据，会不断产生尝试识别 TLS data record 的开销（v4.31.0+ 已解决此问题）。
 2. 目前有两类测试结果：一类是实测在硬路由（无 AES 硬解）上换用 XTLS，一位用户同样跑满 CPU 时网速 **翻倍**，另一位用户相同网速时 CPU 使用率减半（AC86U），还有一位用户的树莓派 4B 服务端上也有明显提升，这些反馈均来自 v2fly TG 群。另一类是用多台服务器（有 AES 硬解）和 CPU limit 进行模拟测试，详细的数据、结论等可以看 [这里](https://github.com/badO1a5A90/v2ray-doc/tree/master/performance_test/XTLS)。暂时可以有这样的综合结论：仅对 v2ray-core 而言，XTLS 目前在无 AES 硬解的设备上可以提升 100% 左右，在有 AES 硬解的设备上可以提升 50% 左右。一般来说，设备性能越弱、TLS 流量越大，XTLS 带来的提升就会越明显。而对于移动设备，计算量减少意味着省电。
-3. 根据上面的测试，XTLS 现在的 `xtls-rprx-origin` 算法仍有很大提升空间，也会继续优化（主要是接收方行为）。XTLS 以后还会推出其它的算法，进一步减少计算量。
+3. 根据上面的测试，XTLS 现在的 `xtls-rprx-origin` 算法仍有很大提升空间，也会继续优化（主要是接收方行为）。XTLS 以后还会推出其它的算法，进一步减少计算量。<br/>
+v4.31.0+，XTLS 新增 Direct 模式 `xtls-rprx-direct`、`xtls-rprx-direct-udp443`，理论上拥有接近 XTLS 极限的性能，它与 Origin 的不同之处详见 [这里](https://github.com/rprx/v2ray-vless/releases/tag/preview2.4)。
 
 ## 一些说明
 
