@@ -227,6 +227,8 @@ VLESS fallbacks 设置的 "alpn" 是匹配实际协商出的 ALPN，而 inbound 
 
 **XTLS 无缝拼接了内外两条货真价实的 TLS，此时代理本身几乎无需再对数据加解密。VLESS + XTLS 可以理解为是增强版 ECH，即多支持身份认证、代理转发、明文加密、UDP over TCP 等。**
 
+XTLS 本身需要是 TLSv1.3，内层 TLS 可以为 1.3 或 1.2，此时特殊功能才会生效。
+
 **配置方法**
 
 1. 确认服务端与客户端的 v2ray-core 均为 v4.30.0+，并已配置 VLESS over TCP with TLS + 回落 & 可选分流，或者直接参考 [终极配置](https://github.com/v2fly/v2ray-examples/tree/master/VLESS-TCP-XTLS-WHATEVER)。
