@@ -1,6 +1,6 @@
 ---
 home: true
-heroImage: v2ray.png
+heroImage: /v2ray.png
 heroText: Project V
 tagline: Help you build an exclusive basic communication network
 actionText: Quick start →
