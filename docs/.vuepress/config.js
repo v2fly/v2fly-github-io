@@ -30,7 +30,7 @@ module.exports = {
         }
     },
     themeConfig: {
-        repo: 'v2fly',
+        repo: 'v2fly/v2fly-github-io',
         logo: '/v2ray.png',
         algolia: {
             apiKey: '1c152ce7991c1da9adc5413104712c5a',
