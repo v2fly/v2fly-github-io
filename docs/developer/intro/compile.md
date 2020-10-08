@@ -1,6 +1,6 @@
 # 第一步：学会编译
 
-## Windows
+## Windows 平台
 
 若你正在使用 Windows，只需参考这篇文章：[[Tutorial] Windows 下手动编译、交叉编译 V2Ray 的详细方法](https://github.com/v2ray/discussion/issues/756)
 
@@ -11,100 +11,106 @@ V2Ray 使用 [Golang](https://golang.org/) 作为主要编程语言。团队发�
 * 安装 Golang: [golang.org/doc/install](https://golang.org/doc/install)
 * 安装 Bazel: [docs.bazel.build/install](https://docs.bazel.build/versions/master/install.html) （手工/脚本编译方式无需）
 
-## 拉取 V2Ray 源代码
+## 拉取 V2Ray 源代码并安装依赖
 
 ```bash
-go get -u -v v2ray.com/core/...
+git clone https://github.com/v2fly/v2ray-core.git
+
+export V2RayDir=$(pwd)/v2ray-core
+cd "${V2RayDir}" && go mod download
 ```
 
-注意在无法正常访问 Google 的网络环境，此命令无法正常完成。遇情况，需先配置好一个本地的 HTTP 代理服务器，并配置本地环境变量，比如
+注意：在无法正常访问 Google 的网络环境，此命令无法正常完成。遇情况，需先配置好一个本地的 HTTP 代理服务器，并配置本地环境变量，比如：
 
 ```bash
 export http_proxy=http://localhost:1080
 export https_proxy=http://localhost:1080
 ```
 
-go 将会使用本地的 1080 端口的 HTTP 代理进行源码拉取。
+Go 将会使用本机 1080 端口的 HTTP 代理进行源码拉取。
 
-## 手工构建
+### 手工构建
 
 ```bash
-cd $(go env GOPATH)/src/v2ray.com/core/main
-env CGO_ENABLED=0 go build -o $HOME/v2ray -ldflags "-s -w"
+cd "${V2RayDir}"/main
+env CGO_ENABLED=0 go build -o $HOME/v2ray -trimpath -ldflags "-s -w -buildid="
 
-cd $(go env GOPATH)/src/v2ray.com/core/infra/control/main
-env CGO_ENABLED=0 go build -o $HOME/v2ctl -tags confonly -ldflags "-s -w"
+cd "${V2RayDir}"/infra/control/main
+env CGO_ENABLED=0 go build -o $HOME/v2ctl -trimpath -ldflags "-s -w -buildid=" -tags confonly
 ```
 
-以上命令在当前用户的 `$HOME` 目录下生成刚新构建的 `v2ray` 、 `v2ctl` 执行文件，即可正常使用。
+运行以上命令会在当前用户的 `$HOME` 目录下生成刚构建的 `v2ray` 、 `v2ctl` 可执行文件，即可正常使用。
 
-构建其他 CPU 架构、其他系统（Windows/macOS）的过程属于 golang 的交叉编译流程，主要是控制 `GOOS` / `GOARCH` 两个变量，请参阅 golang 相关文档，本处不再赘述。
-
-## 脚本构建
-
-以上手工构建的只是 v2ray 可执行程序本身，发行包 zip 内还包含了地址库等其他文件。使用打包脚本可方便地制作出的发布包。
+构建其他 CPU 架构、其他系统（Windows/macOS）的可执行文件，属于 Golang 的交叉编译流程，主要是控制 `GOOS` / `GOARCH` 两个环境变量，详情请参阅 Golang 相关文档。下面演示如何构建可运行在 linux 64 位系统的 `v2ray`、`v2ctl` 可执行文件：
 
 ```bash
-wget https://raw.githubusercontent.com/v2ray/v2ray-core/master/release/user-package.sh
+cd "${V2RayDir}"/main
+env CGO_ENABLED=0 GOOS=linux GOARCH=amd64 go build -o $HOME/v2ray -trimpath -ldflags "-s -w -buildid="
+
+cd "${V2RayDir}"/infra/control/main
+env CGO_ENABLED=0 GOOS=linux GOARCH=amd64 go build -o $HOME/v2ctl -trimpath -ldflags "-s -w -buildid=" -tags confonly
+```
+
+### 脚本构建
+
+以上手工构建的只是 v2ray 可执行程序本身，发行包内还包含了地址库（`geoip.dat`、`geosite.dat`）、配置文件等其他文件。使用打包脚本可方便地制作出适用于多种操作系统、多种 CPU 架构的发布包。
+
+```bash
+wget https://raw.githubusercontent.com/v2fly/v2ray-core/master/release/user-package.sh
 chmod 755 user-package.sh
 ./user-package.sh
 ```
 
-以上脚本直接执行即可在当前目录生成类似 `v2ray-custom-linux-amd64-20190710-000000.zip` 的文件，其即为发布包。
+直接执行以上脚本即可在当前目录生成适用于 64 位 linux 操作系统的可执行文件，文件名类似于 `v2ray-custom-linux-amd64-20201008-104530.zip`，即为发布包。
 
-你可以使用一些个性化参数来定制发布包：
+你还可以使用一些个性化参数来定制发布包：
 
 * `windows` 构建 Windows 版本的发布包
 * `darwin` 构建 darwin（macOS）版本的发布包
-* `tgz` 打包为 `tar.gz`
-* `386` 构建成 32 位程序
-* `arm` 构建适合 arm 架构 CPU 的程序，arm arm64
-* `mips` 同上，请参阅 golang 的交叉编译文档
-* `nodat` 不包含域名/IP数据库 `geoip.dat` 、 `geosite.dat` ， 可以减小发布包的大小
-* `noconf` 不包含范例 json, systemd/systemv 等配置文件
-* `nosource` 不要执行`go get ...`，避免已拉取至本地的 v2ray 源码被覆盖
+* `tgz` 发布包使用 `tar.gz` 格式
+* `386` 构建 32 位可执行文件
+* `arm` 构建适用于 arm 架构 CPU 的可执行文件
+* `mips` 构建适合于 mips 架构 CPU 的可执行文件，请参阅 Golang 交叉编译文档
+* `nodat` 不包含域名/IP 数据库 `geoip.dat`、`geosite.dat`（可以减小发布包的大小）
+* `noconf` 不包含范例 JSON, Systemd/Systemv 等配置文件
+* `nosource` 不要从远端拉取 V2Ray 源代码（此选项适用于本地已有 V2Ray 源代码的情况。运行脚本前必须先进入到本地 v2ray 代码根目录）
 
-以上参数没有次序要求，只需要按需传给脚本。以构建一个适合 Windows 32 位，不带地址库，不带样例配置的发布包为例：
+以上参数没有次序要求，只需要按需传给脚本。下面以构建一个适用于 32 位 Windows 操作系统、不带地址库、不带样例配置的发布包为例：
 
 ```bash
 ./user-package.sh windows 386 nodat noconf
 ```
 
-脚本编译的 v2ray，其启动信息会变成用户编译的时间，以做区分：
+脚本构建的 v2ray，其启动信息会变成用户编译的时间，以做区分：
 
 ```bash
-V2Ray 4.20.0 (user) 20190710-010000
+V2Ray 4.30.0 (user) 20201008-104530
 A unified platform for anti-censorship.
 ```
 
-用户还可修改脚本内的信息，定制属于自己的版本。
+用户还可自定义 `CODENAME`，定制属于自己的版本：
 
 ```bash
-CODENAME="user"
-BUILDNAME=$NOW
+./user-package.sh windows 386 nodat noconf CODENAME="custom-codename"
 ```
 
-## 自动构建
+### Bazel 自动构建
 
-bazel 构建工具主要是发布团队使用。
+Bazel 构建工具主要是发布团队使用。
 
 如果只需构建某个特定平台的安装包，如 Linux / AMD64:
 
 ```bash
-cd $(go env GOPATH)/src/v2ray.com/core
+cd "${V2RayDir}"
+
 bazel build --action_env=PATH=$PATH --action_env=SPWD=$PWD --action_env=GOPATH=$(go env GOPATH) --action_env=GOCACHE=$(go env GOCACHE) --spawn_strategy local //release:v2ray_linux_amd64_package
 #Output: bazel-bin/release/v2ray-linux-64.zip
 ```
 
-构建所有安装包:
+构建所有平台、所有架构的安装包:
 
 ```bash
-cd $(go env GOPATH)/src/v2ray.com/core
+cd "${V2RayDir}"
+
 bazel build --action_env=PATH=$PATH --action_env=SPWD=$PWD --action_env=GOPATH=$(go env GOPATH) --action_env=GOCACHE=$(go env GOCACHE) --spawn_strategy local //release:all
-```
-
-## 安装构建完成的安装包
-
-```bash
-$GOPATH/src/v2ray.com/core/release/install-release.sh --local <path/to/zip/file>
 ```
