@@ -11,13 +11,13 @@ V2Ray 使用 [Golang](https://golang.org/) 作为主要编程语言。团队发�
 * 安装 Golang: [golang.org/doc/install](https://golang.org/doc/install)
 * 安装 Bazel: [docs.bazel.build/install](https://docs.bazel.build/versions/master/install.html) （手工/脚本编译方式无需）
 
-## 拉取 V2Ray 源代码并安装依赖
+## 多种构建方式
+
+### 拉取 V2Ray 源代码并安装依赖
 
 ```bash
 git clone https://github.com/v2fly/v2ray-core.git
-
-export V2RayDir=$(pwd)/v2ray-core
-cd "${V2RayDir}" && go mod download
+cd v2ray-core && go mod download
 ```
 
 注意：在无法正常访问 Google 的网络环境，此命令无法正常完成。遇情况，需先配置好一个本地的 HTTP 代理服务器，并配置本地环境变量，比如：
@@ -31,11 +31,15 @@ Go 将会使用本机 1080 端口的 HTTP 代理进行源码拉取。
 
 ### 手工构建
 
+:::tip
+本小节的命令需要在 V2Ray 项目根目录内运行。
+:::
+
 ```bash
-cd "${V2RayDir}"/main
+cd ./main
 env CGO_ENABLED=0 go build -o $HOME/v2ray -trimpath -ldflags "-s -w -buildid="
 
-cd "${V2RayDir}"/infra/control/main
+cd ./infra/control/main
 env CGO_ENABLED=0 go build -o $HOME/v2ctl -trimpath -ldflags "-s -w -buildid=" -tags confonly
 ```
 
@@ -44,10 +48,10 @@ env CGO_ENABLED=0 go build -o $HOME/v2ctl -trimpath -ldflags "-s -w -buildid=" -
 构建其他 CPU 架构、其他系统（Windows/macOS）的可执行文件，属于 Golang 的交叉编译流程，主要是控制 `GOOS` / `GOARCH` 两个环境变量，详情请参阅 Golang 相关文档。下面演示如何构建可运行在 linux 64 位系统的 `v2ray`、`v2ctl` 可执行文件：
 
 ```bash
-cd "${V2RayDir}"/main
+cd ./main
 env CGO_ENABLED=0 GOOS=linux GOARCH=amd64 go build -o $HOME/v2ray -trimpath -ldflags "-s -w -buildid="
 
-cd "${V2RayDir}"/infra/control/main
+cd ./infra/control/main
 env CGO_ENABLED=0 GOOS=linux GOARCH=amd64 go build -o $HOME/v2ctl -trimpath -ldflags "-s -w -buildid=" -tags confonly
 ```
 
@@ -72,7 +76,7 @@ chmod 755 user-package.sh
 * `arm` 构建适用于 arm 架构 CPU 的可执行文件
 * `mips` 构建适合于 mips 架构 CPU 的可执行文件，请参阅 Golang 交叉编译文档
 * `nodat` 不包含域名/IP 数据库 `geoip.dat`、`geosite.dat`（可以减小发布包的大小）
-* `noconf` 不包含范例 JSON, Systemd/Systemv 等配置文件
+* `noconf` 不包含范例 JSON、Systemd/Systemv 等配置文件
 * `nosource` 不要从远端拉取 V2Ray 源代码（此选项适用于本地已有 V2Ray 源代码的情况。运行脚本前必须先进入到本地 v2ray 代码根目录）
 
 以上参数没有次序要求，只需要按需传给脚本。下面以构建一个适用于 32 位 Windows 操作系统、不带地址库、不带样例配置的发布包为例：
@@ -98,19 +102,20 @@ A unified platform for anti-censorship.
 
 Bazel 构建工具主要是发布团队使用。
 
-如果只需构建某个特定平台的安装包，如 Linux / AMD64:
+:::tip
+本小节的命令需要在 V2Ray 项目根目录内运行。
+:::
+
+如果只需构建某个特定平台的发布包，如 64 位 Linux 系统，运行：
 
 ```bash
-cd "${V2RayDir}"
-
 bazel build --action_env=PATH=$PATH --action_env=SPWD=$PWD --action_env=GOPATH=$(go env GOPATH) --action_env=GOCACHE=$(go env GOCACHE) --spawn_strategy local //release:v2ray_linux_amd64_package
-#Output: bazel-bin/release/v2ray-linux-64.zip
 ```
 
-构建所有平台、所有架构的安装包:
+构建所有平台、所有架构的发布包，运行：
 
 ```bash
-cd "${V2RayDir}"
-
 bazel build --action_env=PATH=$PATH --action_env=SPWD=$PWD --action_env=GOPATH=$(go env GOPATH) --action_env=GOCACHE=$(go env GOCACHE) --spawn_strategy local //release:all
 ```
+
+构建完成的文件位于 V2Ray 项目根目录内 `bazel-bin/release` 文件夹里。
