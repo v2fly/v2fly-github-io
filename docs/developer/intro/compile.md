@@ -36,11 +36,8 @@ Go 将会使用本机 1080 端口的 HTTP 代理进行源码拉取。
 :::
 
 ```bash
-cd ./main
-env CGO_ENABLED=0 go build -o $HOME/v2ray -trimpath -ldflags "-s -w -buildid="
-
-cd ./infra/control/main
-env CGO_ENABLED=0 go build -o $HOME/v2ctl -trimpath -ldflags "-s -w -buildid=" -tags confonly
+env CGO_ENABLED=0 go build -o $HOME/v2ray -trimpath -ldflags "-s -w -buildid=" ./main
+env CGO_ENABLED=0 go build -o $HOME/v2ctl -trimpath -ldflags "-s -w -buildid=" -tags confonly ./infra/control/main
 ```
 
 运行以上命令会在当前用户的 `$HOME` 目录下生成刚构建的 `v2ray` 、 `v2ctl` 可执行文件，即可正常使用。
@@ -48,11 +45,8 @@ env CGO_ENABLED=0 go build -o $HOME/v2ctl -trimpath -ldflags "-s -w -buildid=" -
 构建其他 CPU 架构、其他系统（Windows/macOS）的可执行文件，属于 Golang 的交叉编译流程，主要是控制 `GOOS` / `GOARCH` 两个环境变量，详情请参阅 Golang 相关文档。下面演示如何构建可运行在 linux 64 位系统的 `v2ray`、`v2ctl` 可执行文件：
 
 ```bash
-cd ./main
-env CGO_ENABLED=0 GOOS=linux GOARCH=amd64 go build -o $HOME/v2ray -trimpath -ldflags "-s -w -buildid="
-
-cd ./infra/control/main
-env CGO_ENABLED=0 GOOS=linux GOARCH=amd64 go build -o $HOME/v2ctl -trimpath -ldflags "-s -w -buildid=" -tags confonly
+env CGO_ENABLED=0 GOOS=linux GOARCH=amd64 go build -o $HOME/v2ray -trimpath -ldflags "-s -w -buildid=" ./main
+env CGO_ENABLED=0 GOOS=linux GOARCH=amd64 go build -o $HOME/v2ctl -trimpath -ldflags "-s -w -buildid=" -tags confonly ./infra/control/main
 ```
 
 ### 脚本构建
