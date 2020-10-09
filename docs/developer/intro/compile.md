@@ -36,8 +36,8 @@ Go 将会使用本机 1080 端口的 HTTP 代理进行源码拉取。
 :::
 
 ```bash
-env CGO_ENABLED=0 go build -o $HOME/v2ray -trimpath -ldflags "-s -w -buildid=" ./main
-env CGO_ENABLED=0 go build -o $HOME/v2ctl -trimpath -ldflags "-s -w -buildid=" -tags confonly ./infra/control/main
+CGO_ENABLED=0 go build -o $HOME/v2ray -trimpath -ldflags "-s -w -buildid=" ./main
+CGO_ENABLED=0 go build -o $HOME/v2ctl -trimpath -ldflags "-s -w -buildid=" -tags confonly ./infra/control/main
 ```
 
 运行以上命令会在当前用户的 `$HOME` 目录下生成刚构建的 `v2ray`、`v2ctl` 可执行文件，即可正常使用。
@@ -46,9 +46,9 @@ env CGO_ENABLED=0 go build -o $HOME/v2ctl -trimpath -ldflags "-s -w -buildid=" -
 下面演示如何构建可运行在 Windows 64 位系统的 `v2ray.exe`、`wv2ray.exe`、`v2ctl.exe` 可执行文件：
 
 ```bash
-env CGO_ENABLED=0 GOOS=windows GOARCH=amd64 go build -o $HOME/v2ray.exe -trimpath -ldflags "-s -w -buildid=" ./main
-env CGO_ENABLED=0 GOOS=windows GOARCH=amd64 go build -o $HOME/wv2ray.exe -trimpath -ldflags "-s -w -H windowsgui -buildid=" ./main
-env CGO_ENABLED=0 GOOS=windows GOARCH=amd64 go build -o $HOME/v2ctl.exe -trimpath -ldflags "-s -w -buildid=" -tags confonly ./infra/control/main
+CGO_ENABLED=0 GOOS=windows GOARCH=amd64 go build -o $HOME/v2ray.exe -trimpath -ldflags "-s -w -buildid=" ./main
+CGO_ENABLED=0 GOOS=windows GOARCH=amd64 go build -o $HOME/wv2ray.exe -trimpath -ldflags "-s -w -H windowsgui -buildid=" ./main
+CGO_ENABLED=0 GOOS=windows GOARCH=amd64 go build -o $HOME/v2ctl.exe -trimpath -ldflags "-s -w -buildid=" -tags confonly ./infra/control/main
 ```
 
 ### 脚本构建
