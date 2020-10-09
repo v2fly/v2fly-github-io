@@ -49,7 +49,7 @@ CGO_ENABLED=0 GOOS=windows GOARCH=amd64 go build -o $HOME/wv2ray.exe -trimpath -
 CGO_ENABLED=0 GOOS=windows GOARCH=amd64 go build -o $HOME/v2ctl.exe -trimpath -ldflags "-s -w -buildid=" -tags confonly ./infra/control/main
 ```
 
-执行 `go tool dist list` 查看所有支持的系统与架构。某些架构还需要控制其它环境变量，如 `arm` 的 `GOARM`。
+执行 `go tool dist list` 查看所有支持的系统与架构。某些架构还需要控制其它环境变量，如 `arm` 的 `GOARM`，用于设置运行时 CPU 浮点协处理器的版本。
 
 ### 脚本构建
 
