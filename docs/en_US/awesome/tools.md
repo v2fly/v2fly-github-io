@@ -14,7 +14,7 @@ There's a third-part UUID generator [uuidgenerator.net](https://www.uuidgenerato
     url="https://github.com/2dust/v2rayNG"
     name="V2RayNG"
     :platforms="['android']"
-    description="V2RayNG is an Android APP based on V2Ray core, VPN connections can be made with VMess."
+    description="V2RayNG is an Android APP based on V2Ray core, VPN connections can be created with VMess."
 />
 
 <Tool
@@ -28,7 +28,7 @@ There's a third-part UUID generator [uuidgenerator.net](https://www.uuidgenerato
     url="https://github.com/yanue/V2rayU"
     name="V2rayU"
     :platforms="['mac']"
-    description="V2rayU，a macOS client based on V2Ray core. It's programmed with Swift 4.2，supports for VMess、Shadowsocks、SOCKS5 protrols etc，subscription、QR code、importing from clipboard、custom config、QR sharing are also supported"
+    description="V2rayU，a macOS client based on V2Ray core. It's programmed with Swift 4.2，supports for VMess、Shadowsocks、SOCKS5 protocols etc，subscription、QR code、importing from clipboard、custom config、QR sharing are also supported"
 />
 
 <Tool
