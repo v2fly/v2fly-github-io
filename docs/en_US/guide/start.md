@@ -1,12 +1,12 @@
 # Basics
 
-You will need to configure the V2Ray after the [installation](install.md). For demostration purpose, we will only introduce the basic configuration. If a complex configuration is required, please refer to [Config Reference](../config/overview.md).
+You will need to configure the V2Ray after the [installation](install.md). For demostration purposes, we will only introduce the basic configuration. If a complex configuration is required, please refer to [Config Reference](../config/overview.md).
 
 
 
 ## Server Side
 
-For bypassing the censorship, a server with free access to the Internet is required. 
+To circumvent censorship, a server with unfettered access to the Internet is required. 
 
 ```json
 {
@@ -31,7 +31,7 @@ For bypassing the censorship, a server with free access to the Internet is requi
 }
 ```
 
-Make sure the `id` and port number matches the client side configuration. 
+Make sure the `id` and port number match the client side configuration. 
 
 ## Client Side
 
@@ -86,7 +86,7 @@ Run the following configuration on the client side.
 }
 ```
 
-The only part need to be changed in the config above is the server address as mentioned in the comment. These config will proxy your traffic to the server expect for local networks, such as your router.
+The only part need to be changed in the config above is the server address as mentioned in the comment. These config will proxy your traffic to the server except for local networks, such as your router.
 
 ## Start V2Ray
 

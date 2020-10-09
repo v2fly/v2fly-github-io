@@ -2,7 +2,7 @@
 
 ## Supported OS Platforms
 
-The following platforms are supported by V2Ray
+The following platforms are supported by V2Ray:
 
 * Windows 7 and later（x86 / amd64 / arm32）
 * macOS 10.10 Yosemite and later（amd64）
@@ -20,7 +20,7 @@ Compiled binary packages can be found via the following links.
 2. Homebrew: [github.com/v2ray/homebrew-v2ray](https://github.com/v2ray/homebrew-v2ray)
 3. Arch Linux: [packages/community/x86_64/v2ray/](https://www.archlinux.org/packages/community/x86_64/v2ray/)
 
-All packages are in the .zip format. Look for the file matching your platform and upzip it to start.
+All packages are in the .zip format. Look for the file matching your platform and unzip it to get started.
 
 ## Package Integrity
 
@@ -37,7 +37,7 @@ Followed by running it via [command line](command.md).
 
 ## Linux Distro Repository
 
-Some distros may have included V2Ray to their repositories. It is recommened to use these repositories for better compatibility before using the installation script. 
+Some distros may have included V2Ray to their repositories. It is recommended to use these repositories for better compatibility before using any installation script. 
 
 * Debian: [golang-v2ray-core](https://tracker.debian.org/pkg/golang-v2ray-core).
 
@@ -54,7 +54,7 @@ What's new?
 * Stopped supporting System V.
 * Changed the service user from root to nobody.
 
-### FAQ (Chinese Only)
+### FAQ (In Chinese)
 
 * [Install without updating geoip.dat and geosite.dat](https://github.com/v2fly/fhs-install-v2ray/wiki/Do-not-install-or-update-geoip.dat-and-geosite.dat)
 * [Insufficient permissions when using certificates](https://github.com/v2fly/fhs-install-v2ray/wiki/Insufficient-permissions-when-using-certificates)
