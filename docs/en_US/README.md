@@ -4,7 +4,7 @@ heroImage: /v2ray.png
 heroText: Project V
 tagline: Help you build an exclusive basic communication network
 actionText: Quick start →
-actionLink: /guide/start.html
+actionLink: /en_US/guide/start.html
 features:
 - title: Multiple entrances and multiple exits
   details: A V2Ray process can concurrently support multiple inbound and outbound protocols, and each protocol can work independently.
