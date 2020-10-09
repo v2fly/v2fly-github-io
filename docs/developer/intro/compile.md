@@ -6,10 +6,10 @@
 
 ## 前序工作
 
-V2Ray 使用 [Golang](https://golang.org/) 作为主要编程语言。团队发布流程上使用 [Bazel](https://bazel.build/) 作为构建工具。推荐使用 Linux 或 macOS 进行开发，少量的脚本可能无法在 Windows 上正常运行。
+V2Ray 使用 [Golang](https://golang.org/) 作为主要编程语言，团队发布流程上使用 [Bazel](https://bazel.build/) 作为构建工具。推荐使用 Linux 或 macOS 进行开发，少量的脚本可能无法在 Windows 上正常运行。
 
-* 安装 Golang: [golang.org/doc/install](https://golang.org/doc/install)
-* 安装 Bazel: [docs.bazel.build/install](https://docs.bazel.build/versions/master/install.html) （手工/脚本编译方式无需）
+* 安装 Golang: [golang.org/doc/install](https://golang.org/doc/install)，至少 1.15.x
+* 安装 Bazel: [docs.bazel.build/install](https://docs.bazel.build/versions/master/install.html) （手工/脚本构建方式无需）
 
 ## 多种构建方式
 
@@ -39,7 +39,8 @@ CGO_ENABLED=0 go build -o $HOME/v2ctl -trimpath -ldflags "-s -w -buildid=" -tags
 
 运行以上命令会在当前用户的 `$HOME` 目录下生成刚构建的 `v2ray`、`v2ctl` 可执行文件，即可正常使用。
 
-构建其他 CPU 架构、其他系统（Windows/macOS）的可执行文件，属于 Golang 的交叉编译流程，主要是控制 `GOOS` / `GOARCH` 两个环境变量，详情请参阅 Golang 相关文档。</br>
+构建其他 CPU 架构、其他系统（Windows/macOS）的可执行文件，属于 Golang 的交叉编译流程，主要是控制 `GOOS` / `GOARCH` 两个环境变量，详情请参阅 Golang 相关文档。
+
 下面演示如何构建可运行在 Windows 64 位系统的 `v2ray.exe`、`wv2ray.exe`、`v2ctl.exe` 可执行文件：
 
 ```bash
@@ -47,6 +48,8 @@ CGO_ENABLED=0 GOOS=windows GOARCH=amd64 go build -o $HOME/v2ray.exe -trimpath -l
 CGO_ENABLED=0 GOOS=windows GOARCH=amd64 go build -o $HOME/wv2ray.exe -trimpath -ldflags "-s -w -H windowsgui -buildid=" ./main
 CGO_ENABLED=0 GOOS=windows GOARCH=amd64 go build -o $HOME/v2ctl.exe -trimpath -ldflags "-s -w -buildid=" -tags confonly ./infra/control/main
 ```
+
+执行 `go tool dist list` 查看所有支持的系统与架构。某些架构还需要控制其它环境变量，如 `arm` 的 `GOARM`。
 
 ### 脚本构建
 
