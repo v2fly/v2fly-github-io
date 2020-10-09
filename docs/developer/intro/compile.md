@@ -13,21 +13,18 @@ V2Ray 使用 [Golang](https://golang.org/) 作为主要编程语言。团队发�
 
 ## 多种构建方式
 
-### 拉取 V2Ray 源代码并安装依赖
+### 拉取 V2Ray 源代码和依赖
 
 ```bash
 git clone https://github.com/v2fly/v2ray-core.git
 cd v2ray-core && go mod download
 ```
 
-注意：在无法正常访问 Google 的网络环境，此命令无法正常完成。遇情况，需先配置好一个本地的 HTTP 代理服务器，并配置本地环境变量，比如：
+注意：在无法正常访问 Google 的网络环境，依赖无法被正常拉取，需要先设置 `GOPROXY`：
 
 ```bash
-export http_proxy=http://localhost:1080
-export https_proxy=http://localhost:1080
+go env -w GOPROXY=https://goproxy.io,direct
 ```
-
-Go 将会使用本机 1080 端口的 HTTP 代理进行源码拉取。
 
 ### 手工构建
 
