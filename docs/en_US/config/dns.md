@@ -76,7 +76,7 @@ A list of DNS servers supports two types: DNS address (string format) and [Serve
 :::tip
 When using `localhost`, the DNS request of this machine is not controlled by V2Ray, and additional configuration is needed to make DNS request forwarded by V2Ray.
 
-The DNS clients initialized by different rules will be reflected in the V2Ray startup log with the ʻinfo` level, such as `local DOH`, `remote DOH` and ʻudp` etc. modes.  (4.22.0+)
+The DNS clients initialized by different rules will be reflected in the V2Ray startup log with the `info` level, such as `local DOH`, `remote DOH` and `udp` etc. modes.  (4.22.0+)
 :::
 
 > `clientIp`: string
