@@ -15,7 +15,8 @@ module.exports = {
         'vuepress-plugin-mermaidjs',
         '@vuepress/back-to-top',
         '@vuepress/active-header-links',
-        '@vuepress/nprogress'
+        '@vuepress/nprogress',
+        ['@kidonng/vuepress-plugin-contributors', { label: '贡献者' }]
     ],
     locales: {
         '/': {
