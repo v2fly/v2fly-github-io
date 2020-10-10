@@ -43,7 +43,7 @@ Local policy, permission-related configurations.
 
 > `inbounds`: \[ [InboundObject](inbounds.md) \]
 
-An array，each element is an inbound connection configuration.
+An array, each element of which is an inbound connection configuration.
 
 > `outbounds`: \[ [OutboundObject](outbounds.md) \]
 
