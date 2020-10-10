@@ -16,7 +16,7 @@ module.exports = {
         '@vuepress/back-to-top',
         '@vuepress/active-header-links',
         '@vuepress/nprogress',
-        ['@kidonng/vuepress-plugin-contributors', { label: '贡献者' }]
+        '@kidonng/vuepress-plugin-contributors'
     ],
     locales: {
         '/': {
@@ -48,6 +48,7 @@ module.exports = {
                 ariaLabel: '选择语言',
                 editLinkText: '在 GitHub 上编辑此页',
                 lastUpdated: '上次更新',
+                contributorsLabel: '贡献者',
                 nav: [
                     {text: '快速开始', link: '/guide/start',},
                     {text: '配置文档', link: '/config/overview',},

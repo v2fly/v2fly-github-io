@@ -885,10 +885,10 @@
   resolved "https://registry.yarnpkg.com/@braintree/sanitize-url/-/sanitize-url-3.1.0.tgz#8ff71d51053cd5ee4981e5a501d80a536244f7fd"
   integrity sha512-GcIY79elgB+azP74j8vqkiXz8xLFfIzbQJdlwOPisgbKT00tviJQuEghOXSMVxJ00HoYJbGswr4kcllUc4xCcg==
 
-"@kidonng/vuepress-plugin-contributors@^0.1.0":
-  version "0.1.0"
-  resolved "https://registry.yarnpkg.com/@kidonng/vuepress-plugin-contributors/-/vuepress-plugin-contributors-0.1.0.tgz#c0617c270832b5a942ddea182051d17f2c621267"
-  integrity sha512-wHdJ4sO857s15zq+YNmBsGMMa//bVHqfzLlaPlqGIIfBGqdyW+kGJULwXd4WnFf0eeNTdYZId3X5ISI9qoSGFw==
+"@kidonng/vuepress-plugin-contributors@^0.2.0":
+  version "0.2.0"
+  resolved "https://registry.yarnpkg.com/@kidonng/vuepress-plugin-contributors/-/vuepress-plugin-contributors-0.2.0.tgz#447265f8e2f65a600655160ffc7d244cc88fab5b"
+  integrity sha512-VhM2EdK7N/83fe6M0R1mYNYEnifNWRZMqEsv8iKzMjUopRinFoywbd3U4ybR6HzRI+m3smM5/zoLvwqu34WdSw==
   dependencies:
     ky "^0.24.0"
 
