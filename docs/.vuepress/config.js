@@ -43,9 +43,9 @@ module.exports = {
         editLinks: true,
         locales: {
             '/': {
-                selectText: '选择语言',
+                selectText: 'Languages',
                 label: '简体中文',
-                ariaLabel: '选择语言',
+                ariaLabel: 'Choose language',
                 editLinkText: '在 GitHub 上编辑此页',
                 lastUpdated: '上次更新',
                 contributorsLabel: '贡献者',
@@ -156,8 +156,8 @@ module.exports = {
             },
             '/en_US/': {
                 label: 'English',
-                selectText: 'Languages',
-                ariaLabel: 'Select language',
+                selectText: '选择语言',
+                ariaLabel: '选择语言',
                 editLinkText: 'Edit this page on GitHub',
                 lastUpdated: 'Last Updated',
                 nav: [
