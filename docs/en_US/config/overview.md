@@ -31,7 +31,7 @@ Remote control.
 
 > `dns`: [DnsObject](dns.md)
 
-Build-in DNS servers，if this file doesn't exist，use local DNS by default.
+Build-in DNS servers. If this field does not exist, use local DNS by default.
 
 > `routing`: [RoutingObject](routing.md)
 
