@@ -23,7 +23,7 @@ If you are a beginner of V2Ray, please start from understanding Inbounds and Out
 
 > `log`: [LogObject](#logobject)
 
-Log configuration，telling V2Ray how to print logs.
+Log configuration, instructing V2Ray how to print logs.
 
 > `api`: [ApiObject](api.md)
 
