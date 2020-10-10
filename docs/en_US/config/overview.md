@@ -39,7 +39,7 @@ Routing.
 
 > `policy`: [PolicyObject](policy.md)
 
-Local policy，permission-related configurations.
+Local policy, permission-related configurations.
 
 > `inbounds`: \[ [InboundObject](inbounds.md) \]
 
