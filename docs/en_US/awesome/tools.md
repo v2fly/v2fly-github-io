@@ -6,7 +6,7 @@
 
 <Uuid />
 
-There's a third-part UUID generator [uuidgenerator.net](https://www.uuidgenerator.net)
+There is a third-part UUID generator [uuidgenerator.net](https://www.uuidgenerator.net).
 
 ## GUI Client
 
@@ -28,18 +28,20 @@ There's a third-part UUID generator [uuidgenerator.net](https://www.uuidgenerato
     url="https://github.com/yanue/V2rayU"
     name="V2rayU"
     :platforms="['mac']"
-    description="V2rayU，a macOS client based on V2Ray core. It's programmed with Swift 4.2，supports for VMess、Shadowsocks、SOCKS5 protocols etc，subscription、QR code、importing from clipboard、custom config、QR sharing are also supported"
+    description="V2rayU，a macOS client based on V2Ray core. It's programmed with Swift 4.2, supporting for VMess, Shadowsocks, SOCKS5 and other protocols. Subscription, QR code, importing from clipboard, custom config and QR sharing features are also supported."
+
 />
 
 <Tool
     url="https://github.com/Qv2ray/Qv2ray"
     name="Qv2ray"
     :platforms="['linux','win','mac']"
-    description="Cross-platform client of V2Ray，supports for Linux、Windows、macOS，SSR / Trojan / Trojan-Go / NaiveProxy can be supported by plugins，no batching speed test，no auto update，not for beginners."
+    description="Cross-platform client based on V2Ray Core, supporting Linux, Windows and macOS, with SSR / Trojan / Trojan-Go / NaiveProxy plugin support. No batched speed test, no automatic update, and not for beginners."
+
 />
 
 ## Others
 
 > V2Ray Rules Dat
 
-Enhanced version of V2Ray routing rules file，it could take place of official `geoip.dat` and `geosite.dat` [GitHub](https://github.com/Loyalsoldier/v2ray-rules-dat)
+Enhanced version of V2Ray routing rules file. It could take place of official `geoip.dat` and `geosite.dat` [GitHub](https://github.com/Loyalsoldier/v2ray-rules-dat)
