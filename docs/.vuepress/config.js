@@ -45,7 +45,7 @@ module.exports = {
             '/': {
                 selectText: 'Languages',
                 label: '简体中文',
-                ariaLabel: 'Choose language',
+                ariaLabel: 'Select language',
                 editLinkText: '在 GitHub 上编辑此页',
                 lastUpdated: '上次更新',
                 contributorsLabel: '贡献者',
