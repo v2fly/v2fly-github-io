@@ -63,7 +63,7 @@ Reverse proxy.
 
 ## LogObject
 
-`LogObject` is a json file which the configuration file uses in `log`.
+`LogObject` is a json field which the configuration file uses in `log`.
 
 ```json
 {
