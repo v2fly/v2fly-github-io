@@ -4,7 +4,7 @@
 
 Configuration of V2Ray is a file with the following format，both for server and client，but the settings are different.
 
-If you are a beginner of V2Ray，please start from understanding Inbounds and Outbounds，filling in the necessary settings only and the application should work. Then learn about other components step-by-step，you will find that V2Ray is easy to use.
+If you are a beginner of V2Ray, please start from understanding Inbounds and Outbounds. Filling in the necessary settings only and the application should work. Then learn about other components step-by-step. You will find that V2Ray is easy to use.
 
 ```json
 {
