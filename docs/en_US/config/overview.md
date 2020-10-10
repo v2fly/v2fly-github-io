@@ -47,7 +47,7 @@ An array, each element of which is an inbound connection configuration.
 
 > `outbounds`: \[ [OutboundObject](outbounds.md) \]
 
-An array，each element is an outbound connection configuration. The first element in the list is the primary outbound protocol. When the route matching cannot be found or the matching is not valid, the traffic is sent by the primary outbound protocol.
+An array, each element of which is an outbound connection configuration. The first element in the list is the primary outbound connection. When the route matching cannot be found or the matching is invalid, the traffic is routed to the primary outbound connection.
 
 > `transport`: [TransportObject](transport.md)
 
