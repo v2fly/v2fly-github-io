@@ -6,7 +6,8 @@
 
 <Uuid />
 
-There is a third-part UUID generator [uuidgenerator.net](https://www.uuidgenerator.net).
+There is a third-party UUID generator [uuidgenerator.net](https://www.uuidgenerator.net).
+
 
 ## GUI Client
 
