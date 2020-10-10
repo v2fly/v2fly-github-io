@@ -75,7 +75,7 @@ Reverse proxy.
 
 > `access`: string
 
-File path of log，it's a valid string path，such as `"/tmp/v2ray/_access.log"`（Linux）or`"C:\\Temp\\v2ray\\_access.log"`（Windows）. If it is empty，the log will be printed in stdout by default. V2Ray 4.20 added a special value `none`，means no access to log.
+File path of log. It should be a valid path string, such as `"/tmp/v2ray/_access.log"` (Linux) or`"C:\\Temp\\v2ray\\_access.log"` (Windows). If it is empty, the log will be printed to stdout by default. V2Ray 4.20 added a special value `none`, which means no access to log.
 
 > `error`: string
 
