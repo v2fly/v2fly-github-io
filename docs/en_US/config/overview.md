@@ -89,4 +89,4 @@ Level of log. Default value is `"warning"`。
 * `"info"`：Running stats of V2Ray，no effect for the functions. All `"warning"` included.
 * `"warning"`：V2Ray encountered some problems, usually external problems, which do not affect V2Ray, but may affect the user experience. All `"error"` included.
 * `"error"`：V2Ray encountered a problem that needs to be resolved immediately.
-* `"none"`：nothing will be printed.
+* `"none"`：Nothing will be printed.
