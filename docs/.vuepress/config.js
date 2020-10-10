@@ -163,7 +163,7 @@ module.exports = {
                 nav: [
                     {text: 'Quick Start', link: '/en_US/guide/start',},
                     {text: 'Config Reference', link: '/en_US/config/overview',},
-                    {text: 'Tools List', link: '/en_US/awesome/tools'},
+                    {text: 'Tools', link: '/en_US/awesome/tools'},
                     {text: 'Developer Guide', link: '/en_US/developer/intro/compile',},
                     {text: 'New concise guide', link: 'https://guide.v2fly.org/'},
                 ],

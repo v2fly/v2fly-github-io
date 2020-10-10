@@ -9,7 +9,7 @@
 There is a third-party UUID generator [uuidgenerator.net](https://www.uuidgenerator.net).
 
 
-## GUI Clients
+## Third-party GUI Clients
 
 
 <Tool
@@ -42,8 +42,8 @@ There is a third-party UUID generator [uuidgenerator.net](https://www.uuidgenera
 
 />
 
-## Others
+## Routing Rules
 
 > V2Ray Rules Dat
 
-Enhanced version of V2Ray routing rules file. It could take place of official `geoip.dat` and `geosite.dat` [GitHub](https://github.com/Loyalsoldier/v2ray-rules-dat)
+Enhanced edition of V2Ray routing rules files, a good replacement for official `geoip.dat` and `geosite.dat` [@Loyalsoldier/v2ray-rules-dat](https://github.com/Loyalsoldier/v2ray-rules-dat)
