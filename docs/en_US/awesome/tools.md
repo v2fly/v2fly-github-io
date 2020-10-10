@@ -9,7 +9,8 @@
 There is a third-party UUID generator [uuidgenerator.net](https://www.uuidgenerator.net).
 
 
-## GUI Client
+## GUI Clients
+
 
 <Tool
     url="https://github.com/2dust/v2rayNG"
