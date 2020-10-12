@@ -1,6 +1,6 @@
 # DNS Server
 
-V2Ray has a built-in DNS server, which has two main purposes: matching routing rules according to the IP which has been resolved from a domain, and traditional DNS function—resolve the target address to connect.
+V2Ray has a built-in DNS server, which has two main purposes: matching routing rules according to the IP resolved from a domain, and traditional DNS function—resolving the target address to connect.
 
 :::tip Due to the complexity of the DNS protocol, V2Ray only supports the most basic IP query function (A and AAAA records). It is recommended to use local DNS and an additional DNS server for DNS queries, such as [CoreDNS](https://coredns.io/), to use the complete DNS function. :::
 
