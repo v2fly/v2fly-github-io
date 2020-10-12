@@ -19,6 +19,7 @@ V2Ray 在以下平台中可用：
 1. Github Release：[github.com/v2fly/v2ray-core](https://github.com/v2fly/v2ray-core/releases)
 2. Homebrew：[github.com/v2ray/homebrew-v2ray](https://github.com/v2ray/homebrew-v2ray)
 3. Arch Linux：[packages/community/x86_64/v2ray/](https://www.archlinux.org/packages/community/x86_64/v2ray/)
+4. google drive
 
 压缩包均为 ZIP 格式，找到对应平台的压缩包，下载解压即可使用。
 
