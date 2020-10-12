@@ -88,10 +88,10 @@ V2Ray 4.30.0 (user) 20201008-104530
 A unified platform for anti-censorship.
 ```
 
-用户还可自定义 `CODENAME`，定制属于自己的版本：
+用户还可自定义 `codename`，定制属于自己的版本：
 
 ```bash
-./user-package.sh windows 386 nodat noconf CODENAME="custom-codename"
+./user-package.sh windows 386 nodat noconf codename=custom-codename
 ```
 
 ### Bazel 自动构建
