@@ -3,11 +3,11 @@
 V2Ray has a built-in DNS server, which has two main purposes: matching routing rules according to the IP resolved from a domain, and traditional DNS function—resolving the target address to connect.
 
 :::tip
-Due to the complexity of DNS protocol, V2Ray only supports basic IP query function (A and AAAA records). It is recommended to use local DNS with an additional DNS server for DNS queries, such as [CoreDNS](https://coredns.io/), to use the complete DNS function.
+Due to the complexity of DNS protocol, V2Ray only supports basic IP query function (A and AAAA records). In order to have a complete DNS experience, you may want to use an dedicated DNS serverware, such as [CoreDNS](https://coredns.io), together with V2Ray's builtin DNS features.
 :::
 
 :::warning
-Note: In `outbound` of the `freedom` protocol, the default value of `domainStrategy` is `AsIs`, and this DNS server will not be used for resolving destination address. If necessary, it should be configured as`UseIP`.
+For `outbound` with `freedom` protocol, the default value of `domainStrategy` is `AsIs`, therefore the DNS settings will not be applied to this outbound by default. If necessary, it should be configured as`UseIP`.
 :::
 
 ## DNS processing flow
