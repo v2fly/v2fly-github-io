@@ -18,7 +18,7 @@ features:
   details: 通用的反向代理支持，可实现内网穿透功能。
 - title: 多平台支持
   details: 原生支持所有常见平台，如 Windows、macOS 和 Linux，并已有第三方支持移动平台。
-footer: CC-BY-SA Licensed | Copyright © 2015-present V2Fly Community
+footer: Licensed under CC-BY-SA 4.0 | Copyleft 2015-Present V2Fly Community
 ---
 
 ## Project V 由谁主导开发
