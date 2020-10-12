@@ -20,8 +20,6 @@ When a domain name list assigned by a DNS server matches the domain name current
 
 `DnsObject` corresponds to the `dns` item of the configuration file.
 
-
-
 ```json
 {
     "hosts": {
@@ -81,8 +79,6 @@ The IP address of the current system. It is used to inform server the client's l
 (V2Ray 4.13+) The query traffic sent by this DNS, except `localhost` and `DOHL_` modes, will carry this identifier, which can be matched with `inboundTag` in the routing.
 
 ## ServerObject
-
-## 
 
 ```json
 {
