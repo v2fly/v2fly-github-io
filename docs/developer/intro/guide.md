@@ -12,14 +12,13 @@ Git
 
 ### 发布（Release）
 
-尽量使用自动化工具发布，比如 v2ray-core 使用 Travis-ci 作为自动编译和发布工具。
+尽量使用自动化工具发布，比如 v2ray-core 使用 Azure Pipelines 作为自动编译和发布工具。
 
 ### 引用其它项目
 
 * Golang
-  * 产品代码只能使用 golang 的标准库，即名称不包含任何网址的包；
-  * 测试代码可以使用 golang.org/x/... ；
-  * 如需引用其它项目请事先创建 Issue 讨论；
+  * 产品代码建议使用 Golang 标准库和 `golang.org/x/` 下的库；
+  * 如需引用其它项目，请事先创建 issue 讨论；
 * 其它
   * 只要不违反双方的协议（本项目为 MIT），且对项目有帮助的工具，都可以使用。
 
@@ -27,30 +26,33 @@ Git
 
 ### 写代码之前
 
-发现任何问题，或对项目有任何想法，请立即创建 Issue 讨论以减少重复劳动和消耗在代码上的时间。
+发现任何问题，或对项目有任何想法，请创建 Issue 讨论以减少重复劳动和消耗在代码上的时间。
 
 ### 修改代码
 
 * Golang
   * 请参考 [Effective Go](https://golang.org/doc/effective_go.html)；
-  * 每一次 commit 之前请运行： gofmt -w v2ray.com/core/
-  * 每一次 commit 之前请确保测试通过： go test v2ray.com/core/...
-  * 提交 PR 之前请确保新增代码有超过 70% 的代码覆盖率（code coverage）。
+  * 每一次 push 之前，请运行：`go fmt ./...` 和 `gofmt -s -l -e -w $(find . -type f -name "*.go" ! -name "*.pb.go")`；
+  * 每一次 push 之前，请确保测试通过：`go test ./...`；
+  * 提交 pull request 之前，请确保新增代码有超过 70% 的代码覆盖率（code coverage）；
 * 其它
-  * 请注意代码的可读性
+  * 请注意代码的可读性。
 
 ### Pull Request
 
-* 提交 PR 之前请先运行 `git pull` 以确保 merge 可顺利进行；
+* 提交 PR 之前，请先运行 `git pull https://github.com/v2fly/v2ray-core.git` 以确保 merge 可顺利进行；
 * 一个 PR 只做一件事，如有对多个 bug 的修复，请对每一个 bug 提交一个 PR；
 * 由于 Golang 的特殊需求（Package path），Go 项目的 PR 流程和其它项目有所不同：
-  1. 先 Fork 本项目，创建你自己的 github.com/your/v2ray-core；
-  1. 在你的 Go workspace 中运行： `go get -u v2ray.com/core/...` ；
-  1. 在 go get 创建的 v2ray-core 目录中运行： `git remote add fork https://github.com/you/cooltool.git` ；
-  1. 然后你可以在 v2ray-core 中修改代码，由于这是一个 v2ray 的 clone，import path 不受影响；
-  1. 修改完成之后，运行： `git push fork` ；
-  1. 然后去你的 fork（就是 v2ray.com/core）中发一个 PR 即可；
-  1. 以上内容修改自 [这篇文章](http://blog.campoy.cat/2014/03/github-and-go-forking-pull-requests-and.html)。
+  1. 先 Fork 本项目，创建自己的 `github.com/your/v2ray-core` 仓库；
+  2. 克隆自己的 v2ray 仓库到本地：`git clone https://github.com/your/v2ray-core.git`；
+  3. 基于 `master` 分支创建新的分支；
+  4. 在自行创建的分支上作修改并提交修改(commit)；
+  5. 在推送(push)修改完成的分支到自己的仓库前，先切换到 `master` 分支，运行 `git pull https://github.com/v2fly/v2ray-core.git` 拉取最新的远端代码；
+  6. 如果上一步拉取得到了新的远端代码，则切换到之前自己创建的分支，运行 `git rebase master` 执行分支合并操作。如遇到文件冲突，则需要解决冲突；
+  7. 上一步处理完毕后，就可以把自己创建的分支推送到自己的仓库：`git push -u origin your-branch`
+  8. 最后，把自己仓库的新推送的分支往 `v2fly/v2ray-core` 的 `master` 分支发 PR 即可；
+  9. 请在 PR 的标题和正文中，完整表述此次 PR 解决的问题 / 新增的功能 / 代码所做的修改的用意等；
+  10. 耐心等待开发者的回应。
 
 ### 对代码的修改
 
@@ -77,7 +79,7 @@ Git
 
 ### 代码结构
 
-```text
+```bash
 v2ray-core
 ├── app        // 应用模块
 │   ├── router // 路由
@@ -105,10 +107,9 @@ v2ray-core
 * 公开成员变量也使用 Pascal 命名法；
 * 私有成员变量使用 [小驼峰式命名法](https://zh.wikipedia.org/wiki/%E9%A7%9D%E5%B3%B0%E5%BC%8F%E5%A4%A7%E5%B0%8F%E5%AF%AB) ，如 `privateAttribute` ；
 * 为了方便重构，方法建议全部使用 Pascal 命名法；
-  * 尽管 Golang 中的以大小写区分公开和私有方法，但在实际操作中并不方便。
   * 完全私有的类型放入 `internal` 。
 
 #### 内容组织
 
 * 一个文件包含一个主要类型，及其相关的私有函数等；
-* 测试相关的文件，如 Mock 等工具类，放入 testing 子目录；
+* 测试相关的文件，如 Mock 等工具类，放入 testing 子目录。

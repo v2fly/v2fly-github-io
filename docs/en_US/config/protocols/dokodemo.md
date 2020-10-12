@@ -1,9 +1,9 @@
 # Dokodemo-door
 
-* 名称：`dokodemo-door`
-* 类型：入站协议
+* Name: `dokodemo-door`
+* Type: Inbound Protocol
 
-Dokodemo door（任意门）是一个入站数据协议，它可以监听一个本地端口，并把所有进入此端口的数据发送至指定服务器的一个端口，从而达到端口映射的效果。
+Dokodemo door (any door) is an inbound data protocol. It can listen to a local port and send all data entering this port to a port of the designated server, so as to achieve the effect of port mapping.
 
 ## InboundConfigurationObject
 
@@ -20,35 +20,35 @@ Dokodemo door（任意门）是一个入站数据协议，它可以监听一个�
 
 > `address`: address
 
-将流量转发到此地址。可以是一个 IP 地址，形如 `"1.2.3.4"`，或者一个域名，形如 `"v2ray.com"`。字符串类型。
+Forward traffic to this address. It can be an IP address, like `"1.2.3.4"`, or a domain name, like `"v2ray.com"`. String type.
 
-当 `followRedirect`（见下文）为 `true` 时，`address` 可为空。
+When `followRedirect` (see below) is `true`, `address` can be empty.
 
 > `port`: number
 
-将流量转发到目标地址的指定端口，范围 \[1, 65535\]，数值类型。必填参数。
+Forward traffic to the specified port of the destination address, range \[1, 65535\], numeric type. Required parameters.
 
 > `network`: "tcp" | "udp" | "tcp,udp"
 
-可接收的网络协议类型。比如当指定为 `"tcp"` 时，任意门仅会接收 TCP 流量。默认值为 `"tcp"`。
+The type of network protocol that can be received. For example, when it is specified as `"tcp"`, any gate will only receive TCP traffic. The default value is `"tcp"`.
 
 > `timeout`: number
 
-入站数据的时间限制（秒），默认值为 300。
+The time limit for inbound data (seconds), the default value is 300.
 
-V2Ray 3.1 后等价于对应用户等级的 `connIdle` 策略
+After V2Ray 3.1 is equivalent to the `connIdle` strategy corresponding to the user level
 
 > `followRedirect`: true | false
 
-当值为 `true` 时，dokodemo-door 会识别出由 iptables 转发而来的数据，并转发到相应的目标地址。详见 [传输配置](../transport.md) 中的 `tproxy` 设置。
+When the value is `true`, dokodemo-door will recognize the data forwarded by iptables and forward it to the corresponding destination address. For details, see the `tproxy` setting in [Transport Configuration](../transport.md).
 
 > `userLevel`: number
 
-用户等级，所有连接都会使用这个用户等级。
+User level, all connections will use this user level.
 
-## 透明代理配置样例
+## Transparent proxy configuration example
 
-V2Ray 中增加一个 dokodemo-door 的入站协议：
+Add a dokodemo-door inbound protocol in V2Ray:
 
 ```json
 {
@@ -58,7 +58,7 @@ V2Ray 中增加一个 dokodemo-door 的入站协议：
 }
 ```
 
-配置 iptables：
+Configure iptables:
 
 ```bash
 # Create new chain

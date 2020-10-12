@@ -1,4 +1,4 @@
-# MTProto
+# MTProto V1
 
 * 名称：`mtproto`
 * 类型：入站／出站

@@ -22,7 +22,7 @@ Project V 提供了下列讨论组，用于讨论不同类型的问题。
   * 话题限定
   * 只允许发送特定表情
   
-* [日常](https://t.me/joinchat/JiDjBEzQFLN5R_BdpMpelw)
+* [日常](https://t.me/joinchat/JiDjBEzQFLNeBl_-JUrm_A)
   * 用于其它不相关的话题。
 
 ::: warning
@@ -39,14 +39,14 @@ Project V 提供了下列讨论组，用于讨论不同类型的问题。
 `security@v2fly.org`: 仅用于沟通涉及安全隐患的内容。
 
 ::: tip
-由于工作繁忙，不能保证每封邮件都回复，请见谅。请尽量使用社区讨论以得到更快速的社区响应。
+由于工作繁忙，不能保证每封邮件都回复，请见谅。请尽量使用[社区讨论](https://github.com/v2fly/v2ray-core/issues)以得到更快速的响应。
 :::
 
 如果你需要发送加密信息，可以从下面的文本导入。
 
 如果所需讨论的内容涉及安全隐患和风险报告，请使用 `security@v2fly.org`。
 
-```plain
+```json
 pub   rsa4096 2020-06-02 [SC] [有效至：2020-12-29]
       E2E35E27914FB007C0D4B6DDB117BA3BE8B494A7
 uid           V2Fly Developers <dev |at| v2fly.org>

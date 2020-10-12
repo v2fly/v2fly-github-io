@@ -8,19 +8,10 @@
 与官方版本的兼容性：
 
 * 支持 TCP 和 UDP 数据包转发，其中 UDP 可选择性关闭；
-* 支持 [OTA](https://web.archive.org/web/20161221022225/https://shadowsocks.org/en/spec/one-time-auth.html)；
-  * 客户端可选开启或关闭；
-  * 服务器端可强制开启、关闭或自适应；
-* 插件：
-  * 通过 Standalone 模式支持 obfs
-* 加密方式（其中 [AEAD](https://shadowsocks.org/en/spec/AEAD-Ciphers.html) 加密方式在 V2Ray 3.0 中加入）：
-  * aes-256-cfb
-  * aes-128-cfb
-  * chacha20
-  * chacha20-ietf
-  * （V2Ray 3.0+） aes-256-gcm
-  * （V2Ray 3.0+） aes-128-gcm
-  * （V2Ray 3.0+） chacha20-poly1305 或称 chacha20-ietf-poly1305
+* 加密方式：
+  * AES-256-GCM
+  * AES-128-GCM
+  * ChaCha20-Poly1305 或称 ChaCha20-IETF-Poly1305
   * （V2Ray 4.27.0+） none 或称 plain
 
 ::: warning
@@ -34,10 +25,9 @@ Shadowsocks 的配置分为两部分，`InboundConfigurationObject` 和 `Outboun
 ```json
 {
     "email": "love@v2ray.com",
-    "method": "aes-128-cfb",
+    "method": "aes-256-gcm",
     "password": "密码",
     "level": 0,
-    "ota": true,
     "network": "tcp"
 }
 ```
@@ -58,12 +48,6 @@ Shadowsocks 的配置分为两部分，`InboundConfigurationObject` 和 `Outboun
 
 用户等级，默认值为 `0`。详见 [本地策略](../policy.md)。
 
-> `ota`: true | false
-
-是否强制 OTA，如果不指定此项，则自动判断。强制开启 OTA 后，V2Ray 会拒绝未启用 OTA 的连接。反之亦然。
-
-当使用 AEAD 时，`ota` 设置无效
-
 > `network`: "tcp" | "udp" | "tcp,udp"
 
 可接收的网络连接类型，默认值为 `"tcp"`。
@@ -79,7 +63,6 @@ Shadowsocks 的配置分为两部分，`InboundConfigurationObject` 和 `Outboun
             "port": 1234,
             "method": "加密方式",
             "password": "密码",
-            "ota": false,
             "level": 0
         }
     ]
@@ -99,7 +82,6 @@ Shadowsocks 的配置分为两部分，`InboundConfigurationObject` 和 `Outboun
     "port": 1234,
     "method": "加密方式",
     "password": "密码",
-    "ota": false,
     "level": 0
 }
 ```
@@ -124,22 +106,12 @@ Shadowsocks 服务器端口。必填。
 
 必填。任意字符串。Shadowsocks 协议不限制密码长度，但短密码会更可能被破解，建议使用 16 字符或更长的密码。
 
-> `ota`: true | false
-
-是否开启 Shadowsocks 的一次验证（One time auth），默认值为 `false`。
-
-当使用 AEAD 时，`ota` 设置无效。
-
 > `level`: number
 
 用户等级
 
 ## 加密方式列表
 
-* `"aes-256-cfb"`
-* `"aes-128-cfb"`
-* `"chacha20"`
-* `"chacha20-ietf"`
 * `"aes-256-gcm"`
 * `"aes-128-gcm"`
 * `"chacha20-poly1305"` 或 `"chacha20-ietf-poly1305"`

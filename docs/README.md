@@ -1,6 +1,6 @@
 ---
 home: true
-heroImage: v2ray.png
+heroImage: /v2ray.png
 heroText: Project V
 tagline: 助你打造专属基础通信网络
 actionText: 快速开始 →
@@ -18,7 +18,7 @@ features:
   details: 通用的反向代理支持，可实现内网穿透功能。
 - title: 多平台支持
   details: 原生支持所有常见平台，如 Windows、macOS 和 Linux，并已有第三方支持移动平台。
-footer: CC-BY-SA Licensed | Copyright © 2015-present V2Fly Team
+footer: CC-BY-SA Licensed | Copyright © 2015-present V2Fly Community
 ---
 
 ## Project V 由谁主导开发
@@ -39,7 +39,7 @@ footer: CC-BY-SA Licensed | Copyright © 2015-present V2Fly Team
 ## 授权
 
 - Core 使用 MIT 协议
-- 官方网站（[v2fly.org](https://www.v2fly.org/)）以 [CC BY SA 4.0 国际许可协议](https://creativecommons.org/licenses/by/4.0/deed.zh) 授权。
+- 网站（[v2fly.org](https://www.v2fly.org/)）以 [CC BY SA 4.0 国际许可协议](https://creativecommons.org/licenses/by/4.0/deed.zh) 授权。
     * 包括网站中所有可见的文字内容和图片。
     * 包括 Project V 图标文件。
     * 包括生成网站所使用到的源代码，即 [v2fly/v2fly-github-io](https://github.com/v2fly/v2fly-github-io)。
