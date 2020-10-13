@@ -68,7 +68,8 @@ When the value is in the form of `"https+local://host:port/dns-query"`, such as 
 :::tip
 When using `localhost`, the DNS request of this machine is not controlled by V2Ray, and additional configuration is needed to make DNS request forwarded by V2Ray.
 
-The DNS clients initialized by different rules will be reflected in the V2Ray startup log with an `info` level, such as `local DOH`, `remote DOH` and `udp` and other modes. (4.22.0+) :::
+The DNS clients initialized by different rules will be reflected in the V2Ray startup log with an `info` level, such as `local DOH`, `remote DOH` and `udp` and other modes. (4.22.0+)
+:::
 
 > `clientIp`: string
 
