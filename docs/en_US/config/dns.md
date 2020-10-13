@@ -18,7 +18,7 @@ When a domain name list assigned by a DNS server matches the domain name current
 
 ## DnsObject
 
-`DnsObject` corresponds to the `dns` item of the configuration file.
+`DnsObject` corresponds to the `dns` field of the configuration file.
 
 ```json
 {
@@ -59,11 +59,11 @@ The domain name format has the following forms:
 
 >`servers`: \[string | [ServerObject](#serverobject) \]
 
-A list of DNS servers, supports two types: DNS address (string format) and [ServerObject](#serverobject). When its value is a DNS IP address, such as `"8.8.8.8"`, V2Ray will use port 53 of this address for DNS query.
+A list of DNS servers, supporting two types: DNS address (string format) and [ServerObject](#serverobject). When its value is a DNS IP address, such as `"8.8.8.8"`, V2Ray will use port 53 of this address for DNS query.
 
 When the value is `"localhost"`, it means the machine's preset DNS configuration is used. When the value is in the form of `"https://host:port/dns-query"`, such as `"https://dns.google/dns-query"`, V2Ray will use `DNS over HTTPS` (RFC8484, short for DOH) to query. Some service providers have certificates of IP aliases, then you can write IP format directly, such as `https://1.1.1.1/dns-query`. You can also use non-standard ports and paths, such as `"https://a.b.c.d:8443/my-dns-query"` (4.22.0+).
 
-When the value is in the form of `"https+local://host:port/dns-query"`, such as `"https+local://dns.google/dns-query"`, V2Ray will use `DOH local mode` for query, that is, DOH requests will not go through Routing/Outbound and other components, but directly request externally to reduce time-consuming. Generally suitable for use on server side. Non-standard ports and paths can also be used. (4.22.0+)
+When the value is in the form of `"https+local://host:port/dns-query"`, such as `"https+local://dns.google/dns-query"`, V2Ray will use `DOH local mode` for queries, that is, DOH requests will not go through Routing/Outbound and other components, but directly request externally to improve timing. Generally suitable for use on the server side. Non-standard ports and paths can also be used. (4.22.0+)
 
 :::tip
 When using `localhost`, the DNS request of this machine is not controlled by V2Ray, and additional configuration is needed to make DNS request forwarded by V2Ray.
@@ -105,7 +105,7 @@ DNS server port, such as `53`. This item defaults to `53` by default. When using
 
 A list of domain names. The domain names contained in this list will be queried by this server first. The domain name format is the same as it in [Routing Configuration](routing.md#ruleobject).
 
-> `ExpectIPs`:\[string\]
+> `expectIPs`:\[string\]
 
 (V2Ray 4.22.0+) A list of IP ranges, the format is the same as it in [route configuration](routing.md#ruleobject).
 
