@@ -7,7 +7,7 @@ Due to the complexity of DNS protocol, V2Ray only supports basic IP query functi
 :::
 
 :::warning
-For `outbound` with `freedom` protocol, the default value of `domainStrategy` is `AsIs`, therefore the DNS settings will not be applied to this outbound by default. If necessary, it should be configured as`UseIP`.
+For `outbound`s with `freedom` protocol, the default value of `domainStrategy` is `AsIs`, therefore the DNS settings will not be applied to this outbound by default. If necessary, it should be configured as`UseIP`.
 :::
 
 ## DNS processing flow
