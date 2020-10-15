@@ -27,32 +27,32 @@
     "bridges": [
         {
             "tag": "bridge",
-            "domain": "test.v2ray.com"
+            "domain": "test.v2fly.org"
         }
     ],
     "portals": [
         {
             "tag": "portal",
-            "domain": "test.v2ray.com"
+            "domain": "test.v2fly.org"
         }
     ]
 }
 ```
 
-> `bridges`: \[[BridgeObject](bridgeobject)\]
+> `bridges`: \[[BridgeObject](#bridgeobject)\]
 
-一个数组，每一项表示一个 `bridge`。每个 `bridge` 的配置是一个 [BridgeObject](bridgeobject)。
+一个数组，每一项表示一个 `bridge`。每个 `bridge` 的配置是一个 [BridgeObject](#bridgeobject)。
 
-> `portals`: \[[PortalObject](portalobject)\]
+> `portals`: \[[PortalObject](#portalobject)\]
 
-一个数组，每一项表示一个 `portal`。每个 `portal` 的配置是一个 [PortalObject](bridgeobject)。
+一个数组，每一项表示一个 `portal`。每个 `portal` 的配置是一个 [PortalObject](#bridgeobject)。
 
 ## BridgeObject
 
 ```json
 {
     "tag": "bridge",
-    "domain": "test.v2ray.com"
+    "domain": "test.v2fly.org"
 }
 ```
 
@@ -69,7 +69,7 @@
 ```json
 {
     "tag": "portal",
-    "domain": "test.v2ray.com"
+    "domain": "test.v2fly.org"
 }
 ```
 
@@ -96,7 +96,7 @@
     "bridges": [
         {
             "tag": "bridge",
-            "domain": "test.v2ray.com"
+            "domain": "test.v2fly.org"
         }
     ]
 }
@@ -142,7 +142,7 @@
                 "bridge"
             ],
             "domain": [
-                "full:test.v2ray.com"
+                "full:test.v2fly.org"
             ],
             "outboundTag": "interconn"
         },
@@ -166,7 +166,7 @@
     "portals": [
         {
             "tag": "portal",
-            "domain": "test.v2ray.com" // 必须和 bridge 的配置一样
+            "domain": "test.v2fly.org" // 必须和 bridge 的配置一样
         }
     ]
 }
