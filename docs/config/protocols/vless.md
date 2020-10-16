@@ -3,7 +3,7 @@
 - 名称：`vless`
 - 类型：入站 / 出站
 
-**当前版本：VLESS PREVIEW 2.4（v2ray-core v4.31.0+）**
+**当前版本：VLESS PREVIEW 2.5（v2ray-core v4.31.1+）**
 
 **终极配置：[VLESS over TCP with XTLS + 回落 & 分流 to WHATEVER](<https://github.com/v2fly/v2ray-examples/tree/master/VLESS-TCP-XTLS-WHATEVER>)**
 
@@ -252,7 +252,7 @@ v4.31.0+，XTLS 新增 Direct 模式 `xtls-rprx-direct`、`xtls-rprx-direct-udp4
 
 [v2ray-examples](https://github.com/v2fly/v2ray-examples) 有完整的 VLESS 配置示例供参考。（但目前不能保证其它协议的配置示例质量）
 
-VLESS 和 VMess 的日志策略不同，遇到了异常情况，前者通常是 Warning，后者通常是 Info。
+VLESS 和 VMess 的日志策略不同，遇到了异常情况，前者通常是 Warning，后者通常是 Info。（v4.31.1+，VLESS 大部分日志策略已调整为与 VMess 相同）
 
 待补充
 
@@ -279,3 +279,4 @@ VLESS 和 VMess 的日志策略不同，遇到了异常情况，前者通常是 
 v2ray-core v4.28.0 会增强 TLS，~~VLESS 的分享链接标准也会同时出炉~~。为了避免生态混乱，在此之前请勿支持分享，更勿自创分享链接方案。
 
 更新：经过综合考虑，VLESS 应于正式版再出分享链接标准（不是近期）。
+（
