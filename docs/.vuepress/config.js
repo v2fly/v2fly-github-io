@@ -14,8 +14,6 @@ module.exports = {
     plugins: [
         'vuepress-plugin-mermaidjs',
         '@vuepress/back-to-top',
-        '@vuepress/active-header-links',
-        '@vuepress/nprogress',
         '@kidonng/vuepress-plugin-contributors'
     ],
     locales: {
