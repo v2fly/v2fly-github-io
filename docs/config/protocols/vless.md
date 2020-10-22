@@ -200,7 +200,7 @@ VLESS fallbacks 设置的 "alpn" 是匹配实际协商出的 ALPN，而 inbound 
 
 决定 TLS **解密后** 流量的去向，目前支持两类地址：（该项必填，否则无法启动）
 
-1. TCP，格式为 `"addr:port"`，其中 addr 支持域名、IPv4、IPv6，若填写域名，将直接发起连接（而不走内置的 DNS）。
+1. TCP，格式为 `"addr:port"`，其中 addr 支持域名、IPv4、IPv6，若填写域名，将直接发起 TCP 连接（而不走内置的 DNS）。
 2. Unix domain socket，格式为绝对路径，形如 `"/dev/shm/domain.socket"`，可在开头加 `"@"` 代表 [abstract](https://www.man7.org/linux/man-pages/man7/unix.7.html)，`"@@"` 则代表带 padding 的 abstract。
 
 若只填 port，数字或字符串均可，形如 `80`、`"80"`，通常指向一个明文 http 服务（addr 会被补为 `"127.0.0.1"`）。
