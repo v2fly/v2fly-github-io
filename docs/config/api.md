@@ -37,8 +37,8 @@ V2Ray 中可以开放一些 API 以便远程调用。这些 API 都基于 [gRPC]
 * 添加一个新的出站代理；
 * 删除一个现有的入站代理；
 * 删除一个现有的出站代理；
-* 在一个入站代理中添加一个用户（仅支持 VMess、VLESS）；
-* 在一个入站代理中删除一个用户（仅支持 VMess、VLESS）；
+* 在一个入站代理中添加一个用户（仅支持 VMess、VLESS、Trojan）；
+* 在一个入站代理中删除一个用户（仅支持 VMess、VLESS、Trojan）；
 
 ### LoggerService
 
