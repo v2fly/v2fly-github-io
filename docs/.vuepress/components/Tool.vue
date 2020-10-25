@@ -27,7 +27,7 @@
 </template>
 
 <script>
-const ALL_PLATFORMS = ["win", "mac", "linux", "android", "ios"];
+const ALL_PLATFORMS = ["win", "mac", "linux", "android", "ios", "router"];
 
 export default {
   methods: {
@@ -38,6 +38,7 @@ export default {
         linux: "/tools/linux.svg",
         android: "/tools/android.svg",
         ios: "tools/ios.svg",
+        router: "tools/router.svg",
       }[p];
     },
     urlToRepo(u) {

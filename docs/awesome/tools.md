@@ -52,6 +52,13 @@
     description="Leaf 是一个轻量且快速的代理工具。"
 />
 
+<Tool
+    url="https://github.com/xiaorouji/openwrt-package"
+    name="Passwall"
+    :platforms="['router']"
+    description="Passwall 是一个 Openwrt 的固件插件，支持多种代理协议。"
+/>
+
 ## 路由规则
 
 > V2Ray Rules Dat
