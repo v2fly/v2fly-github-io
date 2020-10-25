@@ -32,10 +32,24 @@
 />
 
 <Tool
+    url="https://github.com/v2rayA/v2rayA"
+    name="v2rayA"
+    :platforms="['linux']"
+    description="v2rayA 是一个支持全局透明代理的 V2Ray Linux 客户端，同时兼容 SS、SSR、Trojan、PingTunnel 协议。"
+/>
+
+<Tool
     url="https://github.com/Qv2ray/Qv2ray"
     name="Qv2ray"
     :platforms="['linux','win','mac']"
     description="跨平台 V2Ray 客户端，支持 Linux、Windows、macOS，可通过插件系统支持 SSR / Trojan / Trojan-Go / NaiveProxy 等协议，不支持批量测速，不支持自动更新，不建议小白使用。"
+/>
+
+<Tool
+    url="https://github.com/eycorsican/leaf"
+    name="Leaf"
+    :platforms="['linux','win','mac','ios']"
+    description="Leaf 是一个轻量且快速的代理工具。"
 />
 
 ## 路由规则
