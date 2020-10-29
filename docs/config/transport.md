@@ -14,8 +14,8 @@
     "kcpSettings": {},
     "wsSettings": {},
     "httpSettings": {},
-    "dsSettings": {},
-    "quicSettings": {}
+    "quicSettings": {},
+    "dsSettings": {}
 }
 ```
 
@@ -35,13 +35,13 @@
 
 针对 HTTP/2 连接的配置。
 
-> `dsSettings`: [DomainSocketObject](transport/domainsocket.md)
-
-针对 Domain Socket 连接的配置。
-
 > `quicSettings`: [QuicObject](transport/quic.md)
 
 针对 QUIC 连接的配置。
+
+> `dsSettings`: [DomainSocketObject](transport/domainsocket.md)
+
+针对 Domain Socket 连接的配置。
 
 ## StreamSettingsObject
 
@@ -56,8 +56,8 @@
     "kcpSettings": {},
     "wsSettings": {},
     "httpSettings": {},
-    "dsSettings": {},
     "quicSettings": {},
+    "dsSettings": {},
     "sockopt": {
         "mark": 0,
         "tcpFastOpen": false,
@@ -94,13 +94,13 @@ TLS 配置。TLS 由 Golang 提供，支持 TLS 1.3，不支持 DTLS。
 
 当前连接的 HTTP/2 配置，仅当此连接使用 HTTP/2 时有效。配置内容与上面的全局配置相同。
 
-> `dsSettings`: [DomainSocketObject](transport/domainsocket.md)
-
-当前连接的 Domain socket 配置，仅当此连接使用 Domain socket 时有效。配置内容与上面的全局配置相同。
-
 > `quicSettings`: [QUICObject](transport/quic.md)
 
 当前连接的 QUIC 配置，仅当此连接使用 QUIC 时有效。配置内容与上面的全局配置相同。
+
+> `dsSettings`: [DomainSocketObject](transport/domainsocket.md)
+
+当前连接的 Domain socket 配置，仅当此连接使用 Domain socket 时有效。配置内容与上面的全局配置相同。
 
 > `sockopt`: [SockoptObject](#sockoptobject)
 
