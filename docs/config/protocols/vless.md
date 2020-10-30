@@ -275,6 +275,7 @@ VLESS 和 VMess 的日志策略不同，遇到了异常情况，前者通常是 
 - [v2rayNG](https://github.com/2dust/v2rayNG)（v1.3.0+），支持 Android
 - [PassWall](https://github.com/xiaorouji/openwrt-package)（v3.9.35+），支持 OpenWrt
 - [v2rayA](https://github.com/mzz2017/v2rayA)（v1.0.0+），支持 Linux
+- [v2rayU](https://github.com/yanue/V2rayU)（v3.0.0+），支持 macOS
 
 ## VLESS 分享链接标准
 
