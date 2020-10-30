@@ -38,6 +38,15 @@
     description="跨平台 V2Ray 客户端，支持 Linux、Windows、macOS，可通过插件系统支持 SSR / Trojan / Trojan-Go / NaiveProxy 等协议，不支持批量测速，不支持自动更新，不建议小白使用。"
 />
 
+<Tool
+    url="https://github.com/v2rayA/v2rayA"
+    name="v2rayA"
+    :platforms="['linux']"
+    description="基于 web GUI 的 Linux 客户端，支持全局透明代理，兼容SS、SSR、Trojan、PingTunnel协议。"
+/>
+
+
+
 ## 路由规则
 
 > V2Ray Rules Dat
