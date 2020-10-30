@@ -11,6 +11,13 @@
 ## 第三方图形客户端
 
 <Tool
+    url="https://github.com/Qv2ray/Qv2ray"
+    name="Qv2ray"
+    :platforms="['linux','win','mac']"
+    description="跨平台 V2Ray 客户端，支持 Linux、Windows、macOS，可通过插件系统支持 SSR / Trojan / Trojan-Go / NaiveProxy 等协议，不支持批量测速，不支持自动更新，不建议小白使用。"
+/>
+
+<Tool
     url="https://github.com/2dust/v2rayNG"
     name="V2RayNG"
     :platforms="['android']"
@@ -29,13 +36,6 @@
     name="V2rayU"
     :platforms="['mac']"
     description="V2rayU，基于 V2Ray 核心的 macOS 客户端，使用 Swift 4.2 编写，支持 VMess、Shadowsocks、SOCKS5 等服务协议，支持订阅，支持二维码、剪贴板导入、手动配置、二维码分享等。"
-/>
-
-<Tool
-    url="https://github.com/Qv2ray/Qv2ray"
-    name="Qv2ray"
-    :platforms="['linux','win','mac']"
-    description="跨平台 V2Ray 客户端，支持 Linux、Windows、macOS，可通过插件系统支持 SSR / Trojan / Trojan-Go / NaiveProxy 等协议，不支持批量测速，不支持自动更新，不建议小白使用。"
 />
 
 <Tool
