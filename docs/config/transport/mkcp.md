@@ -88,9 +88,9 @@ v4.24.2+，可选的混淆密码，使用 AES-128-GCM 算法混淆流量数据�
 
 ## 鸣谢
 
-* @skywind3000 发明并实现了 KCP 协议。
-* @xtaci 将 KCP 由 C 语言实现翻译成 Go。
-* @xiaokangwang 测试 KCP 与 V2Ray 的整合并提交了最初的 PR。
+* [@skywind3000](https://github.com/skywind3000) 发明并实现了 KCP 协议。
+* [@xtaci](https://github.com/xtaci) 将 KCP 由 C 语言实现翻译成 Go。
+* [@xiaokangwang](https://github.com/xiaokangwang) 测试 KCP 与 V2Ray 的整合并提交了最初的 PR。
 
 ## 对 KCP 协议的改进
 
