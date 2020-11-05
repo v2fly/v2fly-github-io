@@ -3,7 +3,7 @@
 - 名称：`vless`
 - 类型：入站 / 出站
 
-**当前版本：VLESS PREVIEW 2.5（v2ray-core v4.31.1+）**
+**当前版本：VLESS XTLS ReadV（v2ray-core v4.32.1+）**
 
 **终极配置：[VLESS over TCP with XTLS + 回落 & 分流 to WHATEVER](<https://github.com/v2fly/v2ray-examples/tree/master/VLESS-TCP-XTLS-WHATEVER>)**
 
@@ -231,13 +231,13 @@ XTLS 本身需要是 TLSv1.3（正常情况下的协商结果），内层 TLS �
 
 **配置方法**
 
-1. 确认服务端与客户端的 v2ray-core 均为 v4.30.0+，并已配置 VLESS over TCP with TLS + 回落 & 可选分流，或者直接参考 [终极配置](https://github.com/v2fly/v2ray-examples/tree/master/VLESS-TCP-XTLS-WHATEVER)。
+1. 确认服务端与客户端的 v2ray-core 均为 v4.32.1+，并已配置 VLESS over TCP with TLS + 回落 & 可选分流，或者直接参考 [终极配置](https://github.com/v2fly/v2ray-examples/tree/master/VLESS-TCP-XTLS-WHATEVER)。
 2. 将服务端与客户端 VLESS streamSettings 的 `tls`、`tlsSettings` 改为 `xtls`、`xtlsSettings`（服务端 XTLS 可以接收普通 TLS 请求，也不影响回落分流）。
-3. 服务端与客户端的 VLESS flow 均填写 `xtls-rprx-origin` 即可，服务端的代表允许，客户端的代表使用（该用户仍可不填 flow、用普通 TLS 连上服务端）。
+3. 服务端与客户端的 VLESS flow 均填写 `xtls-rprx-direct` 即可，服务端的代表允许，客户端的代表使用（该用户仍可不填 flow、用普通 TLS 连上服务端）。
 
 **注意事项**
 
-1. 为了防止上层应用使用 QUIC，启用 XTLS 时客户端 VLESS 会自动拦截 UDP/443 的请求。若不需拦截，请在客户端填写 `xtls-rprx-origin-udp443`，服务端不变。
+1. 为了防止上层应用使用 QUIC，启用 XTLS 时客户端 VLESS 会自动拦截 UDP/443 的请求。若不需拦截，请在客户端填写 `xtls-rprx-direct-udp443`，服务端不变。
 2. 可设置环境变量 `V2RAY_VLESS_XTLS_SHOW = true` 以显示 XTLS 的输出，适用于服务端与客户端（仅用于确信 XTLS 生效了，千万别设成永久性的，不然会很卡）。
 3. 不能开启 Mux。XTLS 需要获得原始的数据流，所以原理上也不会支持 WebSocket、不适用于 VMess。此外，UDP over TCP 时，VLESS 不会开启 XTLS 的特殊功能。
 
