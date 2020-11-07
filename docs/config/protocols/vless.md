@@ -223,7 +223,7 @@ VLESS fallbacks 设置的 "alpn" 是匹配实际协商出的 ALPN，而 inbound 
 
 ## XTLS 黑科技
 
-**最新的 v4.32.1 版本中，VLESS XTLS Direct Mode 引入了 ReadV 增强，减少一层内存 copy，性能已与 VLESS 无加密裸奔持平（接近于纯流量转发），为传统 VMess WSS 方案的五倍、VLESS TCP TLS 的三倍（且测试机器 CPU 均有 AES 指令集，否则差距更大），强烈建议测试体验。**
+**最新的 v4.32.1 版本中，VLESS XTLS Direct Mode 引入了 ReadV 增强，减少一层内存 Copy，性能已与 VLESS 无加密裸奔持平（接近于纯流量转发），为传统 VMess WS TLS 方案的五倍、VLESS TCP TLS 的三倍（且测试机器 CPU 均有 AES 指令集，否则差距更大，如硬路由器上），强烈建议测试体验。**
 
 [rprx/v2ray-vless/releases](https://github.com/rprx/v2ray-vless/releases) 有关于 [XTLS Project](https://github.com/XTLS/Go) 原理的一些介绍。
 
