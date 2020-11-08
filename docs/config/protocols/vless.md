@@ -225,6 +225,8 @@ VLESS fallbacks 设置的 "alpn" 是匹配实际协商出的 ALPN，而 inbound 
 
 **最新的 v4.32.1 版本中，VLESS XTLS Direct Mode 引入了 ReadV 增强，减少一层内存 Copy，性能已与 VLESS 无加密裸奔持平（接近于纯流量转发），为传统 VMess WS TLS 方案的五倍、VLESS TCP TLS 的三倍（且测试机器 CPU 均有 AES 指令集，否则差距更大，如硬路由器上），强烈建议测试体验。这或许是当前性能最强的安全代理方式，但并不是上限，因为下一步优化方向是 V2Ray 框架本身的性能。**
 
+具体测试方式和测试结果见 [这里](https://github.com/badO1a5A90/v2ray-doc)
+
 **它是什么**
 
 1. 简单概括：特殊处理 TLS 流量，不重复加密，提升数倍性能、更省资源。各种移动设备可以省电，路由器的加解密性能也不再是瓶颈。[rprx/v2ray-vless/releases](https://github.com/rprx/v2ray-vless/releases) 有关于 [XTLS Project](https://github.com/XTLS/Go) 原理的一些介绍。
