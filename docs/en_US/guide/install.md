@@ -17,8 +17,7 @@ The following platforms are supported by V2Ray:
 Compiled binary packages can be found via the following links.
 
 1. Github Release: [github.com/v2fly/v2ray-core](https://github.com/v2fly/v2ray-core/releases)
-2. Homebrew: [github.com/v2ray/homebrew-v2ray](https://github.com/v2ray/homebrew-v2ray)
-3. Arch Linux: [packages/community/x86_64/v2ray/](https://www.archlinux.org/packages/community/x86_64/v2ray/)
+2. Arch Linux: [packages/community/x86_64/v2ray/](https://www.archlinux.org/packages/community/x86_64/v2ray/)
 
 All packages are in the .zip format. Look for the file matching your platform and unzip it to get started.
 
@@ -29,15 +28,25 @@ The integrity of V2Ray can be validated in two ways:
 1. The SHA1 / SHA256 digest information can be found in the corresponding `.dgst` files.
 2. Run `v2ctl verify --sig=Release example-file`
 
-## Installing on Windows or macOS
+## Windows Installation
 
-V2Ray can be obtained by downloading and unzipping the downloaded packages aforementioned. 
+- Download and unpack the zip file, you will get an executable `v2ray.exe`.
+- Install via [Scoop](https://scoop.sh/) package manager: `scoop install v2ray`
+- Install via [Chocolatey](https://chocolatey.org/) package manager: `choco install v2ray`
 
-Followed by running it via [command line](command.md).
+Then run V2Ray in [command line](command.md).
+
+## macOS Installation
+
+- Download and unpack the zip file, you will get an executable `v2ray`.
+- Install via [Homebrew](https://brew.sh/) package manager: `brew install v2ray`w
+  - If you want to use `brew services`, use this [Tap](https://github.com/v2ray/homebrew-v2ray).
+
+Then run V2Ray in [command line](command.md).
 
 ## Linux Distro Repository
 
-Some distros may have included V2Ray to their repositories. It is recommended to use these repositories for better compatibility before using any installation script. 
+Some distros may have included V2Ray to their repositories. It is recommended to use these repositories for better compatibility before using any installation script.
 
 * Debian: [golang-v2ray-core](https://tracker.debian.org/pkg/golang-v2ray-core).
 
@@ -45,9 +54,9 @@ Some distros may have included V2Ray to their repositories. It is recommended to
 
 The original installation script is deprecated and replaced by [fhs-install-v2ray](https://github.com/v2fly/fhs-install-v2ray).
 
-Go to [#2328](https://github.com/v2ray/v2ray-core/issues/2328) for related discussions. 
+Go to [#2328](https://github.com/v2ray/v2ray-core/issues/2328) for related discussions.
 
-What's new? 
+What's new?
 
 * Changed Installation Path V2Ray to comply with FHS.
 * Stopped supporting stone age platforms, such as CentOS 6.
@@ -64,7 +73,7 @@ What's new?
 
 ## Docker
 
-The V2Ray Docker Image is also available: 
+The V2Ray Docker Image is also available:
 
 * [v2fly/v2ray-core](https://hub.docker.com/r/v2fly/v2fly-core): The `latest` tag will be updated following [v2fly](https://github.com/v2fly/docker-fly)'s latest release. Other versions will be released using the version's tag, e.g. `4.27.0`.
 

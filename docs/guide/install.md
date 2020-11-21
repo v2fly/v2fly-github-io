@@ -17,8 +17,7 @@ V2Ray 在以下平台中可用：
 预编译的压缩包可以在如下几个站点找到：
 
 1. Github Release：[github.com/v2fly/v2ray-core](https://github.com/v2fly/v2ray-core/releases)
-2. Homebrew：[github.com/v2ray/homebrew-v2ray](https://github.com/v2ray/homebrew-v2ray)
-3. Arch Linux：[packages/community/x86_64/v2ray/](https://www.archlinux.org/packages/community/x86_64/v2ray/)
+2. Arch Linux：[packages/community/x86_64/v2ray/](https://www.archlinux.org/packages/community/x86_64/v2ray/)
 
 压缩包均为 ZIP 格式，找到对应平台的压缩包，下载解压即可使用。
 
@@ -29,9 +28,19 @@ V2Ray 提供两种验证方式：
 1. 安装包 ZIP 文件的 SHA1 / SHA256 摘要，在每个安装包对应的 `.dgst` 文件中可以找到。
 2. 使用 `v2ctl verify --sig=Release example-file`
 
-## Windows 和 macOS 安装方式
+## Windows 安装方式
 
-通过上述方式下载的压缩包，解压之后可看到 v2ray 或 v2ray.exe。
+- 下载压缩包，解压之后可得到可执行文件 `v2ray.exe`。
+- 通过 [Scoop](https://scoop.sh/) 包管理器安装：`scoop install v2ray`
+- 通过 [Chocolatey](https://chocolatey.org/) 包管理器安装：`choco install v2ray`
+
+然后 [通过命令行带参数运行](command.md) 即可。
+
+## macOS 安装方式
+
+- 下载压缩包，解压之后可得到可执行文件 `v2ray`。
+- 通过 [Homebrew](https://brew.sh/) 包管理器安装：`brew install v2ray`
+  - 如需使用 `brew services`，请使用此 [Tap](https://github.com/v2ray/homebrew-v2ray)。
 
 然后 [通过命令行带参数运行](command.md) 即可。
 
