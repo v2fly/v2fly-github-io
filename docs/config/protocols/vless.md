@@ -3,8 +3,6 @@
 - 名称：`vless`
 - 类型：入站 / 出站
 
-**当前版本：VLESS XTLS ReadV（v2ray-core v4.32.1+）**
-
 :::warning
 目前 VLESS 没有自带加密，请用于可靠信道，如 TLS。目前 VLESS 不支持分享。</br>
 VLESS 处于公测阶段，测试期间请确保客户端与服务端的 v2ray-core 均为最新版本。</br>
@@ -143,7 +141,7 @@ VLESS 的用户 ID，必须是一个合法的 UUID，你也可以用 [V2Ctl](../
 
 ## FallbackObject
 
-基于首包长度分流的新型协议回落模式
+协议回落
 
 ```json
 {
@@ -209,7 +207,7 @@ Fallback 内设置的 "alpn" 是匹配实际协商出的 ALPN，而 Inbound TLS 
 **补充说明**
 
 1. 将匹配到最精确的子元素，与子元素的排列顺序无关。若配置了几个 alpn 和 path 均相同的子元素，则会以最后的为准。
-2. 回落分流均是解密后 TCP 层的转发，而不是 HTTP 层，只是有需要时会尝试看一眼首包 PATH。
+2. 回落分流均是解密后 TCP 层的转发，而不是 HTTP 层，只在必要时检查首包 PATH。
 3. 不支持按域名分流。若有此需求，建议前置 Nginx 等并配置 stream SNI 分流。
 
 ## 一些说明
