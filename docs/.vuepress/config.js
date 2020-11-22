@@ -165,6 +165,9 @@ module.exports = {
                     {text: 'Developer Guide', link: '/en_US/developer/intro/compile',},
                     {text: 'New concise guide', link: 'https://guide.v2fly.org/'},
                 ],
+                sidebar: {
+                    '/': 'auto',
+                },
             },
         },
     },
