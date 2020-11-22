@@ -14,7 +14,7 @@
     url="https://github.com/Qv2ray/Qv2ray"
     name="Qv2ray"
     :platforms="['linux','win','mac']"
-    description="跨平台 V2Ray 客户端，支持 Linux、Windows、macOS，可通过插件系统支持 SSR / Trojan / Trojan-Go / NaiveProxy 等协议，不支持批量测速，不支持自动更新，不建议小白使用。"
+    description="跨平台 V2Ray 客户端，支持 Linux、Windows、macOS，可通过插件系统支持 SSR / Trojan / Trojan-Go / NaiveProxy 等协议"
 />
 
 <Tool
