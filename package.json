@@ -1,5 +1,6 @@
 {
-  "name": "v2fly-manual",
+  "name": "v2fly-github-io",
+  "license": "CC-BY-SA-4.0",
   "version": "1.0.0",
   "scripts": {
     "dev": "vuepress dev docs",
@@ -12,10 +13,14 @@
   "devDependencies": {
     "@vuepress/plugin-back-to-top": "^1.5.2",
     "lint-staged": "^10.2.11",
-    "vuepress": "^1.5.2",
+    "vuepress": "^1.7.1",
     "vuepress-plugin-mermaidjs": "^1.5.1"
   },
   "dependencies": {
+    "@kidonng/vuepress-plugin-contributors": "^0.2.0",
     "uuid": "^8.3.0"
+  },
+  "resolutions": {
+    "vuepress-plugin-smooth-scroll": "^0.0.10"
   }
 }

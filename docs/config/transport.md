@@ -1,8 +1,3 @@
----
-refcn: chapter_02/05_transport
-refen: configuration/transport
----
-
 # Transport
 
 底层传输方式（transport）是当前 V2Ray 节点和其它节点对接的方式。底层传输方式提供了稳定的数据传输通道。通常来说，一个网络连接的两端需要有对称的传输方式。比如一端用了 WebSocket，那么另一个端也必须使用 WebSocket，否则无法建立连接。
@@ -19,8 +14,8 @@ refen: configuration/transport
     "kcpSettings": {},
     "wsSettings": {},
     "httpSettings": {},
-    "dsSettings": {},
-    "quicSettings": {}
+    "quicSettings": {},
+    "dsSettings": {}
 }
 ```
 
@@ -40,13 +35,13 @@ refen: configuration/transport
 
 针对 HTTP/2 连接的配置。
 
-> `dsSettings`: [DomainSocketObject](transport/domainsocket.md)
-
-针对 Domain Socket 连接的配置。
-
 > `quicSettings`: [QuicObject](transport/quic.md)
 
 针对 QUIC 连接的配置。
+
+> `dsSettings`: [DomainSocketObject](transport/domainsocket.md)
+
+针对 Domain Socket 连接的配置。
 
 ## StreamSettingsObject
 
@@ -61,8 +56,8 @@ refen: configuration/transport
     "kcpSettings": {},
     "wsSettings": {},
     "httpSettings": {},
-    "dsSettings": {},
     "quicSettings": {},
+    "dsSettings": {},
     "sockopt": {
         "mark": 0,
         "tcpFastOpen": false,
@@ -99,13 +94,13 @@ TLS 配置。TLS 由 Golang 提供，支持 TLS 1.3，不支持 DTLS。
 
 当前连接的 HTTP/2 配置，仅当此连接使用 HTTP/2 时有效。配置内容与上面的全局配置相同。
 
-> `dsSettings`: [DomainSocketObject](transport/domainsocket.md)
-
-当前连接的 Domain socket 配置，仅当此连接使用 Domain socket 时有效。配置内容与上面的全局配置相同。
-
 > `quicSettings`: [QUICObject](transport/quic.md)
 
 当前连接的 QUIC 配置，仅当此连接使用 QUIC 时有效。配置内容与上面的全局配置相同。
+
+> `dsSettings`: [DomainSocketObject](transport/domainsocket.md)
+
+当前连接的 Domain socket 配置，仅当此连接使用 Domain socket 时有效。配置内容与上面的全局配置相同。
 
 > `sockopt`: [SockoptObject](#sockoptobject)
 
@@ -138,17 +133,13 @@ TLS 配置。TLS 由 Golang 提供，支持 TLS 1.3，不支持 DTLS。
 
 是否允许不安全连接（仅用于客户端）。默认值为 `false`。当值为 `true` 时，V2Ray 不会检查远端主机所提供的 TLS 证书的有效性。
 
-> `allowInsecureCiphers`: true | false
-
-是否允许不安全的加密方式（该参数已无效）。默认值为 `false`，该情况下，TLS 只使用 TLS 1.3 推荐的加密算法套件。当值为 `true` 时，开启这一选项会增加一些与 TLS 1.2 兼容的加密套件。
-
 > `disableSystemRoot`: true | false
 
 （V2Ray 4.18+）是否禁用操作系统自带的 CA 证书。默认值为 `false`。当值为 `true` 时，V2Ray 只会使用 `certificates` 中指定的证书进行 TLS 握手。当值为 `false` 时，V2Ray 只会使用操作系统自带的 CA 证书进行 TLS 握手。
 
 > `certificates`: \[ [CertificateObject](#certificateobject) \]
 
-证书列表，其中每一项表示一个证书
+证书列表，其中每一项表示一个证书（建议 fullchain）。
 
 ### CertificateObject
 

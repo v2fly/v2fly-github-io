@@ -1,8 +1,3 @@
----
-refcn: chapter_02/reverse
-refen: configuration/reverse
----
-
 # Reverse 反向代理
 
 反向代理是一个 V2Ray 的附加功能，可以把服务器端的流量向客户端转发，即逆向流量转发。
@@ -25,39 +20,39 @@ refen: configuration/reverse
 
 ## ReverseObject
 
-`ReverseObject` 对应配置文件中的 `reverse` 项。
+`ReverseObject` 对应配置文件的 `reverse` 项。
 
 ```json
 {
     "bridges": [
         {
             "tag": "bridge",
-            "domain": "test.v2ray.com"
+            "domain": "test.v2fly.org"
         }
     ],
     "portals": [
         {
             "tag": "portal",
-            "domain": "test.v2ray.com"
+            "domain": "test.v2fly.org"
         }
     ]
 }
 ```
 
-> `bridges`: \[[BridgeObject](bridgeobject)\]
+> `bridges`: \[[BridgeObject](#bridgeobject)\]
 
-一个数组，每一项表示一个 `bridge`。每个 `bridge` 的配置是一个 [BridgeObject](bridgeobject)。
+一个数组，每一项表示一个 `bridge`。每个 `bridge` 的配置是一个 [BridgeObject](#bridgeobject)。
 
-> `portals`: \[[PortalObject](portalobject)\]
+> `portals`: \[[PortalObject](#portalobject)\]
 
-一个数组，每一项表示一个 `portal`。每个 `portal` 的配置是一个 [PortalObject](bridgeobject)。
+一个数组，每一项表示一个 `portal`。每个 `portal` 的配置是一个 [PortalObject](#bridgeobject)。
 
 ## BridgeObject
 
 ```json
 {
     "tag": "bridge",
-    "domain": "test.v2ray.com"
+    "domain": "test.v2fly.org"
 }
 ```
 
@@ -74,7 +69,7 @@ refen: configuration/reverse
 ```json
 {
     "tag": "portal",
-    "domain": "test.v2ray.com"
+    "domain": "test.v2fly.org"
 }
 ```
 
@@ -101,7 +96,7 @@ refen: configuration/reverse
     "bridges": [
         {
             "tag": "bridge",
-            "domain": "test.v2ray.com"
+            "domain": "test.v2fly.org"
         }
     ]
 }
@@ -147,7 +142,7 @@ refen: configuration/reverse
                 "bridge"
             ],
             "domain": [
-                "full:test.v2ray.com"
+                "full:test.v2fly.org"
             ],
             "outboundTag": "interconn"
         },
@@ -171,7 +166,7 @@ refen: configuration/reverse
     "portals": [
         {
             "tag": "portal",
-            "domain": "test.v2ray.com" // 必须和 bridge 的配置一样
+            "domain": "test.v2fly.org" // 必须和 bridge 的配置一样
         }
     ]
 }

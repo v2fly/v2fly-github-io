@@ -1,15 +1,10 @@
----
-refcn: chapter_02/policy
-refen: configuration/policy
----
-
 # Policy 本地策略
 
-本地策略可以配置一些用户相关的权限，比如连接超时设置。V2Ray 处理的每一个连接，都对应到一个用户，按照这个用户的等级（level）应用不同的策略。本地策略可按照等级的不同而变化。
+本地策略可以配置一些用户相关的权限，比如连接超时设置。V2Ray 处理的每一个连接都对应一个用户，按照用户的等级（level）应用不同的策略。本地策略可根据等级的不同而变化。
 
 ## PolicyObject
 
-`PolicyObject` 对应配置文件中的 `policy` 项。
+`PolicyObject` 对应配置文件的 `policy` 项。
 
 ```json
 {
@@ -35,7 +30,7 @@ refen: configuration/policy
 
 > `level`: map{string: [LevelPolicyObject](#levelpolicyobject)}
 
-一组键值对，每个键是一个字符串形式的数字（JSON 的要求），比如 `"0"`、`"1"` 等，双引号不能省略，这个数字对应用户等级。每一个值是一个 [LevelPolicyObject](#levelpolicyobject).
+一组键值对，每个键是一个字符串形式的数字（JSON 的要求），比如 `"0"`、`"1"` 等，双引号不能省略，此数字对应用户等级。每一个值是一个 [LevelPolicyObject](#levelpolicyobject).
 
 :::tip
 每个入站出站代理现在都可以设置用户等级，V2Ray 会根据实际的用户等级应用不同的本地策略。

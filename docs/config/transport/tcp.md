@@ -1,23 +1,27 @@
----
-refcn: chapter_02/transport/tcp
-refen: configuration/transport/tcp
----
-
 # TCP
 
 ## TcpObject
 
+`TcpObject` 对应传输配置的 `tcpSettings` 项。
+
 ```json
 {
+    "acceptProxyProtocol": false,
     "header": {
         "type": "none"
     }
 }
 ```
 
+> `acceptProxyProtocol`: true | false
+
+v4.27.1+，仅用于 inbound，是否接收 PROXY protocol，默认值为 `false`。填写 `true` 时，最底层 TCP 连接建立后，请求方必须先发送 PROXY protocol v1 或 v2，否则连接会被关闭。
+
+[PROXY protocol](https://www.haproxy.org/download/2.2/doc/proxy-protocol.txt) 专用于传递请求的真实来源 IP 和端口，**若你不了解它，请先忽略该项**。常见的反代软件（如 HAProxy、Nginx）都可以配置发送它，VLESS fallbacks xver 也可以发送它。
+
 > `header`: NoneHeaderObject | HttpHeaderobject
 
-数据包头部伪装设置，默认值为 `NoneHeaderObject`。
+数据包头部伪装设置，默认值为 `NoneHeaderObject`。HTTP 伪装无法被其它 HTTP 服务器（如 Nginx）分流，但可以被 VLESS fallbacks path 分流。
 
 ## NoneHeaderObject
 

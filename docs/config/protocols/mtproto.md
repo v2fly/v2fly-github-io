@@ -1,9 +1,4 @@
----
-refcn: chapter_02/protocols/mtproto
-refen: configuration/protocols/mtproto
----
-
-# MTProto
+# MTProto V1
 
 * 名称：`mtproto`
 * 类型：入站／出站

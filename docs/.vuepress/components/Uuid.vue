@@ -2,7 +2,7 @@
   <section>
     <pre><code>{{ uuid }}</code></pre>
     <button @mousedown.left="startRoll" @mouseup.left="stopRoll" @mouseleave="stopRoll">生成</button>
-    <button @click="copy">{{copied?'已复制':'复制'}}</button>
+    <button @click="copy" @mouseleave="copySuccessDelay">{{copied?'已复制':'复制'}}</button>
   </section>
 </template>
 <!--TODO: intergrate with vuepress theme-->
@@ -27,7 +27,7 @@ button:active {
 }
 </style>
 <script>
-const { v4: uuidv4 } = require("uuid");
+import { v4 as uuidv4 } from "uuid";
 export default {
   methods: {
     startRoll() {
@@ -40,19 +40,14 @@ export default {
     },
     generate() {
       this.uuid = uuidv4();
-      this.copied = false;
     },
     copy() {
       navigator.clipboard.writeText(this.uuid).then(this.copySuccess);
     },
     copySuccess() {
       this.copied = true;
-      this.copyTime = new Date().getTime();
-      setTimeout(this.copySuccessDelay, 2000);
     },
     copySuccessDelay() {
-      const now = new Date().getTime();
-      if (now - this.copyTime < 1900) return;
       this.copied = false;
     },
   },
@@ -61,11 +56,10 @@ export default {
       uuid: uuidv4(),
       timerHandles: [],
       copied: false,
-      copyTime: 0,
     };
   },
   beforeDestroy() {
-    stopRoll();
+    this.stopRoll();
   }
 };
 </script>

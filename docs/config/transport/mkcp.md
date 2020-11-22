@@ -1,13 +1,10 @@
----
-refcn: chapter_02/transport/mkcp
-refen: configuration/transport/mkcp
----
-
 # mKCP
 
 mKCP 使用 UDP 来模拟 TCP 连接，请确定主机上的防火墙配置正确。mKCP 牺牲带宽来降低延迟。传输同样的内容，mKCP 一般比 TCP 消耗更多的流量。
 
 ## KcpObject
+
+`KcpObject` 对应传输配置的 `kcpSettings` 项。
 
 ```json
 {
@@ -67,7 +64,7 @@ mKCP 使用 UDP 来模拟 TCP 连接，请确定主机上的防火墙配置正�
 
 > `seed`: string
 
-可选项混淆密码， v4.24 后加入。可以使用 AES-128-GCM 算法混淆流量数据，客户端和服务器端需要保持一致。此设置可能可以对抗部分封锁。本混淆机制不能用于保证通信内容的安全。在开发者测试环境下开启此设置后没有出现原版未混淆版本的封端口状况。启用后会输出"NewAEADAESGCMBasedOnSeed Used"到命令行。
+v4.24.2+，可选的混淆密码，使用 AES-128-GCM 算法混淆流量数据，客户端和服务端需要保持一致，启用后会输出"NewAEADAESGCMBasedOnSeed Used"到命令行。本混淆机制不能用于保证通信内容的安全，但可能可以对抗部分封锁，在开发者测试环境下开启此设置后没有出现原版未混淆版本的封端口现象。
 
 
 ## HeaderObject
@@ -91,9 +88,9 @@ mKCP 使用 UDP 来模拟 TCP 连接，请确定主机上的防火墙配置正�
 
 ## 鸣谢
 
-* @skywind3000 发明并实现了 KCP 协议。
-* @xtaci 将 KCP 由 C 语言实现翻译成 Go。
-* @xiaokangwang 测试 KCP 与 V2Ray 的整合并提交了最初的 PR。
+* [@skywind3000](https://github.com/skywind3000) 发明并实现了 KCP 协议。
+* [@xtaci](https://github.com/xtaci) 将 KCP 由 C 语言实现翻译成 Go。
+* [@xiaokangwang](https://github.com/xiaokangwang) 测试 KCP 与 V2Ray 的整合并提交了最初的 PR。
 
 ## 对 KCP 协议的改进
 

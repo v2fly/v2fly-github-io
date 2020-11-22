@@ -1,8 +1,3 @@
----
-refcn: chapter_02/protocols/http
-refen: configuration/protocols/http
----
-
 # HTTP
 
 * 名称：`http`
@@ -91,13 +86,13 @@ HTTP 的配置分为两部分，`InboundConfigurationObject` 和 `OutboundConfig
 }
 ```
 
-(V2ray 4.21.0+)
+(V2Ray 4.21.0+)
 
 :::tip
 应该注意，虽然 `http outbound` 可以作为对外访问的配置，但 `http proxy` 协议没有对传输加密，不适宜经公网中传输，且因不支持 udp 传输将会导致 core 功能受限（Routing 过程的的 DNS 查询不可用）。`http outbound` 更有意义的用法是在特殊情况下，只能使用 `http proxy` 对外访问内部网络中，作为为其他协议连接代理服务器的前置代理使用（见 `OutboundObject` 的 `ProxySettingsObject`）。另因 `http proxy` 只能代理 tcp 协议，udp 系的协议均不能通过。
 :::
 
-(V2ray 4.21.1+)
+(V2Ray 4.21.1+)
 
 :::tip
 4.20.0 版本中引入了 http outbound 作为其他协议的前置代理用法中，缺乏了对 TLS 配置的支持。4.21.1 的补丁版本中对 `streamSettings` 中的 `security` 和 `tlsSettings` 保留生效。目前前置代理的用法中，vmess/tcp、vmess/tcp-tls 和 shadowsocks 等三种协议方式可使用，其他传输协议的前置代理用法需后续版本开发支持。

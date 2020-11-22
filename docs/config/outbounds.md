@@ -1,15 +1,10 @@
----
-refcn: chapter_02/outbounds
-refen: configuration/outbounds
----
-
 # Outbounds
 
 出站连接用于向远程网站或下一级代理服务器发送数据，可用的协议请见协议列表。
 
 ## OutboundObject
 
-`OutboundObject` 对应配置文件中的 `outbounds` 项的一个元素。
+`OutboundObject` 对应配置文件中 `outbounds` 项的一个子元素。
 
 ```json
 {
@@ -80,12 +75,12 @@ Mux 功能是在一条 TCP 连接上分发多个 TCP 连接的数据。实现细
 
 > `enabled`: true | false
 
-是否启用 Mux 转发请求
+是否启用 Mux 转发请求，默认值 `false`。
 
 > `concurrency`: number
 
-最大并发连接数。最小值 `1`，最大值 `1024`，缺省默认值 `8`。
+最大并发连接数。最小值 `1`，最大值 `1024`，默认值 `8`。
 
-特殊值 `-1`，不加载 mux 模块。(4.22.0+)
+填负数，如 `-1`，不加载 mux 模块（v4.22.0+）。
 
 这个数值表示了一个 TCP 连接上最多承载的 Mux 连接数量。当客户端发出了 8 个 TCP 请求，而 `concurrency=8` 时，V2Ray 只会发出一条实际的 TCP 连接，客户端的 8 个请求全部由这个 TCP 连接传输。

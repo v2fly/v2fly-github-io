@@ -1,8 +1,3 @@
----
-refcn: chapter_02/transport/quic
-refen: configuration/transport/quic
----
-
 # QUIC
 
 QUIC 全称 Quick UDP Internet Connection，是由 Google 提出的使用 UDP 进行多路并发传输的协议。其主要优势是:
@@ -24,7 +19,7 @@ V2Ray 4.7:
 
 ## QuicObject
 
-QUIC 的配置对应传输配置中的 `quicSettings` 项。对接的两端的配置必须完全一致，否则连接失败。QUIC 强制要求开启 TLS，在传输配置中没有开启 TLS 时，V2Ray 会自行签发一个证书进行 TLS 通讯。在使用 QUIC 传输时，可以关闭 VMess 的加密。
+`QuicObject` 对应传输配置的 `quicSettings` 项。对接的两端的配置必须完全一致，否则连接失败。QUIC 强制要求开启 TLS，在传输配置中没有开启 TLS 时，V2Ray 会自行签发一个证书进行 TLS 通讯。在使用 QUIC 传输时，可以关闭 VMess 的加密。
 
 ```json
 {

@@ -1,20 +1,15 @@
----
-refcn: chapter_02/inbounds
-refen: configuration/inbounds
----
-
 # Inbounds
 
 入站连接用于接收从客户端（浏览器或上一级代理服务器）发来的数据，可用的协议请见协议列表。
 
 ## InboundObject
 
-`InboundObject` 对应配置文件中的 `inbounds` 项的一个元素。
+`InboundObject` 对应配置文件中 `inbounds` 项的一个子元素。
 
 ```json
 {
-    "port": 1080,
     "listen": "127.0.0.1",
+    "port": 1080,
     "protocol": "协议名称",
     "settings": {},
     "streamSettings": {},
@@ -34,6 +29,14 @@ refen: configuration/inbounds
 }
 ```
 
+> `listen`: address
+
+监听地址，只允许 IP 地址，默认值为 `"0.0.0.0"`，表示接收所有网卡上的连接。除此之外，必须指定一个现有网卡的地址。
+
+v4.32.0+，支持填写 Unix domain socket，格式为绝对路径，形如 `"/dev/shm/domain.socket"`，可在开头加 `"@"` 代表 [abstract](https://www.man7.org/linux/man-pages/man7/unix.7.html)，`"@@"` 则代表带 padding 的 abstract。
+
+填写 Unix domain socket 时，`port` 和 `allocate` 将被忽略，协议暂时可选 VLESS、VMess、Trojan，传输方式可选 TCP、WebSocket、HTTP/2。
+
 > `port`: number | "env:variable" | string
 
 端口。接受的格式如下:
@@ -43,10 +46,6 @@ refen: configuration/inbounds
 * 字符串：可以是一个数值类型的字符串，如 `"1234"`；或者一个数值范围，如 `"5-10"` 表示端口 5 到端口 10，这 6 个端口。
 
 当只有一个端口时，V2Ray 会在此端口监听入站连接。当指定了一个端口范围时，取决于 `allocate` 设置。
-
-> `listen`: address
-
-监听地址，只允许 IP 地址，默认值为 `"0.0.0.0"`，表示接收所有网卡上的连接。除此之外，必须指定一个现有网卡的地址。
 
 > `protocol`: string
 

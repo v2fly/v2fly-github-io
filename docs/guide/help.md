@@ -3,12 +3,16 @@
 Project V 提供了多种方式进行交流。
 
 ::: tip
-Project V 团队支持中文和英文，请选择你所熟悉的语言来提问，以避免一些不必要的误会。管理员会以问题发起者使用的语言来回复；如果提问者使用了其它的语言，则以英文回复。
+Project V 团队支持中文和英文，为避免一些不必要的误会，请选择你所熟悉的语言来提问。管理员会以问题发起者使用的语言来回复；如若提问者使用了其它的语言，则以英文回复。
 :::
 
 ## Github Issue
 
 * [v2ray-core](https://github.com/v2fly/v2ray-core/issues)
+
+## Twitter News
+
+* [@realV2Fly](https://twitter.com/realV2Fly)
 
 ## Telegram 讨论组
 
@@ -18,35 +22,37 @@ Project V 提供了下列讨论组，用于讨论不同类型的问题。
   * 话题限定
   * 只允许发送特定表情
   
-* [日常](https://t.me/joinchat/JiDjBEzQFLN5R_BdpMpelw)
+* [日常](https://t.me/joinchat/JiDjBEzQFLNeBl_-JUrm_A)
   * 用于其它不相关的话题。
 
 ::: warning
-所有讨论组都不可以发布 R18、政治相关、仇恨言论、阴谋论、传播（疑似）谣言、蓄（恶）意冒充他人和广告、策划违法活动等
+所有讨论组均不可发布 NSFW、政治相关、仇恨言论、阴谋论、传播（疑似）谣言、蓄（恶）意冒充他人和广告、策划违法活动等。
 :::
 
 另外请关注 [V2Fly 公告频道](https://t.me/v2fly) 以获得最新资讯。
 
 ## Email
 
-如果你想和 V2Fly 的开发人员私下讨论一些问题，可以通过下列的邮箱联系。
+如果你想和 V2Fly 的开发人员私下讨论一些问题，请通过下列的邮箱联系。
 
 `dev@v2fly.org`: 主要通信邮箱，基本每天都查看。
 `security@v2fly.org`: 仅用于沟通涉及安全隐患的内容。
 
 ::: tip
-由于工作繁忙，不能保证每封邮件都回复，请见谅。请尽量使用社区讨论以得到更快速的社区响应。
+由于工作繁忙，不能保证每封邮件都回复，请见谅。请尽量使用[社区讨论](https://github.com/v2fly/v2ray-core/issues)以得到更快速的响应。
 :::
 
 如果你需要发送加密信息，可以从下面的文本导入。
 
-如果所需讨论的内容设计安全隐患和风险报告，请使用 `security@v2fly.org`。
+如果所需讨论的内容涉及安全隐患和风险报告，请使用 `security@v2fly.org`。
 
 ```
-pub   rsa4096 2020-06-02 [SC] [有效至：2020-12-29]
+pub   rsa4096 2020-06-02 [SC] [有效至：2022-01-02]
       E2E35E27914FB007C0D4B6DDB117BA3BE8B494A7
-uid           V2Fly Developers <dev |at| v2fly.org>
-sub   rsa4096 2020-06-02 [E] [有效至：2020-12-29]
+uid           [ 绝对 ] V2Fly Developers <dev@v2fly.org>
+sub   rsa4096 2020-06-02 [E] [有效至：2022-01-02]
+sub   rsa4096 2020-11-08 [S] [有效至：2022-01-02] // 用于 Debian / Ubuntu 签名
+
 
 -----BEGIN PGP PUBLIC KEY BLOCK-----
 
@@ -61,20 +67,20 @@ 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
-tCBWMkZseSBEZXZlbG9wZXJzIDxkZXZAdjJmbHkub3JnPokCVAQTAQgAPhYhBOLj
-XieRT7AHwNS23bEXujvotJSnBQJe1e6UAhsDBQkBFNsABQsJCAcCBhUKCQgLAgQW
-AgMBAh4BAheAAAoJELEXujvotJSnq1IP/1POoq4iwZ29T2DE6bCd+KFNdDZAfgY/
-U9KvzOycGl3AUPv5QoDGVs6GLXSelO9QYICXI2K9tsaNzIesFsx9r3LCRzr91LSI
-Jx6aqPpvJVBzxYBdarwpUmOsKRPzLIDMf8udlZrXWmtq2qS3cfxqiJkrWt+fnd3H
-cu8BH8fwzjZyxQYfdNRJ+Dk8d2ocgQ4mRpirB70sqi8zE95ox4YytZfd0QHD/gs+
-ihTVeXPtgFtqfCUOduTkF4gsKigQR6Jx3KUuNldLirAxF2XaVTCmygAOuymGYX9L
-vI9xc0s/RoltwOHK1m26idO/0blLPCahXM6WpJR7Ds3ou5phYPKnaF6ly/AAqpIv
-W+g7qFKxeKKJ0evwM/syMtDUEqJ7LS3XCd3z/E2mBCeNazc5TLM+Cx5AqvAN7qs1
-WXGG32LlbeD22Zq9zAWHC+mOI4iaHBGCzp58ugHJunq9AmiVHEB9ttuagtLWeQ3I
-lu65xVq1XV/2r2viUCnb6xbSuhkPnm7pr5ssZgZW07k2IwyaeFLz33moD0rmbWeR
-8dQVFbXTFMbXbj1bCMC8eav1uHme8Lr9PkJ82dt3n6d76s2V18M7ZRsfaH5yQmLF
-v/RucXo6GjAslRSEs/miNim5juletdgv7VZ3z7Vjc6LJ1hukQpRCIgZX5lQK2IOz
-dvDOqQyBTUPQuQINBF7V7pQBEADkQdO75smeKnmPt0/aNNlb7JDOSWW5VY0kYgx3
+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
@@ -85,19 +91,55 @@ ourTZVCCLbAC60VTdxLN6eFO0f+lS2WjyJ7uZ9SGbS6uP0jMNphH/QjVF848bWXs
 Sg8e7/9n6+ms75/deYgnLuA6h7pkIcflm7pUMfVKXKz5Vlc8FC9ia0UtobeKBKqi
 jObfiO/zmNL0HQBeX0e8GkJrCyv6ikD8cUqsmVtgw7jdxGsV0SL5CddDnGKsc68O
 pGDmkAuRqR3QtXju/4r7a8IEVveGWc3rUvddYrtqbbCNWCN0JKX13PEvbNAm+2eD
-MGQtcQARAQABiQI8BBgBCAAmFiEE4uNeJ5FPsAfA1LbdsRe6O+i0lKcFAl7V7pQC
-GwwFCQEU2wAACgkQsRe6O+i0lKfK3g//a23lroIF0RZCEMox8gP5DCEZtucSg80V
-4meDEAjllT3eyEIM/RcvYT2b1ViMvMYLL8lf81vQ6OvYq8F8iUYD/FpjH2gmVruE
-oMBliLNxwQZHO8AuZtRFCCkjlTk6KYn0b370ypHFE/e8oJaGJxrsRHIjGbKl7DBp
-a735hUl16+sT1k3V0p4BpAcd/4MOCvDSHn1TOr8gQV48tHbkm9zv1WNikzgwH9ig
-rvBFidmWr1jZ+vJmtgiZCerCS5P5Tgd1qr2kBgPPQhhwEcg9bHBcIrtTw/RTyHN5
-cchrvgViCAc4ZgybqV0inawOC96HQ1K9syxXpXhjhrqL/7tJ6Ff03N5yrnQbPpw2
-KMOMQPNMibBNWnuTsUwRa3L27Mx4q6qJp+92GL9xAefytnupvvC105nvBlIym8dQ
-gCiWHi3nZogmYoNMq50Eieawc0eR9ojwrJtEWihYM95i2Mt0pTCiAh955c3vHjt3
-BBYXYEBxKV3ByOxZEIKDYa119ggS7N1OZsLt+tXdCAkKN1qEcia4vSBqUjAV76//
-iUFxqF5n0d8tGpHN49D7MGZT/WYaQBuhxK2Mj4ljXg8EYlVi5Sy3O7GPUEhR16dx
-Y7pbP42vmaDsZaWURUdxeYkj4ha+z1MKqfhDePN6oRerh9I7fJnQK3DbRZGWAiEv
-F1cKt4RANJY=
-=qRzt
+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
+=quYd
 -----END PGP PUBLIC KEY BLOCK-----
+
+
 ```

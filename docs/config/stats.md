@@ -1,15 +1,10 @@
----
-refcn: chapter_02/stats
-refen: configuration/stats
----
-
 # Stats 统计信息
 
 V2Ray 提供了一些关于其运行状况的统计信息。
 
 ## StatsObject
 
-`StatsObject` 对应配置文件中的 `stats` 项。
+`StatsObject` 对应配置文件的 `stats` 项。
 
 ```json
 {
