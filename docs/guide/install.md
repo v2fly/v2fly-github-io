@@ -32,7 +32,8 @@ V2Ray 提供两种验证方式：
 ## macOS 安装方式
 
 * 在 [Github Releases](https://github.com/v2fly/v2ray-core/releases) 下载适用于 macOS 平台的 ZIP 压缩包，解压后可得到可执行文件 `v2ray`，然后[通过命令行带参数运行](command.md) 即可
-* 通过 [Homebrew](https://brew.sh/) 包管理器安装：`brew install v2ray`。如需使用 `brew services`，请使用此 [Tap](https://github.com/v2ray/homebrew-v2ray)。
+* 通过 [Homebrew](https://brew.sh/) 包管理器安装：`brew install v2ray`。
+  * 也可以继续使用 [`v2ray/v2ray` Tap](https://github.com/v2ray/homebrew-v2ray)，但不再推荐。
 
 ## Linux 安装方式
 

@@ -40,7 +40,7 @@ Then run V2Ray in [command line](command.md).
 
 - Download and unpack the zip file, you will get an executable `v2ray`.
 - Install via [Homebrew](https://brew.sh/) package manager: `brew install v2ray`w
-  - If you want to use `brew services`, use this [Tap](https://github.com/v2ray/homebrew-v2ray).
+  - You can continue using [`v2ray/v2ray` Tap](https://github.com/v2ray/homebrew-v2ray), however this is not recommended.
 
 Then run V2Ray in [command line](command.md).
 
