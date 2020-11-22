@@ -166,7 +166,75 @@ module.exports = {
                     {text: 'New concise guide', link: 'https://guide.v2fly.org/'},
                 ],
                 sidebar: {
-                    '/': 'auto',
+                    '/en_US/guide/': [
+                        {
+                            title: 'Quick Start',
+                            collapsable: false,
+                            children: [
+                                'install',
+                                'start',
+                            ],
+                        },
+                        {
+                            title: 'Concept',
+                            collapsable: false,
+                            children: [
+                                'workflow',
+                            ],
+                        },
+                        {
+                            title: 'More',
+                            collapsable: false,
+                            children: [
+                                'faq',
+                            ],
+                        },
+                    ],
+                    '/en_US/config/': [
+                        {
+                            title: 'Config Reference',
+                            collapsable: false,
+                            children: [
+                                'overview',
+                                'dns',
+                                'outbounds',
+                            ],
+                        },
+                        {
+                            title: 'Protocols',
+                            collapsable: false,
+                            children: [
+                                'protocols/blackhole',
+                                'protocols/dns',
+                                'protocols/dokodemo',
+                                'protocols/freedom',
+                            ],
+                        },
+                        {
+                            title: 'Transport',
+                            collapsable: false,
+                            children: [
+                            ],
+                        },
+                    ],
+                    '/en_US/developer/': [
+                        {
+                            title: 'Developer Guide',
+                            collapsable: false,
+                            children: [
+                                'intro/compile',
+                                'intro/design',
+                                'intro/guide',
+                            ]
+                        },
+                        {
+                            title: 'Protocol Details',
+                            collapsable: false,
+                            children: [
+                            ]
+                        }
+                    ],
+                    '/en_US/': 'auto',
                 },
             },
         },
