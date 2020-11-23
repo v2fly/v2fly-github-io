@@ -113,7 +113,6 @@ module.exports = {
                                 'protocols/vmess',
                                 'protocols/shadowsocks',
                                 'protocols/trojan',
-                                'protocols/mtproto',
                             ],
                         },
                         {
