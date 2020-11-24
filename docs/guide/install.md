@@ -48,19 +48,6 @@ V2Ray 提供两种验证方式：
 * [从旧脚本迁移至此](https://github.com/v2fly/fhs-install-v2ray/wiki/Migrate-from-the-old-script-to-this)
 * [使用 VLESS 协议](https://github.com/v2fly/fhs-install-v2ray/wiki/To-use-the-VLESS-protocol)
 
-### Docker
-
-* V2Ray 为 Linux 平台提供了预编译的 Docker image：[v2fly/v2ray-core](https://hub.docker.com/r/v2fly/v2fly-core)
-* GitHub repo：[github.com/v2fly/docker](https://github.com/v2fly/docker)
-
-Docker image 的文件结构：
-
-* `/etc/v2ray/config.json`：配置文件
-* `/usr/bin/v2ray`：V2Ray 主程序
-* `/usr/bin/v2ctl`：V2Ray 辅助工具
-* `/usr/local/share/v2ray/geoip.dat`：IP 数据文件
-* `/usr/local/share/v2ray/geosite.dat`：域名数据文件
-
 ### Linux 发行版包管理器
 
 Linux 发行版 V2Ray 包（可通过发行版相应的包管理器安装）：
@@ -71,3 +58,16 @@ Linux 发行版 V2Ray 包（可通过发行版相应的包管理器安装）：
 ### Linuxbrew 包管理器
 
 [Linuxbrew](https://github.com/Homebrew/linuxbrew-core) 包管理器的使用方式与 Homebrew 一致：`brew install v2ray`
+
+## Docker 安装方式
+
+* V2Ray 为 Linux 平台提供了预编译的 Docker image：[v2fly/v2ray-core](https://hub.docker.com/r/v2fly/v2fly-core)
+* GitHub 仓库：[github.com/v2fly/docker](https://github.com/v2fly/docker)
+
+Docker image 的文件结构：
+
+* `/etc/v2ray/config.json`：配置文件
+* `/usr/bin/v2ray`：V2Ray 主程序
+* `/usr/bin/v2ctl`：V2Ray 辅助工具
+* `/usr/local/share/v2ray/geoip.dat`：IP 数据文件
+* `/usr/local/share/v2ray/geosite.dat`：域名数据文件
