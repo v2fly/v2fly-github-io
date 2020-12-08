@@ -19,7 +19,7 @@ Trojan 的配置分为两部分，`InboundConfigurationObject` 和 `OutboundConf
         {
             "password": "password",
             "email": "love@v2fly.org",
-            "level": 0,
+            "level": 0
         }
     ],
     "fallbacks": [
