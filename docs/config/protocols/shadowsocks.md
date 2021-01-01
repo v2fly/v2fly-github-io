@@ -13,13 +13,6 @@
   * AES-128-GCM
   * ChaCha20-Poly1305 或称 ChaCha20-IETF-Poly1305
   * （V2Ray 4.27.0+） none 或称 plain
-  
-  不推荐的 (未来会被移除)
-  
-  * AES-256-CFB
-  * AES-128-CFB
-  * ChaCha20
-  * ChaCha20-IETF
 
 ::: warning
 "none" 不加密方式下，服务器端不会验证 "password" 中的密码。一般需要加上 TLS 并在传输层使用安全配置，例如 WebSocket 配置较长的 path
