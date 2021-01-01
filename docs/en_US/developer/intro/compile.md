@@ -83,28 +83,3 @@ Users can also modify the information in the script and customize their own vers
 CODENAME="user"
 BUILDNAME=$NOW
 ```
-
-## Automatic build
-
-The bazel build tool is mainly used by the release team.
-
-If you only need to build an installation package for a specific platform, such as Linux / AMD64:
-
-```bash
-cd $(go env GOPATH)/src/v2ray.com/core
-bazel build --action_env=PATH=$PATH --action_env=SPWD=$PWD --action_env=GOPATH=$(go env GOPATH) --action_env=GOCACHE=$(go env GOCACHE) --spawn_strategy local //release: v2ray_linux_amd64_package
-#Output: bazel-bin/release/v2ray-linux-64.zip
-```
-
-Build all installation packages:
-
-```bash
-cd $(go env GOPATH)/src/v2ray.com/core
-bazel build --action_env=PATH=$PATH --action_env=SPWD=$PWD --action_env=GOPATH=$(go env GOPATH) --action_env=GOCACHE=$(go env GOCACHE) --spawn_strategy local //release: all
-```
-
-## Install the completed installation package
-
-```bash
-$GOPATH/src/v2ray.com/core/release/install-release.sh --local <path/to/zip/file>
-```

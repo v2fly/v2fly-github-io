@@ -93,25 +93,3 @@ A unified platform for anti-censorship.
 ```bash
 ./user-package.sh windows 386 nodat noconf codename=custom-codename
 ```
-
-### Bazel 自动构建
-
-Bazel 构建工具主要是发布团队使用。
-
-:::tip
-本小节的命令需要在 V2Ray 项目根目录内运行。
-:::
-
-如果只需构建某个特定平台的发布包，如 64 位 Linux 系统，运行：
-
-```bash
-bazel build --action_env=PATH=$PATH --action_env=SPWD=$PWD --action_env=GOPATH=$(go env GOPATH) --action_env=GOCACHE=$(go env GOCACHE) --spawn_strategy local //release:v2ray_linux_amd64_package
-```
-
-构建所有平台、所有架构的发布包，运行：
-
-```bash
-bazel build --action_env=PATH=$PATH --action_env=SPWD=$PWD --action_env=GOPATH=$(go env GOPATH) --action_env=GOCACHE=$(go env GOCACHE) --spawn_strategy local //release:all
-```
-
-构建完成的文件位于 V2Ray 项目根目录内 `bazel-bin/release` 文件夹里。
