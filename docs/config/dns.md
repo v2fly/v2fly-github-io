@@ -71,7 +71,9 @@ DNS 服务器的处理流程示意图如下：
 
 当值是 `"https://host:port/dns-query"` 的形式，如 `"https://dns.google/dns-query"`，V2Ray 会使用 `DNS over HTTPS` (RFC8484, 简称 DOH) 进行查询。有些服务商拥有 IP 别名的证书，可以直接写 IP 形式，比如 `https://1.1.1.1/dns-query`。也可使用非标准端口和路径，如 `"https://a.b.c.d:8443/my-dns-query"` (4.22.0+)
 
-当值是 `"https+local://host:port/dns-query"` 的形式，如 `"https+local://dns.google/dns-query"`，V2Ray 会使用 `DOH本地模式` 进行查询，即 DOH 请求不会经过 Routing/Outbound 等组件，直接对外请求，以降低耗时。一般适合在服务端使用。也可使用非标端口和路径。(4.22.0+)
+当值是 `"https+local://host:port/dns-query"` 的形式，如 `"https+local://dns.google/dns-query"`，V2Ray 会使用 `DNS over HTTPS 本地模式` 进行查询，即 DOH 请求不会经过 Routing/Outbound 等组件，直接对外请求，以降低耗时。一般适合在服务端使用。也可使用非标端口和路径。(4.22.0+)
+
+当值是 `"quic+local://host"` 的形式，如 `"quic+local://dns.adguard.com"`，V2Ray 会使用 `DNS over QUIC 本地模式` 进行查询，即 DOQ 请求不会经过 Routing/Outbound 等组件，直接对外请求，以降低耗时。目前（2021 年 1 月 4 日），公共 DNS 中支持 DOQ 协议的只有 `dns.adguard.com`，默认使用端口 `784`。 (4.34.0+)
 
 :::tip
 当使用 `localhost` 时，本机的 DNS 请求不受 V2Ray 控制，需要额外的配置才可以使 DNS 请求由 V2Ray 转发。
