@@ -31,10 +31,12 @@ DNS 服务器的处理流程示意图如下：
     },
     "servers": [
         {
-            "address": "1.2.3.4",
+            "address": "11.22.33.44",
             "port": 5353,
+            "clientIp": "5.6.7.8",
             "domains": [
-                "domain:v2ray.com"
+                "domain:v2fly.org",
+                "geosite:cn"
             ],
             "expectIPs": [
                 "geoip:cn"
@@ -83,7 +85,11 @@ DNS 服务器的处理流程示意图如下：
 
 > `clientIp`: string
 
-当前系统的 IP 地址。用于 DNS 查询时通知服务器客户端的所在位置。不能是私有地址。
+:::tip
+此功能需要 DNS 服务器支持 EDNS Client Subnet（RFC7871）。
+:::
+
+当前网络的 IP 地址。用于 DNS 查询时通知 DNS 服务器，客户端所在的地理位置（不能是私有 IP 地址）。
 
 > `tag`: string
 
@@ -93,10 +99,12 @@ DNS 服务器的处理流程示意图如下：
 
 ```json
 {
-    "address": "1.2.3.4",
+    "address": "11.22.33.44",
     "port": 5353,
+    "clientIp": "5.6.7.8",
     "domains": [
-        "domain:v2ray.com"
+        "domain:v2fly.org",
+        "geosite:cn"
     ],
     "expectIPs": [
         "geoip:cn"
@@ -111,6 +119,14 @@ DNS 服务器地址，如 `"8.8.8.8"`。对于普通 DNS IP 地址只支持 UDP 
 > `port`: number
 
 DNS 服务器端口，如 `53`。此项缺省时默认为 `53`。当使用 DOH 模式该项无效，非标端口应在 URL 中指定。
+
+> `clientIp`: string
+
+:::tip
+此功能需要 DNS 服务器支持 EDNS Client Subnet（RFC7871）。
+:::
+
+当前网络的 IP 地址。用于 DNS 查询时通知 DNS 服务器，客户端所在的地理位置（不能是私有 IP 地址）。此处 `clientIp` 的优先级高于外层配置的 `clientIp`，由此可实现「使用不同的 `clientIp` 从相同的 DNS 服务器获取同一域名在不同地区的解析结果」。 (4.34.0+)
 
 > `domains`: \[string\]
 
