@@ -2,7 +2,7 @@
 
 This article describes the design ideas of the V2Ray core (v2ray-core).
 
-## aims
+## Objectives
 
 * The V2Ray kernel provides a platform that supports the necessary network proxy functions, on top of which can be further developed to provide a better user experience;
 * Take cross-platform as the primary principle to reduce the cost of secondary development;
