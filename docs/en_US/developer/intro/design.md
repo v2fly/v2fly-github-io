@@ -2,7 +2,7 @@
 
 This article describes the design ideas of the V2Ray core (v2ray-core).
 
-## aims
+## Objectives
 
 * The V2Ray kernel provides a platform that supports the necessary network proxy functions, on top of which can be further developed to provide a better user experience;
 * Take cross-platform as the primary principle to reduce the cost of secondary development;
@@ -24,7 +24,7 @@ List of important modules:
 * DNS: built-in DNS cache;
 * Proxy Manager: Inbound proxy manager;
 
-## Agent layer
+## Proxy layer
 
 The proxy layer is divided into two parts: Inbound Proxy and Outbound Proxy. The two parts are independent of each other, the inbound agent does not depend on a specific outbound agent, and vice versa.
 
