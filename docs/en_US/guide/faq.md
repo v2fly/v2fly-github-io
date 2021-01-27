@@ -1,6 +1,6 @@
-# common problem
+# FAQ
 
-Weird questions and answers
+Answer to multiple weird questions
 
 ## General question
 
