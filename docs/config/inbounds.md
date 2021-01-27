@@ -19,7 +19,8 @@
         "destOverride": [
             "http",
             "tls"
-        ]
+        ],
+        "metadataOnly": false
     },
     "allocate": {
         "strategy": "always",
@@ -79,7 +80,8 @@ v4.32.0+，支持填写 Unix domain socket，格式为绝对路径，形如 `"/d
     "destOverride": [
         "http",
         "tls"
-    ]
+    ],
+    "metadataOnly": false
 }
 ```
 
@@ -87,9 +89,17 @@ v4.32.0+，支持填写 Unix domain socket，格式为绝对路径，形如 `"/d
 
 是否开启流量探测。
 
-> `destOverride`: \["http" | "tls"\]
+> `destOverride`: \["http" | "tls" | "fakedns"\]
 
 当流量为指定类型时，按其中包括的目标地址重置当前连接的目标。
+
+> `metadataOnly`: true | false
+
+是否仅仅使用元数据推断目标地址而不截取流量内容。只有元数据流量目标侦测模块会被激活。
+
+:::tip
+[虚拟 DNS 服务器](fakedns.md) 是一个元数据流量目标地址侦测模块。其他流量探测模块需要关闭 metadataOnly 才能被激活。
+:::
 
 ## AllocateObject
 
