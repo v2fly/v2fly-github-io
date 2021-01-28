@@ -50,10 +50,67 @@ V2Ray 提供两种验证方式：
 
 ### Linux 发行版包管理器
 
-Linux 发行版 V2Ray 包（可通过发行版相应的包管理器安装）：
+Linux 发行版提供的 V2Ray 包（可通过发行版相应的包管理器安装）：
 
 * Debian：[golang-v2ray-core](https://tracker.debian.org/pkg/golang-v2ray-core)
 * Arch Linux：[community/x86_64/v2ray](https://www.archlinux.org/packages/community/x86_64/v2ray/)
+
+#### APT pinning
+
+目前，Debian 的 V2Ray 包仍位于 Unstable 仓库，想用新包，又不想整体转为 Unstable 的话，就可以使用 [APT pinning](https://wiki.debian.org/AptConfiguration)。
+
+1. 向 `/etc/apt/preferences` 写入：
+
+```
+Explanation: Uninstall or do not install any Debian-originated
+Explanation: package versions other than those in the stable distro
+Package: *
+Pin: release a=stable
+Pin-Priority: 900
+
+Package: *
+Pin: release o=Debian
+Pin-Priority: -10
+```
+
+这将保证主体仍为 Stable。
+
+2. 向 `/etc/apt/preferences.d/90debian-unstable` 写入：
+
+```
+Package: v2ray
+Pin: release a=unstable
+Pin-Priority: 900
+```
+
+这会确保单独从 Unstable 仓库拿取 V2Ray 包。
+
+3. 执行并写入：
+
+```
+# apt edit-sources unstable
+
+deb https://deb.debian.org/debian/ sid main
+deb-src https://deb.debian.org/debian/ sid main
+```
+
+这样就增添了 Unstable（Sid）仓库。
+
+4. 更新软体仓库并安装 V2Ray：
+
+```
+# apt update
+# apt install v2ray
+```
+
+注意：由于该包在 v2ray.service 中使用了 `DynamicUser=true`，如果你想向 `/var/log/v2ray/` 目录档中写入 Log，请执行并写入：
+
+```
+# systemctl edit v2ray.service
+
+[Service]
+LogsDirectory=v2ray
+```
 
 ### Linuxbrew 包管理器
 
