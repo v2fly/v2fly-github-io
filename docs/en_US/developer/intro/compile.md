@@ -1,9 +1,5 @@
 # The first step: learn to compile
 
-## Windows
-
-If you are using Windows, just refer to this article: [[Tutorial] Detailed methods for manual compilation and cross-compilation of V2Ray under Windows](https://github.com/v2ray/discussion/issues/756)
-
 ## Pre-work
 
 V2Ray uses [Golang](https://golang.org/) as the main programming language. [Bazel](https://bazel.build/) is used as the build tool in the team release process. It is recommended to use macOS or Linux for development. A small amount of scripts may not run properly on Windows.
