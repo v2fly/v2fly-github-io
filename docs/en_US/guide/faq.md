@@ -1,6 +1,6 @@
-# common problem
+# FAQ
 
-Weird questions and answers
+Answer to multiple weird questions
 
 ## General question
 
@@ -10,7 +10,7 @@ People have the right to freely obtain legal information that has been disclosed
 
 ### Whether to oppose regulation
 
-No objection to regulation. In fact, everything needs to be regulated to reduce the cost of living of the public, such as milk powder. But supervision needs to have laws to follow and evidence to follow. The supervision method recognized by the public is also reasonable and acceptable.
+We have no objection to regulation. In fact, everything needs to be regulated to reduce the cost of living of the public, such as milk powder. But supervision needs to have laws to follow and evidence to follow. The supervision method recognized by the public is also reasonable and acceptable.
 
 ### Who will lead the development of Project V
 
