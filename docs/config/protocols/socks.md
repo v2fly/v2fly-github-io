@@ -7,6 +7,12 @@
 
 Socks 的配置分为两部分，`InboundConfigurationObject` 和 `OutboundConfigurationObject`，分别对应入站和出站协议配置中的 `settings` 项。
 
+:::warning
+如果你将 Socks5 代理在不安全的网络环境中分享给其他人使用，建议搭配防火墙使用。
+
+Rfc: [SOCKS 5 的认证在使用 UDP 时可被绕过](https://github.com/v2fly/v2fly-github-io/issues/104)
+:::
+
 ## OutboundConfigurationObject
 
 ```json
@@ -27,7 +33,9 @@ Socks 的配置分为两部分，`InboundConfigurationObject` 和 `OutboundConfi
 }
 ```
 
-应该注意，虽然 socks outbound 可以作为对外访问的配置，但 socks 协议没有对传输加密，不适宜经公网中传输。socks outbound 更有意义的用法是在特殊情况下，只能使用 socks proxy 对外访问内部网络中，作为为其他协议连接代理服务器的前置代理使用（见 `OutboundObject` 的 `ProxySettingsObject`）。
+需要注意：虽然 Socks Outbound 可以作为对外访问的配置，但 Socks 协议没有对传输加密，不适宜经公网中传输。
+
+Socks Outbound 更有意义的用法是在特殊情况下，只能使用 Socks Proxy 对外访问内部网络中，作为为其他协议连接代理服务器的前置代理使用（见 `OutboundObject` 的 `ProxySettingsObject`）。
 
 > `servers`: \[ [ServerObject](#serverobject) \]
 
