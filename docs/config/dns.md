@@ -83,6 +83,15 @@ DNS 服务器的处理流程示意图如下：
 不同规则初始化得到的 DNS 客户端会在 V2Ray 启动日志中以 `info` 级别体现，比如 `local DOH`、`remote DOH` 和 `udp` 等模式。（4.22.0+）
 :::
 
+:::warning
+如果在 Linux 设备上使用 DNS Over QUIC，可能需要调整接受缓冲区大小，下面的命令将其设置为 2.5 MB
+```
+sysctl -w net.core.rmem_max=2500000
+```
+
+Ref: [https://github.com/lucas-clemente/quic-go/wiki/UDP-Receive-Buffer-Size](https://github.com/lucas-clemente/quic-go/wiki/UDP-Receive-Buffer-Size)
+:::
+
 > `clientIp`: string
 
 当前网络的 IP 地址。用于 DNS 查询时通知 DNS 服务器，客户端所在的地理位置（不能是私有 IP 地址）。
