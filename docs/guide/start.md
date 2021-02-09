@@ -70,7 +70,7 @@
         }
     ],
     "routing": {
-        "domainStrategy": "IPOnDemand",
+        "domainStrategy": "AsIs",
         "rules": [
             {
                 "type": "field",
