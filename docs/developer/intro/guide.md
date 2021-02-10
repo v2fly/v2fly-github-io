@@ -12,7 +12,7 @@ Git
 
 ### 发布（Release）
 
-尽量使用自动化工具发布，比如 v2ray-core 使用 Azure Pipelines 作为自动编译和发布工具。
+尽量使用自动化工具发布，比如 v2ray-core 使用 GitHub Actions 作为自动编译和发布工具。
 
 ### 引用其它项目
 
