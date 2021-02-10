@@ -118,7 +118,7 @@ LogsDirectory=v2ray
 
 ## Docker 安装方式
 
-* V2Ray 为 Linux 平台提供了预编译的 Docker image：[v2fly/v2ray-core](https://hub.docker.com/r/v2fly/v2fly-core)
+* V2Ray 为 Linux 平台提供了预编译的 Docker image：[v2fly/v2fly-core](https://hub.docker.com/r/v2fly/v2fly-core)
 * GitHub 仓库：[github.com/v2fly/docker](https://github.com/v2fly/docker)
 
 Docker image 的文件结构：
