@@ -13,6 +13,14 @@ There is a third-party UUID generator [uuidgenerator.net](https://www.uuidgenera
 
 
 <Tool
+    url="https://github.com/Qv2ray/Qv2ray"
+    name="Qv2ray"
+    :platforms="['linux','win','mac']"
+    description="Cross-platform client based on V2Ray Core, supporting Linux, Windows and macOS, with SSR / Trojan / Trojan-Go / NaiveProxy plugin support. No batched speed test, no automatic update, and not for beginners."
+
+/>
+
+<Tool
     url="https://github.com/2dust/v2rayNG"
     name="V2RayNG"
     :platforms="['android']"
@@ -35,12 +43,14 @@ There is a third-party UUID generator [uuidgenerator.net](https://www.uuidgenera
 />
 
 <Tool
-    url="https://github.com/Qv2ray/Qv2ray"
-    name="Qv2ray"
-    :platforms="['linux','win','mac']"
-    description="Cross-platform client based on V2Ray Core, supporting Linux, Windows and macOS, with SSR / Trojan / Trojan-Go / NaiveProxy plugin support. No batched speed test, no automatic update, and not for beginners."
-
+    url="https://github.com/v2rayA/v2rayA"
+    name="v2rayA"
+    :platforms="['linux']"
+    description="基于 web GUI 的 Linux 客户端，支持全局透明代理，兼容SS、SSR、Trojan、PingTunnel协议。"
+    description="v2rayA is a Linux client with a web GUI. It supports global transparent proxy and is compatible with SS, SSR, Trojan and PingTunnel protocols."
 />
+
+
 
 ## Routing Rules
 
