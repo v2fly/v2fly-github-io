@@ -12,7 +12,7 @@ This project only uses one branch, namely master. All changes are submitted to t
 
 ### Release
 
-Try to use automated tools to release, such as v2ray-core using Travis-ci as an automated compilation and release tool.
+Try to use automated tools to release, such as v2ray-core using GitHub Actions as an automated compilation and release tool.
 
 ### Reference other projects
 
