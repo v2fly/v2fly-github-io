@@ -4,7 +4,7 @@ heroImage: /v2ray.png
 heroText: Project V
 tagline: Help you build an exclusive basic communication network
 actionText: Quick start →
-actionLink: /en_US/guide/start.html
+actionLink: /guide/start.html
 features:
 - title: Multiple entrances and multiple exits
   details: A V2Ray process can concurrently support multiple inbound and outbound protocols, and each protocol can work independently.
@@ -18,7 +18,7 @@ features:
   details: Universal reverse proxy support can achieve intranet penetration.
 - title: Multi-platform support
   details: All common platforms are natively supported, such as Windows, macOS and Linux, and third parties have already supported mobile platforms.
-footer: CC-BY-SA Licensed | Copyright © 2015-present V2Fly Team
+footer: Licensed under CC-BY-SA 4.0 | Copyleft 2015-Present V2Fly Community
 ---
 
 ## Who will lead the development of Project V
