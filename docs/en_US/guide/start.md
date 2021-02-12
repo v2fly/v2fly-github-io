@@ -1,18 +1,16 @@
-# Basics
+# Novice Guide
 
-You will need to configure the V2Ray after the [installation](install.md). For demostration purposes, we will only introduce the basic configuration. If a complex configuration is required, please refer to [Config Reference](../config/overview.md).
+[Download and install](install.md) After V2Ray is installed, you need to configure it. For demonstration, only simple configuration methods are introduced here. If you need to configure more complex functions, please refer to the subsequent [Configuration Document](../config/overview.md).
 
+## server
 
-
-## Server Side
-
-To circumvent censorship, a server with unfettered access to the Internet is required. 
+You need a server outside the firewall to run V2Ray on the server side. The configuration is as follows:
 
 ```json
 {
     "inbounds": [
         {
-            "port": 10086, // Server Listening Port
+            "port": 10086, // server listening port
             "protocol": "vmess",
             "settings": {
                 "clients": [
@@ -31,17 +29,17 @@ To circumvent censorship, a server with unfettered access to the Internet is req
 }
 ```
 
-Make sure the `id` and port number match the client side configuration. 
+To successfully connect, you need to make sure that the `id` and port are consistent with the client in the server configuration.
 
-## Client Side
+## Client
 
-Run the following configuration on the client side. 
+In your PC (or mobile phone), you need to run V2Ray with the following configuration:
 
 ```json
 {
     "inbounds": [
         {
-            "port": 1080, // SOCKS Proxy Port. Configure the browser proxy to use this port.
+            "port": 1080, // SOCKS proxy port, you need to configure the proxy in the browser and point to this port
             "listen": "127.0.0.1",
             "protocol": "socks",
             "settings": {
@@ -55,8 +53,8 @@ Run the following configuration on the client side.
             "settings": {
                 "vnext": [
                     {
-                        "address": "server", // Server address: Change to your server hostname or ip address.
-                        "port": 10086, // Server Listening Port
+                        "address": "server", // server address, please modify it to your own server ip or domain name
+                        "port": 10086, // server port
                         "users": [
                             {
                                 "id": "b831381d-6324-4d53-ad4f-8cda48b30811"
@@ -86,11 +84,11 @@ Run the following configuration on the client side.
 }
 ```
 
-The only part need to be changed in the config above is the server address as mentioned in the comment. These config will proxy your traffic to the server except for local networks, such as your router.
+The only place to change the above configuration is your server IP, which is indicated in the configuration. The above configuration will forward all traffic except the local area network (such as access router) to your server.
 
-## Start V2Ray
+## run
 
-* In Windows and macOS, the defualt config file `config.json` is located in the same directory as V2Ray. Start V2Ray by simply running `v2ray` or `v2ray.exe`.
-* In Linux, the defualt config file is located in either `/etc/v2ray/` or `/usr/local/etc/v2ray/` directory. Start V2Ray with `v2ray --config=/etc/v2ray/config.json`. Alternatively, use systemd to run V2Ray as daemon.
+* In Windows and macOS, the configuration file is usually the `config.json` file in the same directory of V2Ray. Just run `v2ray` or `v2ray.exe` directly.
+* In Linux, the configuration file is usually located in the `/etc/v2ray/` or `/usr/local/etc/v2ray/` directory. Run `v2ray --config=/etc/v2ray/config.json`, or use tools such as systemd to run V2Ray as a service in the background.
 
-More detailed documentations can be found in [Config Reference](../config/overview.md) page.
+For more detailed instructions, please refer to [Configuration Document](../config/overview.md) and [New Vernacular Guide](https://guide.v2fly.org/).
