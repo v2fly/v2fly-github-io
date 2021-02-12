@@ -1,6 +1,6 @@
 # mKCP Protocol
 
-mKCP is a streaming transport protocol modified from the [KCP](https://github.com/skywind3000/kcp) protocol, it can transport any data stream in order.
+mKCP is a streaming transport protocol modified from the [KCP](https://github.com/skywind3000/kcp) protocol, it can transfer any data stream in order.
 
 ## Version
 
