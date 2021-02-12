@@ -29,4 +29,4 @@ Freedom will force all data to be sent to the specified address (instead of the 
 
 > `userLevel`: number
 
-User level, all connections use this level.
+User level, all connections will be this level.
