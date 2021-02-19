@@ -77,6 +77,8 @@ DNS 服务器的处理流程示意图如下：
 
 当值是 `"quic+local://host"` 的形式，如 `"quic+local://dns.adguard.com"`，V2Ray 会使用 `DNS over QUIC 本地模式` 进行查询，即 DOQ 请求不会经过 Routing/Outbound 等组件，直接对外请求，以降低耗时。目前（2021 年 1 月 4 日），公共 DNS 中支持 DOQ 协议的只有 `dns.adguard.com`，默认使用端口 `784`。 (4.34.0+)
 
+当值为 `"fakedns"` 时，表示使用 V2Ray 内构的虚拟 DNS 服务器。 (4.35.0+)
+
 :::tip
 当使用 `localhost` 时，本机的 DNS 请求不受 V2Ray 控制，需要额外的配置才可以使 DNS 请求由 V2Ray 转发。
 

@@ -17,7 +17,8 @@ V2Ray 的配置文件形式如下，客户端和服务器通用一种形式，�
     "outbounds": [],
     "transport": {},
     "stats": {},
-    "reverse": {}
+    "reverse": {},
+    "fakedns": {}
 }
 ```
 
@@ -60,6 +61,10 @@ V2Ray 的配置文件形式如下，客户端和服务器通用一种形式，�
 > `reverse`: [ReverseObject](reverse.md)
 
 反向代理。
+
+> `fakedns`: [FakeDnsObject](fakedns.md)
+
+虚拟 DNS 服务器。
 
 ## LogObject
 
