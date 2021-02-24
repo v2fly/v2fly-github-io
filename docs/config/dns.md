@@ -47,6 +47,7 @@ DNS 服务器的处理流程示意图如下：
     "localhost"
     ],
     "clientIp": "1.2.3.4",
+    "disableCache": true,
     "tag": "dns_inbound"
 }
 ```
@@ -101,6 +102,10 @@ Ref: [https://github.com/lucas-clemente/quic-go/wiki/UDP-Receive-Buffer-Size](ht
 :::tip
 此功能需要 DNS 服务器支持 EDNS Client Subnet（RFC7871）。
 :::
+
+> `disableCache`: bool
+
+(4.35.0+) 禁用 DNS 缓存。默认为 false，即为不禁用。
 
 > `tag`: string
 
