@@ -105,7 +105,7 @@ Ref: [https://github.com/lucas-clemente/quic-go/wiki/UDP-Receive-Buffer-Size](ht
 
 > `disableCache`: bool
 
-(4.35.0+) 禁用 DNS 缓存。默认为 `false`
+(4.35.0+) 禁用 DNS 缓存。默认为 false，即为不禁用。
 
 > `tag`: string
 
