@@ -17,7 +17,7 @@
     "vuepress-plugin-mermaidjs": "^1.5.1"
   },
   "dependencies": {
-    "@kidonng/vuepress-plugin-contributors": "^0.2.0",
+    "@kidonng/vuepress-plugin-contributors": "^0.3.0",
     "uuid": "^8.3.0"
   },
   "resolutions": {
