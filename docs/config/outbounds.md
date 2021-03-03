@@ -14,7 +14,8 @@
     "tag": "标识",
     "streamSettings": {},
     "proxySettings": {
-        "tag": "another-outbound-tag"
+        "tag": "another-outbound-tag",
+        "transportLayer": false
     },
     "mux": {}
 }
@@ -52,13 +53,21 @@
 
 ```json
 {
-    "tag": "another-outbound-tag"
+    "tag": "another-outbound-tag",
+    "transportLayer": false
 }
 ```
 
 > `tag`: string
 
-当指定另一个出站协议的标识时，此出站协议发出的数据，将被转发至所指定的出站协议发出。
+当指定另一个出站连接的标识时，此出站连接发出的数据，将被转发至所指定的出站连接发出。
+
+> `transportLayer`: true | false
+
+是否启用传输层转发支持。在启用后,此出站连接的传输层协议将保持生效（如果传输层协议支持）。(v4.35.0+)
+
+如果不启用此选项, 在转发时传输层协议将失效，只能使用默认的 TCP 传输协议。
+
 
 ## MuxObject
 
