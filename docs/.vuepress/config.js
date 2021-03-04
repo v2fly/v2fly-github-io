@@ -97,6 +97,7 @@ module.exports = {
                                 'stats',
                                 'reverse',
                                 'multiple_config',
+                                'fakedns',
                             ],
                         },
                         {
