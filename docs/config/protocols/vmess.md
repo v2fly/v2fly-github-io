@@ -9,6 +9,8 @@ VMess 依赖于系统时间，请确保使用 V2Ray 的系统 UTC 时间误差�
 
 :::tip
 在 v4.28.1 版本后，客户端 AlterID 设置为 0 代表启用 VMessAEAD ；服务端为自动适配，可同时兼容启用和未开启 VMessAEAD 的客户端。
+
+对于初代 VMess 的初代头部认证机制的兼容可以被关闭。(v4.35.0+)
 :::
 
 VMess 的配置分为两部分，`InboundConfigurationObject`和`OutboundConfigurationObject`，分别对应入站和出站协议配置中的`settings`项。
@@ -207,3 +209,12 @@ VMess 的用户 ID。必须是一个合法的 UUID。
 当服务器没有受到重放攻击时，该机制对正常连接的客户端没有影响。如果服务器正在被重放攻击，可能会出现连接不稳定的情况。
 
 拥有服务器 UUID 以及其他连接数据的恶意程序可能根据此机制对服务器发起拒绝服务攻击，受到此类攻击的服务可以通过修改 proxy/vmess/validator.go 文件中 func (v *TimedUserValidator) BurnTaintFuse(userHash []byte) error 函数的 atomic.CompareAndSwapUint32(pair.taintedFuse, 0, 1) 语句为 atomic.CompareAndSwapUint32(pair.taintedFuse, 0, 0) 来解除服务器对此类攻击的安全保护机制。使用 VMessAEAD 认证机制的客户端不受到 VMess MD5 认证信息 玷污机制 的影响。
+
+## VMess MD5 认证信息 淘汰机制
+
+VMessAEAD 协议已经经过同行评议并已经整合了相应的修改。 VMess MD5 认证信息 的淘汰机制已经启动。
+
+自 2022 年 1 月 1 日起，服务器端将默认禁用对于 MD5 认证信息 的兼容。任何使用 MD5 认证信息的客户端将无法连接到禁用 VMess 初代头部认证机制的服务器端。
+
+在服务器端可以通过设置环境变量 `v2ray.vmess.aead.forced` = `true` 以关闭对于 MD5 认证信息的兼容。
+或者 `v2ray.vmess.aead.forced` = `false` 以关闭对于 MD5 认证信息 认证机制的兼容 （不受到 2022 年自动禁用机制的影响） 。 (v4.35.0+)
