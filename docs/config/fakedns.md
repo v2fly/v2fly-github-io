@@ -7,7 +7,7 @@
 ```json
 {
     "ipPool": "240.0.0.0/8",
-    "poolSize": 65535
+    "poolSize": 16777214
 }
 ```
 
