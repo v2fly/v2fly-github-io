@@ -27,7 +27,7 @@
 ## 虚拟 DNS 服务器机制
 
 虚拟 DNS，一般也被称为 Fake DNS 或者 Fake IP。对于透明代理和三层代理（例如 Android VPNService）来说，在数据发送之前，被代理的程序需要先发出 DNS 请求。
-虚拟 DNS 是解决这个 DNS 污染，防止 DNS 信息泄露，又能减低延时的技术手段。 [RFC3089](https://tools.ietf.org/html/rfc3089) 
+虚拟 DNS 是解决 DNS 污染、防止 DNS 泄露、减低延时的技术手段。 [RFC3089](https://tools.ietf.org/html/rfc3089)
 
 :::warning
 尽管虚拟 DNS 有很多优点，但是虚拟 DNS 会污染本地程序的 DNS 缓存，当代理断开之后一段时间内设备可能无法访问网络。
