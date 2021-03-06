@@ -108,7 +108,7 @@
             ]
         },
         {
-            "address": "233.5.5.5",
+            "address": "223.5.5.5",
             "domains": [
                 "geosite:cn"
             ],
