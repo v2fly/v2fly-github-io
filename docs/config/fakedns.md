@@ -96,7 +96,7 @@
 
 ### 与 DNS 分流共存
 
-当使用 DNS 分流时，为了让 `fakedns` 拥有高优先级，需要增加和分流相同的 `domains` 配置
+当使用 DNS 分流时，为了让 `fakedns` 拥有高优先级，需要增加与其他类型 DNS 相同的 `domains` 配置。
 
 ```json
 {
