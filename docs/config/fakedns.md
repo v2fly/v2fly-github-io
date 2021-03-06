@@ -17,8 +17,7 @@
 
 > `poolSize`: number
 
-虚拟 DNS 服务器所记忆的 IP - 域名映射 数量。当域名数量超过此数值时，会依据 [LRU](https://en.wikipedia.org/wiki/Cache_replacement_policies#Least_recently_used_(LRU)) 
-规则淘汰老旧域名。默认为 65535。
+虚拟 DNS 服务器所记忆的 IP - 域名映射 数量。当域名数量超过此数值时，会依据 [LRU](https://en.wikipedia.org/wiki/Cache_replacement_policies#Least_recently_used_(LRU)) 规则淘汰老旧域名。默认为 65535。
 
 :::warning
 注意： poolSize 必须 小于或等于 ipPool 的地址总数，否则 core 将无法启动。
