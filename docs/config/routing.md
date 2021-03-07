@@ -47,7 +47,7 @@ V2Ray 内建了一个简单的路由功能，可以将入站数据按需求由�
 
 ```json
 {
-    "domainMatcher" : "hybrid"
+    "domainMatcher" : "hybrid",
     "type": "field",
     "domain": [
         "baidu.com",
