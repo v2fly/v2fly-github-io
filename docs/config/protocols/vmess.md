@@ -89,7 +89,7 @@ VMess 用户的主 ID。必须是一个合法的 UUID。
 
 用户等级
 
-> `security`: "aes-128-gcm" | "chacha20-poly1305" | "auto" | "none"
+> `security`: "aes-128-gcm" | "chacha20-poly1305" | "auto" | "none" | "zero"
 
 加密方式，客户端将使用配置的加密方式发送数据，服务器端自动识别，无需配置。
 
