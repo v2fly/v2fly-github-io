@@ -114,6 +114,7 @@ module.exports = {
                                 'protocols/vmess',
                                 'protocols/shadowsocks',
                                 'protocols/trojan',
+                                'protocols/loopback',
                             ],
                         },
                         {
@@ -126,6 +127,7 @@ module.exports = {
                                 'transport/h2',
                                 'transport/quic',
                                 'transport/domainsocket',
+                                'transport/grpc',
                             ],
                         },
                     ],

@@ -15,7 +15,8 @@
     "wsSettings": {},
     "httpSettings": {},
     "quicSettings": {},
-    "dsSettings": {}
+    "dsSettings": {},
+    "grpcSettings": {}
 }
 ```
 
@@ -42,6 +43,10 @@
 > `dsSettings`: [DomainSocketObject](transport/domainsocket.md)
 
 针对 Domain Socket 连接的配置。
+
+> `grpcSettings`: [grpcObject](transport/grpc.md)
+
+针对 gRPC 连接的配置。 (v4.36.0+)
 
 ## StreamSettingsObject
 
