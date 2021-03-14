@@ -1,11 +1,10 @@
 # Loopback
 
-* 名称：`loopback` (v4.36.0+)
+* 名称：`loopback`
 * 类型：出站协议
+* 最低版本：v4.36.0+
 
-Loopback 是一个出站协议，可使出站连接被 V2Ray 重新路由，等价于 「`dokodemo-door` + 改变出站连接地址」。在实现相同功能的前提下，减少了对系统资源的占用。
-
-对于本出站协议，部分出站连接选项不会被应用。
+Loopback 是一个出站协议，可使出站连接被重新路由。
 
 ## OutboundConfigurationObject
 
@@ -17,4 +16,4 @@ Loopback 是一个出站协议，可使出站连接被 V2Ray 重新路由，等�
 
 > `inboundTag`: string
 
-进行重新路由时的入站来源标志。
+匹配入站来源的标识。
