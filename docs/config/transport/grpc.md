@@ -1,21 +1,19 @@
-# GRPC
+# gRPC
 
-gRPC 传输方式是基于 gRPC 协议实现的 Gun 传输协议的实现。
+V2Ray v4.36.0 加入了 gRPC 传输方式。
 
-gRPC 传输方式类似 WebSockets 可以透过 nginx 进行转发， 自带了基于 HTTP/2 的连接复用功能。
+gRPC 传输方式是「基于 gRPC 协议实现的 Gun 传输协议」的实现，借鉴自 [Qv2ray/gun](https://github.com/Qv2ray/gun)。
 
-在建立相应的连接的时候， gRPC 传输方式的 TLS ALPN 为 `h2` , 与 WebSocket 的 `http/1.1` 不同。
-
-(v4.36.0+)
+gRPC 传输方式类似 WebSocket，可通过 Nginx 进行转发 / 分流，自带基于 HTTP/2 的连接复用（mux）功能。其 TLS ALPN 为 `h2` , 与 WebSocket 的 `http/1.1` 不同。
 
 ## grpcObject
 
 ```json
 {
-  "serviceName":"GunService"
+  "serviceName": "GunService"
 }
 ```
 
 > `serviceName`: string
 
-gRPC 服务的名称。其的作用类似 `path` 的功能，可以防止恶意客户端探测是否部署了本传输协议。
+gRPC 服务的名称。其作用类似 `path` 的功能，可用于防止恶意客户端探测是否部署了本传输协议。建议使用复杂的随机字符串。
