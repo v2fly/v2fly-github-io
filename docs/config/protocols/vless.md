@@ -4,9 +4,7 @@
 - 类型：入站 / 出站
 
 :::warning
-目前 VLESS 没有自带加密，请用于可靠信道，如 TLS。目前 VLESS 不支持分享。</br>
-VLESS 处于公测阶段，测试期间请确保客户端与服务端的 v2ray-core 均为最新版本。</br>
-VLESS 的内测仓库为 [rprx/v2ray-vless](https://github.com/rprx/v2ray-vless)，其中 PREVIEW 系列的新版本会在发布一段时间后并入 [v2fly/v2ray-core](https://github.com/v2fly/v2ray-core)。
+目前 VLESS 没有自带加密，请用于可靠信道，如 TLS。目前 VLESS 不支持分享。
 :::
 
 VLESS 是一个无状态的轻量传输协议，它分为入站和出站两部分，可以作为 V2Ray 客户端和服务器之间的桥梁。
@@ -209,34 +207,3 @@ Fallback 内设置的 "alpn" 是匹配实际协商出的 ALPN，而 Inbound TLS 
 1. 将匹配到最精确的子元素，与子元素的排列顺序无关。若配置了几个 alpn 和 path 均相同的子元素，则会以最后的为准。
 2. 回落分流均是解密后 TCP 层的转发，而不是 HTTP 层，只在必要时检查首包 PATH。
 3. 不支持按域名分流。若有此需求，建议前置 Nginx 等并配置 stream SNI 分流。
-
-## 一些说明
-
-[v2ray-examples](https://github.com/v2fly/v2ray-examples) 有完整的 VLESS 配置示例供参考。（但目前不能保证其它协议的配置示例质量）
-
-VLESS 和 VMess 的日志策略不同，遇到了异常情况，前者通常是 Warning，后者通常是 Info。（v4.31.1+，VLESS 大部分日志策略已调整为与 VMess 相同）
-
-待补充
-
-## 新型协议回落模式解析
-
-待补充
-
-## 客户端指引
-
-1. VLESS 协议本身还会有不兼容升级，但客户端配置文件参数基本上是只增不减的。**所以如果你开发了用 core 的客户端，现在就可以适配。** iOS 客户端的协议实现则需紧跟升级。
-2. **视觉标准：UI 标识请统一用 VLESS**，而不是 VLess / Vless / vless，配置文件不受影响，代码内则顺其自然。
-3. `encryption` 应做成输入框而不是选择框，新配置的默认值应为 `none`，若用户置空则应代填 `none`。
-
-**以下为已支持图形化配置 VLESS 的部分客户端列表，推荐使用：**（按实现时间先后顺序排列）
-
-- [Qv2ray](https://github.com/Qv2ray/Qv2ray)（v2.6.3+），支持 Linux、macOS、Windows
-- [v2rayN](https://github.com/2dust/v2rayN)（v3.21+），支持 Windows
-- [v2rayNG](https://github.com/2dust/v2rayNG)（v1.3.0+），支持 Android
-- [PassWall](https://github.com/xiaorouji/openwrt-package)（v3.9.35+），支持 OpenWrt
-- [v2rayA](https://github.com/mzz2017/v2rayA)（v1.0.0+），支持 Linux
-- [v2rayU](https://github.com/yanue/V2rayU)（v3.0.0+），支持 macOS
-
-## VLESS 分享链接标准
-
-WIP
