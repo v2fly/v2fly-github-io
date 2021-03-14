@@ -5,6 +5,10 @@
 
 Dokodemo door（任意门）是一个入站数据协议，它可以监听一个本地端口，并把所有进入此端口的数据发送至指定服务器的一个端口，从而达到端口映射的效果。
 
+:::tip
+若需要出站连接被 V2Ray 重新路由，搭配使用 [Loopback 协议](loopback.md)，性能更佳。
+:::
+
 ## InboundConfigurationObject
 
 ```json
