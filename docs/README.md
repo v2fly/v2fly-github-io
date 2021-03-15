@@ -4,7 +4,7 @@ heroImage: /v2ray.png
 heroText: Project V
 tagline: 助你打造专属基础通信网络
 actionText: 快速开始 →
-actionLink: /guide/start.html
+actionLink: guide/start.html
 features:
 - title: 多入口多出口
   details: 一个 V2Ray 进程可并发支持多个入站和出站协议，每个协议可独立工作。
