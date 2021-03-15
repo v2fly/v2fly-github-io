@@ -1,10 +1,6 @@
 # gRPC
 
-* 名称：`loopback`
-* 类型：传输方式
-* 最低版本：v4.36.0+
-
-gRPC 使用 HTTP/2 协议传输，内置连接复用（mux）功能。
+gRPC 使用 HTTP/2 协议传输，内置连接复用（mux）功能。(v4.36.0+)
 
 ## grpcObject
 
