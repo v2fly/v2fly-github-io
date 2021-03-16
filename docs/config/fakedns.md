@@ -56,7 +56,9 @@ poolSize 必须小于或等于 ipPool 的地址总数，否则 core 将无法启
     "routing": {
         "rules": [
             {
-                "inboundTag": "dns-in",
+                "inboundTag": [
+                    "dns-in"
+                ],
                 "outboundTag": "dns-out"
             }
         ]
