@@ -32,8 +32,9 @@ Git
 
 * Golang
   * 请参考 [Effective Go](https://golang.org/doc/effective_go.html)；
-  * 每一次 push 之前，请运行：`go fmt ./...` 和 `gofmt -s -l -e -w $(find . -type f -name "*.go" ! -name "*.pb.go")`；
+  * 每一次 push 之前，请在项目根目录运行：`go generate format.go`；
   * 每一次 push 之前，请确保测试通过：`go test ./...`；
+  * 若修改了 proto 文件，则需要重新生成 `pb.go` 文件，请在项目根目录运行：`go generate proto.go`；
   * 提交 pull request 之前，请确保新增代码有超过 70% 的代码覆盖率（code coverage）；
 * 其它
   * 请注意代码的可读性。
