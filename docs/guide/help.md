@@ -6,17 +6,32 @@ Project V 提供了多种方式进行交流。
 Project V 团队支持中文和英文，为避免一些不必要的误会，请选择你所熟悉的语言来提问。管理员会以问题发起者使用的语言来回复；如若提问者使用了其它的语言，则以英文回复。
 :::
 
-## Github Issue
+## GitHub 问题报告 & 社区讨论
 
-* [v2ray-core](https://github.com/v2fly/v2ray-core/issues)
+* v2ray-core (核心程序)
+  - [问题报告 Issues](https://github.com/v2fly/v2ray-core/issues)
+  - [社区讨论 Discussions](https://github.com/v2fly/v2ray-core/discussions)
 
-## Twitter News
+* fhs-install-v2ray (*nix 一键安装脚本)
+  - [问题报告 Issues](https://github.com/v2fly/fhs-install-v2ray/issues)
+
+* domain-list-community (预设域名列表)
+  - [问题报告 Issues](https://github.com/v2fly/domain-list-community/issues)
+
+* v2fly-github-io（文档）
+  - [问题报告 Issues](https://github.com/v2fly/v2fly-github-io/issues)
+
+## Twitter 新闻频道
 
 * [@realV2Fly](https://twitter.com/realV2Fly)
 
-## Telegram 讨论组
+## Telegram 讨论组 & 新闻频道
 
 Project V 提供了下列讨论组，用于讨论不同类型的问题。
+
+::: warning
+所有讨论组均不可发布 NSFW、政治相关、仇恨言论、阴谋论、传播（疑似）谣言、蓄（恶）意冒充他人和广告、策划违法活动等。
+:::
 
 * [使用](https://t.me/v2fly_chat)
   * 话题限定
@@ -25,25 +40,21 @@ Project V 提供了下列讨论组，用于讨论不同类型的问题。
 * [日常](https://t.me/joinchat/JiDjBEzQFLNeBl_-JUrm_A)
   * 用于其它不相关的话题。
 
-::: warning
-所有讨论组均不可发布 NSFW、政治相关、仇恨言论、阴谋论、传播（疑似）谣言、蓄（恶）意冒充他人和广告、策划违法活动等。
-:::
-
-另外请关注 [V2Fly 公告频道](https://t.me/v2fly) 以获得最新资讯。
+* [V2Fly 频道](https://t.me/v2fly) 
+  * 发布与 Twitter 类似的最新资讯、公告、更新说明等。
 
 ## Email
 
-如果你想和 V2Fly 的开发人员私下讨论一些问题，请通过下列的邮箱联系。
-
-`dev@v2fly.org`: 主要通信邮箱，基本每天都查看。
-`security@v2fly.org`: 仅用于沟通涉及安全隐患的内容。
-
 ::: tip
-由于工作繁忙，不能保证每封邮件都回复，请见谅。请尽量使用[社区讨论](https://github.com/v2fly/v2ray-core/issues)以得到更快速的响应。
+由于工作繁忙等原因，不能保证每封邮件都回复，请见谅。请尽量使用 GitHub 提供的[问题报告](https://github.com/v2fly/v2ray-core/issues)和[社区讨论](https://github.com/v2fly/v2ray-core/discussions)以得到更快速的响应。V2Fly 开发者通常不予通过邮件提供具体的使用指导和与程序错误无关的错误解决等帮助。
 :::
 
-如果你需要发送加密信息，可以从下面的文本导入。
+如果你想和 V2Fly 的开发人员不公开地讨论一些问题，请通过下列的邮箱联系。
 
+* `dev@v2fly.org`: 开发者邮件列表，提供与各 GitHub 代码仓库 Issues 问题报告类似的功能。
+* `security@v2fly.org`: 仅用于沟通涉及安全隐患的内容。
+
+如果你需要发送加密信息，可以从下面的文本导入我们的 PGP 公钥。
 如果所需讨论的内容涉及安全隐患和风险报告，请使用 `security@v2fly.org`。
 
 ```
