@@ -47,6 +47,7 @@ DNS 服务器的处理流程示意图如下：
     "localhost"
     ],
     "clientIp": "1.2.3.4",
+    "queryStrategy": "UseIPv4",
     "disableCache": true,
     "tag": "dns_inbound"
 }
@@ -101,6 +102,18 @@ Ref: [https://github.com/lucas-clemente/quic-go/wiki/UDP-Receive-Buffer-Size](ht
 
 :::tip
 此功能需要 DNS 服务器支持 EDNS Client Subnet（RFC7871）。
+:::
+
+> `queryStrategy`: "UseIP" | "UseIPv4" | "UseIPv6"
+
+(4.37.0+) DNS 查询所使用的网络类型。默认值为 `UseIP`，即 DNS 同时查询域名的 A 和 AAAA 记录。`UseIPv4` 和 `UseIPv6` 分别为只查询 A 记录、只查询 AAAA 记录。
+
+:::tip
+建议没有 IPv6 网络的用户，设置为 `UseIPv4`。本选项与 `freedom` 出站协议的 `domainStrategy` 选项优先级相同，建议同时设置为 `UseIPv4`。
+:::
+
+:::warning
+如果本选项设置为 `UseIPv4`，而 `freedom` 出站协议的 `domainStrategy` 选项设置为 `UseIPv6`，会导致从 `freedom` 发出的连接的 DNS 查询被 Go 运行时接管，进而导致 DNS 泄漏；反之同理。
 :::
 
 > `disableCache`: bool
