@@ -28,7 +28,8 @@ Shadowsocks 的配置分为两部分，`InboundConfigurationObject` 和 `Outboun
     "method": "aes-256-gcm",
     "password": "密码",
     "level": 0,
-    "network": "tcp"
+    "network": "tcp",
+    "ivCheck": false
 }
 ```
 
@@ -51,6 +52,12 @@ Shadowsocks 的配置分为两部分，`InboundConfigurationObject` 和 `Outboun
 > `network`: "tcp" | "udp" | "tcp,udp"
 
 可接收的网络连接类型，默认值为 `"tcp"`。
+
+> `ivCheck`: true | false
+
+是否启用 IV 检查功能。可以使某些 IV 重放攻击更加困难。 (4.37.0+)
+
+目前此功能默认不启用，但是在未来版本中会默认处于启用状态。
 
 ## OutboundConfigurationObject
 
@@ -82,7 +89,8 @@ Shadowsocks 的配置分为两部分，`InboundConfigurationObject` 和 `Outboun
     "port": 1234,
     "method": "加密方式",
     "password": "密码",
-    "level": 0
+    "level": 0,
+    "ivCheck": false
 }
 ```
 
@@ -109,6 +117,12 @@ Shadowsocks 服务器端口。必填。
 > `level`: number
 
 用户等级
+
+> `ivCheck`: true | false
+
+是否启用 IV 检查功能。可以使某些 IV 重放攻击更加困难。 (4.37.0+)
+
+目前此功能默认不启用，但是在未来版本中会默认处于启用状态。
 
 ## 加密方式列表
 
