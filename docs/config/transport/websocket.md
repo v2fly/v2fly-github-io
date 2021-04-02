@@ -48,4 +48,4 @@ WebSocket 所使用的 HTTP 协议路径，默认值为 `"/"`。
 
 v4.37.0+ 服务器端程序会自动适配客户端的浏览器转发功能，无需额外设置。
 
-详细配置参考浏览器转发模块文档。
+相关配置请参考浏览器转发模块文档。[BrowserForwarderObject](browserforwarder.md)

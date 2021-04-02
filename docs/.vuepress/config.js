@@ -98,6 +98,7 @@ module.exports = {
                                 'reverse',
                                 'multiple_config',
                                 'fakedns',
+                                'browserforwarder',
                             ],
                         },
                         {
