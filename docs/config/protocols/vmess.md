@@ -191,7 +191,7 @@ VMess 的用户 ID。必须是一个合法的 UUID。
 
 > `to`: string
 
-一个入站协议的`tag`，详见[配置文件](../protocols.md)。指定的入站协议必须是一个 VMess
+一个入站协议的`tag`，详见 [InboundObject](../inbounds.md#InboundObject) 。指定的入站协议必须是一个 VMess
 
 ### DefaultObject
 
