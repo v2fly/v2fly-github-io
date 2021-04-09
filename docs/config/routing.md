@@ -176,7 +176,7 @@ V2Ray 内建了一个简单的路由功能，可以将入站数据按需求由�
 
 > `outboundTag`: string
 
-对应一个额外 [出站连接配置](outbounds.md#OutboundObject) 的标识。
+对应一个额外 [出站连接配置](outbounds.md#outboundobject) 的标识。
 
 > `balancerTag`: string
 
