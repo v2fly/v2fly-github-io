@@ -34,7 +34,7 @@ DNS 服务器的处理流程示意图如下：
     "servers": [
         "https://dns.google/dns-query",
         {
-            "address": "https+local://223.5.5.5/dns-query",
+            "address": "223.5.5.5",
             "port": 5353,
             "clientIp": "5.6.7.8",
             "skipFallback": true,
@@ -43,7 +43,9 @@ DNS 服务器的处理流程示意图如下：
                 "geosite:cn"
             ],
             "expectIPs": [
-                "geoip:cn"
+                "geoip:cn",
+                "ext:/path/to/third-party/geoipfile.dat:cn",
+                "ext-ip:/path/to/third-party/geoipfile.dat:cn"
             ]
         },
         {
@@ -53,8 +55,19 @@ DNS 服务器的处理流程示意图如下：
                 "geosite:geolocation-!cn"
             ]
         },
-        "8.8.8.8",
-        "1.1.1.1",
+        {
+            "address": "https://1.1.1.1/dns-query",
+            "domains": [
+                "domain:v2fly.org",
+                "geosite:geolocation-!cn"
+            ],
+            "expectIPs": [
+                "geoip:!cn",
+                "ext:/path/to/third-party/geoipfile.dat:!cn",
+                "ext-ip:/path/to/third-party/geoipfile.dat:!cn"
+            ]
+        },
+        "1.0.0.1",
         "localhost"
     ],
     "clientIp": "1.2.3.4",
@@ -149,16 +162,18 @@ Ref: [https://github.com/lucas-clemente/quic-go/wiki/UDP-Receive-Buffer-Size](ht
 
 ```json
 {
-    "address": "https+local://223.5.5.5/dns-query",
+    "address": "223.5.5.5",
     "port": 5353,
     "clientIp": "5.6.7.8",
     "skipFallback": true,
     "domains": [
-        "domain:baidu.com"
+        "domain:baidu.com",
         "geosite:cn"
     ],
     "expectIPs": [
-        "geoip:cn"
+        "geoip:cn",
+        "ext:/path/to/third-party/geoipfile.dat:cn",
+        "ext-ip:/path/to/third-party/geoipfile.dat:cn"
     ]
 }
 ```
