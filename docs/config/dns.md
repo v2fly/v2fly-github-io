@@ -18,7 +18,7 @@ V2Ray 内置了一个 DNS 服务器，其有两大主要用途：根据域名解
 
 DNS 服务器的处理流程示意图如下：
 
-![](/dns_flowchart.svg)
+![DNS resolution process](/dns_flowchart.svg)
 
 ## DnsObject
 
@@ -27,24 +27,32 @@ DNS 服务器的处理流程示意图如下：
 ```json
 {
     "hosts": {
-        "baidu.com": "127.0.0.1"
+        "baidu.com": "127.0.0.1",
+        "geosite:category-ads-all": "127.0.0.1"
     },
     "servers": [
         {
-            "address": "11.22.33.44",
+            "address": "https+local://223.5.5.5/dns-query",
             "port": 5353,
             "clientIp": "5.6.7.8",
             "domains": [
-                "domain:v2fly.org",
+                "domain:baidu.com",
                 "geosite:cn"
             ],
             "expectIPs": [
                 "geoip:cn"
             ]
         },
-    "8.8.8.8",
-    "8.8.4.4",
-    "localhost"
+        {
+            "address": "fakedns",
+            "domains": [
+                "domain:v2fly.org",
+                "geosite:geolocation-!cn"
+            ]
+        },
+        "8.8.8.8",
+        "1.1.1.1",
+        "localhost"
     ],
     "clientIp": "1.2.3.4",
     "queryStrategy": "UseIPv4",
@@ -89,7 +97,8 @@ DNS 服务器的处理流程示意图如下：
 
 :::warning
 如果在 Linux 设备上使用 DNS Over QUIC，可能需要调整接受缓冲区大小，下面的命令将其设置为 2.5 MB
-```
+
+```shell
 sysctl -w net.core.rmem_max=2500000
 ```
 
@@ -128,11 +137,11 @@ Ref: [https://github.com/lucas-clemente/quic-go/wiki/UDP-Receive-Buffer-Size](ht
 
 ```json
 {
-    "address": "11.22.33.44",
+    "address": "https+local://223.5.5.5/dns-query",
     "port": 5353,
     "clientIp": "5.6.7.8",
     "domains": [
-        "domain:v2fly.org",
+        "domain:baidu.com"
         "geosite:cn"
     ],
     "expectIPs": [
