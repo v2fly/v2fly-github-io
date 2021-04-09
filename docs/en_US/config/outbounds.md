@@ -36,9 +36,9 @@ The specific configuration content varies depending on the protocol. See `Outbou
 
 The identifier of this outbound connection, used to locate this connection in other configurations. When its value is not empty, it must be unique among all tags.
 
-> `streamSettings`: [StreamSettingsObject](transport.md#perproxy)
+> `streamSettings`: [StreamSettingsObject](transport.md#streamsettingsobject)
 
-[Low-level transmission configuration](transport.md#perproxy)
+[Low-level transmission configuration](transport.md#streamsettingsobject)
 
 > `proxySettings`: [ProxySettingsObject](#proxysettingsobject)
 

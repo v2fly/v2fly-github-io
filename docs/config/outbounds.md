@@ -37,9 +37,9 @@
 
 此出站连接的标识，用于在其它的配置中定位此连接。当其值不为空时，必须在所有 tag 中唯一。
 
-> `streamSettings`: [StreamSettingsObject](transport.md#perproxy)
+> `streamSettings`: [StreamSettingsObject](transport.md#streamsettingsobject)
 
-[底层传输配置](transport.md#perproxy)
+[底层传输配置](transport.md#streamsettingsobject)
 
 > `proxySettings`: [ProxySettingsObject](#proxysettingsobject)
 
@@ -67,7 +67,6 @@
 是否启用传输层转发支持。在启用后,此出站连接的传输层协议将保持生效（如果传输层协议支持）。(v4.35.0+)
 
 如果不启用此选项, 在转发时传输层协议将失效，只能使用默认的 TCP 传输协议。
-
 
 ## MuxObject
 
