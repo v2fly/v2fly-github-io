@@ -37,9 +37,9 @@
 
 此出站连接的标识，用于在其它的配置中定位此连接。当其值不为空时，必须在所有 tag 中唯一。
 
-> `streamSettings`: [StreamSettingsObject](transport.md#perproxy)
+> `streamSettings`: [StreamSettingsObject](transport.md#streamsettingsobject)
 
-[底层传输配置](transport.md#perproxy)
+[底层传输配置](transport.md#streamsettingsobject)
 
 > `proxySettings`: [ProxySettingsObject](#proxysettingsobject)
 
