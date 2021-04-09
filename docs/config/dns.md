@@ -28,13 +28,16 @@ DNS 服务器的处理流程示意图如下：
 {
     "hosts": {
         "baidu.com": "127.0.0.1",
+        "dns.google": "8.8.8.8",
         "geosite:category-ads-all": "127.0.0.1"
     },
     "servers": [
+        "https://dns.google/dns-query",
         {
             "address": "https+local://223.5.5.5/dns-query",
             "port": 5353,
             "clientIp": "5.6.7.8",
+            "skipFallback": true,
             "domains": [
                 "domain:baidu.com",
                 "geosite:cn"
@@ -57,6 +60,7 @@ DNS 服务器的处理流程示意图如下：
     "clientIp": "1.2.3.4",
     "queryStrategy": "UseIPv4",
     "disableCache": true,
+    "disableFallback": true,
     "tag": "dns_inbound"
 }
 ```
@@ -129,6 +133,14 @@ Ref: [https://github.com/lucas-clemente/quic-go/wiki/UDP-Receive-Buffer-Size](ht
 
 (4.35.0+) 禁用 DNS 缓存。默认为 false，即为不禁用。
 
+> `disableFallback`: bool
+
+(4.37.2+) 禁用 DNS 查询失败后的回退查询。默认为 false，即为不禁用。
+
+:::warning
+如果本选项设置为 `true`，则 [ServerObject](#serverobject) 中的 `skipFallback` 均不会生效。
+:::
+
 > `tag`: string
 
 （V2Ray 4.13+）由此 DNS 发出的查询流量，除 `localhost` 和 `DOHL_` 模式外，都会带有此标识，可在路由使用 `inboundTag` 进行匹配。
@@ -140,6 +152,7 @@ Ref: [https://github.com/lucas-clemente/quic-go/wiki/UDP-Receive-Buffer-Size](ht
     "address": "https+local://223.5.5.5/dns-query",
     "port": 5353,
     "clientIp": "5.6.7.8",
+    "skipFallback": true,
     "domains": [
         "domain:baidu.com"
         "geosite:cn"
@@ -164,6 +177,14 @@ DNS 服务器端口，如 `53`。此项缺省时默认为 `53`。当使用 DOH �
 
 :::tip
 此功能需要 DNS 服务器支持 EDNS Client Subnet（RFC7871）。
+:::
+
+> `skipFallback`: bool
+
+(4.37.2+) 在 DNS 回退查询过程中，是否跳过本 DNS。默认为 false，即为不跳过。
+
+:::warning
+如果 [DnsObject](#dnsobject) 中的 `disableFallback` 设置为 `true`，则本选项不会生效。
 :::
 
 > `domains`: \[string\]
