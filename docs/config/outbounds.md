@@ -68,7 +68,6 @@
 
 如果不启用此选项, 在转发时传输层协议将失效，只能使用默认的 TCP 传输协议。
 
-
 ## MuxObject
 
 Mux 功能是在一条 TCP 连接上分发多个 TCP 连接的数据。实现细节详见 [Mux.Cool](../developer/protocols/muxcool.md)。Mux 是为了减少 TCP 的握手延迟而设计，而非提高连接的吞吐量。使用 Mux 看视频、下载或者测速通常都有反效果。Mux 只需要在客户端启用，服务器端自动适配。
