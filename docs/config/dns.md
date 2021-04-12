@@ -28,8 +28,23 @@ DNS 服务器的处理流程示意图如下：
 {
     "hosts": {
         "baidu.com": "127.0.0.1",
+        "example.com": [
+            "127.0.0.1",
+            "::1",
+            "proxy.example.com",
+            "127.0.0.2"
+        ],
         "dns.google": "8.8.8.8",
-        "geosite:category-ads-all": "127.0.0.1"
+        "proxy.example.com": "127.0.0.1",
+        "geosite:test": [
+            "another-proxy.example.com",
+            "127.0.0.1"
+        ],
+        "geosite:category-ads-all": [
+            "127.0.0.1",
+            "127.0.0.2",
+            "::1"
+        ]
     },
     "servers": [
         "https://dns.google/dns-query",
@@ -78,16 +93,22 @@ DNS 服务器的处理流程示意图如下：
 }
 ```
 
-> `hosts`: map{string: address}
+> `hosts`: map{string: address} | map{string: \[address\]}
 
-静态 IP 列表，其值为一系列的 "域名": "地址"。其中地址可以是 IP 或者域名。在解析域名时，如果域名匹配这个列表中的某一项，当该项的地址为 IP 时，则解析结果为该项的 IP，而不会使用下述的 servers 进行解析；当该项的地址为域名时，会使用此域名进行 IP 解析，而不使用原始域名。
+域名与地址的映射，其值可为「域名与单个地址」的映射或「域名与多个地址（地址数组）的映射」(v4.37.3+)，其中地址可以是 IP 或域名。
+
+在解析域名时，如果域名匹配这个列表中的某一项，当该项的地址为 IP 时，则解析结果为该项的 IP，而不会使用下述的 servers 进行 DNS 解析；当该项的地址为域名时，会使用此域名进行 IP 解析，而不使用原始域名。
+
+:::tip
+当地址中同时设置了多个 IP 和域名，则只会返回第一个域名，其余 IP 和域名均被忽略。
+:::
 
 域名的格式有以下几种形式：
 
 * 纯字符串：当此域名完整匹配目标域名时，该规则生效。例如 "v2ray.com" 匹配 "v2ray.com" 但不匹配 "www.v2ray.com"。
 * 正则表达式：由 `"regexp:"` 开始，余下部分是一个正则表达式。当此正则表达式匹配目标域名时，该规则生效。例如 "regexp:\\\\.goo.*\\\\.com$" 匹配 "www.google.com"、"fonts.googleapis.com"，但不匹配 "google.com"。
 * 子域名 (推荐)：由 `"domain:"` 开始，余下部分是一个域名。当此域名是目标域名或其子域名时，该规则生效。例如 "domain:v2ray.com" 匹配 "www.v2ray.com"、"v2ray.com"，但不匹配 "xv2ray.com"。
-* 子串：由 `"keyword:"` 开始，余下部分是一个字符串。当此字符串匹配目标域名中任意部分，该规则生效。比如 "keyword:sina.com" 可以匹配 "sina.com"、"sina.com.cn" 和 "www.sina.com"，但不匹配 "sina.cn"。
+* 子串：由 `"keyword:"` 开始，余下部分是一个字符串。当此字符串匹配目标域名中任意部分，该规则生效。比如 "keyword:sina.com" 可以匹配 "sina.com"、"sina.com.cn"、"www.sina.com" 和 "www.sina.company"，但不匹配 "sina.cn"。
 * 预定义域名列表：由 `"geosite:"` 开头，余下部分是一个名称，如 `geosite:google` 或者 `geosite:cn`。名称及域名列表参考 [预定义域名列表](routing.md#dlc)。
 
 > `servers`: \[string | [ServerObject](#serverobject) \]
