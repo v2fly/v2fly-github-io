@@ -18,7 +18,7 @@ Websocket 会识别 HTTP 请求的 X-Forwarded-For 头来覆写流量的源地�
         "Host": "v2ray.com"
     },
     "maxEarlyData": 1024,
-    "useBrowserForwarding": true
+    "useBrowserForwarding": false
 }
 ```
 
