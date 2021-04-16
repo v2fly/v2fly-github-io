@@ -203,7 +203,10 @@ V2Ray 内建了一个简单的路由功能，可以将入站数据按需求由�
 ```json
 {
     "tag": "balancer",
-    "selector": []
+    "selector": [],
+    "strategy": {
+      "type": "random"
+    }
 }
 ```
 
@@ -215,8 +218,31 @@ V2Ray 内建了一个简单的路由功能，可以将入站数据按需求由�
 
 一个字符串数组，其中每一个字符串将用于和出站协议标识的前缀匹配。在以下几个出站协议标识中：`[ "a", "ab", "c", "ba" ]`，`"selector": ["a"]` 将匹配到 `[ "a", "ab" ]`。
 
-如果匹配到多个出站协议，负载均衡器目前会从中随机选出一个作为最终的出站协议。
 
+
+> `strategy`: StrategyObject
+
+进行负载均衡的策略对象。
+
+## StrategyObject
+
+```json
+{
+    "type": "random"
+}
+```
+
+> `type`:  string
+
+进行负载均衡的策略类型。
+
+可以填入的类型包括 `random` 以及 `leastPing` (v4.38.0+).
+
+`random` 会从出站中随机选出一个作为最终的出站连接。
+
+`leastPing` 会根据观测记录选择 HTTPS GET 请求完成时间最快的一个出站连接。
+
+负载均衡策略依赖于出站 [连接观测](observatory.md) 组件的观测记录。
 
 ## 预定义域名列表
 

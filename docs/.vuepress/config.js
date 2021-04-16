@@ -99,6 +99,7 @@ module.exports = {
                                 'multiple_config',
                                 'fakedns',
                                 'browserforwarder',
+                                'observatory',
                             ],
                         },
                         {

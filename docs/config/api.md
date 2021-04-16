@@ -47,3 +47,7 @@ V2Ray 中可以开放一些 API 以便远程调用。这些 API 都基于 [gRPC]
 ### StatsService
 
 内置的数据统计服务，详见 [统计信息](stats.md)。
+
+### ObservatoryService
+
+[连接观测](observatory.md) 组件 API (v4.38.0+) 。

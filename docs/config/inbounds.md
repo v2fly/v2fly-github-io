@@ -89,13 +89,17 @@ v4.32.0+，支持填写 Unix domain socket，格式为绝对路径，形如 `"/d
 
 是否开启流量探测。
 
-> `destOverride`: \["http" | "tls" | "fakedns"\]
+> `destOverride`: \["http" | "tls" | "fakedns" | "fakedns+others"\]
 
 当流量为指定类型时，按其中包括的目标地址重置当前连接的目标。
 
+`fakedns+others` 选项会优先进行 Fake DNS 虚拟 DNS 服务器匹配， 如果 IP 地址处于 虚拟 DNS 服务器 的 IP 地址区间内，但是没有找到相应的域名记录时，使用 `http` , `tls` 的匹配结果。此选项仅在 metadataOnly == false 时有效。(v4.38.0+)
+
 > `metadataOnly`: true | false
 
-是否仅仅使用元数据推断目标地址而不截取流量内容。只有元数据流量目标侦测模块会被激活。
+是否仅使用元数据推断目标地址而不截取流量内容。只有元数据流量目标侦测模块会被激活。
+
+如果关闭仅使用元数据推断目标地址，客户端必须先发送数据，代理服务器才会实际建立连接。此行为与需要服务器首先发起第一个消息的协议如 SMTP 协议不兼容。
 
 :::tip
 [虚拟 DNS 服务器](fakedns.md) 是一个元数据流量目标地址侦测模块。其他流量探测模块需要关闭 metadataOnly 才能被激活。
