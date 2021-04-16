@@ -5,6 +5,8 @@
 
 目前仅支持连接 `api.v2fly.org` 进行连接状态检测。
 
+## ObservatoryObject
+
 ```json
 {
   "subjectSelector":[
