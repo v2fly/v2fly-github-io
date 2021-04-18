@@ -1,4 +1,4 @@
-# DNS 服务器
+# DNS 域名解析
 
 V2Ray 内建了一个 DNS 模块，其主要用途为：对目标地址（域名）进行 DNS 解析，同时为 IP 路由规则匹配提供判断依据。
 
@@ -102,9 +102,9 @@ DNS 处理流程示意图如下：
 
 > `hosts`: map{string: address} | map{string: \[address\]}
 
-域名与地址的映射，其值可为「域名与单个地址」的映射或「域名与多个地址（地址数组）的映射」(v4.37.3+)，其中地址可以是 IP 或域名。
+域名与地址的映射，其值可为「域名与单个地址」的映射、「域名与多个地址（地址数组）的映射」(v4.37.3+)，其中地址可以是 IP 或域名。
 
-在解析域名时，如果域名匹配这个列表中的某一项，当该项的地址为 IP 时，则解析结果为该项的 IP，而不会使用下述的 servers 进行 DNS 解析；当该项的地址为域名时，会使用此域名进行 IP 解析，而不使用原始域名。
+在解析域名时，如果域名匹配这个列表中的某一项，当该项的地址为 IP 时，则解析结果为该项的 IP，而不会进行后续的 DNS 解析；当该项的地址为域名时，会使用此域名进行后续的 DNS 解析，而不使用原始域名。
 
 :::tip
 当地址中同时设置了多个 IP 和域名，则只会返回第一个域名，其余 IP 和域名均被忽略。
@@ -112,42 +112,40 @@ DNS 处理流程示意图如下：
 
 域名的格式有以下几种形式：
 
-* 纯字符串：当此域名完整匹配目标域名时，该规则生效。例如 "v2ray.com" 匹配 "v2ray.com" 但不匹配 "www.v2ray.com"。
-* 正则表达式：由 `"regexp:"` 开始，余下部分是一个正则表达式。当此正则表达式匹配目标域名时，该规则生效。例如 "regexp:\\\\.goo.*\\\\.com$" 匹配 "www.google.com"、"fonts.googleapis.com"，但不匹配 "google.com"。
-* 子域名 (推荐)：由 `"domain:"` 开始，余下部分是一个域名。当此域名是目标域名或其子域名时，该规则生效。例如 "domain:v2ray.com" 匹配 "www.v2ray.com"、"v2ray.com"，但不匹配 "xv2ray.com"。
-* 子串：由 `"keyword:"` 开始，余下部分是一个字符串。当此字符串匹配目标域名中任意部分，该规则生效。比如 "keyword:sina.com" 可以匹配 "sina.com"、"sina.com.cn"、"www.sina.com" 和 "www.sina.company"，但不匹配 "sina.cn"。
-* 预定义域名列表：由 `"geosite:"` 开头，余下部分是一个名称，如 `geosite:google` 或者 `geosite:cn`。名称及域名列表参考 [预定义域名列表](routing.md#预定义域名列表)。
+- 纯字符串：当此域名完整匹配目标域名时，该规则生效。例如 `v2ray.com` 匹配 `v2ray.com` 但不匹配 `www.v2ray.com`。
+- 正则表达式：由 `regexp:` 开始，余下部分是一个正则表达式。当此正则表达式匹配目标域名时，该规则生效。例如 `regexp:\.goo.*\.com$` 匹配 `www.google.com`、`fonts.googleapis.com`，但不匹配 `google.com`。
+- 子域名 (推荐)：由 `domain:` 开始，余下部分是一个域名。当此域名是目标域名或其子域名时，该规则生效。例如 `domain:v2ray.com` 匹配 `www.v2ray.com`、`v2ray.com`，但不匹配 `xv2ray.com`。
+- 子串：由 `keyword:` 开始，余下部分是一个字符串。当此字符串匹配目标域名中任意部分，该规则生效。比如 `keyword:sina.com` 可以匹配 `sina.com`、`sina.com.cn`、`www.sina.com` 和 `www.sina.company`，但不匹配 `sina.cn`。
+- 预定义域名列表：由 `geosite:` 开头，余下部分是一个名称，如 `geosite:google` 或者 `geosite:cn`。名称及域名列表参考 [预定义域名列表](routing.md#预定义域名列表)。
 
 > `servers`: \[string | [ServerObject](#serverobject) \]
 
 一个 DNS 服务器列表，支持的类型有两种：DNS 地址（字符串形式）和 [ServerObject](#serverobject) 。
 
-当它的值是一个 DNS IP 地址时，如 `"8.8.8.8"`，V2Ray 会使用此地址的 53 端口进行 DNS 查询。
+当值为一个 IP 地址时，如 `8.8.8.8`，V2Ray 会使用此地址的 53 端口进行 UDP 协议的 DNS 查询。
 
-当值为 `"localhost"` 时，表示使用本机预设的 DNS 配置。
+当值为 `localhost` 时，表示使用本机预设的 DNS 配置。
 
-当值是 `"https://host:port/dns-query"` 的形式，如 `"https://dns.google/dns-query"`，V2Ray 会使用 `DNS over HTTPS` (RFC8484, 简称 DOH) 进行查询。有些服务商拥有 IP 别名的证书，可以直接写 IP 形式，比如 `https://1.1.1.1/dns-query`。也可使用非标准端口和路径，如 `"https://a.b.c.d:8443/my-dns-query"` (4.22.0+)
+当值为 `https://host:port/dns-query` 的形式，如 `https://dns.google/dns-query`，V2Ray 会使用 DNS over HTTPS（RFC8484, 简称 DOH）进行查询。有些服务商拥有 IP 别名的证书，可以直接写 IP 形式，比如 `https://1.1.1.1/dns-query`，也可使用非标准端口和路径，如 `https://a.b.c.d:8443/my-dns-query`。(4.22.0+)
 
-当值是 `"https+local://host:port/dns-query"` 的形式，如 `"https+local://dns.google/dns-query"`，V2Ray 会使用 `DNS over HTTPS 本地模式` 进行查询，即 DOH 请求不会经过 Routing/Outbound 等组件，直接对外请求，以降低耗时。一般适合在服务端使用。也可使用非标端口和路径。(4.22.0+)
+当值为 `https+local://host:port/dns-query` 的形式，如 `https+local://dns.google/dns-query`，V2Ray 会使用 DNS over HTTPS 本地模式进行查询，即 DOH 请求不会经过 `Routing` 和 `Outbound` 等组件，直接对外请求，以降低耗时。一般适合在服务端使用，也可使用非标准端口和路径。(4.22.0+)
 
-当值是 `"quic+local://host"` 的形式，如 `"quic+local://dns.adguard.com"`，V2Ray 会使用 `DNS over QUIC 本地模式` 进行查询，即 DOQ 请求不会经过 Routing/Outbound 等组件，直接对外请求，以降低耗时。目前（2021 年 1 月 4 日），公共 DNS 中支持 DOQ 协议的只有 `dns.adguard.com`，默认使用端口 `784`。 (4.34.0+)
+当值为 `quic+local://host` 的形式，如 `quic+local://dns.adguard.com`，V2Ray 会使用 DNS over QUIC 本地模式进行查询，即 DOQ 请求不会经过 `Routing` 和 `Outbound` 等组件，直接对外请求，以降低耗时。目前（2021 年 1 月 4 日），公共 DNS 中支持 DOQ 协议的只有 `dns.adguard.com`，默认使用端口 784。(4.34.0+)
 
-当值为 `"fakedns"` 时，表示使用 V2Ray 内构的虚拟 DNS 服务器。 (4.35.0+)
+当值为 `fakedns` 时，表示使用 V2Ray 内建的虚拟 DNS 服务器。详情见[虚拟 DNS 服务器](fakedns.md)(4.35.0+)
 
 :::tip
 当使用 `localhost` 时，本机的 DNS 请求不受 V2Ray 控制，需要额外的配置才可以使 DNS 请求由 V2Ray 转发。
-
-不同规则初始化得到的 DNS 客户端会在 V2Ray 启动日志中以 `info` 级别体现，比如 `local DOH`、`remote DOH` 和 `udp` 等模式。（4.22.0+）
 :::
 
 :::warning
-如果在 Linux 设备上使用 DNS Over QUIC，可能需要调整接受缓冲区大小，下面的命令将其设置为 2.5 MB
+如果在 Linux 设备上使用 DNS over QUIC，可能需要调整接受缓冲区大小，下面的命令将其设置为 2.5 MB
 
 ```shell
 sysctl -w net.core.rmem_max=2500000
 ```
 
-Ref: [https://github.com/lucas-clemente/quic-go/wiki/UDP-Receive-Buffer-Size](https://github.com/lucas-clemente/quic-go/wiki/UDP-Receive-Buffer-Size)
+Reference: [https://github.com/lucas-clemente/quic-go/wiki/UDP-Receive-Buffer-Size](https://github.com/lucas-clemente/quic-go/wiki/UDP-Receive-Buffer-Size)
 :::
 
 > `clientIp`: string
@@ -208,11 +206,11 @@ Ref: [https://github.com/lucas-clemente/quic-go/wiki/UDP-Receive-Buffer-Size](ht
 
 > `address`: address
 
-DNS 服务器地址，如 `"8.8.8.8"`。对于普通 DNS IP 地址只支持 UDP 协议的 DNS 服务器，若地址是以 `"https://"` 或 `"https+local://"` 开头的 URL 形式，则使用 DOH 模式，规则同字符串模式的 DOH 配置。
+DNS 服务器地址，如 `8.8.8.8`。对于普通 DNS IP 地址只支持 UDP 协议的 DNS 服务器，若地址是以 `https://` 或 `https+local://` 开头的 URL 形式，则使用 DOH 模式，规则同字符串模式的 DOH 配置。
 
 > `port`: number
 
-DNS 服务器端口，如 `53`。此项缺省时默认为 `53`。当使用 DOH 模式该项无效，非标端口应在 URL 中指定。
+DNS 服务器端口，如 `53`。此项缺省时默认为 `53`。当使用 DOH、DOHL、DOQL 模式时，该项无效。非标准端口应在 URL 中指定。
 
 > `clientIp`: string
 
@@ -236,12 +234,10 @@ DNS 服务器端口，如 `53`。此项缺省时默认为 `53`。当使用 DOH �
 
 > `domains`: \[string\]
 
-一个域名列表，此列表包含的域名，将优先使用此服务器进行查询。域名格式和 [路由配置](routing.md#ruleobject) 中相同。
+一个域名列表，此列表包含的域名，将优先使用此服务器进行查询。域名格式和[路由配置](routing.md#ruleobject)中相同。
 
 > `expectIPs`:\[string\]
 
-（V2Ray 4.22.0+）一个 IP 范围列表，格式和 [路由配置](routing.md#ruleobject) 中相同。
+（V2Ray 4.22.0+）一个 IP 范围列表，格式和[路由配置](routing.md#ruleobject)中相同。
 
-当配置此项时，V2Ray DNS 会对返回的 IP 的进行校验，只返回包含 expectIPs 列表中的地址。
-
-如果未配置此项，会原样返回 IP 地址。
+当配置此项时，V2Ray DNS 会对返回的 IP 进行校验，只返回满足 expectIPs 列表的地址。如果未配置此项，会原样返回 IP 地址。
