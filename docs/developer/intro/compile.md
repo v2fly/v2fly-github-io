@@ -4,7 +4,7 @@
 
 V2Ray 使用 [Golang](https://golang.org/) 作为主要编程语言，团队发布流程上使用 [GitHub Actions](https://github.com/features/actions) 作为构建工具。推荐使用 Linux 或 macOS 进行开发，少量的脚本可能无法在 Windows 上正常运行。
 
-* 安装 Golang: [golang.org/doc/install](https://golang.org/doc/install)
+* 安装 Golang: [golang.org/doc/install](https://golang.org/doc/install)（若无法访问，可选择[国内镜像](https://golang.google.cn/doc/install)）
 
 ## 多种构建方式
 
