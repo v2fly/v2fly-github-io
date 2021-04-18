@@ -3,7 +3,7 @@
 V2Ray 内建了一个 DNS 模块，其主要用途为：对目标地址（域名）进行 DNS 解析，同时为 IP 路由规则匹配提供判断依据。
 
 :::tip
-由于 DNS 协议的复杂性，V2Ray 只支持最基本的 IP 查询（A 和 AAAA 记录）。如需完整的 DNS 功能，推荐使用 [CoreDNS](https://coredns.io)
+由于 DNS 协议的复杂性，V2Ray 只支持最基本的 IP 查询（A 和 AAAA 记录）。如需完整的 DNS 功能，推荐使用 [CoreDNS](https://coredns.io)。
 :::
 
 :::warning
@@ -163,11 +163,11 @@ Ref: [https://github.com/lucas-clemente/quic-go/wiki/UDP-Receive-Buffer-Size](ht
 (4.37.0+) DNS 查询所使用的网络类型。默认值为 `UseIP`，即 DNS 同时查询域名的 A 和 AAAA 记录。`UseIPv4` 和 `UseIPv6` 分别为只查询 A 记录、只查询 AAAA 记录。
 
 :::tip
-建议没有 IPv6 网络的用户，设置为 `UseIPv4`。本选项与 `freedom` 出站协议的 `domainStrategy` 选项优先级相同，建议同时设置为 `UseIPv4`。
+建议没有 IPv6 网络的用户，设置为 `UseIPv4`。本选项与 `freedom` 协议 `outbound` 中的 `domainStrategy` 选项优先级相同，建议同时设置为 `UseIPv4`。
 :::
 
 :::warning
-如果本选项设置为 `UseIPv4`，而 `freedom` 出站协议的 `domainStrategy` 选项设置为 `UseIPv6`，会导致从 `freedom` 发出的连接的 DNS 查询被 Go 运行时接管，进而导致 DNS 泄漏；反之同理。
+如果本选项设置为 `UseIPv4`，而 `freedom` 协议 `outbound` 中的 `domainStrategy` 选项设置为 `UseIPv6`，会导致从 `freedom` 协议 `outbound` 发出的连接的 DNS 查询被 Go 运行时接管，进而导致 DNS 泄漏；反之同理。
 :::
 
 > `disableCache`: bool
@@ -176,7 +176,7 @@ Ref: [https://github.com/lucas-clemente/quic-go/wiki/UDP-Receive-Buffer-Size](ht
 
 > `disableFallback`: bool
 
-(4.37.2+) 禁用 DNS 回退（fallback）查询。默认为 false，即为不禁用。详情见 [DNS 处理流程](#DNS-处理流程)。
+(4.37.2+) 禁用 DNS 回退（fallback）查询。默认为 false，即为不禁用。详情见 [DNS 处理流程](#dns-处理流程)。
 
 :::warning
 如果本选项设置为 `true`，则 [ServerObject](#serverobject) 中的 `skipFallback` 均不会生效。
@@ -224,7 +224,11 @@ DNS 服务器端口，如 `53`。此项缺省时默认为 `53`。当使用 DOH �
 
 > `skipFallback`: bool
 
-(4.37.2+) 在 DNS 回退（fallback）查询过程中，是否跳过本 DNS。默认为 false，即为不跳过。详情见 [DNS 处理流程](#DNS-处理流程)。
+(4.37.2+) 在 DNS 回退（fallback）查询过程中，是否跳过本 DNS。默认为 false，即为不跳过。详情见 [DNS 处理流程](#dns-处理流程)。
+
+:::tip
+本选项可用于防止 DNS 回退（fallback）查询 `A` 和 `AAAA` 记录过程中的 DNS 泄漏。
+:::
 
 :::warning
 如果 [DnsObject](#dnsobject) 中的 `disableFallback` 设置为 `true`，则本选项不会生效。
