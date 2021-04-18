@@ -1,22 +1,29 @@
 # DNS 服务器
 
-V2Ray 内置了一个 DNS 服务器，其有两大主要用途：根据域名解析的 IP 匹配路由规则，以及传统的 DNS 功能——解析目标地址进行连接。
-
-由此 DNS 服务器所发出的 DNS 查询请求，会自动根据路由配置进行转发，无需额外配置。
+V2Ray 内建了一个 DNS 模块，其主要用途为：对目标地址（域名）进行 DNS 解析，同时为 IP 路由规则匹配提供判断依据。
 
 :::tip
-由于 DNS 协议的复杂性，V2Ray 只支持最基本的 IP 查询（A 和 AAAA 记录）。推荐使用本机 DNS 配合一个额外的 DNS 服务器来做 DNS 查询，如 [CoreDNS](https://coredns.io/)，以使用完整的 DNS 功能。
+由于 DNS 协议的复杂性，V2Ray 只支持最基本的 IP 查询（A 和 AAAA 记录）。如需完整的 DNS 功能，推荐使用 [CoreDNS](https://coredns.io)
 :::
 
 :::warning
-注意：在 `freedom` 协议的 `outbound` 中，`domainStrategy` 默认值为 `AsIs`，不会使用本 DNS 服务器进行目的地址解析，如果需要使用应配置为 `UseIP`。
+在 `freedom` 协议的 `outbound` 中，`domainStrategy` 默认值为 `AsIs`，不会使用本 DNS 模块进行目标地址解析。如需使用，应配置为 `UseIP`、`UseIPv4` 或 `UseIPv6`。
 :::
 
 ## DNS 处理流程
 
-当某个 DNS 服务器指定的域名列表匹配了当前要查询的域名，V2Ray 会优先使用这个 DNS 服务器进行查询，否则按从上往下的顺序进行查询，同时只返回匹配 expectIPs 的 IP 列表。
+若当前要查询的域名：
 
-DNS 服务器的处理流程示意图如下：
+- 命中了 `hosts` 中的「域名 - IP」、「域名 - IP 数组」映射，则将该 IP 或 IP 数组作为 DNS 解析结果返回。
+- 命中了 `hosts` 中的「域名 - 域名」映射，则该映射的值（另一个域名）将作为当前要查询的新域名，进入 DNS 处理流程，直到解析出 IP 后返回，或返回空解析。
+- 没有命中 `hosts`，但命中了某（几）个 DNS 服务器中的 `domains` 域名列表，则按照命中的规则的优先级，依次使用该规则对应的 DNS 服务器进行查询。若命中的 DNS 服务器查询失败，或 `expectIPs` 不匹配，则使用下一个命中的 DNS 服务器进行查询；否则返回解析得到的 IP。若所有命中的 DNS 服务器均查询失败，此时 DNS 模块：
+  - 默认会进行 「DNS 回退（fallback）查询」：使用「上一轮失败查询中未被使用的、且 `skipFallback` 为默认值 `false` 的 DNS 服务器」依次查询。若查询失败，或 `expectIPs` 不匹配，返回空解析；否则返回解析得到的 IP。
+  - 若 `disableFallback` 设置为 `true`，则不会进行「DNS 回退（fallback）查询」。
+- 既没有命中 `hosts`，又没有命中 DNS 服务器中的 `domains` 域名列表，则：
+  - 默认使用「`skipFallback` 为默认值 `false` 的 DNS 服务器」依次查询。若第一个被选中的 DNS 服务器查询失败，或 `expectIPs` 不匹配，则使用下一个被选中的 DNS 服务器进行查询；否则返回解析得到的 IP。若所有被选中的 DNS 服务器均查询失败，返回空解析。
+  - 若「`skipFallback` 为默认值 `false` 的 DNS 服务器」数量为 0 或 `disableFallback` 设置为 `true`，则使用 DNS 配置中的第一个 DNS 服务器进行查询。查询失败或不匹配 `expectIPs` 列表，返回空解析；否则返回解析得到的 IP。
+
+DNS 处理流程示意图如下：
 
 ![DNS resolution process](/dns_flowchart.svg)
 
@@ -169,7 +176,7 @@ Ref: [https://github.com/lucas-clemente/quic-go/wiki/UDP-Receive-Buffer-Size](ht
 
 > `disableFallback`: bool
 
-(4.37.2+) 禁用 DNS 查询失败后的回退查询。默认为 false，即为不禁用。
+(4.37.2+) 禁用 DNS 回退（fallback）查询。默认为 false，即为不禁用。详情见 [DNS 处理流程](#DNS-处理流程)。
 
 :::warning
 如果本选项设置为 `true`，则 [ServerObject](#serverobject) 中的 `skipFallback` 均不会生效。
@@ -217,7 +224,7 @@ DNS 服务器端口，如 `53`。此项缺省时默认为 `53`。当使用 DOH �
 
 > `skipFallback`: bool
 
-(4.37.2+) 在 DNS 回退查询过程中，是否跳过本 DNS。默认为 false，即为不跳过。
+(4.37.2+) 在 DNS 回退（fallback）查询过程中，是否跳过本 DNS。默认为 false，即为不跳过。详情见 [DNS 处理流程](#DNS-处理流程)。
 
 :::warning
 如果 [DnsObject](#dnsobject) 中的 `disableFallback` 设置为 `true`，则本选项不会生效。
