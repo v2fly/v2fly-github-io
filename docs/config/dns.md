@@ -25,7 +25,7 @@ V2Ray 内建了一个 DNS 模块，其主要用途为：对目标地址（域名
 
 DNS 处理流程示意图如下：
 
-![DNS resolution process](/dns_flowchart.svg)
+![DNS resolution process](/dns_flowchart_20210418.svg)
 
 ## DnsObject
 
