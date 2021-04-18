@@ -27,7 +27,7 @@ We are a group of people who love freedom. We tend to remain anonymous and do no
 
 You can use GitHub, Telegram, Email [discuss with us](guide/help.md).
 
-## contribution
+## Contribution
 
 Welcome to contribute to the project! Even if you don't know how to write code, there are still many ways to help improve it. Here are some examples:
 
