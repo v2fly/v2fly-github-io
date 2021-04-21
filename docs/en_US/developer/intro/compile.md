@@ -4,7 +4,7 @@
 
 V2Ray uses [Golang](https://golang.org/) as the main programming language, and the team release process uses [GitHub Actions](https://github.com/features/actions) as the build tool. It is recommended to use Linux or macOS for development. A small amount of scripts may not run properly on Windows.
 
-* Install Golang: [golang.org/doc/install](https://golang.org/doc/install)
+* Install Golang: [golang.org/doc/install](https://golang.org/doc/install) (If you can’t access it, you can choose [Domestic Mirror](https://golang.google.cn/doc/install))
 
 ## Multiple build methods
 
