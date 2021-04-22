@@ -112,11 +112,11 @@ DNS 处理流程示意图如下：
 
 域名的格式有以下几种形式：
 
-- 纯字符串：当此域名完整匹配目标域名时，该规则生效。例如 `v2ray.com` 匹配 `v2ray.com` 但不匹配 `www.v2ray.com`。
-- 正则表达式：由 `regexp:` 开始，余下部分是一个正则表达式。当此正则表达式匹配目标域名时，该规则生效。例如 `regexp:\.goo.*\.com$` 匹配 `www.google.com`、`fonts.googleapis.com`，但不匹配 `google.com`。
-- 子域名 (推荐)：由 `domain:` 开始，余下部分是一个域名。当此域名是目标域名或其子域名时，该规则生效。例如 `domain:v2ray.com` 匹配 `www.v2ray.com`、`v2ray.com`，但不匹配 `xv2ray.com`。
-- 子串：由 `keyword:` 开始，余下部分是一个字符串。当此字符串匹配目标域名中任意部分，该规则生效。比如 `keyword:sina.com` 可以匹配 `sina.com`、`sina.com.cn`、`www.sina.com` 和 `www.sina.company`，但不匹配 `sina.cn`。
-- 预定义域名列表：由 `geosite:` 开头，余下部分是一个名称，如 `geosite:google` 或者 `geosite:cn`。名称及域名列表参考 [预定义域名列表](routing.md#预定义域名列表)。
+- **纯字符串**：当此域名完整匹配目标域名时，该规则生效。例如 `v2ray.com` 匹配 `v2ray.com` 但不匹配 `www.v2ray.com`。
+- **正则表达式**：由 `regexp:` 开始，余下部分是一个正则表达式。当此正则表达式匹配目标域名时，该规则生效。例如 `regexp:\.goo.*\.com$` 匹配 `www.google.com`、`fonts.googleapis.com`，但不匹配 `google.com`。
+- **子域名 (推荐)**：由 `domain:` 开始，余下部分是一个域名。当此域名是目标域名或其子域名时，该规则生效。例如 `domain:v2ray.com` 匹配 `www.v2ray.com`、`v2ray.com`，但不匹配 `xv2ray.com`。
+- **子串**：由 `keyword:` 开始，余下部分是一个字符串。当此字符串匹配目标域名中任意部分，该规则生效。比如 `keyword:sina.com` 可以匹配 `sina.com`、`sina.com.cn`、`www.sina.com` 和 `www.sina.company`，但不匹配 `sina.cn`。
+- **预定义域名列表**：由 `geosite:` 开头，余下部分是一个名称，如 `geosite:google` 或者 `geosite:cn`。名称及域名列表参考 [预定义域名列表](routing.md#预定义域名列表)。
 
 > `servers`: \[string | [ServerObject](#serverobject) \]
 
@@ -126,9 +126,9 @@ DNS 处理流程示意图如下：
 
 当值为 `localhost` 时，表示使用本机预设的 DNS 配置。
 
-当值为 `https://host:port/dns-query` 的形式，如 `https://dns.google/dns-query`，V2Ray 会使用 DNS over HTTPS（RFC8484, 简称 DOH）进行查询。有些服务商拥有 IP 别名的证书，可以直接写 IP 形式，比如 `https://1.1.1.1/dns-query`，也可使用非标准端口和路径，如 `https://a.b.c.d:8443/my-dns-query`。(4.22.0+)
+当值为 `https://host:port/dns-query` 的形式，如 `https://dns.google/dns-query`，V2Ray 会使用 DNS over HTTPS（RFC8484, 简称 DOH）进行查询。DOH 请求不会经过 `Routing` 路由组件，默认会使用第一个 `outboud`。有些服务商拥有 IP 别名的证书，可以直接写 IP 形式，比如 `https://1.1.1.1/dns-query`，也可使用非标准端口和路径，如 `https://a.b.c.d:8443/my-dns-query`。(4.22.0+)
 
-当值为 `https+local://host:port/dns-query` 的形式，如 `https+local://dns.google/dns-query`，V2Ray 会使用 DNS over HTTPS 本地模式进行查询，即 DOH 请求不会经过 `Routing` 和 `Outbound` 等组件，直接对外请求，以降低耗时。一般适合在服务端使用，也可使用非标准端口和路径。(4.22.0+)
+当值为 `https+local://host:port/dns-query` 的形式，如 `https+local://dns.google/dns-query`，V2Ray 会使用 DNS over HTTPS 本地模式进行查询，即 DOHL 请求不会经过 `Routing` 和 `Outbound` 等组件，直接对外请求，以降低耗时。一般适合在服务端使用，也可使用非标准端口和路径。(4.22.0+)
 
 当值为 `quic+local://host` 的形式，如 `quic+local://dns.adguard.com`，V2Ray 会使用 DNS over QUIC 本地模式进行查询，即 DOQ 请求不会经过 `Routing` 和 `Outbound` 等组件，直接对外请求，以降低耗时。目前（2021 年 1 月 4 日），公共 DNS 中支持 DOQ 协议的只有 `dns.adguard.com`，默认使用端口 784。(4.34.0+)
 
