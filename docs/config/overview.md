@@ -18,7 +18,7 @@ V2Ray 的配置文件形式如下，客户端和服务器通用一种形式，�
     "transport": {},
     "stats": {},
     "reverse": {},
-    "fakedns": {},
+    "fakedns": [],
     "browserForwarder": {},
     "observatory": {}
 }

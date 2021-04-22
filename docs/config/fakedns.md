@@ -2,7 +2,7 @@
 
 ## FakeDnsObject
 
-`FakeDnsObject` 对应配置文件的 `fakedns` 项。 (4.35.0+)
+`FakeDnsObject` 对应配置文件 `fakedns` 项的一个子元素。(4.38.1+)
 
 ```json
 {
@@ -11,9 +11,16 @@
 }
 ```
 
+```json
+{
+    "ipPool": "fc00::/18",
+    "poolSize": 65535
+}
+```
+
 > `ipPool`: string: CIDR
 
-虚拟 DNS 服务器分配 IP 的地址空间。由虚拟 DNS 服务器分配的地址会符合这个 CIDR 表达式。默认为 `198.18.0.0/15`。也支持 IPv6，例如 `fc00::/7`。
+虚拟 DNS 服务器分配 IP 的地址空间。由虚拟 DNS 服务器分配的地址会符合这个 CIDR 表达式。IPv4 网络下，默认值为 `198.18.0.0/15`；IPv6 网络下，默认值为 `fc00::/18`。
 
 > `poolSize`: number
 
@@ -21,6 +28,10 @@
 
 :::warning
 poolSize 必须小于或等于 ipPool 的地址总数，否则 core 将无法启动。
+:::
+
+:::tip
+自 v4.38.1 起，若配置文件中的 `dns` 项显式设置了 `fakedns`，而配置文件中没有显式设置 `fakedns` 项，V2Ray 会根据 DNS 模块中 `queryStrategy` 项的值来初始化 `fakedns` 项的配置，即 FakeDNS 是否支持对不同类型 DNS 查询（A 记录和 AAAA 记录）返回相应的 IPv4 或 IPv6 类型的 IP 地址。
 :::
 
 ## 运行机制及配置方式
@@ -66,7 +77,7 @@ poolSize 必须小于或等于 ipPool 的地址总数，否则 core 将无法启
 }
 ```
 
-当外部 DNS 请求导入虚拟 DNS 服务器时，它会返回一个位于自己 `ipPool` 内的 IP 地址为域名的虚构解析结果，并记忆该域名与虚构解析结果之间的关系。
+当外部 DNS 请求导入虚拟 DNS 服务器时，它会返回位于自己 `ipPool` 内的 IP 地址作为域名的虚构解析结果，并记录该域名与虚构解析结果之间的映射关系。
 
 ### 步骤二：还原虚构地址
 
@@ -78,7 +89,8 @@ poolSize 必须小于或等于 ipPool 的地址总数，否则 core 将无法启
             "sniffing": {
                 "enabled": true,
                 "destOverride": [
-                    "fakedns"
+                    "fakedns",       // 二选一
+                    "fakedns+others" // 二选一
                 ],
                 "metadataOnly": false
             }
@@ -90,7 +102,7 @@ poolSize 必须小于或等于 ipPool 的地址总数，否则 core 将无法启
 当客户端程序基于之前解析结果请求连接这个 IP 所指向的主机时，对应 [入站连接](inbounds.md) 的 `fakedns` 流量侦测模块会将目标地址还原为对应的域名。
 
 :::tip
-如果在使用虚拟 DNS 时遇到了直连空解析的问题，可以尝试在 `freedom` 出站设置 `domainStrategy` 为 `UseIP`
+如果在使用虚拟 DNS 时遇到了直连空解析的问题，可以尝试在 `freedom` 出站设置 `domainStrategy` 为 `UseIP`、`UseIPv4` 或 `UseIPv6`。
 :::
 
 ## 与其他类型 DNS 搭配使用
