@@ -126,7 +126,7 @@ DNS 处理流程示意图如下：
 
 当值为 `localhost` 时，表示使用本机预设的 DNS 配置。
 
-当值为 `https://host:port/dns-query` 的形式，如 `https://dns.google/dns-query`，V2Ray 会使用 DNS over HTTPS（RFC8484, 简称 DOH）进行查询。DOH 请求不会经过 `Routing` 路由组件，默认会使用第一个 `outboud`。有些服务商拥有 IP 别名的证书，可以直接写 IP 形式，比如 `https://1.1.1.1/dns-query`，也可使用非标准端口和路径，如 `https://a.b.c.d:8443/my-dns-query`。(4.22.0+)
+当值为 `https://host:port/dns-query` 的形式，如 `https://dns.google/dns-query`，V2Ray 会使用 DNS over HTTPS（RFC8484, 简称 DOH）进行查询。DOH 请求不会经过 `Routing` 路由组件，默认会使用第一个 `outbound`。有些服务商拥有 IP 别名的证书，可以直接写 IP 形式，比如 `https://1.1.1.1/dns-query`，也可使用非标准端口和路径，如 `https://a.b.c.d:8443/my-dns-query`。(4.22.0+)
 
 当值为 `https+local://host:port/dns-query` 的形式，如 `https+local://dns.google/dns-query`，V2Ray 会使用 DNS over HTTPS 本地模式进行查询，即 DOHL 请求不会经过 `Routing` 和 `Outbound` 等组件，直接对外请求，以降低耗时。一般适合在服务端使用，也可使用非标准端口和路径。(4.22.0+)
 
