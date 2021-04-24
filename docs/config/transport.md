@@ -63,6 +63,7 @@
     "httpSettings": {},
     "quicSettings": {},
     "dsSettings": {},
+    "grpcSettings": {},
     "sockopt": {
         "mark": 0,
         "tcpFastOpen": false,
@@ -106,6 +107,10 @@ TLS 配置。TLS 由 Golang 提供，支持 TLS 1.3，不支持 DTLS。
 > `dsSettings`: [DomainSocketObject](transport/domainsocket.md)
 
 当前连接的 Domain socket 配置，仅当此连接使用 Domain socket 时有效。配置内容与上面的全局配置相同。
+
+> `grpcSettings`: [grpcObject](transport/grpc.md)
+
+当前连接的 gRPC 配置，仅当此连接使用 gRPC 时有效。配置内容与上面的全局配置相同。
 
 > `sockopt`: [SockoptObject](#sockoptobject)
 
