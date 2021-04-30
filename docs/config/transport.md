@@ -72,7 +72,7 @@
 }
 ```
 
-> `network`: "tcp" | "kcp" | "ws" | "http" | "domainsocket" | "quic"
+> `network`: "tcp" | "kcp" | "ws" | "http" | "domainsocket" | "quic" | "grpc"
 
 数据流所使用的网络类型，默认值为 `"tcp"`
 
