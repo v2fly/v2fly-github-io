@@ -51,7 +51,7 @@ V2Ray 内建了一个路由模块，可以将入站数据按需求由不同的�
         "baidu.com",
         "qq.com",
         "geosite:cn",
-        "ext:/path/to/third-party/geositefile.dat:cn"
+        "ext:customizedGeoSiteFile.dat:cn"
     ],
     "ip": [
         "0.0.0.0/8",
@@ -60,10 +60,10 @@ V2Ray 内建了一个路由模块，可以将入站数据按需求由不同的�
         "fe80::/10",
         "geoip:cn",
         "geoip:!cn",
-        "ext:/path/to/third-party/geoipfile.dat:cn",
-        "ext:/path/to/third-party/geoipfile.dat:!cn",
-        "ext-ip:/path/to/third-party/geoipfile.dat:cn",
-        "ext-ip:/path/to/third-party/geoipfile.dat:!cn"
+        "ext:customizedGeoIPFile.dat:cn",
+        "ext:customizedGeoIPFile.dat:!cn",
+        "ext-ip:customizedGeoIPFile.dat:cn",
+        "ext-ip:customizedGeoIPFile.dat:!cn"
     ],
     "port": "53,443,1000-2000",
     "sourcePort": "53,443,1000-2000",
