@@ -67,7 +67,8 @@
     "sockopt": {
         "mark": 0,
         "tcpFastOpen": false,
-        "tproxy": "off"
+        "tproxy": "off",
+        "tcpKeepAliveInterval": 0
     }
 }
 ```
@@ -265,7 +266,8 @@ TLS 配置。TLS 由 Golang 提供，支持 TLS 1.3，不支持 DTLS。
 {
     "mark": 0,
     "tcpFastOpen": false,
-    "tproxy": "off"
+    "tproxy": "off",
+    "tcpKeepAliveInterval": 0
 }
 ```
 
@@ -298,3 +300,9 @@ TLS 配置。TLS 由 Golang 提供，支持 TLS 1.3，不支持 DTLS。
 :::tip
 当 [Dokodemo-door](protocols/dokodemo.md) 中指定了 `followRedirect`，且 `sockopt.tproxy` 为空时，`sockopt.tproxy` 的值会被设为 `"redirect"`。
 :::
+
+> `tcpKeepAliveInterval`: number
+
+TCP 保持活跃的数据包的发送间隔，以秒为单位（仅适用于 Linux）。 (v4.39.0+)
+
+0 代表保持默认值。
