@@ -18,7 +18,8 @@ Websocket 会识别 HTTP 请求的 X-Forwarded-For 头来覆写流量的源地�
         "Host": "v2ray.com"
     },
     "maxEarlyData": 1024,
-    "useBrowserForwarding": false
+    "useBrowserForwarding": false,
+    "earlyDataHeaderName":""
 }
 ```
 
@@ -50,4 +51,12 @@ WebSocket 所使用的 HTTP 协议路径，默认值为 `"/"`。
 
 v4.37.0+ 服务器端程序会自动适配客户端的浏览器转发功能，无需额外设置。
 
-相关配置请参考浏览器转发模块文档。[BrowserForwarderObject](../browserforwarder.md)
+只兼容基于基于路径的前置数据或者 HTTP 头的名字为 "Sec-WebSocket-Protocol" 的启用基于 HTTP 头的前置数据。
+
+相关配置请参考浏览器转发模块文档。[BrowserForwarderObject](../browserforwarder.md)\
+
+> `earlyDataHeaderName` string
+
+发送的前置数据的 HTTP 头的名字，设置后启用基于 HTTP 头的前置数据。如果留空则使用基于路径的前置数据。(v4.39.0+)
+
+当且仅当 HTTP 头的名字为 "Sec-WebSocket-Protocol" 时可以启用启用基于 HTTP 头的前置数据浏览器转发功能。
