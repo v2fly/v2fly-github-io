@@ -66,8 +66,8 @@ DNS 处理流程示意图如下：
             ],
             "expectIPs": [
                 "geoip:cn",
-                "ext:/path/to/third-party/geoipfile.dat:cn",
-                "ext-ip:/path/to/third-party/geoipfile.dat:cn"
+                "ext:customizedGeoIPFile.dat:cn",
+                "ext-ip:customizedGeoIPFile.dat:cn"
             ]
         },
         {
@@ -85,8 +85,8 @@ DNS 处理流程示意图如下：
             ],
             "expectIPs": [
                 "geoip:!cn",
-                "ext:/path/to/third-party/geoipfile.dat:!cn",
-                "ext-ip:/path/to/third-party/geoipfile.dat:!cn"
+                "ext:customizedGeoIPFile.dat:!cn",
+                "ext-ip:customizedGeoIPFile.dat:!cn"
             ]
         },
         "1.0.0.1",
@@ -198,8 +198,8 @@ Reference: [https://github.com/lucas-clemente/quic-go/wiki/UDP-Receive-Buffer-Si
     ],
     "expectIPs": [
         "geoip:cn",
-        "ext:/path/to/third-party/geoipfile.dat:cn",
-        "ext-ip:/path/to/third-party/geoipfile.dat:cn"
+        "ext:customizedGeoIPFile.dat:cn",
+        "ext-ip:customizedGeoIPFile.dat:cn"
     ]
 }
 ```
