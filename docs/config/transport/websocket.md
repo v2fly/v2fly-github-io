@@ -57,8 +57,14 @@ v4.37.0+ 服务器端程序会自动适配客户端的浏览器转发功能，�
 
 相关配置请参考浏览器转发模块文档。[BrowserForwarderObject](../browserforwarder.md)\
 
-> `earlyDataHeaderName` string
+> `earlyDataHeaderName` :  string
 
 发送的前置数据的 HTTP 头的名字，设置后启用基于 HTTP 头的前置数据。如果留空则使用基于路径的前置数据。(v4.39.0+)
 
 当且仅当 HTTP 头的名字为 "Sec-WebSocket-Protocol" 时可以启用启用基于 HTTP 头的前置数据浏览器转发功能。
+
+:::tip
+V2Ray 的 WebSocket 前置数据已经完成与其他项目的兼容，正确设置后可以连接其他实现的服务器端。
+
+其他项目的客户端可能无法连接 V2Ray 服务器端。
+:::
