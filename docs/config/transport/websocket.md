@@ -55,7 +55,7 @@ v4.37.0+ 服务器端程序会自动适配客户端的浏览器转发功能，�
 
 只兼容基于基于路径的前置数据或者 HTTP 头的名字为 "Sec-WebSocket-Protocol" 的启用基于 HTTP 头的前置数据。
 
-相关配置请参考浏览器转发模块文档。[BrowserForwarderObject](../browserforwarder.md)\
+相关配置请参考浏览器转发模块文档。[BrowserForwarderObject](../browserforwarder.md)
 
 > `earlyDataHeaderName` :  string
 
