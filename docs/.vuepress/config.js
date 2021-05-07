@@ -87,6 +87,7 @@ module.exports = {
                             collapsable: false,
                             children: [
                                 'overview',
+                                'env',
                                 'dns',
                                 'routing',
                                 'policy',
