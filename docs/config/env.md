@@ -46,3 +46,13 @@ V2Ray 3.37 开始使用 Scatter/Gather IO，这一特性可以在大流量（超
 * `auto`：仅在 Windows、macOS 和 Linux，并且 CPU 平台为 x86、AMD64 和 s390x 时，开启此特性。
 
 在流量没有达到 100 MByte/s 时，开启与否在内存使用上没有明显的差异。
+
+## Geodata 文件加载器
+
+* 名称：`v2ray.conf.geoloader` 或 `V2RAY_CONF_GEOLOADER`。
+* 默认值：`standard`。
+
+自 v4.39.0 起，V2Ray 内置了多种读取和解码 `geoip.dat` 和 `geosite.dat` 文件的加载器。可选的加载器如下：
+
+* `standard`：标准加载器（默认值）
+* `memconservative`：专为内存受限（小内存）设备优化的加载器 (v4.39.0+)
