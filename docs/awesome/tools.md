@@ -18,6 +18,13 @@
 />
 
 <Tool
+    url="https://github.com/SagerNet/SagerNet"
+    name="SagerNet"
+    :platforms="['android']"
+    description="SagerNet 是一个基于 V2Ray 的 Android 通用代理应用。"
+/>
+
+<Tool
     url="https://github.com/2dust/v2rayNG"
     name="V2RayNG"
     :platforms="['android']"
