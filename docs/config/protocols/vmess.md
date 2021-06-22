@@ -112,6 +112,15 @@ VMess 用户的主 ID。必须是一个合法的 UUID。
 无论使用哪种加密方式， VMess 的包头都会受到加密和认证的保护。
 :::
 
+> `experiments`: string
+
+启用的 VMess 协议实验性功能。（此处的功能为不稳定功能， 可能随时被移除）多个启用的实验之间可以用 | 字符分割，如 `"AuthenticatedLength|NoTerminationSignal"` 。 
+
+`"AuthenticatedLength"` 启用认证的数据包长度实验。此实验需要同时在客户端与服务器端同时开启，并运行相同版本的程序。 (v4.41.0+)
+
+`"NoTerminationSignal"` 启用不发送断开连接标致实验。此实验可能会影响被代理的连接的稳定性。 (v4.41.0+)
+
+
 ## InboundConfigurationObject
 
 ```json
