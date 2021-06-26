@@ -1,30 +1,41 @@
-# 虚拟 DNS 服务器
+# FakeDNS
 
 ## FakeDnsObject
 
-`FakeDnsObject` 对应配置文件 `fakedns` 项的一个子元素。(4.38.1+)
+`FakeDnsObject` 可以配置单个或多个地址池，格式如下所示。(4.38.1+)
 
 ```json
 {
-    "ipPool": "198.18.0.0/15",
-    "poolSize": 65535
+    "fakedns": {
+        "ipPool": "198.18.0.0/15",
+        "poolSize": 65535
+    }
 }
 ```
-
 ```json
 {
-    "ipPool": "fc00::/18",
-    "poolSize": 65535
+    "fakedns": {
+        "pools": [
+            {
+                "ipPool": "198.18.0.0/15",
+                "poolSize": 65535
+            },
+            {
+                "ipPool": "fc00::/18",
+                "poolSize": 65535
+            }
+        ]
+    }
 }
 ```
 
 > `ipPool`: string: CIDR
 
-虚拟 DNS 服务器分配 IP 的地址空间。由虚拟 DNS 服务器分配的地址会符合这个 CIDR 表达式。IPv4 网络下，默认值为 `198.18.0.0/15`；IPv6 网络下，默认值为 `fc00::/18`。
+FakeDNS 分配 IP 的地址空间。由 FakeDNS 分配的地址会符合这个 CIDR 表达式。IPv4 网络下，默认值为 `198.18.0.0/15`；IPv6 网络下，默认值为 `fc00::/18`。
 
 > `poolSize`: number
 
-虚拟 DNS 服务器所记忆的「IP - 域名映射」数量。当域名数量超过此数值时，会依据 [LRU](https://en.wikipedia.org/wiki/Cache_replacement_policies#Least_recently_used_(LRU)) 规则淘汰老旧域名。默认为 `65535`。
+FakeDNS 所记忆的「IP - 域名映射」数量。当域名数量超过此数值时，会依据 [LRU](https://en.wikipedia.org/wiki/Cache_replacement_policies#Least_recently_used_(LRU)) 规则淘汰老旧域名。默认为 `65535`。
 
 :::warning
 poolSize 必须小于或等于 ipPool 的地址总数，否则 core 将无法启动。
@@ -36,13 +47,13 @@ poolSize 必须小于或等于 ipPool 的地址总数，否则 core 将无法启
 
 ## 运行机制及配置方式
 
-虚拟 DNS，一般也被称为 Fake DNS 或者 Fake IP，是解决 DNS 污染、防止 DNS 泄露、减低延时的技术手段（[RFC3089](https://tools.ietf.org/html/rfc3089)）。对于透明代理和三层代理（例如 Android VPNService）而言，在数据发送之前，被代理的程序需要先发出 DNS 请求，以获取目标主机/域名的 IP 地址。
+Fake DNS，有时也叫 Fake IP，是解决 DNS 污染、防止 DNS 泄露、减低延时的技术手段（[RFC3089](https://tools.ietf.org/html/rfc3089)）。对于透明代理和三层代理（例如 Android VPNService）而言，在数据发送之前，被代理的程序需要先发出 DNS 请求，以获取目标主机/域名的 IP 地址。
 
 :::warning
-虚拟 DNS 尽管有很多优点，但是会污染本地程序的 DNS 缓存，当代理断开之后的一段时间内设备可能无法访问网络。
+FakeDNS 尽管有很多优点，但是会污染本地程序的 DNS 缓存，当代理断开之后的一段时间内设备可能无法访问网络。
 :::
 
-### 步骤一：导入 DNS 流量
+### 步骤一：拦截 DNS 流量
 
 ```json
 {
@@ -52,12 +63,6 @@ poolSize 必须小于或等于 ipPool 的地址总数，否则 core 将无法启
             "8.8.8.8"
         ]
     },
-    "inbounds": [
-        {
-            "protocol": "dokodemo-door",
-            "tag": "dns-in"
-        }
-    ],
     "outbounds": [
         {
             "protocol": "dns",
@@ -67,9 +72,11 @@ poolSize 必须小于或等于 ipPool 的地址总数，否则 core 将无法启
     "routing": {
         "rules": [
             {
+                "type": "field",
                 "inboundTag": [
-                    "dns-in"
+                    "tproxy-in" // 只劫持来自透明代理入站的 DNS 流量。
                 ],
+                "port": 53,
                 "outboundTag": "dns-out"
             }
         ]
@@ -77,7 +84,7 @@ poolSize 必须小于或等于 ipPool 的地址总数，否则 core 将无法启
 }
 ```
 
-当外部 DNS 请求导入虚拟 DNS 服务器时，它会返回位于自己 `ipPool` 内的 IP 地址作为域名的虚构解析结果，并记录该域名与虚构解析结果之间的映射关系。
+当外部 DNS 请求发入 FakeDNS 模块时，它会返回位于自己 `ipPool` 内的 IP 地址作为域名的虚构解析结果，并记录该域名与虚构解析结果之间的映射关系。
 
 ### 步骤二：还原虚构地址
 
@@ -85,6 +92,8 @@ poolSize 必须小于或等于 ipPool 的地址总数，否则 core 将无法启
 {
     "inbounds": [
         {
+            "listen": "::",
+            "port": 3346,
             "protocol": "dokodemo-door", // 流量入口，可以是其他协议
             "sniffing": {
                 "enabled": true,
@@ -93,16 +102,28 @@ poolSize 必须小于或等于 ipPool 的地址总数，否则 core 将无法启
                     "fakedns+others" // 二选一
                 ],
                 "metadataOnly": false
-            }
+            },
+            "settings": {
+                "network": "tcp,udp",
+                "followRedirect": true
+            },
+            "streamSettings": {
+                "sockopt": {
+                    "tproxy": "tproxy"
+                }
+            },
+            "tag": "tproxy-in"
         }
     ]
 }
 ```
 
+上面给出了一个透明代理入站使用 FakeDNS 的例子。你也可以将其他入站协议配合 FakeDNS 使用。
+
 当客户端程序基于之前解析结果请求连接这个 IP 所指向的主机时，对应 [入站连接](inbounds.md) 的 `fakedns` 流量侦测模块会将目标地址还原为对应的域名。
 
 :::tip
-如果在使用虚拟 DNS 时遇到了直连空解析的问题，可以尝试在 `freedom` 出站设置 `domainStrategy` 为 `UseIP`、`UseIPv4` 或 `UseIPv6`。
+如果在使用 FakeDNS 时遇到了直连空解析的问题，可以尝试在 `freedom` 出站设置 `domainStrategy` 为 `UseIP`、`UseIPv4` 或 `UseIPv6`。
 :::
 
 ## 与其他类型 DNS 搭配使用
@@ -134,9 +155,9 @@ poolSize 必须小于或等于 ipPool 的地址总数，否则 core 将无法启
 }
 ```
 
-### 虚拟 DNS 黑名单机制
+### FakeDNS 黑名单机制
 
-若希望某些域名不使用虚拟 DNS，则可在其他类型的 DNS 中增加 `domains` 配置，使其在匹配该域名时，拥有比虚拟 DNS 更高的优先级，从而实现虚拟 DNS 的黑名单机制。
+若希望某些域名不使用 FakeDNS，则可在其他类型的 DNS 中增加 `domains` 配置，使其在匹配该域名时，拥有比 FakeDNS 更高的优先级，从而实现 FakeDNS 的黑名单机制。
 
 ```json
 {
@@ -154,9 +175,9 @@ poolSize 必须小于或等于 ipPool 的地址总数，否则 core 将无法启
 }
 ```
 
-### 虚拟 DNS 白名单机制
+### FakeDNS 白名单机制
 
-若只希望某些域名使用虚拟 DNS，则可在虚拟 DNS 中增加 `domains` 配置，使虚拟 DNS 在匹配该域名时，拥有比其他类型的 DNS 更高的优先级，从而实现虚拟 DNS 的白名单机制。
+若只希望某些域名使用 FakeDNS，则可在 FakeDNS 中增加 `domains` 配置，使 FakeDNS 在匹配该域名时，拥有比其他类型的 DNS 更高的优先级，从而实现 FakeDNS 的白名单机制。
 
 ```json
 {
