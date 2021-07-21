@@ -40,10 +40,10 @@ module.exports = {
         docsDir: 'docs',
         editLinks: true,
         locales: {
-            '/': {
-                selectText: 'Languages',
+            '/zh_CN': {
+                selectText: '语言',
                 label: '简体中文',
-                ariaLabel: 'Select language',
+                ariaLabel: '语言',
                 editLinkText: '在 GitHub 上编辑此页',
                 lastUpdated: '上次更新',
                 contributorsLabel: '贡献者',
@@ -154,13 +154,13 @@ module.exports = {
                             ]
                         }
                     ],
-                    '/': 'auto',
+                    '/zh_CN': 'auto',
                 },
             },
             '/en_US/': {
                 label: 'English',
-                selectText: '选择语言',
-                ariaLabel: '选择语言',
+                selectText: 'Languages',
+                ariaLabel: 'Languages',
                 editLinkText: 'Edit this page on GitHub',
                 lastUpdated: 'Last Updated',
                 nav: [
