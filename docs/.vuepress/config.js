@@ -22,7 +22,7 @@ module.exports = {
             title: 'V2Fly.org',
             description: 'Project V 是一个工具集合，它可以帮助你打造专属的基础通信网络',
         },
-        '/en_US/': {
+        '/': {
             lang: 'en-US',
             title: 'V2Fly.org',
             description: 'Project V is a collection of tools that can help you build your own basic communication network',
@@ -40,6 +40,89 @@ module.exports = {
         docsDir: 'docs',
         editLinks: true,
         locales: {
+            '/': {
+                label: 'English',
+                selectText: 'Languages',
+                ariaLabel: 'Languages',
+                editLinkText: 'Edit this page on GitHub',
+                lastUpdated: 'Last Updated',
+                nav: [
+                    {text: 'Quick Start', link: '/guide/start',},
+                    {text: 'Config Reference', link: '/config/overview',},
+                    {text: 'Tools', link: '/awesome/tools'},
+                    {text: 'Developer Guide', link: '/developer/intro/compile',},
+                    {text: 'New concise guide', link: 'https://guide.v2fly.org/'},
+                ],
+                sidebar: {
+                    '/guide/': [
+                        {
+                            title: 'Quick Start',
+                            collapsable: false,
+                            children: [
+                                'install',
+                                'start',
+                            ],
+                        },
+                        {
+                            title: 'Concept',
+                            collapsable: false,
+                            children: [
+                                'workflow',
+                            ],
+                        },
+                        {
+                            title: 'More',
+                            collapsable: false,
+                            children: [
+                                'faq',
+                            ],
+                        },
+                    ],
+                    '/config/': [
+                        {
+                            title: 'Config Reference',
+                            collapsable: false,
+                            children: [
+                                'overview',
+                                'dns',
+                                'outbounds',
+                            ],
+                        },
+                        {
+                            title: 'Protocols',
+                            collapsable: false,
+                            children: [
+                                'protocols/blackhole',
+                                'protocols/dns',
+                                'protocols/dokodemo',
+                                'protocols/freedom',
+                            ],
+                        },
+                        {
+                            title: 'Transport',
+                            collapsable: false,
+                            children: [
+                            ],
+                        },
+                    ],
+                    '/developer/': [
+                        {
+                            title: 'Developer Guide',
+                            collapsable: false,
+                            children: [
+                                'intro/compile',
+                                'intro/design',
+                                'intro/guide',
+                            ]
+                        },
+                        {
+                            title: 'Protocol Details',
+                            collapsable: false,
+                            children: [
+                            ]
+                        }
+                    ],
+                    '/': 'auto',
             '/zh_CN': {
                 selectText: '语言',
                 label: '简体中文',
@@ -48,14 +131,14 @@ module.exports = {
                 lastUpdated: '上次更新',
                 contributorsLabel: '贡献者',
                 nav: [
-                    {text: '快速开始', link: '/guide/start',},
-                    {text: '配置文档', link: '/config/overview',},
-                    {text: '工具列表', link: '/awesome/tools'},
-                    {text: '开发手册', link: '/developer/intro/compile',},
+                    {text: '快速开始', link: '/zh_CN/guide/start',},
+                    {text: '配置文档', link: '/zh_CN/config/overview',},
+                    {text: '工具列表', link: '/zh_CN/awesome/tools'},
+                    {text: '开发手册', link: '/zh_CN/developer/intro/compile',},
                     {text: '新白话文指南', link: 'https://guide.v2fly.org/'},
                 ],
                 sidebar: {
-                    '/guide/': [
+                    '/zh_CN/guide/': [
                         {
                             title: '快速开始',
                             collapsable: false,
@@ -81,7 +164,7 @@ module.exports = {
                             ],
                         },
                     ],
-                    '/config/': [
+                    '/zh_CN/config/': [
                         {
                             title: '配置文件',
                             collapsable: false,
@@ -134,7 +217,7 @@ module.exports = {
                             ],
                         },
                     ],
-                    '/developer/': [
+                    '/zh_CN/developer/': [
                         {
                             title: '开发手册',
                             collapsable: false,
@@ -157,89 +240,6 @@ module.exports = {
                     '/zh_CN': 'auto',
                 },
             },
-            '/en_US/': {
-                label: 'English',
-                selectText: 'Languages',
-                ariaLabel: 'Languages',
-                editLinkText: 'Edit this page on GitHub',
-                lastUpdated: 'Last Updated',
-                nav: [
-                    {text: 'Quick Start', link: '/en_US/guide/start',},
-                    {text: 'Config Reference', link: '/en_US/config/overview',},
-                    {text: 'Tools', link: '/en_US/awesome/tools'},
-                    {text: 'Developer Guide', link: '/en_US/developer/intro/compile',},
-                    {text: 'New concise guide', link: 'https://guide.v2fly.org/'},
-                ],
-                sidebar: {
-                    '/en_US/guide/': [
-                        {
-                            title: 'Quick Start',
-                            collapsable: false,
-                            children: [
-                                'install',
-                                'start',
-                            ],
-                        },
-                        {
-                            title: 'Concept',
-                            collapsable: false,
-                            children: [
-                                'workflow',
-                            ],
-                        },
-                        {
-                            title: 'More',
-                            collapsable: false,
-                            children: [
-                                'faq',
-                            ],
-                        },
-                    ],
-                    '/en_US/config/': [
-                        {
-                            title: 'Config Reference',
-                            collapsable: false,
-                            children: [
-                                'overview',
-                                'dns',
-                                'outbounds',
-                            ],
-                        },
-                        {
-                            title: 'Protocols',
-                            collapsable: false,
-                            children: [
-                                'protocols/blackhole',
-                                'protocols/dns',
-                                'protocols/dokodemo',
-                                'protocols/freedom',
-                            ],
-                        },
-                        {
-                            title: 'Transport',
-                            collapsable: false,
-                            children: [
-                            ],
-                        },
-                    ],
-                    '/en_US/developer/': [
-                        {
-                            title: 'Developer Guide',
-                            collapsable: false,
-                            children: [
-                                'intro/compile',
-                                'intro/design',
-                                'intro/guide',
-                            ]
-                        },
-                        {
-                            title: 'Protocol Details',
-                            collapsable: false,
-                            children: [
-                            ]
-                        }
-                    ],
-                    '/en_US/': 'auto',
                 },
             },
         },
