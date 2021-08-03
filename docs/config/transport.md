@@ -291,7 +291,7 @@ TLS 配置。TLS 由 Golang 提供，支持 TLS 1.3，不支持 DTLS。
 
 是否开启透明代理（仅适用于 Linux）。
 
-* `"redirect"`：使用 Redirect 模式的透明代理。仅支持 TCP/IPv4 和 UDP 连接。
+* `"redirect"`：使用 Redirect 模式的透明代理。支持 TCP 和 UDP 连接。
 * `"tproxy"`：使用 TProxy 模式的透明代理。支持 TCP 和 UDP 连接。
 * `"off"`：关闭透明代理。
 
