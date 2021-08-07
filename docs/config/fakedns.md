@@ -14,18 +14,16 @@
 ```
 ```json
 {
-    "fakedns": {
-        "pools": [
-            {
-                "ipPool": "198.18.0.0/15",
-                "poolSize": 65535
-            },
-            {
-                "ipPool": "fc00::/18",
-                "poolSize": 65535
-            }
-        ]
-    }
+    "fakedns": [
+        {
+            "ipPool": "198.18.0.0/15",
+            "poolSize": 65535
+        },
+        {
+            "ipPool": "fc00::/18",
+            "poolSize": 65535
+        }
+    ]
 }
 ```
 
