@@ -2,28 +2,12 @@
 
 ## FakeDnsObject
 
-`FakeDnsObject` 可以配置单个或多个地址池，格式如下所示。(4.38.1+)
+`FakeDnsObject` 对应配置文件 `fakedns` 项的一个子元素。(4.38.1+)
 
 ```json
 {
-    "fakedns": {
-        "ipPool": "198.18.0.0/15",
-        "poolSize": 65535
-    }
-}
-```
-```json
-{
-    "fakedns": [
-        {
-            "ipPool": "198.18.0.0/15",
-            "poolSize": 65535
-        },
-        {
-            "ipPool": "fc00::/18",
-            "poolSize": 65535
-        }
-    ]
+    "ipPool": "198.18.0.0/15",
+    "poolSize": 65535
 }
 ```
 
