@@ -2,12 +2,20 @@
 
 ## FakeDnsObject
 
-`FakeDnsObject` 对应配置文件 `fakedns` 项的一个子元素。(4.38.1+)
+`FakeDnsObject` 对应配置文件的 `fakedns` 项。(4.38.1+)
 
 ```json
 {
-    "ipPool": "198.18.0.0/15",
-    "poolSize": 65535
+    "pools": [
+        {
+            "ipPool": "198.18.0.0/15",
+            "poolSize": 65535
+        },
+        {
+            "ipPool": "fc00::/18",
+            "poolSize": 65535
+        }
+    ]
 }
 ```
 
@@ -20,16 +28,22 @@ FakeDNS 分配 IP 的地址空间。由 FakeDNS 分配的地址会符合这个 C
 FakeDNS 所记忆的「IP - 域名映射」数量。当域名数量超过此数值时，会依据 [LRU](https://en.wikipedia.org/wiki/Cache_replacement_policies#Least_recently_used_(LRU)) 规则淘汰老旧域名。
 
 :::warning
-poolSize 必须小于或等于 ipPool 的地址总数，否则 core 将无法启动。
+poolSize 必须小于或等于 ipPool 的地址总数，否则将无法启动。
 :::
 
 :::tip
-自 v4.38.1 起，若配置文件中的 `dns` 项显式设置了 `fakedns`，而配置文件中没有显式设置 `fakedns` 项，V2Ray 会根据 DNS 模块中 `queryStrategy` 项的值来初始化 `fakedns` 项的配置，即 FakeDNS 是否支持对不同类型 DNS 查询（A 记录和 AAAA 记录）返回相应的 IPv4 或 IPv6 类型的 IP 地址。`queryStrategy` 为 `UseIPv4` 时，默认的 `ipPool` 为 `198.18.0.0/15`，`poolSize` 为 `65535`；`queryStrategy` 为 `UseIPv6` 时，默认的 `ipPool` 为 `fc00::/18`，`poolSize` 为 `65535`；`queryStrategy` 为 `UseIP` 时，默认用于 IPv4 的 `ipPool` 为 `198.18.0.0/15`，`poolSize` 为 `32768`，用于 IPv6 的 `ipPool` 为 `fc00::/18`，`poolSize` 为 `32768`。
+自 v4.38.1 起，若配置文件中的 `dns` 项显式设置了 `fakedns`，而配置文件中没有显式设置 `fakedns` 项，V2Ray 会根据 DNS 组件中 `queryStrategy` 项的值来初始化 `fakedns` 项的配置，即 FakeDNS 是否支持对不同类型 DNS 查询（A 记录和 AAAA 记录）返回相应的 IPv4 或 IPv6 类型的 IP 地址。
+
+`queryStrategy` 为 `UseIPv4` 时，默认的 `ipPool` 为 `198.18.0.0/15`、`poolSize` 为 `65535`。
+
+`queryStrategy` 为 `UseIPv6` 时，默认的 `ipPool` 为 `fc00::/18`，`poolSize` 为 `65535`。
+
+`queryStrategy` 为 `UseIP` 时，默认用于 IPv4 的 `ipPool` 为 `198.18.0.0/15`、`poolSize` 为 `32768`；用于 IPv6 的 `ipPool` 为 `fc00::/18`、`poolSize` 为 `32768`。
 :::
 
 ## 运行机制及配置方式
 
-Fake DNS，有时也叫 Fake IP，是解决 DNS 污染、防止 DNS 泄露、减低延时的技术手段（[RFC3089](https://tools.ietf.org/html/rfc3089)）。对于透明代理和三层代理（例如 Android VPNService）而言，在数据发送之前，被代理的程序需要先发出 DNS 请求，以获取目标主机/域名的 IP 地址。
+FakeDNS，有时也叫 Fake IP，是解决 DNS 污染、防止 DNS 泄露、减低延时的技术手段（[RFC3089](https://tools.ietf.org/html/rfc3089)）。对于透明代理和三层代理（例如 Android VPNService）而言，在数据发送之前，被代理的程序需要先发出 DNS 请求，以获取目标主机/域名的 IP 地址。
 
 :::warning
 FakeDNS 尽管有很多优点，但是会污染本地程序的 DNS 缓存，当代理断开之后的一段时间内设备可能无法访问网络。
@@ -66,7 +80,7 @@ FakeDNS 尽管有很多优点，但是会污染本地程序的 DNS 缓存，当�
 }
 ```
 
-当外部 DNS 请求发入 FakeDNS 模块时，它会返回位于自己 `ipPool` 内的 IP 地址作为域名的虚构解析结果，并记录该域名与虚构解析结果之间的映射关系。
+当外部 DNS 请求进入 FakeDNS 组件时，它会返回位于自己 `ipPool` 内的 IP 地址作为域名的虚构解析结果，并记录该域名与虚构解析结果之间的映射关系。
 
 ### 步骤二：还原虚构地址
 
