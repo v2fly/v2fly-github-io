@@ -1,13 +1,57 @@
 # DNS 域名解析
 
-V2Ray 内建了一个 DNS 模块，其主要用途为：对目标地址（域名）进行 DNS 解析，同时为 IP 路由规则匹配提供判断依据。
+V2Ray 内建了一个 DNS 组件，其主要用途为：对目标地址（域名）进行 DNS 解析，同时为 IP 路由规则匹配提供判断依据。
 
 :::tip
 由于 DNS 协议的复杂性，V2Ray 只支持最基本的 IP 查询（A 和 AAAA 记录）。如需完整的 DNS 功能，推荐使用 [CoreDNS](https://coredns.io)。
 :::
 
 :::warning
-在 `freedom` 协议的 `outbound` 中，`domainStrategy` 默认值为 `AsIs`，不会使用本 DNS 模块进行目标地址解析。如需使用，应配置为 `UseIP`、`UseIPv4` 或 `UseIPv6`。
+在 `freedom` 协议的 `outbound` 中，`domainStrategy` 默认值为 `AsIs`，即 `freedom` outbound 默认不会使用本 DNS 组件进行目标地址解析。如需使用，应修改 `freedom` outbound 中的 `domainStrategy` 配置为 `UseIP`、`UseIPv4` 或 `UseIPv6`。
+:::
+
+## 支持的 DNS 协议及其路由策略
+
+- DNS over **UDP**：查询请求经过路由组件，可从用户指定 outbound 发出
+  - 使用 IP 地址的形式，如 `8.8.8.8`
+  - 默认使用 `53` 端口进行查询，支持使用非标准端口
+- DNS over **TCP**：查询请求经过路由组件，可从用户指定 outbound 发出
+  - 使用 `tcp://host:port` 的形式，如 `tcp://8.8.8.8:53`
+  - 默认使用 `53` 端口进行查询，支持使用非标准端口
+  - v4.40.0 及以上版本可使用
+- DNS over **TCP local mode**：查询请求不经过路由组件，直接从 freedom outbound 发出
+  - 使用 `tcp+local://host:port` 的形式，如 `tcp+local://8.8.8.8:53`
+  - 默认使用 `53` 端口进行查询，支持使用非标准端口
+  - v4.40.0 及以上版本可使用
+- DNS over **HTTPS**：查询请求不经过路由组件，直接从配置文件中的第一个 outbound 发出
+  - 使用 `https://host:port/dns-query` 的形式，如 `https://dns.google/dns-query` 或 `https://1.1.1.1/dns-query`
+  - 默认使用 `443` 端口进行查询，支持使用非标准端口和非标准路径，如 `https://a.b.c.d:8443/my-dns-query`
+  - v4.22.0 及以上版本可使用
+- DNS over **HTTPS local mode**：查询请求不经过路由组件，直接从 freedom outbound 发出
+  - 使用 `https+local://host:port/dns-query` 的形式，如 `https+local://223.5.5.5/dns-query`
+  - 默认使用 `443` 端口进行查询，支持使用非标准端口和非标准路径，如 `https+local://a.b.c.d:8443/my-dns-query`
+  - v4.22.0 及以上版本可使用
+- DNS over **QUIC local mode**：查询请求不经过路由组件，直接从 freedom outbound 发出
+  - 使用 `quic+local://host` 的形式，如 `quic+local://dns.adguard.com`
+  - 默认使用 `784` 端口进行查询，支持使用非标准端口
+  - 目前（2021 年 1 月 4 日），公共递归 DNS 服务中支持 DNS over QUIC 协议的只有 `dns.adguard.com`
+  - v4.34.0 及以上版本可使用
+- 特殊项：
+  - **localhost**：使用本机预设的 DNS 配置
+  - **FakeDNS**：使用 V2Ray 内建的 FakeDNS 服务器。详情见 [FakeDNS 服务器](fakedns.md)。v4.35.0 及以上版本可使用
+
+:::tip
+当使用 `localhost` 时，本机的 DNS 请求不受 V2Ray 控制，需要额外的配置才可以使 DNS 请求由 V2Ray 转发。
+:::
+
+:::warning
+如果在 Linux 设备上使用 DNS over QUIC，可能需要调整接收缓冲区大小，下面的命令将其设置为 2.5 MB
+
+```shell
+sysctl -w net.core.rmem_max=2500000
+```
+
+Reference: [https://github.com/lucas-clemente/quic-go/wiki/UDP-Receive-Buffer-Size](https://github.com/lucas-clemente/quic-go/wiki/UDP-Receive-Buffer-Size)
 :::
 
 ## DNS 处理流程
@@ -16,7 +60,7 @@ V2Ray 内建了一个 DNS 模块，其主要用途为：对目标地址（域名
 
 - 命中了 `hosts` 中的「域名 - IP」、「域名 - IP 数组」映射，则将该 IP 或 IP 数组作为 DNS 解析结果返回。
 - 命中了 `hosts` 中的「域名 - 域名」映射，则该映射的值（另一个域名）将作为当前要查询的新域名，进入 DNS 处理流程，直到解析出 IP 后返回，或返回空解析。
-- 没有命中 `hosts`，但命中了某（几）个 DNS 服务器中的 `domains` 域名列表，则按照命中的规则的优先级，依次使用该规则对应的 DNS 服务器进行查询。若命中的 DNS 服务器查询失败，或 `expectIPs` 不匹配，则使用下一个命中的 DNS 服务器进行查询；否则返回解析得到的 IP。若所有命中的 DNS 服务器均查询失败，此时 DNS 模块：
+- 没有命中 `hosts`，但命中了某（几）个 DNS 服务器中的 `domains` 域名列表，则按照命中的规则的优先级，依次使用该规则对应的 DNS 服务器进行查询。若命中的 DNS 服务器查询失败，或 `expectIPs` 不匹配，则使用下一个命中的 DNS 服务器进行查询；否则返回解析得到的 IP。若所有命中的 DNS 服务器均查询失败，此时 DNS 组件：
   - 默认会进行 「DNS 回退（fallback）查询」：使用「上一轮失败查询中未被使用的、且 `skipFallback` 为默认值 `false` 的 DNS 服务器」依次查询。若查询失败，或 `expectIPs` 不匹配，返回空解析；否则返回解析得到的 IP。
   - 若 `disableFallback` 设置为 `true`，则不会进行「DNS 回退（fallback）查询」。
 - 既没有命中 `hosts`，又没有命中 DNS 服务器中的 `domains` 域名列表，则：
@@ -120,37 +164,9 @@ DNS 处理流程示意图如下：
 
 > `servers`: \[string | [ServerObject](#serverobject) \]
 
-一个 DNS 服务器列表，支持的类型有两种：DNS 地址（字符串形式）和 [ServerObject](#serverobject) 。
+DNS 服务器列表，有效的写法有两种：DNS 地址（字符串形式）和 [ServerObject](#serverobject) 。
 
-当值为一个 IP 地址时，如 `8.8.8.8`，V2Ray 会使用此地址的 53 端口进行 UDP 协议的 DNS 查询。
-
-当值为 `localhost` 时，表示使用本机预设的 DNS 配置。
-
-当值为 `https://host:port/dns-query` 的形式，如 `https://dns.google/dns-query`，V2Ray 会使用 DNS over HTTPS（RFC8484, 简称 DOH）进行查询。DOH 请求不会经过 `Routing` 路由组件，默认会使用第一个 `outbound`。有些服务商拥有 IP 别名的证书，可以直接写 IP 形式，比如 `https://1.1.1.1/dns-query`，也可使用非标准端口和路径，如 `https://a.b.c.d:8443/my-dns-query`。(4.22.0+)
-
-当值为 `https+local://host:port/dns-query` 的形式，如 `https+local://dns.google/dns-query`，V2Ray 会使用 DNS over HTTPS 本地模式进行查询，即 DOHL 请求不会经过 `Routing` 和 `Outbound` 等组件，直接对外请求，以降低耗时。一般适合在服务端使用，也可使用非标准端口和路径。(4.22.0+)
-
-当值为 `quic+local://host` 的形式，如 `quic+local://dns.adguard.com`，V2Ray 会使用 DNS over QUIC 本地模式进行查询，即 DOQ 请求不会经过 `Routing` 和 `Outbound` 等组件，直接对外请求，以降低耗时。目前（2021 年 1 月 4 日），公共 DNS 中支持 DOQ 协议的只有 `dns.adguard.com`，默认使用端口 784。(4.34.0+)
-
-当值为 `tcp://host:port` 的形式，如 `tcp://8.8.8.8:53`，V2Ray 会使用 DNS over TCP 进行查询，可使用非标准端口。(4.40.0+)
-
-当值为 `tcp+local://host:port` 的形式，如 `tcp+local://8.8.8.8:53`，V2Ray 会使用 DNS over TCP 本地模式进行查询进行查询，即请求不会经过 `Routing` 和 `Outbound` 等组件，直接对外请求，可使用非标准端口。(4.40.0+)
-
-当值为 `fakedns` 时，表示使用 V2Ray 内建的虚拟 DNS 服务器。详情见[虚拟 DNS 服务器](fakedns.md)(4.35.0+)
-
-:::tip
-当使用 `localhost` 时，本机的 DNS 请求不受 V2Ray 控制，需要额外的配置才可以使 DNS 请求由 V2Ray 转发。
-:::
-
-:::warning
-如果在 Linux 设备上使用 DNS over QUIC，可能需要调整接受缓冲区大小，下面的命令将其设置为 2.5 MB
-
-```shell
-sysctl -w net.core.rmem_max=2500000
-```
-
-Reference: [https://github.com/lucas-clemente/quic-go/wiki/UDP-Receive-Buffer-Size](https://github.com/lucas-clemente/quic-go/wiki/UDP-Receive-Buffer-Size)
-:::
+详情查看[支持的 DNS 协议及其路由策略](#支持的-dns-协议及其路由策略)
 
 > `clientIp`: string
 
@@ -210,7 +226,7 @@ Reference: [https://github.com/lucas-clemente/quic-go/wiki/UDP-Receive-Buffer-Si
 
 > `address`: address
 
-DNS 服务器地址，如 `8.8.8.8`。对于普通 DNS IP 地址只支持 UDP 协议的 DNS 服务器，若地址是以 `https://` 或 `https+local://` 开头的 URL 形式，则使用 DOH 模式，规则同字符串模式的 DOH 配置。
+DNS 服务器地址，如 `8.8.8.8`、`tcp+local://8.8.8.8:53` 和 `https://dns.google/dns-query` 等，详情查看[支持的 DNS 协议及其路由策略](#支持的-dns-协议及其路由策略)。
 
 > `port`: number
 
