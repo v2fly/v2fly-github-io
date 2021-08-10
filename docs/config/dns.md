@@ -23,7 +23,7 @@ V2Ray 内建了一个 DNS 组件，其主要用途为：对目标地址（域名
   - 使用 `tcp+local://host:port` 的形式，如 `tcp+local://8.8.8.8:53`
   - 默认使用 `53` 端口进行查询，支持使用非标准端口
   - v4.40.0 及以上版本可使用
-- DNS over **HTTPS**：查询请求不经过路由组件，直接从配置文件中的第一个 outbound 发出
+- DNS over **HTTPS**：查询请求经过路由组件，可从用户指定 outbound 发出
   - 使用 `https://host:port/dns-query` 的形式，如 `https://dns.google/dns-query` 或 `https://1.1.1.1/dns-query`
   - 默认使用 `443` 端口进行查询，支持使用非标准端口和非标准路径，如 `https://a.b.c.d:8443/my-dns-query`
   - v4.22.0 及以上版本可使用
