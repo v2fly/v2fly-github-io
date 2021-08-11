@@ -5,18 +5,16 @@
 `FakeDnsObject` 对应配置文件的 `fakedns` 项。(4.38.1+)
 
 ```json
-{
-    "pools": [
-        {
-            "ipPool": "198.18.0.0/15",
-            "poolSize": 65535
-        },
-        {
-            "ipPool": "fc00::/18",
-            "poolSize": 65535
-        }
-    ]
-}
+[
+    {
+        "ipPool": "198.18.0.0/15",
+        "poolSize": 65535
+    },
+    {
+        "ipPool": "fc00::/18",
+        "poolSize": 65535
+    }
+]
 ```
 
 > `ipPool`: string: CIDR
