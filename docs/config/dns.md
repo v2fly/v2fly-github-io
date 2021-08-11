@@ -224,7 +224,7 @@ DNS 服务器列表，有效的写法有两种：DNS 地址（字符串形式）
 }
 ```
 
-> `address`: address
+> `address`: string
 
 DNS 服务器地址，如 `8.8.8.8`、`tcp+local://8.8.8.8:53` 和 `https://dns.google/dns-query` 等，详情查看[支持的 DNS 协议及其路由策略](#支持的-dns-协议及其路由策略)。
 
