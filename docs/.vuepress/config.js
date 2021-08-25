@@ -14,7 +14,7 @@ module.exports = {
     plugins: [
         'vuepress-plugin-mermaidjs',
         '@vuepress/back-to-top',
-        '@kidonng/vuepress-plugin-contributors'
+         ['@kidonng/vuepress-plugin-contributors', { api: 'https://api.v2fly.org/apis/github-file-contributors' }]
     ],
     locales: {
         '/': {
