@@ -122,13 +122,15 @@ TLS 配置。TLS 由 Golang 提供，支持 TLS 1.3，不支持 DTLS。
 ```json
 {
     "serverName": "v2ray.com",
-    "allowInsecure": false,
     "alpn": [
         "h2",
         "http/1.1"
     ],
+    "allowInsecure": false,
+    "disableSystemRoot": false,
     "certificates": [],
-    "disableSystemRoot": false
+    "verifyClientCertificate": false,
+    "pinnedPeerCertificateChainSha256": ""
 }
 ```
 
@@ -164,7 +166,6 @@ TLS 配置。TLS 由 Golang 提供，支持 TLS 1.3，不支持 DTLS。
 
 在连接时进行客户端证书认证。在打开此选项后，客户端将需要配置客户端证书才能连接到服务器端。(4.42.0+)
 客户端证书必须由程序内配置的客户端证书颁发机构签发。系统内置证书颁发机构以及用于认证服务器端的证书颁发机构不会自动被信任。
-
 
 ### CertificateObject
 
@@ -224,7 +225,7 @@ TLS 配置。TLS 由 Golang 提供，支持 TLS 1.3，不支持 DTLS。
 }
 ```
 
-> `usage`: "encipherment" | "verify" | "issue"
+> `usage`: "encipherment" | "verify" | "issue" | "verifyclient"
 
 证书用途，默认值为 `"encipherment"`。
 
