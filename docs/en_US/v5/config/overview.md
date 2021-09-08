@@ -79,7 +79,7 @@ File path of log. It should be a valid path string, such as `"/tmp/v2ray/_access
 
 > `errorLogPath`: string
 
-File path of error log. It should be a valid path string, such as `"/tmp/v2ray/_error.log"` (Linux) or `"C:\\Temp\\v2ray\\_error.log"` (Windows). If it is empty, the error will be printed to stdout by default. V2Ray 4.20 added a special value `none`, which means no access to error.
+File path of error log. It should be a valid path string, such as `"/tmp/v2ray/_error.log"` (Linux) or `"C:\\Temp\\v2ray\\_error.log"` (Windows). 
 
 > `errorLogLevel`: "Debug" | "Info" | "Warning" | "Error" | "None"
 
