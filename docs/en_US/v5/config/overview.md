@@ -29,22 +29,23 @@ Local DNS will be used if this entry is not set.
 
 > `routing`: [RoutingObject](routing.md)
 
-Routing. 
+Routing.
 
 All traffic will be sent to the first outbound if this entry is left empty.
 
 > `inbounds`: \[ [InboundObject](inbounds.md) \]
 
-Inbounds. Describe the listener for incoming connections. 
+Inbounds. Describe the listener for incoming connections.
 
 > `outbounds`: \[ [OutboundObject](outbounds.md) \]
 
 Outbounds. Describe the configuration for outgoing connections.
 
 > `services`: \[ [ServiceObject](service.md) \]
+
 Auxiliary Services. Define additional components.
 
-These settings configure additional functionalities. 
+These settings configure additional functionalities.
 They are not required for the essential functionality of the software. However, these settings enable advanced features that enable complex use cases.
 
 ## LogObject
@@ -69,7 +70,7 @@ They are not required for the essential functionality of the software. However, 
 
 > `accessLogPath`: string
 
-File path of log. It should be a valid path string, such as `"/tmp/v2ray/_access.log"` (Linux) or`"C:\\Temp\\v2ray\\_access.log"` (Windows). 
+File path of log. It should be a valid path string, such as `"/tmp/v2ray/_access.log"` (Linux) or`"C:\\Temp\\v2ray\\_access.log"` (Windows).
 
 > `errorLogType`: "None" | "Console" | "File"
 
@@ -79,15 +80,14 @@ File path of log. It should be a valid path string, such as `"/tmp/v2ray/_access
 
 > `errorLogPath`: string
 
-File path of error log. It should be a valid path string, such as `"/tmp/v2ray/_error.log"` (Linux) or `"C:\\Temp\\v2ray\\_error.log"` (Windows). 
+File path of error log. It should be a valid path string, such as `"/tmp/v2ray/_error.log"` (Linux) or `"C:\\Temp\\v2ray\\_error.log"` (Windows).
 
 > `errorLogLevel`: "Debug" | "Info" | "Warning" | "Error" | "None"
 
 Level of log. Default value is `"warning"`。
 
-* `"Debug"`：Information for developers. All `"info"` included.
-* `"Info"`：Running stats of V2Ray，no effect for the functions. All `"warning"` included.
-* `"Warning"`：V2Ray may have encountered some problem, usually some external problem that does not affect V2Ray but possibly the user experience. All `"error"` included.
+* `"Debug"`：Information for developers. All `"Info"` included.
+* `"Info"`：Running stats of V2Ray，no effect for the functions. All `"Warning"` included.
+* `"Warning"`：V2Ray may have encountered some problem, usually some external problem that does not affect V2Ray but possibly the user experience. All `"Error"` included.
 * `"Error"`：V2Ray encountered a problem that needs to be resolved immediately.
 * `"None"`：Nothing will be printed.
-
