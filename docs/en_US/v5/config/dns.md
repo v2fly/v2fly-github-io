@@ -1,4 +1,4 @@
-#DNS
+# DNS
 service.dns
 
 The DNS server is the built-in host name resolution component.
@@ -27,11 +27,11 @@ The type of network address requested by dns.
 
 Disable the fallback query step.
 
-##NameServerObject
+## NameServerObject
 
 > `address`: string
 
-> `client_ip`: string
+> `clientIp`: string
 
 > `skipFallback`: true|false
 
