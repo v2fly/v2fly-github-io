@@ -38,3 +38,13 @@ Disable the fallback query step.
 > `prioritizedDomain`: [ [PrioritizedDomainObject](#PrioritizedDomainObject) ]
 
 > `geoip`: [ [GeoIPObject](geo.md#GeoIPObject) ]
+
+## StaticHostsObject
+
+> `type`: `Full` | `Subdomain` | `Keyword` | `Regex`
+
+> `domain`: string
+
+> `ip`: string
+
+> `proxiedDomain`: string
