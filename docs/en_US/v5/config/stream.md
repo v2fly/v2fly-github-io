@@ -1,5 +1,14 @@
 # Stream
 
+```json
+{
+  "transport":"tcp",
+  "transportSettings":{},
+  "security":"none",
+  "securitySettings":{}
+}
+```
+
 > `transport`: name of <transport>
 
 > `transportSettings`: settings of <transport>

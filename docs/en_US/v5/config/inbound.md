@@ -1,6 +1,18 @@
 # inbounds
 inbound
 
+```json
+{
+  "protocol":"vmess",
+  "settings":{},
+  "port":"",
+  "listen":"",
+  "tag":"",
+  "sniffing":{},
+  "streamSettings":{}
+}
+```
+
 > `protocol`: name of <inbound>
 
 > `settings`: settings of <inbound>
