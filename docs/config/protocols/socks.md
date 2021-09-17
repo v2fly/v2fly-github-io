@@ -41,6 +41,10 @@ Socks Outbound 更有意义的用法是在特殊情况下，只能使用 Socks P
 
 Socks 服务器列表，其中每一项是一个服务器配置。
 
+> `version`: "5" | "4a" | "4"
+
+Socks 协议版本。 (v4.42.2+)
+
 ### ServerObject
 
 ```json
