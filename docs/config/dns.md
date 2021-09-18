@@ -200,6 +200,10 @@ DNS 服务器列表，有效的写法有两种：DNS 地址（字符串形式）
 如果本选项设置为 `true`，则 [ServerObject](#serverobject) 中的 `skipFallback` 均不会生效。
 :::
 
+> `disableFallbackIfMatch`: bool
+
+(4.40.2+)   禁用在 DNS 服务器的优先匹配域名列表命中时执行 DNS 回退（fallback）查询。
+
 > `tag`: string
 
 （V2Ray 4.13+）由此 DNS 发出的查询流量，除 `localhost` 和 `DOHL_` 模式外，都会带有此标识，可在路由使用 `inboundTag` 进行匹配。
