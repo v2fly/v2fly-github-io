@@ -34,7 +34,7 @@ V2Ray 内建了一个 DNS 组件，其主要用途为：对目标地址（域名
 - DNS over **QUIC local mode**：查询请求不经过路由组件，直接从 freedom outbound 发出
   - 使用 `quic+local://host` 的形式，如 `quic+local://dns.adguard.com`
   - 默认使用 `784` 端口进行查询，支持使用非标准端口
-  - 目前（2021 年 1 月 4 日），公共递归 DNS 服务中支持 DNS over QUIC 协议的只有 `dns.adguard.com`
+  - 目前（2021 年 9 月 20 日），公共递归 DNS 服务中支持 DNS over QUIC 协议的有 `dns.adguard.com` 与 `dns.nextdns.io`（除 784 端口外，亦支持使用 8853 端口查询）
   - v4.34.0 及以上版本可使用
 - 特殊项：
   - **localhost**：使用本机预设的 DNS 配置
