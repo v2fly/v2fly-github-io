@@ -266,6 +266,7 @@ Whether to enable [TCP Fast Open](https://zh.wikipedia.org/wiki/TCP%E5%BF%AB%E9%
   * Windows 10 (1604)
   * Mac OS 10.11 / iOS 9
   * Linux 3.16: The system is turned on by default and no configuration is required.
+  * FreeBSD 10.3
 
 > `tproxy`: "redirect" | "tproxy" | "off"
 

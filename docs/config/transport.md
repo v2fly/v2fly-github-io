@@ -294,6 +294,7 @@ TLS 配置。TLS 由 Golang 提供，支持 TLS 1.3，不支持 DTLS。
   * Windows 10 (1604)
   * Mac OS 10.11 / iOS 9
   * Linux 3.16：系统已默认开启，无需配置。
+  * FreeBSD 10.3
 
 > `tproxy`: "redirect" | "tproxy" | "off"
 
