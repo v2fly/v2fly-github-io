@@ -41,6 +41,11 @@ The type of network address requested by dns.
 
 Disable the fallback query step.
 
+
+> `disableFallbackIfMatch`: bool
+
+Disable the fallback query step if there is a server with prioritizedDomain matches.
+
 ## NameServerObject
 
 > `address`: string
@@ -70,7 +75,7 @@ The domains that should be send to this server. If the domain being queried matc
 
 > `geoip`: [ [GeoIPObject](geo.md#GeoIPObject) ]
 
-The IP address expected from this server. If the result is not from the given IP address range, it will be discarded. 
+The IP address expected from this server. If the result is not from the given IP address range, it will be discarded.
 
 ## StaticHostsObject
 
