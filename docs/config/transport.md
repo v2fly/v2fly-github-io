@@ -130,7 +130,9 @@ TLS 配置。TLS 由 Golang 提供，支持 TLS 1.3，不支持 DTLS。
     "disableSystemRoot": false,
     "certificates": [],
     "verifyClientCertificate": false,
-    "pinnedPeerCertificateChainSha256": ""
+    "pinnedPeerCertificateChainSha256": [
+        "\\7lBvtlywaDKfYTD7vf7MhHN9FiHyt88z3TgzJcHWJhw="
+    ]
 }
 ```
 
