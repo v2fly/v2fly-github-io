@@ -67,6 +67,7 @@
     "sockopt": {
         "mark": 0,
         "tcpFastOpen": false,
+        "tcpFastOpenQueueLength": 4096,
         "tproxy": "off",
         "tcpKeepAliveInterval": 0
     }
@@ -274,6 +275,7 @@ TLS 配置。TLS 由 Golang 提供，支持 TLS 1.3，不支持 DTLS。
 {
     "mark": 0,
     "tcpFastOpen": false,
+    "tcpFastOpenQueueLength": 4096,
     "tproxy": "off",
     "tcpKeepAliveInterval": 0
 }
@@ -295,6 +297,10 @@ TLS 配置。TLS 由 Golang 提供，支持 TLS 1.3，不支持 DTLS。
   * Mac OS 10.11 / iOS 9
   * Linux 3.16：系统已默认开启，无需配置。
   * FreeBSD 10.3
+
+> `tcpFastOpenQueueLength`: number
+
+入站连接的 [TCP Fast Open](https://zh.wikipedia.org/wiki/TCP%E5%BF%AB%E9%80%9F%E6%89%93%E5%BC%80) 队列长度，默认值为 `4096`，仅在 Linux 中可用 (v4.43.0+)。
 
 > `tproxy`: "redirect" | "tproxy" | "off"
 
