@@ -58,35 +58,32 @@ They are not required for the essential functionality of the software. However, 
 
 ```json
 {
-    "accessLogType": "None",
-    "accessLogPath": "file path",
-    "errorLogType": "File",
-    "errorLogPath": "file path",
-    "errorLogLevel": "Warning"
+    "access":{},
+    "error":{}
 }
 ```
 
-> `accessLogType`: "None" | "Console" | "File"
+> `access`: LogSpecObject
+
+Access log settings.
+
+> `error`: LogSpecObject
+
+Error log settings.
+
+## LogSpecObject
+
+> `Type`: "None" | "Console" | "File"
 
 * `"None"`：Log will be discarded.
 * `"Console"`：Log will be outputed to standard output.
 * `"File"`：Log will be outputed to a file.
 
-> `accessLogPath`: string
-
-File path of log. It should be a valid path string, such as `"/tmp/v2ray/_access.log"` (Linux) or`"C:\\Temp\\v2ray\\_access.log"` (Windows).
-
-> `errorLogType`: "None" | "Console" | "File"
-
-* `"None"`：Log will be discarded.
-* `"Console"`：Log will be outputed to standard output.
-* `"File"`：Log will be outputed to a file.
-
-> `errorLogPath`: string
+> `Path`: string
 
 File path of error log. It should be a valid path string, such as `"/tmp/v2ray/_error.log"` (Linux) or `"C:\\Temp\\v2ray\\_error.log"` (Windows).
 
-> `errorLogLevel`: "Debug" | "Info" | "Warning" | "Error" | "None"
+> `Level`: "Debug" | "Info" | "Warning" | "Error" | "None"
 
 Level of log. Default value is `"warning"`。
 
