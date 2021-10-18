@@ -22,6 +22,8 @@
 ### Supported Streams
 
 * [WebSocket](stream/websocket.md)
+* [mKCP](stream/kcp.md)
+* [tcp](stream/tcp.md)
 
 ## TLS
 security.tls
