@@ -19,6 +19,10 @@
 
 > `socketSettings`: [SocketConfigObject](#SocketConfigObject)
 
+### Supported Streams
+
+* [WebSocket](stream/websocket.md)
+
 ## TLS
 security.tls
 
