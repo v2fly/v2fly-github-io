@@ -38,6 +38,13 @@
     description="基于 web GUI 的 Linux 客户端，支持全局透明代理，兼容SS、SSR、Trojan、PingTunnel协议。"
 />
 
+<Tool
+    url="https://github.com/2dust/v2rayNG"
+    name="V2rayNG"
+    :platforms="['android']"
+    description="V2rayNG 是一个适用于 Android 的 V2Ray 客户端。"
+/>
+
 
 
 ## 路由规则
