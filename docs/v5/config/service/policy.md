@@ -1,11 +1,14 @@
-# Policy
+# Policy 本地策略
+
+本地策略可以配置信息统计、内部缓存大小和一些用户相关的权限。V2Ray 处理的每一个连接都对应一个用户，按照用户的等级（level）应用不同的策略。本地策略可根据等级的不同而变化。
+
 service.policy
 
-### Policy
+## Policy
 
 > `system`: [SystemPolicyObject](#SystemPolicyObject)
 
-The system level policies that determine the global level policies applied everywhere.
+V2Ray 全局系统策略。
 
 > `level`: map{string: [PolicyObject](#PolicyObject)}
 
