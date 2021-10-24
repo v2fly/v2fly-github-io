@@ -81,7 +81,7 @@ Error log settings.
 
 > `Path`: string
 
-File path of error log. It should be a valid path string, such as `"/tmp/v2ray/_error.log"` (Linux) or `"C:\\Temp\\v2ray\\_error.log"` (Windows).
+File path of log. It should be a valid path string, such as `"/tmp/v2ray/_error.log"` (Linux) or `"C:\\Temp\\v2ray\\_error.log"` (Windows).
 
 > `Level`: "Debug" | "Info" | "Warning" | "Error" | "None"
 
