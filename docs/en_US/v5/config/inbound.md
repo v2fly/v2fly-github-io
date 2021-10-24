@@ -41,7 +41,7 @@ The sniffing settings for the inbound. It allows the connection to be routed bas
 
 > `streamSettings`: [StreamObject](stream.md)
 
-The stream settings for the inbound. This determine how the protocol data is transfered.
+The stream settings for the inbound. This determine how the protocol data is transferred.
 
 ## SniffingObject
 
