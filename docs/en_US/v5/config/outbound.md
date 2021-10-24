@@ -33,7 +33,7 @@ The Tag of the outbound. This is used as an identifier for outbounds.
 
 > `streamSettings`: [StreamObject](stream.md)
 
-The stream settings for the outbound. This determine how the protocol data is transfered.
+The stream settings for the outbound. This determine how the protocol data is transferred.
 
 > `proxySettings`: [ProxyObject](#ProxyObject)
 
