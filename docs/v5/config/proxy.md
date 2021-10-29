@@ -11,4 +11,5 @@
 * [Freedom](proxy/freedom.md)
 * [Dokodemo](proxy/dokodemo.md)
 * [Blockhole](proxy/blackhole.md)
+* [DNS](proxy/dns.md)
 * [Loopback](proxy/loopback.md)
