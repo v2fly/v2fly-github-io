@@ -1,4 +1,4 @@
-# outbounds
+# Outbounds
 outbound
 
 出站连接用于向远程网站或下一级代理服务器发送数据，可用的协议请见协议列表。
