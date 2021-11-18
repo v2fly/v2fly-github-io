@@ -95,7 +95,7 @@ iptables -t mangle -A V2RAY -p udp --dport 53 -j TPROXY --on-port 12345 --tproxy
 iptables -t mangle -A V2RAY_MARK -p udp --dport 53 -j MARK --set-mark 1
 
 # Apply the rules
-iptables -t nat -A OUTPUT -p tcp -j V2RAY
+iptables -t nat -A PREROUTING -p tcp -j V2RAY
 iptables -t mangle -A PREROUTING -j V2RAY
 iptables -t mangle -A OUTPUT -j V2RAY_MARK
 ```
