@@ -81,9 +81,9 @@ v2ray -c cf1.json -c cf2.json -confdir /etc/v2ray/confs
 v2ray -c base.json -c outbounds.json
 ```
 
-这两个配置文件的就等效于合成一起的整配置。当需要修改出口节点，只需要修改 `outbounds.json` 内容。
+这两个配置文件就等效于合并的整体配置文件。当需要修改出口节点，只需要修改 `outbounds.json` 内容。
 
-如果需要改编日志 log 的级别，也不需要改 `base.json`，只需后续增加一个配置：
+如果需要改变日志 log 的级别，无需改动 `base.json`，只需后续增加一个配置：
 
 * debuglog.json
 
