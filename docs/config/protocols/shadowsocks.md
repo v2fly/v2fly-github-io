@@ -9,9 +9,9 @@
 
 * 支持 TCP 和 UDP 数据包转发，其中 UDP 可选择性关闭；
 * 加密方式：
-  * AES-256-GCM
-  * AES-128-GCM
-  * ChaCha20-Poly1305 或称 ChaCha20-IETF-Poly1305
+  * AES-256-GCM 或称 AEAD_AES_256_GCM
+  * AES-128-GCM 或称 AEAD_AES_128_GCM
+  * ChaCha20-Poly1305 或称 ChaCha20-IETF-Poly1305、AEAD_ChaCha20_Poly1305
   * （V2Ray 4.27.0+） none 或称 plain
 
 ::: warning
@@ -126,7 +126,7 @@ Shadowsocks 服务器端口。必填。
 
 ## 加密方式列表
 
-* `"aes-256-gcm"`
-* `"aes-128-gcm"`
-* `"chacha20-poly1305"` 或 `"chacha20-ietf-poly1305"`
-* `"none"` 或 `"plain"`
+* `"aes-256-gcm"` 或称 `"aead_aes_256_gcm"`
+* `"aes-128-gcm"` 或称 `"aead_aes_128_gcm"`
+* `"chacha20-poly1305"` 或称 `"chacha20-ietf-poly1305"`、`"aead_chacha20_poly1305"`
+* `"none"` 或称 `"plain"`
