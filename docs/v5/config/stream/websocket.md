@@ -3,9 +3,19 @@
 ## WebSocket Stream
 stream.ws
 
+> `acceptProxyProtocol`: true | false
+
+仅用于入站，是否接收 Proxy Protocol，默认值为 `false`。该值为 `true` 时，底层 TCP 连接建立后，请求方必须先发送 Proxy Protocol，否则连接将被关闭。
+
+[Proxy Protocol](https://www.haproxy.org/download/2.2/doc/proxy-protocol.txt) 用于传递请求的真实来源 IP 和端口。
+
 > `path`: string
 
 WebSocket 所使用的 HTTP 协议路径，默认值为 `"/"`。
+
+> `headers`: map \{string: string\}
+
+自定义 HTTP 头，一个键值对，每个键表示一个 HTTP 头的名称，对应的值是字符串。默认值为空。
 
 > `maxEarlyData`: number
 
