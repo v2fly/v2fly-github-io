@@ -54,7 +54,7 @@ v4.32.0+，支持填写 Unix domain socket，格式为绝对路径，形如 `"/d
 
 是否开启流量探测。
 
-> `destOverride`: [ string ]
+> `destOverride`: \["http" | "tls" | "quic" | "fakedns" | "fakedns+others"\]
 
 当流量为指定类型时，按其中包括的目标地址重置当前连接的目标。
 
