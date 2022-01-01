@@ -25,7 +25,10 @@
 
 > `socketSettings`: [SocketConfigObject](#SocketConfigObject)
 
-### Supported Streams
+## 支持的传输流协议
+
+* [WebSocket](stream/websocket.md)
+* [TCP](stream/tcp.md)
 
 ## TLS
 security.tls
