@@ -13,13 +13,13 @@ inbound
 }
 ```
 
-> `protocol`: name of <inbound>
+> `protocol`: name of `<inbound>`
 
-The name of the inbound protocol.
+The name of the inbound [proxy](proxy.md) protocol.
 
-> `settings`: settings of <inbound>
+> `settings`: settings of `<inbound>`
 
-The settings for the inbound protocol.
+The settings for the inbound [proxy](proxy.md) protocol.
 
 > `port`: string
 
@@ -42,6 +42,16 @@ The sniffing settings for the inbound. It allows the connection to be routed bas
 > `streamSettings`: [StreamObject](stream.md)
 
 The stream settings for the inbound. This determine how the protocol data is transferred.
+
+## Supported Proxy Protocol
+
+* [SOCKS](proxy/socks.md)
+* [VMess](proxy/vmess.md)
+* [Shadowsocks](proxy/shadowsocks.md)
+* [HTTP](proxy/http.md)
+* [Dokodemo](proxy/dokodemo.md)
+* [Trojan](proxy/trojan.md)
+* [VLESS](proxy/vless.md)
 
 ## SniffingObject
 

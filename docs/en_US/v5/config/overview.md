@@ -31,17 +31,17 @@ Built-in DNS client. Specify hostname resolution settings.
 
 Local DNS will be used if this entry is not set.
 
-> `routing`: [RoutingObject](routing.md)
+> `routing`: [RoutingObject](router.md)
 
 Routing.
 
 All traffic will be sent to the first outbound if this entry is left empty.
 
-> `inbounds`: \[ [InboundObject](inbounds.md) \]
+> `inbounds`: \[ [InboundObject](inbound.md) \]
 
 Inbounds. Describe the listener for incoming connections.
 
-> `outbounds`: \[ [OutboundObject](outbounds.md) \]
+> `outbounds`: \[ [OutboundObject](outbound.md) \]
 
 Outbounds. Describe the configuration for outgoing connections.
 

@@ -54,7 +54,7 @@ Mux 配置。
 * [Loopback](proxy/loopback.md)
 * [Blackhole](proxy/blackhole.md)
 * [DNS](proxy/dns.md)
-* [Torjan](proxy/torjan.md)
+* [Trojan](proxy/trojan.md)
 * [VLESS](proxy/vless.md)
 
 ## ProxyObject
