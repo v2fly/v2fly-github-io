@@ -46,6 +46,17 @@ outbound
 
 Mux 配置。
 
+## 支持的代理协议
+
+* [SOCKS](proxy/socks.md)
+* [VMess](proxy/vmess.md)
+* [Shadowsocks](proxy/shadowsocks.md)
+* [Loopback](proxy/loopback.md)
+* [Blackhole](proxy/blackhole.md)
+* [DNS](proxy/dns.md)
+* [Torjan](proxy/torjan.md)
+* [VLESS](proxy/vless.md)
+
 ## ProxyObject
 
 ```json

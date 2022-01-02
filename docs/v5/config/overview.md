@@ -31,17 +31,17 @@
 
 若未设置此项，则默认使用本机的 DNS 设置。
 
-> `routing`: [RoutingObject](routing.md)
+> `routing`: [RoutingObject](router.md)
 
 路由功能。
 
 若未设置此项，则所有流量都会被转发到第一个出站。
 
-> `inbounds`: \[ [InboundObject](inbounds.md) \]
+> `inbounds`: \[ [InboundObject](inbound.md) \]
 
 入站设置。
 
-> `outbounds`: \[ [OutboundObject](outbounds.md) \]
+> `outbounds`: \[ [OutboundObject](outbound.md) \]
 
 出站设置。
 

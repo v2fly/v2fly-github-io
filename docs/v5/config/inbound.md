@@ -13,11 +13,11 @@ inbound
 }
 ```
 
-> `protocol`: name of <inbound>
+> `protocol`: name of `[inbound]`
 
 入站协议名称。
 
-> `settings`: settings of <inbound>
+> `settings`: settings of `[inbound]`
 
 入站协议设置。
 
@@ -47,6 +47,16 @@ v4.32.0+，支持填写 Unix domain socket，格式为绝对路径，形如 `"/d
 > `streamSettings`: [StreamObject](stream.md)
 
 底层传输配置。
+
+## 支持的代理协议
+
+* [SOCKS](proxy/socks.md)
+* [VMess](proxy/vmess.md)
+* [Shadowsocks](proxy/shadowsocks.md)
+* [HTTP](proxy/http.md)
+* [Dokodemo](proxy/dokodemo.md)
+* [Torjan](proxy/torjan.md)
+* [VLESS](proxy/vless.md)
 
 ## SniffingObject
 
