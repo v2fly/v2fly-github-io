@@ -89,11 +89,11 @@ v4.32.0+，支持填写 Unix domain socket，格式为绝对路径，形如 `"/d
 
 是否开启流量探测。
 
-> `destOverride`: \["http" | "tls" | "fakedns" | "fakedns+others"\]
+> `destOverride`: \["http" | "tls" | "quic" | "fakedns" | "fakedns+others"\]
 
 当流量为指定类型时，按其中包括的目标地址重置当前连接的目标。
 
-`fakedns+others` 选项会优先进行 FakeDNS 虚拟 DNS 服务器匹配。如果 IP 地址处于虚拟 DNS 服务器的 IP 地址区间内，但是没有找到相应的域名记录时，使用 `http`、`tls` 的匹配结果。此选项仅在 `metadataOnly` 为 `false` 时有效。(v4.38.0+)
+`fakedns+others` 选项会优先进行 FakeDNS 虚拟 DNS 服务器匹配。如果 IP 地址处于虚拟 DNS 服务器的 IP 地址区间内，但是没有找到相应的域名记录时，使用 `http`、`tls` 和 `quic` 的匹配结果。此选项仅在 `metadataOnly` 为 `false` 时有效。(v4.38.0+)
 
 > `metadataOnly`: true | false
 
