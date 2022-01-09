@@ -51,6 +51,7 @@ Mux 配置。
 * [SOCKS](proxy/socks.md)
 * [VMess](proxy/vmess.md)
 * [Shadowsocks](proxy/shadowsocks.md)
+* [Freedom](proxy/freedom.md)
 * [Loopback](proxy/loopback.md)
 * [Blackhole](proxy/blackhole.md)
 * [DNS](proxy/dns.md)
