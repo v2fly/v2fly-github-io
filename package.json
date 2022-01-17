@@ -11,7 +11,7 @@
     "docs/**/*.{md,markdown}": "lint-md"
   },
   "devDependencies": {
-    "@vuepress/plugin-back-to-top": "^1.9.5",
+    "@vuepress/plugin-back-to-top": "^1.9.6",
     "lint-staged": "^12.1.7",
     "vuepress": "^1.9.5",
     "vuepress-plugin-mermaidjs": "^1.9.0"
