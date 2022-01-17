@@ -18,6 +18,12 @@ inbound.shadowsocks
 
 可接收的网络连接类型，比如当指定为 `"tcp"` 时，Shadowsocks 入站仅会接收 TCP 流量。默认值为 `"tcp"`。
 
+> `packetEncoding`:  \["None" | "Packet"\]
+
+UDP 包编码方式，默认值为 `None`。
+当该值为 `None` 时，UDP 将根据目标地址被映射 (Address and Port-Dependent Mapping)。
+当该值为 `Packet` 时，UDP 将被端点独立映射 (Endpoint Independent Mapping)，此 UDP 行为也被称为 FullCone 或 NAT1。
+
 ## Shadowsocks 出站
 
 outbound.shadowsocks
