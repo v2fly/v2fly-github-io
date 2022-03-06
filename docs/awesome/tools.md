@@ -8,6 +8,11 @@
 
 另有第三方的 UUID 生成器 [uuidgenerator.net](https://www.uuidgenerator.net)
 
+> 极简v2ray json 配置生成器, 纯单html文件，非常安全。
+
+离线版： https://github.com/hahahrfool/v2ray_json_generator
+在线版：https://hahahrfool.github.io/v2ray_json_generator/
+
 ## 第三方图形客户端
 
 <Tool
