@@ -75,7 +75,7 @@ What's new?
 
 The V2Ray Docker Image is also available:
 
-* [v2fly/v2ray-core](https://hub.docker.com/r/v2fly/v2fly-core): The `latest` tag will be updated following [v2fly](https://github.com/v2fly/docker-fly)'s latest release. Other versions will be released using the version's tag, e.g. `4.27.0`.
+* [v2fly/v2fly-core](https://hub.docker.com/r/v2fly/v2fly-core): The `latest` tag will be updated following [v2fly](https://github.com/v2fly/docker-fly)'s latest release. Other versions will be released using the version's tag, e.g. `4.27.0`.
 
 The Structure of Docker Image:
 
