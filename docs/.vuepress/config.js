@@ -28,6 +28,7 @@ module.exports = {
             description: 'Project V is a collection of tools that can help you build your own basic communication network',
         }
     },
+    evergreen: true,
     themeConfig: {
         repo: 'v2fly',
         docsRepo: 'v2fly/v2fly-github-io',
