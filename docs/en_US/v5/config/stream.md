@@ -9,13 +9,13 @@
 }
 ```
 
-> `transport`: name of <transport>
+> `transport`: name of `<transport>`
 
-> `transportSettings`: settings of <transport>
+> `transportSettings`: settings of `<transport>`
 
-> `security`: name of <security>
+> `security`: name of `<security>`
 
-> `securitySettings`: settings of <security>
+> `securitySettings`: settings of `<security>`
 
 > `socketSettings`: [SocketConfigObject](#SocketConfigObject)
 

@@ -75,7 +75,8 @@ VLESS 的用户 ID，必须是一个合法的 UUID，你可以用 [在线工具]
 
 > `encryption`: "none"
 
-现阶段需要填 `"none"`，不能留空。该要求是为了提醒使用者没有加密，也为了以后出加密方式时，防止使用者填错属性名或填错位置导致裸奔。</br>
+现阶段需要填 `"none"`，不能留空。该要求是为了提醒使用者没有加密，也为了以后出加密方式时，防止使用者填错属性名或填错位置导致裸奔。
+
 若未正确设置 encryption 的值，使用 v2ray 或 -test 时会收到错误信息。
 
 > `level`: number
@@ -108,7 +109,8 @@ VLESS 的用户 ID，必须是一个合法的 UUID，你可以用 [在线工具]
 
 > `decryption`: "none"
 
-注意这里是 decryption，和 clients 同级。现阶段同样需要填 `"none"`，不能留空。decryption 和 encryption 的位置不同，是因为若套一层约定加密，服务端需要先解密才能知道是哪个用户。</br>
+注意这里是 decryption，和 clients 同级。现阶段同样需要填 `"none"`，不能留空。decryption 和 encryption 的位置不同，是因为若套一层约定加密，服务端需要先解密才能知道是哪个用户。
+
 若未正确设置 decryption 的值，使用 v2ray 或 -test 时会收到错误信息。
 
 > `fallbacks`: \[ [FallbackObject](#fallbackobject) \]
@@ -166,8 +168,10 @@ VLESS 会把 TLS 解密后首包长度 < 18 或协议版本无效、身份认证
 
 尝试匹配 TLS ALPN 协商结果，空为任意，默认为 ""
 
-有需要时，VLESS 才会尝试读取 TLS ALPN 协商结果，若成功，输出 info `realAlpn =` 到日志。</br>
-用途：解决了 Nginx 的 h2c 服务不能同时兼容 http/1.1 的问题，Nginx 需要写两行 listen，分别用于 1.1 和 h2c。</br>
+有需要时，VLESS 才会尝试读取 TLS ALPN 协商结果，若成功，输出 info `realAlpn =` 到日志。
+
+用途：解决了 Nginx 的 h2c 服务不能同时兼容 http/1.1 的问题，Nginx 需要写两行 listen，分别用于 1.1 和 h2c。
+
 注意：fallbacks alpn 存在 `"h2"` 时，[Inbound TLS](../../config/transport.md#tlsobject) 需设置 `"alpn":["h2","http/1.1"]`，以支持 h2 访问。
 
 :::tip
@@ -178,7 +182,8 @@ Fallback 内设置的 "alpn" 是匹配实际协商出的 ALPN，而 Inbound TLS 
 
 尝试匹配首包 HTTP PATH，空为任意，默认为空，非空则必须以 `"/"` 开头，不支持 h2c。
 
-智能：有需要时，VLESS 才会尝试看一眼 PATH（不超过 55 个字节；最快算法，并不完整解析 HTTP），若成功，输出 info `realPath =` 到日志。</br>
+智能：有需要时，VLESS 才会尝试看一眼 PATH（不超过 55 个字节；最快算法，并不完整解析 HTTP），若成功，输出 info `realPath =` 到日志。
+
 用途：分流其它 inbound 的 WebSocket 流量或 HTTP 伪装流量，没有多余处理、纯粹转发流量，[实测比 Nginx 反代更强](https://github.com/badO1a5A90/v2ray-doc/blob/master/v2ray%20speed%20test%20v4.27.2.md)。
 
 注意：**fallbacks 所在入站本身必须是 TCP+TLS**，这是分流至其它 WS 入站用的，被分流的入站则无需配置 TLS。
