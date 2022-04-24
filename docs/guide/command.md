@@ -4,6 +4,8 @@
 
 V2Ray 的程序文件的命令行参数如下：
 
+**注意**：macOS Core版本 `V2Ray 5.0.3+ arm64-v8a` 命令格式有所区别，命令需要去除`-` 例如`v2ray version`
+
 ```bash
 v2ray [-version] [-test] [-config=config.json] [-format=json]
 ```
