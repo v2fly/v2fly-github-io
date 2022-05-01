@@ -1,5 +1,29 @@
 # VLite
 
+VLite is a packet acceleration, protection, stabilization, and forwarding protocol.
+
+It is designed for UDP based traffic with a focus on Peer to Peer applications. It does not support TCP traffic proxying.
+
+:::tip
+Use router to send only UDP Packet Addr traffic to VLite. Example is shown below:
+```
+"router": {
+    "domainStrategy": "AsIs",
+    "rule": [
+      {
+        "tag": "vlite",
+        "domain": [
+          {
+            "type":"RootDomain",
+            "value": "packet-addr.v2fly.arpa"
+          }
+        ]
+      }
+    ]
+  }
+```
+:::
+
 ## VLite UDP Outbound
 * Name: `vliteu`
 * Type: Outbound Protocol
