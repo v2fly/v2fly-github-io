@@ -4,6 +4,7 @@
 
 * [VMess](proxy/vmess.md)
 * [VLESS](proxy/vless.md)
+* [VLite](proxy/vlite.md)
 * [Trojan](proxy/trojan.md)
 * [Shadowsocks](proxy/shadowsocks.md)
 * [Socks](proxy/socks.md)

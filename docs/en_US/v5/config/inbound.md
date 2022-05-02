@@ -47,6 +47,7 @@ The stream settings for the inbound. This determine how the protocol data is tra
 
 * [SOCKS](proxy/socks.md)
 * [VMess](proxy/vmess.md)
+* [VLite](proxy/vlite.md)
 * [Shadowsocks](proxy/shadowsocks.md)
 * [HTTP](proxy/http.md)
 * [Dokodemo](proxy/dokodemo.md)

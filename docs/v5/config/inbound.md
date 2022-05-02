@@ -52,6 +52,7 @@ v4.32.0+，支持填写 Unix domain socket，格式为绝对路径，形如 `"/d
 
 * [SOCKS](proxy/socks.md)
 * [VMess](proxy/vmess.md)
+* [VLite](proxy/vlite.md)
 * [Shadowsocks](proxy/shadowsocks.md)
 * [HTTP](proxy/http.md)
 * [Dokodemo](proxy/dokodemo.md)
