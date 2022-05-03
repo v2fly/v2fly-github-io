@@ -44,10 +44,10 @@ Whether system level Certificate Authority Store should be trusted.
 
 Pinned Peer Certificate Chain SHA256 Hash. Should be represented in base64 format.
 
-> `certificate`: [CertificateObject](#CertificateObject)
+> `certificate`: [[CertificateObject](#CertificateObject)]
 
 
-#CertificateObject
+# CertificateObject
 
 > `usage` : string
 
