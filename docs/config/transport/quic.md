@@ -6,8 +6,6 @@ QUIC 全称 Quick UDP Internet Connection，是由 Google 提出的使用 UDP �
 2. 多路复用，并且没有 TCP 的阻塞问题
 3. 连接迁移，（主要是在客户端）当由 Wifi 转移到 4G 时，连接不会被断开。
 
-QUIC 目前处于实验期，使用了正在标准化过程中的 IETF 实现，不能保证与最终版本的兼容性。
-
 ## 版本历史
 
 V2Ray 4.7:
