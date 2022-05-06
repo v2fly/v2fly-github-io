@@ -7,10 +7,10 @@ Like other network proxy tools, you need a server configured with V2Ray, and the
 ```mermaid
 graph LR;
 A(PC) -.- B(Firewall);
-B -.-> C (off-wall website);
+B -.-> C(off-wall website);
 A --> D(V2Ray/VPS);
 D --> C;
-A --> E (in-wall website);
+A --> E(in-wall website);
 ```
 
 A V2Ray server can simultaneously support multiple devices to access using different proxy protocols. At the same time, after reasonable configuration, V2Ray can identify and distinguish between the traffic that needs a proxy and the traffic that does not require a proxy. Directly connected traffic does not require detours.
@@ -22,11 +22,11 @@ If you don't want to configure routing on every device, you can also set up a tr
 ```mermaid
 graph LR;
 A(PC) -.-> B(Firewall);
-B -.-> C (off-wall website);
-A --> D (VPS in the wall);
-D --> E (VPS outside the wall);
+B -.-> C(off-wall website);
+A --> D(VPS in the wall);
+D --> E(VPS outside the wall);
 E --> C;
-D --> F (in-wall website);
+D --> F(in-wall website);
 ```
 
 ## working principle
