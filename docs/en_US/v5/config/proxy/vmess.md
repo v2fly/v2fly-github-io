@@ -10,7 +10,7 @@ It is required for the client and server to have an accurate clock to function c
 
 > `users` : [string]
 
-The users UUIDs for this inbound.
+The users UUIDs for this inbound. This value is used to derive encryption key.
 
 ## VMess Outbound
 * Name: `vmess`
@@ -19,7 +19,7 @@ The users UUIDs for this inbound.
 
 > `address`: string
 
-The server address.
+The server address. Both IP and domain name is supported.
 
 > `port`: number
 
@@ -27,4 +27,4 @@ The server port number.
 
 > `uuid`: string
 
-The user UUIDs. 
+The user UUIDs. This value is used to derive encryption key.
