@@ -53,6 +53,6 @@ Connection multiplexor settings.
 * [Loopback](proxy/loopback.md)
 * [Blackhole](proxy/blackhole.md)
 * [DNS](proxy/dns.md)
-* [Torjan](proxy/torjan.md)
+* [Trojan](proxy/trojan.md)
 * [HTTP](proxy/http.md)
 * [VLESS](proxy/vless.md)
