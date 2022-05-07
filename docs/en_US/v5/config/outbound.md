@@ -54,4 +54,5 @@ Connection multiplexor settings.
 * [Blackhole](proxy/blackhole.md)
 * [DNS](proxy/dns.md)
 * [Torjan](proxy/torjan.md)
+* [HTTP](proxy/http.md)
 * [VLESS](proxy/vless.md)
