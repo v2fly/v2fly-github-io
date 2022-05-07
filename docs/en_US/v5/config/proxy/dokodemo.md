@@ -1,9 +1,12 @@
 # Dokodemo
 
-## Dokodemo Inbound
-inbound.dokodemo-door
-
 Dokodemo door is an inbound data protocol. It can listen to a local port and send all data entering this port to a port of the designated server, so as to achieve the effect of port mapping.
+
+
+## Dokodemo Inbound
+* Name: `blackhole`
+* Type: Inbound Protocol
+* ID: `inbound.blackhole`
 
 > `address`: string
 

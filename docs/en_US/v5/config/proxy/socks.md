@@ -1,7 +1,11 @@
 # Socks
+Socks Protocol can be used to exchange proxied traffic with other applications.
+
 
 ## Socks Inbound
-inbound.socks
+* Name: `socks`
+* Type: Inbound Protocol
+* ID: `inbound.socks`
 
 > `address` : string
 
@@ -12,7 +16,9 @@ The server address for the purpose of UDP communication.
 Is UDP support enabled.
 
 ## Socks Outbound
-outbound.socks
+* Name: `socks`
+* Type: Outbound Protocol
+* ID: `outbound.socks`
 
 > `address`: string
 

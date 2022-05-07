@@ -49,6 +49,7 @@ Connection multiplexor settings.
 * [VMess](proxy/vmess.md)
 * [VLite](proxy/vlite.md)
 * [Shadowsocks](proxy/shadowsocks.md)
+* [Freedom](proxy/freedom.md)
 * [Loopback](proxy/loopback.md)
 * [Blackhole](proxy/blackhole.md)
 * [DNS](proxy/dns.md)
