@@ -1,4 +1,6 @@
 # TCP
 
 ## TCP Stream
-stream.tcp
+* Name: `tcp`
+* Type: Transport Protocol
+* ID: `stream.tcp`

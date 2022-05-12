@@ -1,7 +1,9 @@
 # WebSocket
 
 ## WebSocket Stream
-stream.ws
+* Name: `ws`
+* Type: Transport Protocol
+* ID: `stream.ws`
 
 > `path`: string
 
