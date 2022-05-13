@@ -1,4 +1,4 @@
-# inbounds
+# Inbounds
 inbound
 
 ```json

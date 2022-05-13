@@ -1,4 +1,4 @@
-# outbounds
+# Outbounds
 outbound
 
 Outbound connections are used to send data to remote websites or the next level of proxy server. For available protocols, see the protocol list.
