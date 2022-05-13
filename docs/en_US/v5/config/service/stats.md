@@ -1,5 +1,7 @@
 # Stats
-service.stats
+* Name: `stats`
+* Type: Service
+* ID: `service.stats`
 
 The statistics collector maintain counter informations.
 

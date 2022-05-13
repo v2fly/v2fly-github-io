@@ -1,5 +1,7 @@
 # Browser Forwarder
-service.browser
+* Name: `browser`
+* Type: Service
+* ID: `service.browser`
 
 > `listenAddr`: string
 

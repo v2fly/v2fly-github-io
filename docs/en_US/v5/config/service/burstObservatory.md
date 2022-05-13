@@ -1,4 +1,7 @@
 # Burst Observatory
+* Name: `burstObservatory`
+* Type: Service
+* ID: `service.burstObservatory`
 
 > `subjectSelector`: string
 

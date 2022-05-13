@@ -1,5 +1,7 @@
 # Policy
-service.policy
+* Name: `policy`
+* Type: Service
+* ID: `service.policy`
 
 ### Policy
 
