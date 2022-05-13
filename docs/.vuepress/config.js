@@ -246,6 +246,8 @@ module.exports = {
                             collapsable: false,
                             children: [
                                 'overview',
+                                'inbound',
+                                'outbound',
                                 'proxy',
                                 'stream',
                                 'service',
