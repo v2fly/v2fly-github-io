@@ -240,6 +240,60 @@ module.exports = {
                             ]
                         }
                     ],
+                    '/en_US/v5/config/': [
+                        {
+                            title: 'Config Reference',
+                            collapsable: false,
+                            children: [
+                                'overview',
+                                'proxy',
+                                'stream',
+                                'service',
+                                'dns',
+                                'router',
+                                'geo',
+                            ],
+                        },
+                        {
+                            title: 'Proxy Protocol',
+                            collapsable: false,
+                            children: [
+                                'proxy/socks',
+                                'proxy/vmess',
+                                'proxy/vlite',
+                                'proxy/shadowsocks',
+                                'proxy/http',
+                                'proxy/dokodemo',
+                                'proxy/freedom',
+                                'proxy/loopback',
+                                'proxy/blackhole',
+                                'proxy/dns',
+                                'proxy/trojan',
+                                'proxy/vless',
+                            ],
+                        },
+                        {
+                            title: 'Stream Transport Protocol',
+                            collapsable: false,
+                            children: [
+                                'stream/tcp',
+                                'stream/websocket',
+                                'stream/kcp',
+                                'stream/quic',
+                            ],
+                        },
+                        {
+                            title: 'Service',
+                            collapsable: false,
+                            children: [
+                                'service/stats',
+                                'service/policy',
+                                'service/browser',
+                                'service/burstObservatory',
+                                'service/backgroundObservatory',
+                            ],
+                        }
+                    ],
                     '/en_US/': 'auto',
                 },
             },
