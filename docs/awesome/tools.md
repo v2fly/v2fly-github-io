@@ -34,8 +34,8 @@
 <Tool
     url="https://github.com/v2rayA/v2rayA"
     name="v2rayA"
-    :platforms="['linux']"
-    description="基于 web GUI 的 Linux 客户端，支持全局透明代理，兼容SS、SSR、Trojan、PingTunnel协议。"
+    :platforms="['linux','win','mac']"
+    description="基于 web GUI 的跨平台 V2Ray 客户端，在 Linux 上支持全局透明代理，其他平台上支持系统代理。"
 />
 
 
