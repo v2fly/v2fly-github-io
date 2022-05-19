@@ -105,7 +105,7 @@ v2ray -c base.json -c outbounds.json -c debuglog.json
 
 在 json 配置中的`inbounds`和`outbounds`是数组结构，他们有特殊的规则：
 
-* 当配置中的数组元素有 2 或以上，覆盖前者的 inbounds/oubounds；
+* 当配置中的数组元素有 2 或以上，覆盖前者的 inbounds/outbounds；
 * 当配置中的数组元素只有 1 个时，查找原有`tag`相同的元素进行覆盖；若无法找到：
   - 对于 inbounds，添加至最后（inbounds 内元素顺序无关）
   - 对于 outbounds，添加至最前（outbounds 默认首选出口）；但如果文件名含有 tail（大小写均可），添加至最后。
