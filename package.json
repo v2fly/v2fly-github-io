@@ -12,7 +12,7 @@
   },
   "devDependencies": {
     "@vuepress/plugin-back-to-top": "^1.9.7",
-    "lint-staged": "^12.4.1",
+    "lint-staged": "^12.4.2",
     "vuepress": "^1.9.7",
     "vuepress-plugin-mermaidjs": "^1.9.1"
   },
