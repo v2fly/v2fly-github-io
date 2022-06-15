@@ -3,7 +3,7 @@
 * Name: `blackhole`
 * Type: Outbound Protocol
 
-Blackhole (black hole) is an outbound data protocol, which will hinder the outbound of all data. When used with [Routing](../routing.md), it can achieve the effect of prohibiting access to certain websites.
+Blackhole is an outbound protocol. It discards all data sent to it. [Routing](../routing.md) configurations can utilize Blackhole to filter out specific requests.
 
 ## OutboundConfigurationObject
 
@@ -17,7 +17,7 @@ Blackhole (black hole) is an outbound data protocol, which will hinder the outbo
 
 > `response`: [ResponseObject](#responseobject)
 
-Configure the response data of the black hole. Blackhole will send the specified response data after receiving the data to be forwarded, and then close the connection. The data to be forwarded will be discarded. If this item is not specified, Blackhole will close the connection directly.
+Configure the response data of the black hole. Blackhole will reply with a specified response data after receiving the data to be forwarded, and then close the connection. The data to be forwarded will be discarded. If this item is not specified, Blackhole will close the connection immediately.
 
 ### ResponseObject
 
@@ -29,4 +29,4 @@ Configure the response data of the black hole. Blackhole will send the specified
 
 > `type`: "http" | "none"
 
-When `type` is `"none"` (default value), Blackhole will close the connection directly. When `type` is `"http"`, Blackhole will send back a simple HTTP 403 packet and then close the connection.
+If `type` is set to `"none"` (default), Blackhole will close the connection directly. If `type` is set to `"http"`, Blackhole will reply with a simple HTTP 403 Forbidden response and then close the connection.

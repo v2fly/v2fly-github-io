@@ -1,20 +1,21 @@
 # Outbounds
 
-Outbound connections are used to send data to remote websites or the next level of proxy server. For available protocols, see the protocol list.
+Outbound connections are used to send data to remote websites or another proxy server. For available protocols, see the protocol list.
 
 ## OutboundObject
 
-`OutboundObject` corresponds to a child element of the `outbounds` item in the configuration file.
+`OutboundObject` corresponds to an object of the `outbounds` array in the configuration file.
 
 ```json
 {
     "sendThrough": "0.0.0.0",
-    "protocol": "Protocol Name",
+    "protocol": "PROTOCOL",
     "settings": {},
-    "tag": "Tag",
+    "tag": "TAG",
     "streamSettings": {},
     "proxySettings": {
-        "tag": "another-outbound-tag"
+        "tag": "OUTBOUND-TAG",
+        "transportLayer": false
     },
     "mux": {}
 }
@@ -22,11 +23,11 @@ Outbound connections are used to send data to remote websites or the next level 
 
 > `sendThrough`: address
 
-The IP address used to send data, valid when the host has multiple IP addresses, the default value is `"0.0.0.0"`.
+The IP address used to send data, which may be necessary if the host has multiple IP addresses. The default value is `"0.0.0.0"`.
 
 > `protocol`: string
 
-The name of the connection protocol. See the protocol list for optional values.
+The name of the connection protocol. See the protocol list for values.
 
 > `settings`: OutboundConfigurationObject
 
@@ -34,11 +35,11 @@ The specific configuration content varies depending on the protocol. See `Outbou
 
 > `tag`: string
 
-The identifier of this outbound connection, used to locate this connection in other configurations. When its value is not empty, it must be unique among all tags.
+The identifier of this outbound connection, used to locate this connection in other configurations. When it is not empty, its value must be unique among all `tag`s.
 
 > `streamSettings`: [StreamSettingsObject](transport.md#streamsettingsobject)
 
-[Low-level transmission configuration](transport.md#streamsettingsobject)
+[Transport-specific configurations](transport.md#StreamSettingsObject)
 
 > `proxySettings`: [ProxySettingsObject](#proxysettingsobject)
 
@@ -52,7 +53,8 @@ Outbound proxy configuration. When the outbound proxy is in effect, the `streamS
 
 ```json
 {
-    "tag": "another-outbound-tag"
+    "tag": "OUTBOUND-TAG",
+    "transportLayer": false
 }
 ```
 
@@ -60,9 +62,15 @@ Outbound proxy configuration. When the outbound proxy is in effect, the `streamS
 
 When the identifier of another outbound protocol is specified, the data sent by this outbound protocol will be forwarded to the specified outbound protocol.
 
+> `transportLayer`: true | false
+
+(Since v4.35.0) Whether to enable transport layer forwarding support. When enabled, the transport layer protocol of this outbound connection will remain effective (if supported).
+
+If this option is not enabled, the transport layer protocol will be invalid when forwarding, and only the default TCP transport protocol can be used.
+
 ## MuxObject
 
-The function of Mux is to distribute the data of multiple TCP connections on one TCP connection. See [Mux.Cool](../developer/protocols/muxcool.md) for implementation details. Mux is designed to reduce TCP's handshake delay, not to increase connection throughput. Using Mux to watch videos, download or measure speed usually has the opposite effect. Mux only needs to be enabled on the client side, and the server side automatically adapts.
+The Mux function distributes the data of multiple TCP connections from one TCP connection. See [Mux.Cool](../developer/protocols/muxcool.md) for implementation details. Mux is designed to reduce TCP's handshake delay, not to increase connection throughput. Using Mux to watch videos, transfer files, or measure transfer speed generally will be worse. Mux only needs to be enabled on the client side, and the server side will automatically switch along with it.
 
 `MuxObject` corresponds to the `mux` item in `OutboundObject`.
 
@@ -75,12 +83,12 @@ The function of Mux is to distribute the data of multiple TCP connections on one
 
 > `Enabled`: true | false
 
-Whether to enable Mux forwarding requests, the default value is `false`.
+Whether to enable Mux forwarding requests. The default value is `false`.
 
 > `concurrency`: number
 
 The maximum number of concurrent connections. The minimum value is `1`, the maximum value is `1024`, and the default value is `8`.
 
-Fill in a negative number, such as `-1`, do not load the mux module (v4.22.0+).
+(Since v4.22.0) A negative value (`-1`) will not load the Mux module at runtime.
 
-This value indicates the maximum number of Mux connections carried on a TCP connection. When the client sends 8 TCP requests and `concurrency=8`, V2Ray will only send an actual TCP connection, and all 8 requests of the client are transmitted by this TCP connection.
+This value indicates the maximum number of Mux connections carried on a single TCP connection. When the client sends 8 TCP requests and `concurrency` is set to `8`, V2Ray will only send one actual TCP connection, and all 8 requests of the client are transmitted by this TCP connection.

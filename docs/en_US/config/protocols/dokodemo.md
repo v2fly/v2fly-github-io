@@ -3,7 +3,12 @@
 * Name: `dokodemo-door`
 * Type: Inbound Protocol
 
-Dokodemo door is an inbound data protocol. It can listen to a local port and send all data entering this port to a port of the designated server, so as to achieve the effect of port mapping.
+Dokodemo Door is an inbound protocol. It binds to a port and send all data entering this port to a designated address, effectively achieving inbound port forwarding / port mapping.
+
+:::tip
+To reroute outbound traffic as well, combine Dokodemo Door with a [Loopback](loopback.md) inbound.
+:::
+
 
 ## InboundConfigurationObject
 
@@ -18,37 +23,35 @@ Dokodemo door is an inbound data protocol. It can listen to a local port and sen
 }
 ```
 
-> `address`: address
+> `address`: string
 
-Forward traffic to this address. It can be an IP address, like `"1.2.3.4"`, or a domain name, like `"v2ray.com"`. String type.
+Forwards traffic to this target address. Accepts IP addresses, such as `"1.2.3.4"`, or a domain name, such as `"v2ray.com"`.
 
-When `followRedirect` (see below) is `true`, `address` can be empty.
+If `followRedirect` is enabled, `address` can be omitted.
 
 > `port`: number
 
-Forward traffic to the specified port of the destination address, range \[1, 65535\], numeric type. Required parameters.
+Forward traffic to the specified port of the destination address, with a range of \[1, 65535\]. Required.
 
 > `network`: "tcp" | "udp" | "tcp,udp"
 
-The type of network protocol that can be received. For example, when it is specified as `"tcp"`, any gate will only receive TCP traffic. The default value is `"tcp"`.
+The type of inbound traffic which can be received. The unselected protocol will be rejected. The default value is `"tcp"`.
 
 > `timeout`: number
 
-The time limit for inbound data (seconds), the default value is 300.
+The timeout / TTL for inbound data in seconds. The default value is 300.
 
-After V2Ray 3.1 is equivalent to the `connIdle` strategy corresponding to the user level
+Since v3.1, this is equivalent to the `connIdle` strategy, corresponding to the User Level.
 
 > `followRedirect`: true | false
 
-When the value is `true`, dokodemo-door will recognize the data forwarded by iptables and forward it to the corresponding destination address. For details, see the `tproxy` setting in [Transport Configuration](../transport.md).
+When enabled, Dokodemo Door will recognize any destinations specified by `iptables`, and forward it to the corresponding mapped address. For details, see the `tproxy` setting in [Transport Configuration](../transport.md).
 
 > `userLevel`: number
 
-User level, all connections will use this user level.
+User Level. All inbound connections will use this User Level. See [Local Policy](../policy.md).
 
-## Transparent proxy configuration example
-
-Add a dokodemo-door inbound protocol in V2Ray:
+## Example: Transparent proxy
 
 ```json
 {
@@ -58,7 +61,7 @@ Add a dokodemo-door inbound protocol in V2Ray:
 }
 ```
 
-Configure iptables:
+Configure `iptables`:
 
 ```bash
 # Create new chain
@@ -67,7 +70,7 @@ iptables -t mangle -N V2RAY
 iptables -t mangle -N V2RAY_MARK
 
 # Ignore your V2Ray server's addresses
-# It's very IMPORTANT, just be careful.
+# This is VERY IMPORTANT, be careful!
 iptables -t nat -A V2RAY -d 123.123.123.123 -j RETURN
 
 # Ignore LANs and any other addresses you'd like to bypass the proxy
@@ -90,7 +93,7 @@ ip rule add fwmark 1 lookup 100
 iptables -t mangle -A V2RAY -p udp --dport 53 -j TPROXY --on-port 12345 --tproxy-mark 0x01/0x01
 iptables -t mangle -A V2RAY_MARK -p udp --dport 53 -j MARK --set-mark 1
 
-# Apply the rules
+# Apply rules
 iptables -t nat -A OUTPUT -p tcp -j V2RAY
 iptables -t mangle -A PREROUTING -j V2RAY
 iptables -t mangle -A OUTPUT -j V2RAY_MARK

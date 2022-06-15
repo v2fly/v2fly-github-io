@@ -3,7 +3,7 @@
 * Name: `http`
 * Type: Inbound/Outbound
 
-The HTTP configuration is divided into two parts, `InboundConfigurationObject` and `OutboundConfigurationObject`, which correspond to the `settings` items in the inbound and outbound protocol configuration respectively.
+HTTP's configuration is divided into two parts, `InboundConfigurationObject` and `OutboundConfigurationObject`, corresponding to the `settings` element in the inbound and outbound protocol configuration respectively.
 
 ## InboundConfigurationObject
 
@@ -22,48 +22,48 @@ The HTTP configuration is divided into two parts, `InboundConfigurationObject` a
 ```
 
 :::tip
-It should be noted that although `http inbound` can provide public services, the http protocol does not encrypt the transmission and is not suitable for transmission over the public network. It is more likely to be a broiler for attacks. A more meaningful usage of `http inbound` is to monitor in a local area network or local environment to provide local services for other programs.
+Note that although inbound HTTP can provide public services, the HTTP protocol is not encrypted and is thus not suitable for transmission over public networks, as it would be highly vulnerable to MITM attacks. A more meaningful use of inbound HTTP is to open the inbound only to the local machine (loopback), Local Area Network, or other internal networks to provide services for other programs.
 :::
 
 > `timeout`: number
 
-The timeout setting (seconds) for reading data from the client, 0 means unlimited time. The default value is 300. After V2Ray 3.1, it is equivalent to the `connIdle` strategy corresponding to the user level.
+Timeout for client HTTP requests in seconds, 0 for no timeout. The default value is 300. (Since v3.1) Equivalent to the `connIdle` policy of the corresponding user level.
 
 > `accounts`: \[[AccountObject](#accountobject)\]
 
-An array, each element in the array is a user account. The default value is empty.
+An array, each element of which is an [AccountObject](#AccountObject). The default value is empty.
 
-When `accounts` is not empty, the HTTP proxy will perform HTTP Basic Authentication for inbound connections.
+When `accounts` is non-empty, HTTP will perform Basic Authentication (`WWW-Authenticate`) on inbound connections.
 
 > `allowTransparent`: true | false
 
-When `true`, all HTTP requests will be forwarded, not just proxy requests. If not configured properly, turning on this option will cause an endless loop.
+When set to `true`, all HTTP requests will be forwarded, not just proxy requests. If incorrectly configured, enabling this option may cause a loop.
 
 > `userLevel`: number
 
-User level, all connections use this level.
+User level, default value is `0`. See [Local Policy](../policy.md).
 
 ### AccountObject
 
 ```json
 {
-    "user": "my-username",
-    "pass": "my-password"
+    "user": "USERNAME",
+    "pass": "PASSWORD"
 }
 ```
 
 > `user`: string
 
-User name, string type. Required.
+Username, can be any string. Required.
 
 > `pass`: string
 
-Password, string type. Required.
+Password, can be any string. Required.
 
 :::tip
-Use the following environment variables in Linux to use the global HTTP proxy in the current session (many software supports this setting, and some do not).
+In Linux, you can set the following environment variables to use a global HTTP proxy in the current user session (most but not all applications respect this setting).
 
-* `export http_proxy=http://127.0.0.1:8080/` (The address must be changed to the HTTP inbound proxy address you configured)
+* `export http_proxy=http://127.0.0.1:8080/` (the address must be changed to the HTTP inbound proxy address you configured)
 * `export https_proxy=$http_proxy`
 :::
 
@@ -77,8 +77,8 @@ Use the following environment variables in Linux to use the global HTTP proxy in
             "port": 3128,
             "users": [
                 {
-                    "user": "my-username",
-                    "pass": "my-password"
+                    "user": "USERNAME",
+                    "pass": "PASSWORD"
                 }
             ]
         }
@@ -86,30 +86,30 @@ Use the following environment variables in Linux to use the global HTTP proxy in
 }
 ```
 
-(V2Ray 4.21.0+)
+(Since v4.21.0)
 
 :::tip
-It should be noted that although `http outbound` can be used as a configuration for external access, the `http proxy` protocol does not encrypt the transmission, which is not suitable for transmission over the public network, and because it does not support UDP transmission, the core functions will be limited (Routing's DNS queries may not be available). The more meaningful usage of `http outbound` is that under special circumstances, you can only use `http proxy` to access the internal network externally, as a pre-proxy for connecting to proxy servers for other protocols (see `ProxySettingsObject` of `OutboundObject`) . In addition, because `http proxy` can only proxy the TCP protocol, none of the UDP protocols can pass.
+Note that although outbound HTTP can be used as a configuration for external access, the HTTP protocol is not encrypted and is thus not suitable for usage over public networks. Additionally, because HTTP does not support UDP routing, it will limit available networking functionality for supplementary protocols (DNS queries are unavailable for example). A more meaningful use of outbound HTTP is in special cases, where only an HTTP proxy can be used to access an internal network from an external connection, as a pre-proxy for connections of other protocol connections (see `OutboundObject`'s `ProxySettingsObject`).
 :::
 
-(V2Ray 4.21.1+)
+(Since v4.21.1)
 
 :::tip
-In version 4.20.0, http outbound was introduced as the pre-proxy usage of other protocols, and it lacked support for TLS configuration. In the 4.21.1 patch version, the `security` and `tlsSettings` in `streamSettings` remain effective. In the current usage of front proxy, three protocol methods such as vmess/tcp, vmess/tcp-tls and shadowsocks can be used. The usage of front proxy for other transmission protocols needs to be developed and supported in subsequent versions.
+Since v4.20.0, outbound HTTP was added as a pre-proxy for other protocols, albeit lacking support for TLS configurations. From v4.21.1 onwards, HTTP will also inherits the effect of `security` and `tlsSettings` in `streamSettings`. Currently, protocols VMESS/TCP, VMESS/TCP-TLS, and Shadowsocks can be used for such a pre-proxy, and pre-proxy usage of other transport protocols are pending implementation in future versions.
 :::
 
 > `servers`: array
 
-HTTP proxy server configuration, if you configure more than one, use (RoundRobin) circularly.
+An array of HTTP proxies to use. If multiple items are present, they are picked round-robin.
 
 > `address`: string
 
-HTTP proxy server address, required.
+Remote HTTP proxy server address. Required.
 
 > `port`: int
 
-HTTP proxy server port, required.
+Remote HTTP proxy server port. Required.
 
 > `user`: \[[AccountObject](#accountobject)\]
 
-An array, each element in the array is a user account. The default value is empty.
+An array of credentials , each element of which is an [AccountObject](#AccountObject). Optional, default is no authentication.
