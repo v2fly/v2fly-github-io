@@ -3,12 +3,12 @@
 * Name: `socks`
 * Type: Inbound / Outbound
 
-Socks is an inbound/outbound protocol. It is an unencrypted traffic tunnel protocol. This is a standard SOCKS protocol implementation, compatible with [SOCKS 4](http://ftp.icm.edu.pl/packages/socks/socks4/SOCKS4.protocol), SOCKS 4a, and [SOCKS 5](http://ftp.icm.edu.pl/packages/socks/socks4/SOCKS4.protocol).
+SOCKS is an inbound/outbound protocol. It is an unencrypted traffic tunnel protocol, useful for communications and proxy usage on local services. This is a standard SOCKS protocol implementation, compatible with [SOCKS 4](http://ftp.icm.edu.pl/packages/socks/socks4/SOCKS4.protocol), SOCKS 4a, and [SOCKS 5](http://ftp.icm.edu.pl/packages/socks/socks4/SOCKS4.protocol).
 
-Socks configuration is divided into two parts, `InboundConfigurationObject` and `OutboundConfigurationObject`, corresponding to the `settings` element in the inbound and outbound protocol configuration respectively.
+SOCKS configuration is divided into two parts, `InboundConfigurationObject` and `OutboundConfigurationObject`, corresponding to the `settings` element in the inbound and outbound protocol configuration respectively.
 
 :::warning
-If you share your Socks5 proxy with others over an insecure network, it is recommended to use a firewall.
+If you share your SOCKS5 proxy with others over an insecure network, it is recommended to use a firewall.
 
 Reference: [SOCKS 5 Authentication Bypassed over UDP](https://github.com/v2fly/v2fly-github-io/issues/104)
 :::
@@ -33,13 +33,13 @@ Reference: [SOCKS 5 Authentication Bypassed over UDP](https://github.com/v2fly/v
 }
 ```
 
-Note that while outbound Socks can be used over the open internet, the Socks protocol is not encrypted and is not suitable for transmission over public networks.
+Note that while outbound SOCKS can be used over the open internet, the SOCKS protocol is not encrypted and is not suitable for transmission over public networks.
 
-A more meaningful use of outbound Socks is in special cases where only a SOCKS proxy can be used to access an internal network, and it is used as a proxy for other protocols to connect to the internal network (see `OutboundObject`'s `ProxySettingsObject`).
+A more meaningful use of outbound SOCKS is for special cases where only a SOCKS proxy can be used to access an internal network (see `OutboundObject`'s `ProxySettingsObject`).
 
 > `servers`: \[ [ServerObject](#serverobject) \]
 
-List of SOCKS servers, where each item is a server configuration.
+List of SOCKS servers, where each item is a [ServerObject](#ServerObject).
 
 > `version`: "5" | "4a" | "4"
 
@@ -71,7 +71,7 @@ Remote SOCKS Server port. Required.
 
 > `users`: \[ [UserObject](#userobject) \]
 
-List of users, where each element is a user configuration. If there are any valid configuration available, the Socks client will use this user information for authentication; if not specified, no authentication will be performed.
+List of users, where each element is a user configuration. If there are any valid configuration available, the SOCKS client will use this user information for authentication; if not specified, no authentication will be performed.
 
 ### UserObject
 
@@ -85,11 +85,11 @@ List of users, where each element is a user configuration. If there are any vali
 
 > `user`: string
 
-SOCKS Username.
+Remote SOCKS server Username.
 
 > `pass`: string
 
-SOCKS Password.
+Remote SOCKS server Password.
 
 > `level`: number
 
@@ -97,7 +97,7 @@ User level, default value is `0`. See [Local Policy](../policy.md).
 
 ## InboundConfigurationObject
 
-Note that although inbound Socks can bind to public ports, the Socks protocol is not encrypted and is not suitable for transmission over a public network. A more meaningful use of inbound Socks is to provide services for other programs on the local network or environment.
+Note that although inbound Socks can bind to internet-facing ports, the SOCKS protocol is not encrypted and is not suitable for transmission over a public network. A more meaningful use of inbound SOCKS is to provide services for other programs on the local network or environment.
 
 ```json
 {
@@ -120,7 +120,7 @@ The authentication method of the SOCKS protocol, supporting `"noauth"` (anonymou
 
 > `accounts`: \[ [AccountObject](#accountobject) \]
 
-An array, where each element in the array is an [AccountObject](#AccountObject). The default value is empty. This option is only valid when `auth` is set to `password`.
+An array, where each element in the array is an [AccountObject](#AccountObject). The default value is empty. This option ignored if `auth` is not set to `password`.
 
 > `udp`: true | false
 

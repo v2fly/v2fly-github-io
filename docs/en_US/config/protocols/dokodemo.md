@@ -25,21 +25,21 @@ To reroute outbound traffic as well, combine Dokodemo Door with a [Loopback](loo
 
 > `address`: string
 
-Forwards traffic to this target address. Accepts IP addresses, such as `"1.2.3.4"`, or a domain name, such as `"v2ray.com"`.
+Forwards traffic to this target address. Can be an IPv4 or IPv6 address (such as `"1.1.1.1"`) or a domain name (such as `"v2ray.com"`).
 
 If `followRedirect` is enabled, `address` can be omitted.
 
 > `port`: number
 
-Forward traffic to the specified port of the destination address, with a range of \[1, 65535\]. Required.
+Forwards traffic using the specified port. Required.
 
 > `network`: "tcp" | "udp" | "tcp,udp"
 
-The type of inbound traffic which can be received. The unselected protocol will be rejected. The default value is `"tcp"`.
+Limits the types of inbound traffic which can be received. The unselected protocol will be rejected. The default value is `"tcp"`.
 
 > `timeout`: number
 
-The timeout / TTL for inbound data in seconds. The default value is 300.
+The timeout for inbound requests in seconds. The default value is 300.
 
 Since v3.1, this is equivalent to the `connIdle` strategy, corresponding to the User Level.
 

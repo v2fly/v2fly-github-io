@@ -4,12 +4,12 @@
 - Type: Inbound / Outbound
 
 :::warning
-VLESS is currently unencrypted. Only use over a secured or private channel, such as TLS. VLESS does not currently support sharing.
+VLESS is currently unencrypted. Only use VLESS over a secured or private channel, such as a TLS tunnel. VLESS does not currently support sharing.
 :::
 
 VLESS is an inbound/outbound protocol. VLESS is a stateless lightweight transport which is divided into inbound and outbound components, and can act as a bridge between a V2Ray client and a server.
 
-Unlike [VMess](vmess.md), VLESS does not rely on system time. The authentication method also is UUID-based, but does not require alterId.
+Unlike [VMess](vmess.md), VLESS does not rely on system time. While the authentication method is also UUID-based, it does not require an `alterId`.
 
 VLESS's configuration is divided into two parts, `InboundConfigurationObject` and `OutboundConfigurationObject`, corresponding to the `settings` element in the inbound and outbound protocol configuration respectively.
 
@@ -35,7 +35,7 @@ VLESS's configuration is divided into two parts, `InboundConfigurationObject` an
 
 > `vnext`: \[ [ServerObject](#serverobject) \]
 
-An array, each of which is a [ServerObject](#ServerObject).
+An array, where each element is a [ServerObject](#ServerObject).
 
 ### ServerObject
 
@@ -71,7 +71,7 @@ An array of users recognized by the server. Each element is a [UserObject](#User
 
 > `id`: string
 
-VLESS's user ID must be a valid UUID, which you can generate using [online tools](../../awesome/tools.md).
+VLESS's user IDs must be valid UUIDs, which you can generate using [online tools](../../awesome/tools.md) or [V2Ctl](../../guide/command.md#v2ctl).
 
 > `encryption`: "none"
 
@@ -109,13 +109,13 @@ An array of users recognized by the server. Each element is a [ClientObject](#Cl
 
 > `decryption`: "none"
 
-The decryption algorithm needs to be the same as the client's setting. For now, you also need to fill in `"none"`, as it is a required field (see also [UserObject](#UserObject)). The options of decryption and encryption are different, because if encryption is enabled, the server needs to decrypt it first to know which user it is.
+The decryption algorithm needs to be the same as the client's setting. For now, you also need to use `"none"`, as it is a required field (see also [UserObject](#UserObject)). The options for decryption and encryption are different for every user, because if encryption is enabled, the server needs to decrypt it first to know which user it is.
 
-If you do not set the value of decryption correctly, you will receive an error message when using `v2ray` or `-test`.
+If `decryption` is not set correctly, you will receive an error message when using `v2ray` or `-test`.
 
 > `fallbacks`: \[ [FallbackObject](#fallbackobject) \]
 
-An array containing a series of fallback stream configurations (optional).
+An array containing a series of fallback stream configurations (optional, see [FallbackObject](#FallbackObject)).
 
 ### ClientObject
 
@@ -153,16 +153,16 @@ The user's email is used to distinguish between different users in metrics (logs
 :::tip
 Since v4.27.2, `fallbacks` is now an array. This is the configuration description of one of its child elements, and the parameters are different from the old fallback element.
 
-`fallbacks` elements are optional and can only be used in the TCP+TLS transport combination.
+`fallbacks` elements are optional and can only be used in a TCP+TLS transport combination.
 :::
 
-**When this item has child elements, [Inbound TLS](../transport.md#TlsObject) needs to be set to `"alpn":["http/1.1"]`.**
+**When fallback are configured, [Inbound TLS](../transport.md#TlsObject) must be set to `"alpn":["http/1.1"]`.**
 
 Usually, you need to set a default fallback with `alpn` and `path` both omitted, and then configure other traffic splitting as needed.
 
 VLESS will forward traffic that is decrypted if the length of the first packet of TLS `< 18`, if the protocol version is invalid, or if the authentication fails, to the address specified by `dest`.
 
-Other unsupported transport combinations must not use the `fallbacks` or its `FallbackObject`s. This will disable Fallback, and if VLESS detects any fallback conditions being met, it will simply disconnect.
+Other unsupported transport combinations cannot use `fallbacks`. If VLESS detects any fallback conditions being met with an unsupported traffic configuration, it will simply disconnect.
 
 > `alpn`: string
 
@@ -175,18 +175,18 @@ When necessary, VLESS will try to read the TLS ALPN negotiation result, and if s
 Note: When `"h2"` is set in `alpn`, [Inbound TLS](../../config/transport.md#tlsobject) needs to be set to `"alpn":["h2","http/1.1"]`, to support `h2` access.
 
 :::tip
-The `alpn` set in Fallback is to match the actual negotiated ALPN, while the `alpn` set in Inbound TLS is the optional ALPN list during the handshake, which have different meanings.
+The `alpn` set in Fallback is to match the actual negotiated ALPN, while the `alpn` set in Inbound TLS is the optional ALPN list used during the handshake, which have different meanings.
 :::
 
 > `path`: string
 
-Try to match the first packet HTTP hyperlink, empty for any. Default to empty, non-empty values must start with `"/"`. Does not support `h2c`.
+Pattern to match the first packet's HTTP hyperlink, empty for any. Default to empty, non-empty values must start with `"/"`. Does not support `h2c`.
 
-When necessary, VLESS will try to look at the hyperlink (no more than 55 bytes; fast algorithm, incomplete parsing of actual link), and if successful, output the info `realPath =` to the log.
+When necessary, VLESS will try to observe the HTTP hyperlink (no more than 55 bytes; simple algorithm, incomplete parsing of full length of hyperlink), and if successful, outputs the info `realPath =` to the log.
 
-`path` can be used to split traffic from other WebSocket inbounds, or masquerade HTTP traffic. It has minimal overhead, being pure traffic forwarding, and is [generally more effective than Nginx reverse-proxies](https://github.com/badO1a5A90/v2ray-doc/blob/master/v2ray%20speed%20test%20v4.27.2.md).
+`path` can be used to split traffic from other WebSocket inbounds, or masquerade certain HTTP traffic. It has minimal overhead, being purely traffic forwarding, and is [generally more effective than Nginx reverse-proxies](https://github.com/badO1a5A90/v2ray-doc/blob/master/v2ray%20speed%20test%20v4.27.2.md).
 
-Note: **The inbound where fallbacks are used must be TCP+TLS**, which is used to split traffic to other WebSocket inbounds. The inbound being split does not need to be configured with TLS.
+Note: **The inbound where fallbacks are used must be TCP+TLS only**, which is used to split traffic to other WebSocket inbounds. The inbound being split does not need to be configured with TLS.
 
 > `dest`: string | number
 
@@ -199,16 +199,16 @@ If only a port is configured, numbers or strings can be used, such as `80` or `"
 
 > `xver`: number
 
-Utilize the [PROXY protocol](https://www.haproxy.org/download/2.2/doc/proxy-protocol.txt) to send the incoming IP and port of the request. Version `1` or `2` are supported, with the default being `0` (disabled). If needed, it is recommended to be set to `1`.
+Utilize the [PROXY protocol](https://www.haproxy.org/download/2.2/doc/proxy-protocol.txt) to forward the incoming IP and port of the request. Version `1` or `2` are supported, with the default being `0` (disabled). If needed, it is recommended to be set to `1`.
 
-Currently, versions `1` and `2` are effectively the same, but the data structures are different, and the former can be printed, while the latter is encoded in binary. V2Ray's TCP and WebSocket inbounds all support receiving PROXY protocol.
+Currently, versions `1` and `2` are effectively the same, but the data structures are different, and the former can be printed for human-readable text, while the latter is encoded in binary. V2Ray's TCP and WebSocket inbounds all support receiving the PROXY protocol.
 
 :::tip
-If you are [configuring Nginx to receive PROXY protocol](https://docs.nginx.com/nginx/admin-guide/load-balancer/using-proxy-protocol/#configuring-nginx-to-accept-the-proxy-protocol), in addition to setting `proxy_protocol`, you may also need to set `set_real_ip_from`, otherwise it may not function correctly.
+If you are [configuring Nginx to parse incoming PROXY protocol](https://docs.nginx.com/nginx/admin-guide/load-balancer/using-proxy-protocol/#configuring-nginx-to-accept-the-proxy-protocol), in addition to setting `proxy_protocol`, you may also need to set `set_real_ip_from`, otherwise it may not function.
 :::
 
 **Additional Info**
 
-1. The most accurate `FallbackObject` will be matched. If there are several child elements with the same `alpn` and `path`, the last one will be used.
+1. The most relevant `FallbackObject` will be matched. If there are several child elements with the same `alpn` and `path`, the last one will be used.
 2. The fallback traffic routing forwards TCP (Transport Layer) data directly after decryption, not HTTP (Application Layer) data, and only the first packet's hyperlink path is parsed when necessary.
 3. Domain name traffic routing is not supported. If this is needed, it is recommended to use Nginx or other tools to configure Stream SNI traffic routing.

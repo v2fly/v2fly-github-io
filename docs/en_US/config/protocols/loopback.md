@@ -10,7 +10,7 @@ Loopback is an outbound protocol. It allows any outbound connections to be rerou
 
 ```json
 {
-    "inboundTag": "reentry"
+    "inboundTag": "INBOUND_TAG"
 }
 ```
 

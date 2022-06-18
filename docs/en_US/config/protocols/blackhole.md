@@ -17,7 +17,7 @@ Blackhole is an outbound protocol. It discards all data sent to it. [Routing](..
 
 > `response`: [ResponseObject](#responseobject)
 
-Configure the response data of the black hole. Blackhole will reply with a specified response data after receiving the data to be forwarded, and then close the connection. The data to be forwarded will be discarded. If this item is not specified, Blackhole will close the connection immediately.
+Configures the response data of the black hole. Blackhole will reply with a specified response after receiving the data to be forwarded, and then close the connection. If this item is not specified, Blackhole will close the connection immediately.
 
 ### ResponseObject
 

@@ -32,7 +32,7 @@ Trojan's configuration is divided into two parts, `InboundConfigurationObject` a
 
 > `clients`: \[ [ClientObject](#clientobject) \]
 
-An array, each of which is a [ClientObject](#ClientObject).
+An array, where each element in the array is a [ClientObject](#ClientObject).
 
 > `fallbacks`: \[ [FallbackObject](#fallbackobject) \]
 
@@ -71,9 +71,9 @@ User level, default is `0`. See [Local Policy](../policy.md).
 }
 ```
 
-Since v4.31.0+, V2Ray's Trojan has full VLESS fallbacks support. The configuration is exactly the same, and the VLESS fallbacks upgrade will follow in the future.
+Since v4.31.0, V2Ray's Trojan has full VLESS fallbacks support. The configuration is the same as normal VLESS, and future VLESS updates will also apply to the fallback.
 
-The trigger conditions for fallback are also very similar: the length of the first packet is `< 58`, the 57th byte is not '\r' (because Trojan has no protocol version), or the identity authentication fails.
+The trigger conditions for initializing the VLESS fallback are also very similar: If the length of the first packet is `< 58`, if the 57th byte is not '\r' (as Trojan has no protocol version), or if authentication fails.
 
 See also: [VLESS](vless.md)
 
@@ -95,7 +95,7 @@ See also: [VLESS](vless.md)
 
 > `servers`: \[ [ServerObject](#serverobject) \]
 
-An array, each element is a [ServerObject](#ServerObject).
+An array, where each element is a [ServerObject](#ServerObject).
 
 ### ServerObject
 

@@ -3,7 +3,7 @@
 * Name: `http`
 * Type: Inbound/Outbound
 
-HTTP's configuration is divided into two parts, `InboundConfigurationObject` and `OutboundConfigurationObject`, corresponding to the `settings` element in the inbound and outbound protocol configuration respectively.
+HTTP's configuration is divided into two parts, `InboundConfigurationObject` and `OutboundConfigurationObject`, corresponding to the `settings` element in the inbound and outbound protocol configurations respectively.
 
 ## InboundConfigurationObject
 
@@ -22,7 +22,7 @@ HTTP's configuration is divided into two parts, `InboundConfigurationObject` and
 ```
 
 :::tip
-Note that although inbound HTTP can provide public services, the HTTP protocol is not encrypted and is thus not suitable for transmission over public networks, as it would be highly vulnerable to MITM attacks. A more meaningful use of inbound HTTP is to open the inbound only to the local machine (loopback), Local Area Network, or other internal networks to provide services for other programs.
+Note that although inbound HTTP can provide public services, the HTTP protocol is not encrypted and is thus not suitable for transmission over public networks, as it would be highly vulnerable to MITM attacks. A more meaningful use of inbound HTTP is to open the inbound only to the local machine (loopback), Local Area Network, or other internal networks to provide services for other programs or trusted devices.
 :::
 
 > `timeout`: number
@@ -89,7 +89,7 @@ In Linux, you can set the following environment variables to use a global HTTP p
 (Since v4.21.0)
 
 :::tip
-Note that although outbound HTTP can be used as a configuration for external access, the HTTP protocol is not encrypted and is thus not suitable for usage over public networks. Additionally, because HTTP does not support UDP routing, it will limit available networking functionality for supplementary protocols (DNS queries are unavailable for example). A more meaningful use of outbound HTTP is in special cases, where only an HTTP proxy can be used to access an internal network from an external connection, as a pre-proxy for connections of other protocol connections (see `OutboundObject`'s `ProxySettingsObject`).
+Note that although outbound HTTP can be used as a configuration for external access, the HTTP protocol is not encrypted and is thus not suitable for usage over public networks. Additionally, because HTTP does not support UDP routing, it will limit available networking functionality for supplementary protocols (DNS queries are unavailable for example). A more meaningful use of outbound HTTP is in special cases, where only an HTTP proxy can be used to access an internal network from an external connection, as a pre-proxy for connections using other protocols (see `OutboundObject`'s `ProxySettingsObject`).
 :::
 
 (Since v4.21.1)
@@ -100,7 +100,7 @@ Since v4.20.0, outbound HTTP was added as a pre-proxy for other protocols, albei
 
 > `servers`: array
 
-An array of HTTP proxies to use. If multiple items are present, they are picked round-robin.
+An array of HTTP proxies to use. If multiple items are present, they are picked via round-robin.
 
 > `address`: string
 

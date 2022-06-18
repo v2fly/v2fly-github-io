@@ -15,10 +15,10 @@ Compatibility with original specification:
   * (Since v4.27.0) Unencrypted / Plaintext
 
 ::: warning
-With "none" encryption, the server does NOT verify the password set in "password". Generally, a secure tunnel should be used at the transport layer, such as WebSocket.
+When using "none", the server does NOT verify the password set in the "password" field. For those cases, a secure tunnel should be used at the transport layer, such as WebSocket.
 :::
 
-The Shadowsocks configuration is divided into two parts, `InboundConfigurationObject` and `OutboundConfigurationObject`, corresponding to the `settings` element in the inbound and outbound protocol configuration respectively.
+The Shadowsocks configuration is divided into two parts, `InboundConfigurationObject` and `OutboundConfigurationObject`, corresponding to the `settings` element in the inbound and outbound protocol configurations respectively.
 
 ## InboundConfigurationObject
 

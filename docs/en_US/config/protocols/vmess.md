@@ -5,10 +5,10 @@
 
 [VMess](../../developer/protocols/vmess.md) is an inbound/outbound protocol. It is an encrypted tunnel, usually acting as a bridge between a V2Ray client and a server.
 
-VMess relies on system time to function correctly. Please ensure that system UTC time deviation between the V2Ray client and server are within 90 seconds, independent of timezones. The `ntp` service can be used on Linux systems to automatically synchronize system UTC time.
+VMess relies on system time to function correctly. Please ensure that system UTC time deviation between the V2Ray client and server is within 90 seconds, independent of timezones. The `ntp` service can be used on Linux systems to automatically synchronize system UTC time.
 
 :::tip
-Since v4.28.1, the client AlterID setting is 0 by default, which means VMessAEAD is enabled; The server will adapt accordingly, and supports connections from AEAD-enabled and non-AEAD-enabled clients simultaneously.
+Since v4.28.1, the client AlterID setting is 0 by default, which enables VMessAEAD; The server will switch accordingly, and supports connections from AEAD-enabled and non-AEAD-enabled clients simultaneously.
 
 Since v4.35.0, backwards compatibility of VMess MD5 authentication can be disabled.
 :::
@@ -57,7 +57,7 @@ Remote VMESS server address. Address can be IPv4, IPv6, or a domain name.
 
 > `port`: number
 
-Remote VMESS server address.
+Remote VMESS server port.
 
 > `users`: \[ [UserObject](#userobject) \]
 
@@ -81,7 +81,7 @@ The primary ID of the VMess user. Must be a valid UUID.
 
 > `alterId`: number
 
-In order to further evade detection, a user can generate multiple secondary IDs based on the main ID. Only the amount of additional IDs needs to be specified here. The recommended value is 0, which enables VMessAEAD instead. If not specified, the default value is `0`. The maximum value is `65535`. This value cannot exceed the value specified by the server.
+In order to further evade deanonymization, a user can generate multiple secondary IDs based on the main ID. Only the amount of additional IDs needs to be specified here. The recommended value is 0, which enables VMessAEAD instead. If not specified, the default value is `0`. The maximum value is `65535`. This value cannot exceed the value specified by the server.
 
 :::tip
 The client can force VMessAEAD to be disabled by setting the environment variable `V2RAY_VMESS_AEAD_DISABLED=true` (unrecommended, only for compatibility with servers prior to v4.28.1 **and** only if `alterId=0`)
@@ -104,11 +104,11 @@ Chooses the encryption algorithm to use. the client sends data using the configu
 :::tip
 `auto` is recommended as it will allow the client to automatically switch to new, suitable algorithms for future versions of VMESS.
 
-The `"none"` pseudo-encryption algorithm only calculates and verifies the checksum data of the data packet. As the authentication checksum algorithm does not have hardware support, on some platforms the speed may even be slower than `"aes-128-gcm"` encryption method due to CPU-based hardware acceleration.
+The `"none"` pseudo-algorithm only calculates and verifies the checksum data of the data packet. As the authentication checksum algorithm does not have hardware support, on some platforms the speed may even be slower than `"aes-128-gcm"` due to not having CPU-based hardware acceleration.
 
-The `"zero"` pseudo-encryption algorithm does not encrypt messages nor calculate checksum data, so in theory it may be faster than any other algorithms. Actual speed may be affected by environmental factors.
+The `"zero"` pseudo-algorithm does not encrypt messages nor calculate checksum data, so in theory it may be faster than any other algorithms. Actual speed may vary depending on environmental factors.
 
-It is not recommended to use the `"none"` or `"zero"` pseudo-encryption algorithms without first enabling TLS encryption on top and forcing certificate verification. If you use a content delivery network, or other intermediate services that decrypt the TLS traffic to establish connections (such as Cloudflare), it is highly unrecommended to use the `"none"` or `"zero"` pseudo-encryption algorithms, as your provider will be able to view plaintext traffic.
+It is not recommended to use the `"none"` or `"zero"` pseudo-encryption algorithms without first enabling TLS encryption on top and forcing certificate verification. If you use a content delivery network, or other intermediate services that decrypt the TLS traffic to establish connections (such as Cloudflare), it is highly unrecommended to use the `"none"` or `"zero"` pseudo-algorithms, as your provider will be able to view plaintext traffic.
 
 Regardless of which encryption algorithm is being used, the VMess authentication headers will be protected by its own encryption and authentication protocol.
 :::
@@ -147,11 +147,11 @@ Experimental flags of the VMess protocol. (Functions provided here are unstable 
 
 > `clients`: \[ [ClientObject](#clientobject) \]
 
-An array of credentials that the server recognizes, in the form of [ClientObject](#ClientObject)s. Optional. If dynamic ports are configured, V2Ray will automatically create users.
+An array of credentials that the server recognizes, in the form of [ClientObject](#ClientObject)s. Optional. If dynamic ports are configured, V2Ray will automatically populate users.
 
 > `detour`: [DetourObject](#detourobject)
 
-Indicates the configured outbound to use another target server (see [DetourObject](#DetourObject)).
+Configures VMESS to first route into another inbound instead, allowing routing of the tunnelled traffic (see [DetourObject](#DetourObject)).
 
 > `default`: [DefaultObject](#defaultobject)
 
@@ -185,7 +185,7 @@ User level, default is `0`. See [Local Policy](../policy.md).
 
 > `alterId`: number
 
-In order to further evade detection, a user can generate multiple secondary IDs based on the main ID. Only the amount of additional IDs needs to be specified here. The recommended value is 0, which enables VMessAEAD instead. If not specified, the default value is `0`. The maximum value is `65535`. This value cannot exceed the value specified by the server.
+In order to further evade deanonymization, a user can generate multiple secondary IDs based on the main ID. Only the amount of additional IDs needs to be specified here. The recommended value is 0, which enables VMessAEAD instead. If not specified, the default value is `0`. The maximum value is `65535`. This value cannot exceed the value specified by the server.
 
 > `email`: string
 
@@ -227,13 +227,13 @@ The default `alterId` of the dynamic port. Default value is `0`.
 This section concerns the deprecated MD5 Authentication protocol.
 :::
 
-(Since v4.24) In order to further counter possible detection and blocking, each cached server-side VMess authentication header will include a one-time, write-only "tainted" flag, with the initial state being untainted. When the server detects a replay detection, or if the incoming connection fails due to other reasons, resulting in the verification data being incorrect, the request authentication data corresponding to the connection will be "tainted".
+(Since v4.24) In order to further evade possible detection and blocking, each cached server-side VMess authentication header will include a one-time, write-only "tainted" flag, with the initial state being untainted. When the server detects a replay detection, or if the incoming connection fails due to other reasons, resulting in the verification data being incorrect, the request authentication data corresponding to the connection will be "tainted".
 
 "Tainted" authentication data cannot be used to establish a connection. When an attacker or client tries to use "tainted" authentication data to establish a connection, the server returns an error containing "`invalid user`" "`ErrTainted`" and closes the connection.
 
 If the server is not affected by an active replay attack, this mechanism has no effect on normal client connections. If the server is under a replay attack, the connection may become unstable.
 
-Malicious programs that possess the server UUID and other connection data may use this mechanism to launch a denial of service attack against the server. Servers that are subject to such attacks can disable the server's security protection mechanism against such attacks by modifying the `atomic.CompareAndSwapUint32(pair.taintedFuse, 0, 1)` statement in the `func (v *TimedUserValidator) BurnTaintFuse(userHash []byte)` error function in the `proxy/vmess/validator.go` file to `atomic.CompareAndSwapUint32(pair.taintedFuse, 0, 0)`. Newer clients using the VMessAEAD authentication mechanism are not affected by the VMess MD5 Authentication Tainting Mechanism.
+Malicious programs that possess a valid UUID and other connection data may use this mechanism to launch a denial of service attack against the server. Servers that are subject to such attacks can disable the server's security protection mechanism against such attacks by modifying the `atomic.CompareAndSwapUint32(pair.taintedFuse, 0, 1)` statement in the `func (v *TimedUserValidator) BurnTaintFuse(userHash []byte)` error function in the `proxy/vmess/validator.go` file to `atomic.CompareAndSwapUint32(pair.taintedFuse, 0, 0)`. Newer clients using the VMessAEAD authentication mechanism are not affected by the VMess MD5 Authentication Tainting Mechanism.
 
 ## VMess MD5 Authentication Deprecation Mechanism
 
