@@ -3,7 +3,7 @@
 V2Ray 内建了一个 DNS 组件，其主要用途为：对目标地址（域名）进行 DNS 解析，同时为 IP 路由规则匹配提供判断依据。
 
 :::tip
-由于 DNS 协议的复杂性，V2Ray 只支持最基本的 IP 查询（A 和 AAAA 记录）。如需完整的 DNS 功能，推荐使用 [CoreDNS](https://coredns.io)。
+由于 DNS 协议的复杂性，V2Ray 只支持最基本的 IP 查询（A 和 AAAA 记录），CNAME记录将会重复查询直至返回A/AAAA纪录为止。如需完整的 DNS 功能，推荐使用 [CoreDNS](https://coredns.io)。
 :::
 
 :::warning
