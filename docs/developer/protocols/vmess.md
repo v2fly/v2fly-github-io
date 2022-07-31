@@ -69,7 +69,7 @@ VMess 使用非对称格式，即客户端发出的请求和服务器端的响�
 
 | 0 | 1 | 2 | 3 | 4 | 5 | 6 | 7 |
 |:-:|:-:|:-:|:-:|:-:|:-:|:-:|:-:|
-| X | X | X | X | X | M | R | S |
+| X | X | X | A | P | M | R | S |
 
 其中：
 
@@ -84,13 +84,21 @@ VMess 使用非对称格式，即客户端发出的请求和服务器端的响�
   * M (0x04)：开启元数据混淆（建议开启）；
     * 只有当 S 开启时，这一项才有效；
     * 当其项开启时，客户端和服务器端需要分别构造两个 Shake 实例，分别为 RequestMask = Shake(请求数据 IV), ResponseMask = Shake(响应数据 IV)。
+  * P (0x08): 请求全局填充：
+    * 只有当 M 开启且
+    * v2ray.vmess.padding环境变量已设置或数据部分的加密方式为 AUTO，AES-128-GCM或ChaCha20-Poly1305
+    * 当选项开启时，客户端和服务器会根据上文提到的 Shake 实例生成不超过64的随机数，作为填充附在密文之后，详细内容见数据部分
+  * A (0x10)：启用认证的数据包长度实验
   * X：保留
 * 余量 P：在校验值之前加入 P 字节的随机值；
-* 加密方式：指定数据部分的加密方式，可选的值有：
-  * 0x00：AES-128-CFB；
-  * 0x01：不加密；
-  * 0x02：AES-128-GCM；
-  * 0x03：ChaCha20-Poly1305；
+* 加密方式：指定数据部分的加密方式，代码见[这里](https://github.com/v2fly/v2ray-core/blob/master/common/protocol/headers.pb.go)，需要注意数据包中只有四个选项是有效的 None Legacy AES-128-GCM ChaCha20-Poly1305，Legacy 即 AES-128-CFB，可选的值有：
+  * 0x00：Unknown；
+  * 0x01：Legacy；
+  * 0x02：Auto；
+  * 0x03：AES-128-GCM；
+  * 0x04：ChaCha20-Poly1305；
+  * 0x05：None
+  * 0x06：Zero
 * 指令 Cmd：
   * 0x01：TCP 数据；
   * 0x02：UDP 数据；
@@ -128,6 +136,7 @@ VMess 使用非对称格式，即客户端发出的请求和服务器端的响�
 其中：
 
 * 长度 L：Big Endian 格式的整型，最大值为 2^14；
+  * 当 Opt(P) 开启是，会先计算 p = ((RequestMask.NextByte() << 8) + RequestMask.NextByte()) % 64，作为填充字节的长度；以下 L 字节的数据均会包含 p 字节的填充数据；
   * 当 Opt(M) 开启时，L 的值 = 真实值 xor Mask。Mask = (RequestMask.NextByte() << 8) + RequestMask.NextByte()；
 * 数据包：由指定的加密方式加密过的数据包；
 
