@@ -83,7 +83,7 @@ VMess 使用非对称格式，即客户端发出的请求和服务器端的响�
     * 只有当 S 开启时，这一项才有效；
   * M (0x04)：开启元数据混淆（建议开启）；
     * 只有当 S 开启时，这一项才有效；
-    * 当其项开启时，客户端和服务器端需要分别构造两个 Shake 实例，分别为 RequestMask = Shake(请求数据 IV), ResponseMask = Shake(响应数据 IV)。
+    * 当其项开启时，客户端和服务器端需要分别构造两个 Shake 实例，分别为 RequestMask = Shake(请求数据 IV), ResponseMask = Shake(数据加密 IV)。
   * P (0x08): 请求全局填充：
     * 只有当 M 开启且
     * v2ray.vmess.padding环境变量已设置或数据部分的加密方式为 AUTO，AES-128-GCM或ChaCha20-Poly1305
