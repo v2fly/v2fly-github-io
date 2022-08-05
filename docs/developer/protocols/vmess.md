@@ -86,19 +86,16 @@ VMess 使用非对称格式，即客户端发出的请求和服务器端的响�
     * 当其项开启时，客户端和服务器端需要分别构造两个 Shake 实例，分别为 RequestMask = Shake(请求加密 IV), ResponseMask = Shake(响应加密 IV)。
   * P (0x08): 请求全局填充；
     * 只有当 M 开启时，这一项才有效；
-    * 数据部分的加密方式只能是 Auto、AES-128-GCM 或 ChaCha20-Poly1305；
+    * 数据部分的加密方式只能是 AES-128-GCM 或 ChaCha20-Poly1305；
     * 当其项开启时，客户端和服务器端会根据上文提到的 Shake 实例生成随机长度的填充字节，并附在密文之后；
   * A (0x10)：启用认证的数据包长度实验；
   * X：保留；
 * 余量 P：在校验值之前加入 P 字节的随机值；
 * 加密方式：指定数据部分的加密方式：
-  * 0x00：Unknown；
   * 0x01：Legacy (AES-128-CFB)；
-  * 0x02：Auto；
   * 0x03：AES-128-GCM；
   * 0x04：ChaCha20-Poly1305；
   * 0x05：None；
-  * 0x06：Zero；
 * 指令 Cmd：
   * 0x01：TCP 数据；
   * 0x02：UDP 数据；
