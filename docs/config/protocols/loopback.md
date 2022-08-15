@@ -6,7 +6,7 @@
 
 Loopback 是一个出站协议，可使出站连接被重新路由。
 
-## OutboundConfigurationObject
+## inboundConfigurationObject
 
 ```json
 {
