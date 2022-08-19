@@ -1,7 +1,7 @@
 # Configuration File Format (Draft)
 
 :::tip
-The document for V4 version of the config can be found [here](/en_US/config/overview).
+The document for V4 version of the config can be found [here](/en_US/config/overview.md).
 :::
 
 ## Overview
