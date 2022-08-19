@@ -50,7 +50,7 @@ module.exports = {
                 contributorsLabel: '贡献者',
                 nav: [
                     {text: '快速开始', link: '/guide/start',},
-                    {text: '配置文档', link: '/config/overview',},
+                    {text: '配置文档', link: '/v5/config/overview',},
                     {text: '工具列表', link: '/awesome/tools'},
                     {text: '开发手册', link: '/developer/intro/compile',},
                     {text: '新白话文指南', link: 'https://guide.v2fly.org/'},
@@ -165,7 +165,7 @@ module.exports = {
                 editLinkText: 'Edit this page on GitHub',
                 lastUpdated: 'Last Updated',
                 nav: [
-                    {text: 'Quick Start', link: '/en_US/guide/start',},
+                    {text: 'Quick Start', link: '/en_US/v5/guide/start',},
                     {text: 'Config Reference', link: '/en_US/config/overview',},
                     {text: 'Tools', link: '/en_US/awesome/tools'},
                     {text: 'Developer Guide', link: '/en_US/developer/intro/compile',},
