@@ -16,7 +16,7 @@ inbound.dokodemo
 
 将流量转发到目标地址的指定端口，范围 \[1, 65535\]，数值类型。必填参数。
 
-> `network`: "tcp" | "udp" | "tcp,udp"
+> `networks`: "tcp" | "udp" | "tcp,udp"
 
 可接收的网络协议类型。比如当指定为 `"tcp"` 时，任意门仅会接收 TCP 流量。默认值为 `"tcp"`。
 

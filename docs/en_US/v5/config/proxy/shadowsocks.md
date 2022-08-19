@@ -17,7 +17,7 @@ A recognized password for this inbound.
 Shadowsocks does not mandate the length of the password, but it would be easy to crack a short password,
 thus a password of 16 characters or more is recommended.
 
-> `network`: "tcp" | "udp" | "tcp,udp"
+> `networks`: "tcp" | "udp" | "tcp,udp"
 
 Enabled network type. 
 For example, when `"tcp"` is specified, this inbound will only accept TCP traffic.

@@ -18,7 +18,7 @@ When `followRedirect` (see below) is `true`, `address` can be empty.
 
 Forward traffic to the specified port of the destination address, range \[1, 65535\], numeric type. Required parameters.
 
-> `network`: string
+> `networks`: string
 
 The type of network protocol that can be received. For example, when it is specified as `"tcp"`, any gate will only receive TCP traffic. The default value is `"tcp"`.
 
