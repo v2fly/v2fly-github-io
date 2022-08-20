@@ -1,12 +1,12 @@
 # Transport
 
-The underlying transport mode (transport) is the way the current V2Ray node is connected to other nodes. The underlying transmission mode provides a stable data transmission channel. Generally speaking, a symmetrical transmission mode is required at both ends of a network connection. For example, if one end uses WebSocket, the other end must also use WebSocket, otherwise the connection cannot be established.
+The transport layer is the current V2Ray node and the way to dock with other nodes. The transport layer provides a stable data transmission channel. Usually, the two ends of a network connection need to have a symmetrical transport mode. For example, if one end uses WebSocket, then the other end must also use WebSocket, otherwise the connection cannot be established.
 
-The underlying transport (transport) configuration is divided into two parts, one is global settings ([TransportObject](#transportobject)), and the other is sub-protocol configuration ([StreamSettingsObject](#streamsettingsobject)). Sub-protocol configuration can specify how each individual inbound and outbound protocol is transmitted. Generally speaking, the outbound and inbound protocols corresponding to the client and server need to use the same transmission method. When the sub-protocol transmission configuration specifies a transmission method, but does not fill in its settings, this transmission method will use the settings in the global configuration.
+The transport layer configuration is divided into two parts, one is the global setting ([TransportObject](#transportobject)), and the other is the protocol-specific configuration ([StreamSettingsObject](#streamsettingsobject)). The protocol-specific configuration can specify how each separate inbound and outbound protocol is transported. Usually, the client and server corresponding to the outbound and inbound protocols need to use the same transport mode. When the protocol-specific transport configuration specifies a transport mode, but does not fill in its settings, this transport mode will use the settings in the global configuration.
 
 ## TransportObject
 
-`TransportObject` corresponds to the `transport` item of the configuration file.
+`TransportObject` corresponds to the `transport` item in the configuration file.
 
 ```json
 {
@@ -15,37 +15,42 @@ The underlying transport (transport) configuration is divided into two parts, on
     "wsSettings": {},
     "httpSettings": {},
     "quicSettings": {},
-    "dsSettings": {}
+    "dsSettings": {},
+    "grpcSettings": {}
 }
 ```
 
 > `tcpSettings`: [TcpObject](transport/tcp.md)
 
-Configuration for TCP connection.
+Configuration for TCP connections.
 
 > `kcpSettings`: [KcpObject](transport/mkcp.md)
 
-Configuration for mKCP connection.
+Configuration for mKCP connections.
 
 > `wsSettings`: [WebSocketObject](transport/websocket.md)
 
-Configuration for WebSocket connection.
+Configuration for WebSocket connections.
 
 > `httpSettings`: [HttpObject](transport/h2.md)
 
-Configuration for HTTP/2 connection.
+Configuration for HTTP/2 connections.
 
 > `quicSettings`: [QuicObject](transport/quic.md)
 
-Configuration for QUIC connection.
+Configuration for QUIC connections.
 
 > `dsSettings`: [DomainSocketObject](transport/domainsocket.md)
 
-Configuration for Domain Socket connection.
+Configuration for Domain Socket connections.
+
+> `grpcSettings`: [grpcObject](transport/grpc.md)
+
+Configuration for gRPC connections. (v4.36.0+)
 
 ## StreamSettingsObject
 
-`StreamSettingsObject` corresponds to the `streamSettings` item in the outbound inbound protocol. Each inbound and outbound connection can be configured with different transmission configurations, and you can set `streamSettings` to configure some transmissions.
+`StreamSettingsObject` corresponds to the `streamSettings` item in the inbound and outbound protocols. Each inbound and outbound connection can have different transport configurations, and can set `streamSettings` to do some transport configuration.
 
 ```json
 {
@@ -58,88 +63,111 @@ Configuration for Domain Socket connection.
     "httpSettings": {},
     "quicSettings": {},
     "dsSettings": {},
+    "grpcSettings": {},
     "sockopt": {
         "mark": 0,
         "tcpFastOpen": false,
-        "tproxy": "off"
+        "tcpFastOpenQueueLength": 4096,
+        "tproxy": "off",
+        "tcpKeepAliveInterval": 0
     }
 }
 ```
 
-> `network`: "tcp" | "kcp" | "ws" | "http" | "domainsocket" | "quic"
+> `network`: "tcp" | "kcp" | "ws" | "http" | "domainsocket" | "quic" | "grpc"
 
 The network type used by the data stream, the default value is `"tcp"`
 
 > `security`: "none" | "tls"
 
-Whether to enable transport layer encryption, the supported options are `"none"` means no encryption (default value), and `"tls"` means use [TLS](https://en.wikipedia.org/wiki/Transport_Layer_Security).
+Whether to enable transport layer encryption, supported options are `"none"` (default value), `"tls"` indicates using [TLS](https://en.wikipedia.org/wiki/Transport_Layer_Security).
 
 > `tlsSettings`: [TLSObject](#tlsobject)
 
-TLS configuration. TLS is provided by Golang, supports TLS 1.3, does not support DTLS.
+TLS configuration. TLS is provided by Golang and supports TLS 1.3, but does not support DTLS.
 
 > `tcpSettings`: [TcpObject](transport/tcp.md)
 
-The TCP configuration of the current connection is only valid when the connection uses TCP. The configuration content is the same as the global configuration above.
+The TCP configuration of the current connection, only when this connection uses TCP. The configuration is the same as the global configuration above.
 
 > `kcpSettings`: [KcpObject](transport/mkcp.md)
 
-The mKCP configuration of the current connection is valid only when the connection uses mKCP. The configuration content is the same as the global configuration above.
+The mKCP configuration of the current connection, only when this connection uses mKCP. The configuration is the same as the global configuration above.
 
 > `wsSettings`: [WebSocketObject](transport/websocket.md)
 
-The WebSocket configuration of the current connection is valid only when this connection uses WebSocket. The configuration content is the same as the global configuration above.
+The WebSocket configuration of the current connection, only when this connection uses WebSocket. The configuration is the same as the global configuration above.
 
 > `httpSettings`: [HttpObject](transport/h2.md)
 
-The HTTP/2 configuration of the current connection is only valid when the connection uses HTTP/2. The configuration content is the same as the global configuration above.
+The HTTP/2 configuration of the current connection, only when this connection uses HTTP/2. The configuration is the same as the global configuration above.
 
 > `quicSettings`: [QUICObject](transport/quic.md)
 
-The QUIC configuration of the current connection is only valid when the connection uses QUIC. The configuration content is the same as the global configuration above.
+The QUIC configuration of the current connection, only when this connection uses QUIC. The configuration is the same as the global configuration above.
 
 > `dsSettings`: [DomainSocketObject](transport/domainsocket.md)
 
-The domain socket configuration of the current connection is valid only when this connection uses Domain socket. The configuration content is the same as the global configuration above.
+The Domain socket configuration of the current connection, only when this connection uses Domain socket. The configuration is the same as the global configuration above.
+
+> `grpcSettings`: [grpcObject](transport/grpc.md)
+
+The gRPC configuration of the current connection, only when this connection uses gRPC. The configuration is the same as the global configuration above.
 
 > `sockopt`: [SockoptObject](#sockoptobject)
 
-Used as a transparent proxy configuration.
+Configuration used for transparent proxy.
+
 
 ## TLSObject
 
 ```json
 {
     "serverName": "v2ray.com",
-    "allowInsecure": false,
     "alpn": [
         "h2",
         "http/1.1"
     ],
+    "allowInsecure": false,
+    "disableSystemRoot": false,
     "certificates": [],
-    "disableSystemRoot": false
+    "verifyClientCertificate": false,
+    "pinnedPeerCertificateChainSha256": ""
 }
 ```
 
 > `serverName`: string
 
-Specify the domain name of the server certificate, which is useful when the connection is established by IP. When the target connection is specified by a domain name, such as receiving a domain name when Socks is inbound, or a domain name detected by the sniffing function, this domain name will be automatically used for `serverName` without manual configuration.
+Specifies the domain name of the server certificate. It is useful when the target connection is established by IP. When the target connection is specified by domain name, for example, when the domain name is received during Socks inbound, or when the domain name is detected by Sniffing function, this domain name will be automatically used for `serverName`, without manual configuration.
 
 > `alpn`: \[ string \]
 
-An array of strings that specifies the ALPN value specified during the TLS handshake. The default value is `["h2", "http/1.1"]`.
+An array of strings that specifies the ALPN value during the TLS handshake. The default value is `["h2", "http/1.1"]`.
 
 > `allowInsecure`: true | false
 
-Whether to allow insecure connections (only for clients). The default value is `false`. When the value is `true`, V2Ray will not check the validity of the TLS certificate provided by the remote host.
+Whether to allow insecure connections (for clients only). The default value is `false`. When the value is `true`, V2Ray will not check the validity of the TLS certificate provided by the remote host.
 
 > `disableSystemRoot`: true | false
 
-(V2Ray 4.18+) Whether to disable the CA certificate that comes with the operating system. The default value is `false`. When the value is `true`, V2Ray will only use the certificate specified in `certificates` for TLS handshake. When the value is `false`, V2Ray will only use the CA certificate that comes with the operating system for TLS handshake.
+（V2Ray 4.18+）Whether to disable the CA certificate that comes with the operating system. The default value is `false`. When the value is `true`, V2Ray will only use the certificates specified in `certificates` for TLS handshake. When the value is `false`, V2Ray will only use the CA certificate that comes with the operating system for TLS handshake.
 
 > `certificates`: \[ [CertificateObject](#certificateobject) \]
 
-A list of certificates, where each item represents a certificate (fullchain is recommended).
+A list of certificates, each of which represents a certificate (fullchain recommended).
+
+> `pinnedPeerCertificateChainSha256`: \[ string \]
+
+The SHA256 hash of the remote server's certificate chain, represented in standard encoding format. After setting, the hash of the remote server's certificate chain must be one of the values in the list. (v4.38.0+)
+<!--
+This value can be calculated by the certChainHash tool of V2Ray's v2ctl tool according to the server's certificate chain file (generally called fullchain.pem according to management). If there is no intermediate certificate (such as a self-signed certificate), the hash of the certificate chain is the same as the hash of the certificate itself.-->
+
+When the connection fails due to this policy, the certificate chain hash will be displayed. It is not recommended to use this method to obtain the certificate chain hash value, because in this case you do not have the opportunity to verify that the certificate provided by the server at this time is a real certificate.
+
+> `verifyClientCertificate`: true | false
+
+Perform client certificate authentication when connecting. After this option is turned on, the client will need to configure the client certificate to connect to the server side. (4.42.0+)
+The client certificate must be issued by the client certificate issuing authority configured by the program. The CA certificate that comes with the system and the CA certificate that is used to authenticate the server side will not be trusted automatically.
 
 ### CertificateObject
 
@@ -199,25 +227,26 @@ A list of certificates, where each item represents a certificate (fullchain is r
 }
 ```
 
-> `usage`: "encipherment" | "verify" | "issue"
+> `usage`: "encipherment" | "verify" | "issue" | "verifyclient"
 
 The purpose of the certificate, the default value is `"encipherment"`.
 
 * `"encipherment"`: The certificate is used for TLS authentication and encryption.
-* `"verify"`: The certificate is used to verify the remote TLS certificate. When using this option, the current certificate must be a CA certificate.
-* `"issue"`: The certificate is used to issue other certificates. When using this option, the current certificate must be a CA certificate.
+* `"verify"`: The certificate is used to verify the remote TLS certificate. When this option is used, the current certificate must be a CA certificate.
+* `"issue"`: The certificate is used to issue other certificates. When this option is used, the current certificate must be a CA certificate.
+* `"verifyclient"`: The CA certificate used to verify the client's identity. When this option is used, the current certificate must be a CA certificate. (4.42.0+)
 
 :::tip
-On the Windows platform, a self-signed CA certificate can be installed in the system to verify the remote TLS certificate.
+On Windows platforms, you can install a self-signed CA certificate into the system to verify the remote TLS certificate.
 :::
 
 :::tip
-When there is a new client request, assuming that the specified `serverName` is `"v2ray.com"`, V2Ray will first look for a certificate that can be used for `"v2ray.com"` from the certificate list. If it is not found, then Use any `usage` to issue a certificate for `"v2ray.com"` with a certificate for `"issue"`, valid for one hour. And add the new certificate to the certificate list for subsequent use.
+When there is a new client request, assuming that the specified `serverName` is `"v2ray.com"`, V2Ray will first look for a certificate that can be used for `"v2ray.com"` in the certificate list, and if it is not found, any certificate with `usage` as `"issue"` will be used to issue a certificate for `"v2ray.com"` with a validity period of one hour. The new certificate will be added to the certificate list for future use.
 :::
 
 > `certificateFile`: string
 
-The path of the certificate file, if it is generated using OpenSSL, the extension is .crt.
+The path of the certificate file, such as generated by OpenSSL, with a .crt suffix.
 
 :::tip
 Use `v2ctl cert -ca` to generate a self-signed CA certificate.
@@ -225,20 +254,20 @@ Use `v2ctl cert -ca` to generate a self-signed CA certificate.
 
 > `certificate`: \[ string \]
 
-A string array representing the content of the certificate, the format is as shown in the sample. Choose one of `certificate` and `certificateFile`.
+An array of strings that represent the contents of the certificate, in the format shown in the example. `certificate` and `certificateFile` are mutually exclusive.
 
 > `keyFile`: string
 
-The path of the key file, if generated using OpenSSL, the suffix is .key. Currently, key files that require a password are not supported.
+The path of the key file, such as generated by OpenSSL, with a .key suffix. Currently, key files that require a password are not supported.
 
 > `key`: \[ string \]
 
-An array of strings, representing the key content, the format is as shown in the example. Choose one of `key` and `keyFile`.
+An array of strings that represent the contents of the key, in the format shown in the example. `key` and `keyFile` are mutually exclusive.
 
-When `certificateFile` and `certificate` are specified at the same time, V2Ray preferentially uses `certificateFile`. The same goes for `keyFile` and `key`.
+When both `certificateFile` and `certificate` are specified, V2Ray uses `certificateFile` first. `keyFile` and `key` are the same.
 
 :::tip
-When `usage` is `"verify"`, both `keyFile` and `key` can be empty.
+When `usage` is `"verify"`, `keyFile` and `key` can be empty.
 :::
 
 ## SockoptObject
@@ -247,37 +276,49 @@ When `usage` is `"verify"`, both `keyFile` and `key` can be empty.
 {
     "mark": 0,
     "tcpFastOpen": false,
-    "tproxy": "off"
+    "tcpFastOpenQueueLength": 4096,
+    "tproxy": "off",
+    "tcpKeepAliveInterval": 0
 }
 ```
 
 > `mark`: number
 
-An integer. When its value is non-zero, mark SO_MARK on the outbound connection.
+An integer. When its value is non-zero, it marks SO_MARK on the outgoing connection.
 
-* Only applicable to Linux systems.
-* Requires CAP_NET_ADMIN permission.
+* Only available on Linux systems.
+* Requires CAP_NET_ADMIN permissions.
 
 > `tcpFastOpen`: true | false
 
-Whether to enable [TCP Fast Open](https://zh.wikipedia.org/wiki/TCP%E5%BF%AB%E9%80%9F%E6%89%93%E5%BC%80). When its value is `true`, TFO is forcibly turned on; when its value is `false`, TFO is forcibly turned off; when this item does not exist, the system default setting is used. Can be used for inbound and outbound connections.
+Whether to enable [TCP Fast Open](https://zh.wikipedia.org/wiki/TCP%E5%BF%AB%E9%80%9F%E6%89%93%E5%BC%80). When its value is `true`, TFO is forced to be turned on; when its value is `false`, TFO is forced to be turned off; when this option does not exist, the system default is used. It can be used for inbound and outbound connections.
 
-* Only available in the following versions (or later versions) of the operating system:
+* Only available on the following (or later) versions of the operating system:
   * Windows 10 (1604)
   * Mac OS 10.11 / iOS 9
-  * Linux 3.16: The system is turned on by default and no configuration is required.
+  * Linux 3.16: The system is enabled by default and does not need to be configured.
   * FreeBSD 10.3
+
+> `tcpFastOpenQueueLength`: number
+
+The [TCP Fast Open](https://zh.wikipedia.org/wiki/TCP%E5%BF%AB%E9%80%9F%E6%89%93%E5%BC%80) queue length of the inbound connection, the default value is `4096`, only available on Linux (v4.43.0+).
 
 > `tproxy`: "redirect" | "tproxy" | "off"
 
-Whether to enable transparent proxy (only for Linux).
+Whether to enable transparent proxy (only available on Linux).
 
-* `"redirect"`: Transparent proxy using Redirect mode. Only TCP/IPv4 and UDP connections are supported.
-* `"tproxy"`: Use TProxy mode transparent proxy. Supports TCP and UDP connections.
-* `"off"`: Turn off the transparent proxy.
+* `"redirect"`: Use the transparent proxy in Redirect mode. Supports TCP and UDP connections.
+* `"tproxy"`: Use the transparent proxy in TProxy mode. Supports TCP and UDP connections.
+* `"off"`: Disable transparent proxy.
 
-Transparent proxy requires Root or CAP\_NET\_ADMIN authority.
+Transparent proxy requires Root or CAP_NET_ADMIN permissions.
 
 :::tip
-When `followRedirect` is specified in [Dokodemo-door](protocols/dokodemo.md) and `sockopt.tproxy` is empty, the value of `sockopt.tproxy` will be set to `"redirect"`.
+When [Dokodemo-door](protocols/dokodemo.md) specifies `followRedirect`, and `sockopt.tproxy` is empty, the value of `sockopt.tproxy` is set to `"redirect"`.
 :::
+
+> `tcpKeepAliveInterval`: number
+
+The interval at which TCP keeps active data packets alive, in seconds (only available on Linux). (v4.39.0+)
+
+0 represents the default value.

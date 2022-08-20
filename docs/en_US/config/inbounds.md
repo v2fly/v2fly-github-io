@@ -1,4 +1,3 @@
-
 # Inbounds
 
 Inbound connections are used to receive data from clients (such as browsers or downstream proxy servers). The available protocols can be found in the protocols list.

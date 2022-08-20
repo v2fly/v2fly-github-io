@@ -1,10 +1,10 @@
-# Configuration File Format
+# Configuration Format
 
 ## Overview
 
-Configuration of V2Ray is a file with the following format, both for server and client, but the settings are different.
+Configuration of V2Ray is loaded from a file with the following JSON format, both for the server and client, though their configuration options are different.
 
-If you are a beginner of V2Ray, please start from understanding Inbounds and Outbounds. Filling in the necessary settings only and the application should work. Then learn about other components step-by-step. You will find that V2Ray is easy to use.
+If you are new to V2Ray, start with learning about Inbounds and Outbounds. Fill in the necessary options only and the network should work as expected. Other components can be studied and tested in a modular manner. You will find that V2Ray is easy to use.
 
 ```json
 {
@@ -23,7 +23,7 @@ If you are a beginner of V2Ray, please start from understanding Inbounds and Out
 
 > `log`: [LogObject](#logobject)
 
-Log configuration, instructing V2Ray how to print logs.
+Logging configuration. Each element is a [LogObject](#LogObject)
 
 > `api`: [ApiObject](api.md)
 
