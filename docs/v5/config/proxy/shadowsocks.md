@@ -14,7 +14,7 @@ inbound.shadowsocks
 
 服务器认可的密码。Shadowsocks 协议不限制密码长度，但短密码会更可能被破解，建议使用 16 字符或更长的密码。
 
-> `network`: "tcp" | "udp" | "tcp,udp"
+> `networks`: "tcp" | "udp" | "tcp,udp"
 
 可接收的网络连接类型，比如当指定为 `"tcp"` 时，Shadowsocks 入站仅会接收 TCP 流量。默认值为 `"tcp"`。
 
