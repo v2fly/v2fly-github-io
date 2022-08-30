@@ -4,14 +4,7 @@
 
 与其它的网络代理工具一样，你需要一台配置了 V2Ray 的服务器，然后在自己的设备上安装并配置 V2Ray 客户端，然后即可流畅地访问互联网。
 
-```mermaid
-graph LR;
-A(PC) -.- B(防火墙);
-B -.-> C(墙外网站);
-A --> D(V2Ray/VPS);
-D --> C;
-A --> E(墙内网站);
-```
+[![](https://mermaid.ink/img/pako:eNqrVkrOT0lVslJKL0osyFDwCbKOyXPUCHDWVNDV01Vw0ng5Y9PzxtVPF83UBEo4gQTtFJw1gPynS6Y93zvx-WqwhKOCLlDcRSPMKCixUj8sIBgk6AIWdIZLu4K1tbXCtCnpKOWmFuUmZqYAra-OyVNQiFEqyUjNTY1RsgIyUxKLsmOUYvJqgepKC1ISS1JdUzJL8ouUrNISc4pTdZQSS0vygyvzkpWsSopKU2GKXDITgV7JhaqqBQCd9lDP)](https://mermaid.live/edit#pako:eNqrVkrOT0lVslJKL0osyFDwCbKOyXPUCHDWVNDV01Vw0ng5Y9PzxtVPF83UBEo4gQTtFJw1gPynS6Y93zvx-WqwhKOCLlDcRSPMKCixUj8sIBgk6AIWdIZLu4K1tbXCtCnpKOWmFuUmZqYAra-OyVNQiFEqyUjNTY1RsgIyUxKLsmOUYvJqgepKC1ISS1JdUzJL8ouUrNISc4pTdZQSS0vygyvzkpWsSopKU2GKXDITgV7JhaqqBQCd9lDP)
 
 一个 V2Ray 服务器可同时支持多台设备使用不同的代理协议访问。同时，经过合理的配置，V2Ray 可以识别并区分需要代理以及不需要代理的流量，直连的流量不需要绕路。
 
@@ -19,31 +12,13 @@ A --> E(墙内网站);
 
 如果你不想在每一台设备上都配置路由，你也可以设置一台中转服务器，用于接收客户端发来的所有流量，然后在服务器中进行转发判断。
 
-```mermaid
-graph LR;
-A(PC) -.-> B(防火墙);
-B -.-> C(墙外网站);
-A --> D(墙内VPS);
-D --> E(墙外VPS);
-E --> C;
-D --> F(墙内网站);
-```
+[![](https://mermaid.ink/img/pako:eNqrVkrOT0lVslJKL0osyFDwCbKOyXPUCHDWVNDV07VTcNJ4OWPT88bVTxfN1ATKOEFEnTWA_KdLpj3fO_H5arCEo4IuUNwFLN7WGhYQDBJ0AQu6QhVDBV3Bgs5waTeoHphZSjpKualFuYmZKUBHVcfkKSjEKJVkpOamxihZAZkpiUXZMUoxebVAdaUFKYklqa4pmSX5RUpWaYk5xak6SomlJfnBlXnJSlYlRaWpMEUumYlAD-ZCVdUCAHRbWy4)](https://mermaid.live/edit#pako:eNqrVkrOT0lVslJKL0osyFDwCbKOyXPUCHDWVNDV07VTcNJ4OWPT88bVTxfN1ATKOEFEnTWA_KdLpj3fO_H5arCEo4IuUNwFLN7WGhYQDBJ0AQu6QhVDBV3Bgs5waTeoHphZSjpKualFuYmZKUBHVcfkKSjEKJVkpOamxihZAZkpiUXZMUoxebVAdaUFKYklqa4pmSX5RUpWaYk5xak6SomlJfnBlXnJSlYlRaWpMEUumYlAD-ZCVdUCAHRbWy4)
 
 ## 工作原理
 
 在配置 V2Ray 之前，不妨先来看一下 V2Ray 的工作原理，以下是单个 V2Ray 进程的内部结构示意图。多个 V2Ray 之间相互独立，互不影响。
 
-```mermaid
-graph LR;
-A1(inbound) --> D(Dispatcher / Router / DNS);
-A2(inbound) --> D;
-A3(inbound) --> D;
-A4(inbound) --> D;
-D --> B1(outbound);
-D --> B2(outbound);
-D --> B3(outbound);
-D --> B4(outbound);
-```
+[![](https://mermaid.ink/img/pako:eNptkD0LwjAQQP9KuKmFFunHFEFQ4iYO7ZolNtEGTVLSZJDS_25aFUW7Pd49Du4GaAwXgOFiWdeiQ7WmeptFUp-M1zxGabpBJCKy75hrWmHRClXGuxnIsY6nPP_JJ1csuPLfkZl2WRR2PkcfmS_JYkmWXxISUMIqJnk4aqAaIQquFUpQwAE5s1cKVI-h8x1nTuy5dMYCPrNbLxJg3pn6rhvAznrxjohk4UHqVY0PgRNhlQ)](https://mermaid.live/edit#pako:eNptkD0LwjAQQP9KuKmFFunHFEFQ4iYO7ZolNtEGTVLSZJDS_25aFUW7Pd49Du4GaAwXgOFiWdeiQ7WmeptFUp-M1zxGabpBJCKy75hrWmHRClXGuxnIsY6nPP_JJ1csuPLfkZl2WRR2PkcfmS_JYkmWXxISUMIqJnk4aqAaIQquFUpQwAE5s1cKVI-h8x1nTuy5dMYCPrNbLxJg3pn6rhvAznrxjohk4UHqVY0PgRNhlQ)
 
 * 需要配置至少一个入站协议（Inbound）和一个出站协议（Outbound）才可以正常工作。
   * 入站协议负责与客户端（如浏览器）通信：
