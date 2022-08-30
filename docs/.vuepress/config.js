@@ -1,20 +1,20 @@
 module.exports = {
     head: [
-        ["link", {rel: "apple-touch-icon", size: "180x180", href: "/apple-touch-icon.png"}],
-        ["link", {rel: "icon", type: "image/png", size: "32x32", href: "/favicon-32x32.png"}],
-        ["link", {rel: "icon", type: "image/png", size: "16x16", href: "/favicon-16x16.png"}],
-        ["link", {rel: "manifest", href: "/site.webmanifest"}],
-        ["link", {rel: "mask-icon", color: "#5bbad5", href: "/safari-pinned-tab.svg"}],
-        ["meta", {name: "viewport", content: "width=device-width,initial-scale=1.0"}],
-        ["meta", {name: "apple-mobile-web-app-title", content: "Project V"}],
-        ["meta", {name: "application-name", content: "Project V"}],
-        ["meta", {name: "msapplication-TileColor", content: "#da532c"}],
-        ["meta", {name: "msapplication-TileColor", content: "#da532c"}]
+        ["link", { rel: "apple-touch-icon", size: "180x180", href: "/apple-touch-icon.png" }],
+        ["link", { rel: "icon", type: "image/png", size: "32x32", href: "/favicon-32x32.png" }],
+        ["link", { rel: "icon", type: "image/png", size: "16x16", href: "/favicon-16x16.png" }],
+        ["link", { rel: "manifest", href: "/site.webmanifest" }],
+        ["link", { rel: "mask-icon", color: "#5bbad5", href: "/safari-pinned-tab.svg" }],
+        ["meta", { name: "viewport", content: "width=device-width,initial-scale=1.0" }],
+        ["meta", { name: "apple-mobile-web-app-title", content: "Project V" }],
+        ["meta", { name: "application-name", content: "Project V" }],
+        ["meta", { name: "msapplication-TileColor", content: "#da532c" }],
+        ["meta", { name: "msapplication-TileColor", content: "#da532c" }]
     ],
     plugins: [
         'vuepress-plugin-mermaidjs',
         '@vuepress/back-to-top',
-         ['@kidonng/vuepress-plugin-contributors', { api: 'https://api.v2fly.org/apis/github-file-contributors' }]
+        ['@kidonng/vuepress-plugin-contributors', { api: 'https://api.v2fly.org/apis/github-file-contributors' }]
     ],
     locales: {
         '/': {
@@ -49,11 +49,11 @@ module.exports = {
                 lastUpdated: '上次更新',
                 contributorsLabel: '贡献者',
                 nav: [
-                    {text: '快速开始', link: '/guide/start',},
-                    {text: '配置文档', link: '/v5/config/overview',},
-                    {text: '工具列表', link: '/awesome/tools'},
-                    {text: '开发手册', link: '/developer/intro/compile',},
-                    {text: '新白话文指南', link: 'https://guide.v2fly.org/'},
+                    { text: '快速开始', link: '/guide/start', },
+                    { text: '配置文档', link: '/v5/config/overview', },
+                    { text: '工具列表', link: '/awesome/tools' },
+                    { text: '开发手册', link: '/developer/intro/compile', },
+                    { text: '新白话文指南', link: 'https://guide.v2fly.org/' },
                 ],
                 sidebar: {
                     '/guide/': [
@@ -155,6 +155,61 @@ module.exports = {
                             ]
                         }
                     ],
+                    "/v5/config/": [
+                        {
+                            title: '配置参考',
+                            collapsable: false,
+                            children: [
+                                'overview',
+                                'inbound',
+                                'outbound',
+                                'proxy',
+                                'stream',
+                                'service',
+                                'dns',
+                                'router',
+                                'geo',
+                            ],
+                        },
+                        {
+                            title: '代理协议',
+                            collapsable: false,
+                            children: [
+                                'proxy/blackhole',
+                                'proxy/dns',
+                                'proxy/dokodemo',
+                                'proxy/freedom',
+                                'proxy/http',
+                                'proxy/socks',
+                                'proxy/vmess',
+                                'proxy/shadowsocks',
+                                'proxy/trojan',
+                                'proxy/vless',
+                                'proxy/loopback',
+                            ],
+                        },
+                        {
+                            title: '传输流协议',
+                            collapsable: false,
+                            children: [
+                                'stream/tcp',
+                                'stream/websocket',
+                                'stream/kcp',
+                                'stream/grpc',
+                            ],
+                        },
+                        {
+                            title: '服务',
+                            collapsable: false,
+                            children: [
+                                'service/stats',
+                                'service/policy',
+                                'service/browser',
+                                'service/burstObservatory',
+                                'service/backgroundObservatory',
+                            ],
+                        }
+                    ],
                     '/': 'auto',
                 },
             },
@@ -165,11 +220,11 @@ module.exports = {
                 editLinkText: 'Edit this page on GitHub',
                 lastUpdated: 'Last Updated',
                 nav: [
-                    {text: 'Quick Start', link: '/en_US/guide/start',},
-                    {text: 'Config Reference', link: '/en_US/v5/config/overview',},
-                    {text: 'Tools', link: '/en_US/awesome/tools'},
-                    {text: 'Developer Guide', link: '/en_US/developer/intro/compile',},
-                    {text: 'New concise guide', link: 'https://guide.v2fly.org/'},
+                    { text: 'Quick Start', link: '/en_US/guide/start', },
+                    { text: 'Config Reference', link: '/en_US/v5/config/overview', },
+                    { text: 'Tools', link: '/en_US/awesome/tools' },
+                    { text: 'Developer Guide', link: '/en_US/developer/intro/compile', },
+                    { text: 'New concise guide', link: 'https://guide.v2fly.org/' },
                 ],
                 sidebar: {
                     '/en_US/guide/': [
