@@ -21,10 +21,10 @@ button {
   transition: background-color .1s ease;
 }
 button:hover {
-  filter: brightness(1.1);
+  background-color: var(--c-brand-light);
 }
 button:active {
-  filter: brightness(0.9);
+  background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5));
 }
 </style>
 <script>
