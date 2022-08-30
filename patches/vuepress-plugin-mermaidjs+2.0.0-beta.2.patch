@@ -77,11 +77,20 @@ index cf11434..87e7718 100644
      render: (tokens, idx, _options, env, self) => {
        const token = tokens[idx]
 diff --git a/node_modules/vuepress-plugin-mermaidjs/src/mermaid.js b/node_modules/vuepress-plugin-mermaidjs/src/mermaid.js
-index c2a5a5a..75cb473 100644
+index c2a5a5a..02d8dbd 100644
 --- a/node_modules/vuepress-plugin-mermaidjs/src/mermaid.js
 +++ b/node_modules/vuepress-plugin-mermaidjs/src/mermaid.js
-@@ -35,9 +35,9 @@ const Mermaid = {
+@@ -1,4 +1,4 @@
+-import { h, watchEffect, reactive } from 'vue'
++import { h, watchEffect, reactive, onMounted } from 'vue'
+ import Loading from './Loading.vue'
  
+ const Mermaid = {
+@@ -33,11 +33,12 @@ const Mermaid = {
+             svg: undefined
+         })
+ 
++        onMounted(() => {
          watchEffect(() => {
              if (props.graph) {
 -                import('mermaid/dist/mermaid.min').then(mermaid => {
@@ -92,3 +101,11 @@ index c2a5a5a..75cb473 100644
                      })
  
                      mermaid.render(
+@@ -50,6 +51,7 @@ const Mermaid = {
+                 })
+             }
+         })
++        })
+ 
+         return () => {
+             const style = {
