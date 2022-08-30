@@ -31,7 +31,6 @@ There is a third-party UUID generator [uuidgenerator.net](https://www.uuidgenera
     name="V2rayU"
     :platforms="['mac']"
     description="V2rayU，a macOS client based on V2Ray core. It's programmed with Swift 4.2, supporting for VMess, Shadowsocks, SOCKS5 and other protocols. Subscription, QR code, importing from clipboard, custom config and QR sharing features are also supported."
-
 />
 
 <Tool
@@ -39,7 +38,6 @@ There is a third-party UUID generator [uuidgenerator.net](https://www.uuidgenera
     name="Qv2ray"
     :platforms="['linux','win','mac']"
     description="Cross-platform client based on V2Ray Core, supporting Linux, Windows and macOS, with SSR / Trojan / Trojan-Go / NaiveProxy plugin support. No batched speed test, no automatic update, and not for beginners."
-
 />
 
 ## Routing Rules

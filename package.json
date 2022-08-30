@@ -5,22 +5,21 @@
   "scripts": {
     "dev": "vuepress dev docs",
     "build": "vuepress build docs",
+    "postinstall": "patch-package",
     "precommit": "lint-staged"
   },
   "lint-staged": {
     "docs/**/*.{md,markdown}": "lint-md"
   },
   "devDependencies": {
-    "@vuepress/plugin-back-to-top": "^1.9.7",
+    "@vuepress/plugin-docsearch": "^2.0.0-beta.51",
+    "@vuepress/plugin-register-components": "^2.0.0-beta.51",
     "lint-staged": "^12.4.1",
-    "vuepress": "^1.9.7",
-    "vuepress-plugin-mermaidjs": "^1.9.1"
+    "patch-package": "^6.4.7",
+    "vuepress": "^2.0.0-beta.51",
+    "vuepress-plugin-mermaidjs": "^2.0.0-beta.2"
   },
   "dependencies": {
-    "@kidonng/vuepress-plugin-contributors": "^0.3.0",
     "uuid": "^8.3.2"
-  },
-  "resolutions": {
-    "vuepress-plugin-smooth-scroll": "^0.0.10"
   }
 }

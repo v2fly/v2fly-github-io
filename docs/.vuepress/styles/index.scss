@@ -1,0 +1,22 @@
+div.theme-default-content:not(.custom) {
+    max-width: 100%;
+}
+html:not(.dark) blockquote {
+    color: #000;
+}
+blockquote {
+    border-left: 4px solid #64b5f6;
+    border-top: 1px solid #64b5f6;
+}
+.home .hero img {
+    max-height: 240px !important;
+}
+:root, html.dark {
+    scroll-behavior: smooth;
+
+    --c-brand: #ea0880;
+    --c-brand-light: #ea0880cc;
+}
+html.dark .home .hero .action-button.primary {
+    color: white;
+}
