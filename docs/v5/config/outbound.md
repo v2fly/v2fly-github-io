@@ -18,11 +18,11 @@ outbound
 }
 ```
 
-> `protocol`: name of <outbound>
+> `protocol`: name of `<outbound>`
 
 出站协议名称。
 
-> `settings`: settings of <outbound>
+> `settings`: settings of `<outbound>`
 
 出站协议设置。
 

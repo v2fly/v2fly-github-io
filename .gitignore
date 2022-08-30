@@ -6,4 +6,6 @@ node_modules
 
 # Vuepress generated static page
 docs/.vuepress/dist
+docs/.vuepress/.cache
+docs/.vuepress/.temp
 

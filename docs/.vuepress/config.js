@@ -1,4 +1,9 @@
-module.exports = {
+// @ts-check
+import {defineUserConfig} from 'vuepress'
+import {defaultTheme} from '@vuepress/theme-default'
+import {docsearchPlugin} from '@vuepress/plugin-docsearch'
+
+export default defineUserConfig({
     head: [
         ["link", { rel: "apple-touch-icon", size: "180x180", href: "/apple-touch-icon.png" }],
         ["link", { rel: "icon", type: "image/png", size: "32x32", href: "/favicon-32x32.png" }],
@@ -12,9 +17,12 @@ module.exports = {
         ["meta", { name: "msapplication-TileColor", content: "#da532c" }]
     ],
     plugins: [
-        'vuepress-plugin-mermaidjs',
-        '@vuepress/back-to-top',
-        ['@kidonng/vuepress-plugin-contributors', { api: 'https://api.v2fly.org/apis/github-file-contributors' }]
+        docsearchPlugin({
+            appId: 'BH4D9OD16A',
+            apiKey: '1c152ce7991c1da9adc5413104712c5a',
+            indexName: 'v2fly'
+        }),
+        // 'vuepress-plugin-mermaidjs',
     ],
     locales: {
         '/': {
@@ -28,27 +36,20 @@ module.exports = {
             description: 'Project V is a collection of tools that can help you build your own basic communication network',
         }
     },
-    evergreen: true,
-    themeConfig: {
+    theme: defaultTheme({
         repo: 'v2fly',
         docsRepo: 'v2fly/v2fly-github-io',
         logo: '/v2ray.png',
-        algolia: {
-            apiKey: '1c152ce7991c1da9adc5413104712c5a',
-            indexName: 'v2fly'
-        },
-        smoothScroll: true,
         docsDir: 'docs',
-        editLinks: true,
         locales: {
             '/': {
-                selectText: 'Languages',
-                label: '简体中文',
-                ariaLabel: 'Select language',
+                selectLanguageText: 'Languages',
+                selectLanguageName: '简体中文',
+                selectLanguageAriaLabel: 'Select language',
                 editLinkText: '在 GitHub 上编辑此页',
-                lastUpdated: '上次更新',
-                contributorsLabel: '贡献者',
-                nav: [
+                lastUpdatedText: '上次更新',
+                contributorsText: '贡献者',
+                navbar: [
                     { text: '快速开始', link: '/guide/start', },
                     { text: '配置文档', link: '/v5/config/overview', },
                     { text: '工具列表', link: '/awesome/tools' },
@@ -58,24 +59,21 @@ module.exports = {
                 sidebar: {
                     '/guide/': [
                         {
-                            title: '快速开始',
-                            collapsable: false,
+                            text: '快速开始',
                             children: [
                                 'install',
                                 'start',
                             ],
                         },
                         {
-                            title: '原理',
-                            collapsable: false,
+                            text: '原理',
                             children: [
                                 'workflow',
                                 'command',
                             ],
                         },
                         {
-                            title: '更多',
-                            collapsable: false,
+                            text: '更多',
                             children: [
                                 'faq',
                                 'help',
@@ -84,8 +82,7 @@ module.exports = {
                     ],
                     '/config/': [
                         {
-                            title: '配置文件',
-                            collapsable: false,
+                            text: '配置文件',
                             children: [
                                 'overview',
                                 'env',
@@ -105,8 +102,7 @@ module.exports = {
                             ],
                         },
                         {
-                            title: '协议列表',
-                            collapsable: false,
+                            text: '协议列表',
                             children: [
                                 'protocols/blackhole',
                                 'protocols/dns',
@@ -122,8 +118,7 @@ module.exports = {
                             ],
                         },
                         {
-                            title: '传输方式',
-                            collapsable: false,
+                            text: '传输方式',
                             children: [
                                 'transport/tcp',
                                 'transport/mkcp',
@@ -137,8 +132,7 @@ module.exports = {
                     ],
                     '/developer/': [
                         {
-                            title: '开发手册',
-                            collapsable: false,
+                            text: '开发手册',
                             children: [
                                 'intro/compile',
                                 'intro/design',
@@ -146,8 +140,7 @@ module.exports = {
                             ]
                         },
                         {
-                            title: '协议细节',
-                            collapsable: false,
+                            text: '协议细节',
                             children: [
                                 'protocols/vmess',
                                 'protocols/mkcp',
@@ -157,8 +150,7 @@ module.exports = {
                     ],
                     "/v5/config/": [
                         {
-                            title: '配置参考',
-                            collapsable: false,
+                            text: '配置参考',
                             children: [
                                 'overview',
                                 'inbound',
@@ -172,8 +164,7 @@ module.exports = {
                             ],
                         },
                         {
-                            title: '代理协议',
-                            collapsable: false,
+                            text: '代理协议',
                             children: [
                                 'proxy/blackhole',
                                 'proxy/dns',
@@ -189,8 +180,7 @@ module.exports = {
                             ],
                         },
                         {
-                            title: '传输流协议',
-                            collapsable: false,
+                            text: '传输流协议',
                             children: [
                                 'stream/tcp',
                                 'stream/websocket',
@@ -199,8 +189,7 @@ module.exports = {
                             ],
                         },
                         {
-                            title: '服务',
-                            collapsable: false,
+                            text: '服务',
                             children: [
                                 'service/stats',
                                 'service/policy',
@@ -210,16 +199,15 @@ module.exports = {
                             ],
                         }
                     ],
-                    '/': 'auto',
                 },
             },
             '/en_US/': {
-                label: 'English',
-                selectText: '选择语言',
-                ariaLabel: '选择语言',
+                selectLanguageName: 'English',
+                selectLanguageText: '选择语言',
+                selectLanguageAriaLabel: '选择语言',
                 editLinkText: 'Edit this page on GitHub',
-                lastUpdated: 'Last Updated',
-                nav: [
+                lastUpdatedText: 'Last Updated',
+                navbar: [
                     { text: 'Quick Start', link: '/en_US/guide/start', },
                     { text: 'Config Reference', link: '/en_US/v5/config/overview', },
                     { text: 'Tools', link: '/en_US/awesome/tools' },
@@ -229,23 +217,20 @@ module.exports = {
                 sidebar: {
                     '/en_US/guide/': [
                         {
-                            title: 'Quick Start',
-                            collapsable: false,
+                            text: 'Quick Start',
                             children: [
                                 'install',
                                 'start',
                             ],
                         },
                         {
-                            title: 'Concept',
-                            collapsable: false,
+                            text: 'Concept',
                             children: [
                                 'workflow',
                             ],
                         },
                         {
-                            title: 'More',
-                            collapsable: false,
+                            text: 'More',
                             children: [
                                 'faq',
                             ],
@@ -253,8 +238,7 @@ module.exports = {
                     ],
                     '/en_US/config/': [
                         {
-                            title: 'Config Reference',
-                            collapsable: false,
+                            text: 'Config Reference',
                             children: [
                                 'overview',
                                 'dns',
@@ -262,8 +246,7 @@ module.exports = {
                             ],
                         },
                         {
-                            title: 'Protocols',
-                            collapsable: false,
+                            text: 'Protocols',
                             children: [
                                 'protocols/blackhole',
                                 'protocols/dns',
@@ -272,16 +255,15 @@ module.exports = {
                             ],
                         },
                         {
-                            title: 'Transport',
-                            collapsable: false,
+                            text: 'Transport',
+                            
                             children: [
                             ],
                         },
                     ],
                     '/en_US/developer/': [
                         {
-                            title: 'Developer Guide',
-                            collapsable: false,
+                            text: 'Developer Guide',
                             children: [
                                 'intro/compile',
                                 'intro/design',
@@ -289,16 +271,14 @@ module.exports = {
                             ]
                         },
                         {
-                            title: 'Protocol Details',
-                            collapsable: false,
+                            text: 'Protocol Details',
                             children: [
                             ]
                         }
                     ],
                     '/en_US/v5/config/': [
                         {
-                            title: 'Config Reference',
-                            collapsable: false,
+                            text: 'Config Reference',
                             children: [
                                 'overview',
                                 'inbound',
@@ -312,8 +292,7 @@ module.exports = {
                             ],
                         },
                         {
-                            title: 'Proxy Protocol',
-                            collapsable: false,
+                            text: 'Proxy Protocol',
                             children: [
                                 'proxy/socks',
                                 'proxy/vmess',
@@ -330,8 +309,7 @@ module.exports = {
                             ],
                         },
                         {
-                            title: 'Stream Transport Protocol',
-                            collapsable: false,
+                            text: 'Stream Transport Protocol',
                             children: [
                                 'stream/tcp',
                                 'stream/websocket',
@@ -340,8 +318,7 @@ module.exports = {
                             ],
                         },
                         {
-                            title: 'Service',
-                            collapsable: false,
+                            text: 'Service',
                             children: [
                                 'service/stats',
                                 'service/policy',
@@ -351,9 +328,8 @@ module.exports = {
                             ],
                         }
                     ],
-                    '/en_US/': 'auto',
                 },
             },
         },
-    },
-}
+    }),
+})

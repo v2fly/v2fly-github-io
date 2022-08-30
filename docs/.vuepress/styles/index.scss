@@ -7,5 +7,10 @@ blockquote {
     border-top: 1px solid #64b5f6;
 }
 .home .hero img {
-    max-height 240px !important;
+    max-height: 240px !important;
+}
+:root {
+    scroll-behavior: smooth;
+
+    --c-brand: #ea0880;
 }
