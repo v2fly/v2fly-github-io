@@ -9,19 +9,19 @@
 }
 ```
 
-> `transport`: name of <transport>
+> `transport`: name of `<transport>`
 
 传输层协议名称。
 
-> `transportSettings`: settings of <transport>
+> `transportSettings`: settings of `<transport>`
 
 传输层协议设置。
 
-> `security`: name of <security>
+> `security`: name of `<security>`
 
 <!-- 传输层安全协议名称，支持的选项有 `"none"` 表示不使用传输层安全（默认值），`"tls"` 表示使用 [TLS](https://en.wikipedia.org/wiki/Transport_Layer_Security)。 -->
 
-> `securitySettings`: settings of <security>
+> `securitySettings`: settings of `<security>`
 
 > `socketSettings`: [SocketConfigObject](#SocketConfigObject)
 

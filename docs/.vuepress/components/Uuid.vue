@@ -1,11 +1,12 @@
 <template>
   <section>
-    <pre><code>{{ uuid }}</code></pre>
+    <div class="language-">
+      <pre><code>{{ uuid }}</code></pre>
+    </div>
     <button @mousedown.left="startRoll" @mouseup.left="stopRoll" @mouseleave="stopRoll">生成</button>
     <button @click="copy" @mouseleave="copySuccessDelay">{{copied?'已复制':'复制'}}</button>
   </section>
 </template>
-<!--TODO: intergrate with vuepress theme-->
 <style scoped>
 button {
   outline: none;
@@ -14,16 +15,16 @@ button {
   text-align: center;
   padding: 0.5rem;
   margin-right: 1rem;
-  background-color: #ea0880;
+  background-color: var(--c-brand);
   border-radius: 4px;
   color: #fff;
   transition: background-color .1s ease;
 }
 button:hover {
-  background-color: #f7168d;
+  background-color: var(--c-brand-light);
 }
 button:active {
-  background-color: #9b0f5a;
+  background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5));
 }
 </style>
 <script>
