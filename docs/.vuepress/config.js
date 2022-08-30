@@ -206,6 +206,7 @@ export default defineUserConfig({
                             ],
                         }
                     ],
+                    '/awesome/tools': ['/awesome/tools'],
                 },
             },
             '/en_US/': {
@@ -335,6 +336,7 @@ export default defineUserConfig({
                             ],
                         }
                     ],
+                    '/en_US/awesome/tools': ['/en_US/awesome/tools'],
                 },
             },
         },
