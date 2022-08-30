@@ -1,0 +1,94 @@
+diff --git a/node_modules/vuepress-plugin-mermaidjs/src/clientAppEnhance.js b/node_modules/vuepress-plugin-mermaidjs/src/clientAppEnhance.js
+index 37eebe9..42930ae 100644
+--- a/node_modules/vuepress-plugin-mermaidjs/package.json
++++ b/node_modules/vuepress-plugin-mermaidjs/package.json
+@@ -15,6 +15,7 @@
+     "diagrams",
+     "plugin"
+   ],
++  "type": "module",
+   "dependencies": {
+     "mermaid": "^8.14.0"
+   },
+diff --git a/node_modules/vuepress-plugin-mermaidjs/src/clientAppEnhance.js b/node_modules/vuepress-plugin-mermaidjs/src/clientAppEnhance.js
+index 37eebe9..42930ae 100644
+--- a/node_modules/vuepress-plugin-mermaidjs/src/clientAppEnhance.js
++++ b/node_modules/vuepress-plugin-mermaidjs/src/clientAppEnhance.js
+@@ -1,6 +1,8 @@
+-import { defineClientAppEnhance } from '@vuepress/client'
++import { defineClientConfig } from '@vuepress/client';
+ import { Mermaid } from './mermaid'
+ 
+-export default defineClientAppEnhance(({ app }) => {
++export default defineClientConfig({
++  enhance({ app }) {
+   app.component('Mermaid', Mermaid);
++  },
+ });
+diff --git a/node_modules/vuepress-plugin-mermaidjs/src/index.js b/node_modules/vuepress-plugin-mermaidjs/src/index.js
+index 6c7a71e..625d38f 100644
+--- a/node_modules/vuepress-plugin-mermaidjs/src/index.js
++++ b/node_modules/vuepress-plugin-mermaidjs/src/index.js
+@@ -1,14 +1,17 @@
+-const path = require('path')
++import { getDirname, path } from '@vuepress/utils'
++import plugin from './markdownItPlugin.js'
+ 
+-module.exports = (options, ctx) => {
++const __dirname = getDirname(import.meta.url)
++
++export default (options, ctx) => {
+   return {
+     name: 'vuepress-plugin-mermaidjs',
+     define: {
+       MERMAID_OPTIONS: options
+     },
+     extendsMarkdown (md) {
+-      md.use(require('./markdownItPlugin'))
++      md.use(plugin)
+     },
+-    clientAppEnhanceFiles: path.resolve(__dirname, 'clientAppEnhance.js')
++    clientConfigFile: path.resolve(__dirname, 'clientAppEnhance.js'),
+   }
+ }
+diff --git a/node_modules/vuepress-plugin-mermaidjs/src/markdownItFence.js b/node_modules/vuepress-plugin-mermaidjs/src/markdownItFence.js
+index 0dc8af1..5e8174e 100644
+--- a/node_modules/vuepress-plugin-mermaidjs/src/markdownItFence.js
++++ b/node_modules/vuepress-plugin-mermaidjs/src/markdownItFence.js
+@@ -1,4 +1,4 @@
+-module.exports = function markdownItFence(md, name, opts) {
++export default function markdownItFence(md, name, opts) {
+ 
+   function defaultValidate(params) {
+     return params.trim().split(' ', 2)[0] === name
+diff --git a/node_modules/vuepress-plugin-mermaidjs/src/markdownItPlugin.js b/node_modules/vuepress-plugin-mermaidjs/src/markdownItPlugin.js
+index cf11434..87e7718 100644
+--- a/node_modules/vuepress-plugin-mermaidjs/src/markdownItPlugin.js
++++ b/node_modules/vuepress-plugin-mermaidjs/src/markdownItPlugin.js
+@@ -1,7 +1,7 @@
+-const { hash } = require('@vuepress/shared-utils')
+-const markdownItFence = require('./markdownItFence')
++import { hash } from '@vuepress/utils'
++import markdownItFence from './markdownItFence.js'
+ 
+-module.exports = function mermaidjsPlugin (md) {
++export default function mermaidjsPlugin (md) {
+   return markdownItFence(md, 'mermaid-fence', {
+     render: (tokens, idx, _options, env, self) => {
+       const token = tokens[idx]
+diff --git a/node_modules/vuepress-plugin-mermaidjs/src/mermaid.js b/node_modules/vuepress-plugin-mermaidjs/src/mermaid.js
+index c2a5a5a..75cb473 100644
+--- a/node_modules/vuepress-plugin-mermaidjs/src/mermaid.js
++++ b/node_modules/vuepress-plugin-mermaidjs/src/mermaid.js
+@@ -35,9 +35,9 @@ const Mermaid = {
+ 
+         watchEffect(() => {
+             if (props.graph) {
+-                import('mermaid/dist/mermaid.min').then(mermaid => {
++                import('mermaid').then(({default: mermaid}) => {
+                     mermaid.initialize({
+-                        startOnLoad: true, ...MERMAID_OPTIONS
++                        startOnLoad: true,
+                     })
+ 
+                     mermaid.render(

@@ -3,6 +3,7 @@ import {defineUserConfig} from 'vuepress'
 import {defaultTheme} from '@vuepress/theme-default'
 import {docsearchPlugin} from '@vuepress/plugin-docsearch'
 import {registerComponentsPlugin} from '@vuepress/plugin-register-components'
+import mermaidPlugin from 'vuepress-plugin-mermaidjs'
 import { getDirname, path } from '@vuepress/utils'
 
 const __dirname = getDirname(import.meta.url)
@@ -29,7 +30,7 @@ export default defineUserConfig({
         registerComponentsPlugin({
             componentsDir: path.resolve(__dirname, './components'),
         }),
-        // 'vuepress-plugin-mermaidjs',
+        mermaidPlugin(),
     ],
     locales: {
         '/': {
