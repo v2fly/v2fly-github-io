@@ -612,6 +612,15 @@
     "@vuepress/core" "2.0.0-beta.51"
     prismjs "^1.28.0"
 
+"@vuepress/plugin-register-components@^2.0.0-beta.51":
+  version "2.0.0-beta.51"
+  resolved "https://registry.yarnpkg.com/@vuepress/plugin-register-components/-/plugin-register-components-2.0.0-beta.51.tgz#038bb61bb124d771997b3ba2d7f096a9340723db"
+  integrity sha512-9zZgv37gdQlDwpZnif/CChJvKJVeHQ2LSbkw0ab6L5GIjrTegDBc3AHXjoNJBIG80Xo+/fAdR1dWjAlR7YfgKg==
+  dependencies:
+    "@vuepress/core" "2.0.0-beta.51"
+    "@vuepress/utils" "2.0.0-beta.51"
+    chokidar "^3.5.3"
+
 "@vuepress/plugin-theme-data@2.0.0-beta.51":
   version "2.0.0-beta.51"
   resolved "https://registry.yarnpkg.com/@vuepress/plugin-theme-data/-/plugin-theme-data-2.0.0-beta.51.tgz#d0bfaf8355ca1ed7f606a91a10b2a274845372f8"
@@ -2581,11 +2590,6 @@ slice-ansi@^5.0.0:
     ansi-styles "^6.0.0"
     is-fullwidth-code-point "^4.0.0"
 
-smoothscroll-polyfill@^0.4.4:
-  version "0.4.4"
-  resolved "https://registry.yarnpkg.com/smoothscroll-polyfill/-/smoothscroll-polyfill-0.4.4.tgz#3a259131dc6930e6ca80003e1cb03b603b69abf8"
-  integrity sha512-TK5ZA9U5RqCwMpfoMq/l1mrH0JAR7y7KRvOBx0n2869aLxch+gT9GhN3yUfjiw+d/DiF1mKo14+hd62JyMmoBg==
-
 "source-map-js@>=0.6.2 <2.0.0", source-map-js@^1.0.2:
   version "1.0.2"
   resolved "https://registry.yarnpkg.com/source-map-js/-/source-map-js-1.0.2.tgz#adbc361d9c62df380125e7f161f71c826f1e490c"
@@ -2781,13 +2785,6 @@ vuepress-plugin-mermaidjs@^1.9.1:
   integrity sha512-ZJiFyia/NMjnkCni7baaRaRxi4+SJG4DetgQ3PodlWITWVzxzOGlkBdwKzaBNIAa43NLQwgUu5Mgwe9nBZWl9w==
   dependencies:
     mermaid "^8.14.0"
-
-vuepress-plugin-smooth-scroll@^0.0.10:
-  version "0.0.10"
-  resolved "https://registry.yarnpkg.com/vuepress-plugin-smooth-scroll/-/vuepress-plugin-smooth-scroll-0.0.10.tgz#6cb6926032bd5abd7b928df6e7b73b8dd31b5f9d"
-  integrity sha512-1B7cc0OxROX9aPdktTF6lGqASGh3h0mtiUCmbAVZfGDtTOGUYDDA1BhLV96zkz/v1Zh/UvKP2gF6ADrcV83BMg==
-  dependencies:
-    smoothscroll-polyfill "^0.4.4"
 
 vuepress-vite@2.0.0-beta.51:
   version "2.0.0-beta.51"

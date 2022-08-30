@@ -2,6 +2,10 @@
 import {defineUserConfig} from 'vuepress'
 import {defaultTheme} from '@vuepress/theme-default'
 import {docsearchPlugin} from '@vuepress/plugin-docsearch'
+import {registerComponentsPlugin} from '@vuepress/plugin-register-components'
+import { getDirname, path } from '@vuepress/utils'
+
+const __dirname = getDirname(import.meta.url)
 
 export default defineUserConfig({
     head: [
@@ -21,6 +25,9 @@ export default defineUserConfig({
             appId: 'BH4D9OD16A',
             apiKey: '1c152ce7991c1da9adc5413104712c5a',
             indexName: 'v2fly'
+        }),
+        registerComponentsPlugin({
+            componentsDir: path.resolve(__dirname, './components'),
         }),
         // 'vuepress-plugin-mermaidjs',
     ],
