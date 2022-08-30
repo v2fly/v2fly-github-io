@@ -14,7 +14,7 @@ For `outbound`s with `freedom` protocol, the default value of `domainStrategy` i
 
 When a domain name list assigned by a DNS server matches the domain name currently being queried, V2Ray will use this DNS server first, otherwise, it will query from top to bottom, and only return the IP list which matches expectIPs. The processing flow diagram of the DNS server is as follows:
 
-![](/dns_flowchart_en.png)
+![](/dns_flowchart_20210418.svg)
 
 ## DnsObject
 
