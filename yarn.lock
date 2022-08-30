@@ -168,13 +168,6 @@
   resolved "https://registry.yarnpkg.com/@esbuild/linux-loong64/-/linux-loong64-0.15.6.tgz#45be4184f00e505411bc265a05e709764114acd8"
   integrity sha512-hqmVU2mUjH6J2ZivHphJ/Pdse2ZD+uGCHK0uvsiLDk/JnSedEVj77CiVUnbMKuU4tih1TZZL8tG9DExQg/GZsw==
 
-"@kidonng/vuepress-plugin-contributors@^0.3.0":
-  version "0.3.0"
-  resolved "https://registry.yarnpkg.com/@kidonng/vuepress-plugin-contributors/-/vuepress-plugin-contributors-0.3.0.tgz#5da0b0e11865e5c87ceed259f9781d7a50226188"
-  integrity sha512-9Kz/+/DW/2OheM+hhITfw54yQ8escWpNK0SnT7BCLD+l4mJ79+GWlV8bVI070CGa+6GspptkjVEUXt5ZNFPKbg==
-  dependencies:
-    ky "^0.24.0"
-
 "@mdit-vue/plugin-component@^0.10.0":
   version "0.10.0"
   resolved "https://registry.yarnpkg.com/@mdit-vue/plugin-component/-/plugin-component-0.10.0.tgz#9eb834771c7f0cce1cc03b2afa91564ef4f43eb4"
@@ -2111,11 +2104,6 @@ kind-of@^6.0.0, kind-of@^6.0.2:
   version "6.0.3"
   resolved "https://registry.yarnpkg.com/kind-of/-/kind-of-6.0.3.tgz#07c05034a6c349fa06e24fa35aa76db4580ce4dd"
   integrity sha512-dcS1ul+9tmeD95T+x28/ehLgd9mENa3LsvDTtzm3vyBEO7RPptvAD+t44WVXaUjTBRcrpFeFlC8WCruUR456hw==
-
-ky@^0.24.0:
-  version "0.24.0"
-  resolved "https://registry.yarnpkg.com/ky/-/ky-0.24.0.tgz#337e534a7f47c12476988eef3cb968daef318349"
-  integrity sha512-/vpuQguwV30jErrqLpoaU/YJAFALrUkqqWLILnSoBOj5/O/LKzro/pPNtxbLgY6m4w5XNM6YZ3v7/or8qLlFuw==
 
 lilconfig@2.0.4:
   version "2.0.4"
