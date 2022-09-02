@@ -39,7 +39,7 @@ Welcome to contribute to the project! Even if you don't know how to write code, 
 ## Authorization
 
 - Core uses MIT License
-- The website ([v2fly.org](https://www.v2fly.org/)) is authorized under the [CC BY SA 4.0 International License Agreement](https://creativecommons.org/licenses/by/4.0/deed.zh) .
+- The website ([v2fly.org](https://www.v2fly.org/)) is authorized under the [CC BY SA 4.0 International License Agreement](https://creativecommons.org/licenses/by-sa/4.0/deed.zh) .
     * Including all visible text and pictures on the website.
     * Include Project V icon files.
     * Including the source code used to generate the website, namely [v2fly/v2fly-github-io](https://github.com/v2fly/v2fly-github-io).

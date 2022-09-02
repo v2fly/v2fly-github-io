@@ -42,7 +42,7 @@ footer: Licensed under CC-BY-SA 4.0 | Copyleft 2015-Present V2Fly Community
 ## 授权
 
 - Core 使用 MIT 协议
-- 网站（[v2fly.org](https://www.v2fly.org/)）以 [CC BY SA 4.0 国际许可协议](https://creativecommons.org/licenses/by/4.0/deed.zh) 授权。
+- 网站（[v2fly.org](https://www.v2fly.org/)）以 [CC BY SA 4.0 国际许可协议](https://creativecommons.org/licenses/by-sa/4.0/deed.zh) 授权。
     * 包括网站中所有可见的文字内容和图片。
     * 包括 Project V 图标文件。
     * 包括生成网站所使用到的源代码，即 [v2fly/v2fly-github-io](https://github.com/v2fly/v2fly-github-io)。
