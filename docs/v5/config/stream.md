@@ -31,6 +31,7 @@
 * [TCP](stream/tcp.md)
 * [WebSocket](stream/websocket.md)
 * [gRPC](stream/grpc.md)
+* [QUIC](stream/quic.md)
 
 
 ## TLS

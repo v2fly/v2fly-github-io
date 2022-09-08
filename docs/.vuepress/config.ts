@@ -191,6 +191,7 @@ export default defineUserConfig({
                                 '/v5/config/stream/websocket',
                                 '/v5/config/stream/kcp',
                                 '/v5/config/stream/grpc',
+                                '/v5/config/stream/quic',
                             ],
                         },
                         {
