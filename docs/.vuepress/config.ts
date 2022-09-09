@@ -178,6 +178,7 @@ export default defineUserConfig({
                                 '/v5/config/proxy/http',
                                 '/v5/config/proxy/socks',
                                 '/v5/config/proxy/vmess',
+                                '/v5/config/proxy/vlite',
                                 '/v5/config/proxy/shadowsocks',
                                 '/v5/config/proxy/trojan',
                                 '/v5/config/proxy/vless',
