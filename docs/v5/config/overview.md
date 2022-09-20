@@ -16,7 +16,7 @@
 {
     "log": {},
     "dns": {},
-    "routing": {},
+    "router": {},
     "inbounds": [],
     "outbounds": [],
     "services": {}
@@ -35,7 +35,7 @@
 
 若未设置此项，则默认使用本机的 DNS 设置。
 
-> `routing`: [RoutingObject](router.md)
+> `router`: [RoutingObject](router.md)
 
 路由功能。
 

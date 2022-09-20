@@ -16,7 +16,7 @@ To run your configure file in V5, execute `./v2ray run -c $configure_file_name -
 {
     "log": {},
     "dns": {},
-    "routing": {},
+    "router": {},
     "inbounds": [],
     "outbounds": [],
     "services": {}
@@ -35,7 +35,7 @@ Built-in DNS client. Specify hostname resolution settings.
 
 Local DNS will be used if this entry is not set.
 
-> `routing`: [RoutingObject](router.md)
+> `router`: [RoutingObject](router.md)
 
 Routing.
 
