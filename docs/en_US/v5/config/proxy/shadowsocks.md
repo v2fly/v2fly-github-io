@@ -56,13 +56,13 @@ A password recognized by server.
 
 ## Supported Encryption Methods
 
-* `"aes-256-gcm"`
-* `"aes-128-gcm"`
-* `"chacha20-poly1305"` | `"chacha20-ietf-poly1305"`
-* `"none"` | `"plain"`
+* `"AES_256_GCM"`
+* `"AES_128_GCM"`
+* `"CHACHA20_POLY1305"`
+* `"NONE"`
 
 ::: warning
-In "none" unencrypted and unauthenticated mode, the server will not try to validate the password.
+In "NONE" unencrypted and unauthenticated mode, the server will not try to validate the password.
 
 This is typically used when authentication is already completed by the transport layer, like enabling TLS encryption and WebSocket transport with a long and unpredictable path.
 :::
