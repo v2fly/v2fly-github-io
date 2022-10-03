@@ -41,7 +41,7 @@ All are welcome to contribute to Project V! Even if you don't know how to write 
 ## Licensing and Acknowledgements
 
 - V2Ray Core is licensed under the MIT License.
-- The website ([v2fly.org](https://www.v2fly.org/)) is licensed under the [CC BY SA 4.0 International Public License](https://creativecommons.org/licenses/by/4.0/deed.zh).
+- The website ([v2fly.org](https://www.v2fly.org/)) is licensed under the [CC BY SA 4.0 International Public License](https://creativecommons.org/licenses/by-sa/4.0/deed.zh).
     * Includes all visible text and pictures on the website.
     * Includes Project V icon files.
     * Includes the source code used to generate the website: [v2fly/v2fly-github-io](https://github.com/v2fly/v2fly-github-io)
