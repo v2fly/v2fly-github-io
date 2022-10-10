@@ -76,6 +76,9 @@ Write a number to define the packet length to pad the handshake message to.
 * Type: Inbound Protocol
 * ID: `inbound.vliteu`
 
+> `password`: string
+
+The password. Need to be same on corresponding client.
 
 > `scramblePacket`: true | false
 
