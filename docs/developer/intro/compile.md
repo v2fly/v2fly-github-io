@@ -29,19 +29,17 @@ go env -w GOPROXY=https://goproxy.io,direct
 
 ```bash
 CGO_ENABLED=0 go build -o $HOME/v2ray -trimpath -ldflags "-s -w -buildid=" ./main
-CGO_ENABLED=0 go build -o $HOME/v2ctl -trimpath -ldflags "-s -w -buildid=" -tags confonly ./infra/control/main
 ```
 
-运行以上命令会在当前用户的 `$HOME` 目录下生成刚构建的 `v2ray`、`v2ctl` 可执行文件，即可正常使用。
+运行以上命令会在当前用户的 `$HOME` 目录下生成刚构建的 `v2ray` 可执行文件，即可正常使用。
 
 构建其他 CPU 架构、其他系统（Windows/macOS）的可执行文件，属于 Golang 的交叉编译流程，主要是控制 `GOOS` / `GOARCH` 两个环境变量，详情请参阅 Golang 相关文档。
 
-下面演示如何构建可运行在 Windows 64 位系统的 `v2ray.exe`、`wv2ray.exe`、`v2ctl.exe` 可执行文件（非 Windows 系统不需要编译 `wv2ray.exe`）：
+下面演示如何构建可运行在 Windows 64 位系统的 `v2ray.exe`、`wv2ray.exe` 可执行文件（非 Windows 系统不需要编译 `wv2ray.exe`）：
 
 ```bash
 CGO_ENABLED=0 GOOS=windows GOARCH=amd64 go build -o $HOME/v2ray.exe -trimpath -ldflags "-s -w -buildid=" ./main
 CGO_ENABLED=0 GOOS=windows GOARCH=amd64 go build -o $HOME/wv2ray.exe -trimpath -ldflags "-s -w -H windowsgui -buildid=" ./main
-CGO_ENABLED=0 GOOS=windows GOARCH=amd64 go build -o $HOME/v2ctl.exe -trimpath -ldflags "-s -w -buildid=" -tags confonly ./infra/control/main
 ```
 
 执行 `go tool dist list` 查看所有支持的系统与架构。某些架构还需要控制其它环境变量，如 `arm` 的 `GOARM`，用于设置运行时 CPU 浮点协处理器的版本。
