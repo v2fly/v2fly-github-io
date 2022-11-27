@@ -34,7 +34,7 @@ CIDR 地址前缀。
 
 > `code`: string
 
-GeoDomain 的双字符[国家或地区代码](https://zh.wikipedia.org/wiki/國家地區代碼)，支持所有可以上网的国家和地区。
+GeoDomain 的类别名称（域名列表）。
 
 > `filePath`: string
 
