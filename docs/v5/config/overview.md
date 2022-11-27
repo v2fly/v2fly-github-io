@@ -76,17 +76,17 @@
 
 ## LogSpecObject
 
-> `Type`: "None" | "Console" | "File"
+> `type`: "None" | "Console" | "File"
 
 * `"None"`：日志将被丢弃。
 * `"Console"`：日志将被输出到标准输出。
 * `"File"`：日志将被输出到一个文件。
 
-> `Path`: string
+> `path`: string
 
 日志的文件路径，其值是一个合法的文件路径， 例如 `"/tmp/v2ray/_error.log"` (Linux) 或 `"C:\\Temp\\v2ray\\_error.log"` (Windows)。
 
-> `Level`: "Debug" | "Info" | "Warning" | "Error" | "None"
+> `level`: "Debug" | "Info" | "Warning" | "Error" | "None"
 
 日志等级，默认值为 `"Warning"`。
 

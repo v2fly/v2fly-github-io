@@ -77,17 +77,17 @@ Error log settings.
 
 ## LogSpecObject
 
-> `Type`: "None" | "Console" | "File"
+> `type`: "None" | "Console" | "File"
 
 * `"None"`：Log will be discarded.
 * `"Console"`：Log will be outputed to standard output.
 * `"File"`：Log will be outputed to a file.
 
-> `Path`: string
+> `path`: string
 
 File path of log. It should be a valid path string, such as `"/tmp/v2ray/_error.log"` (Linux) or `"C:\\Temp\\v2ray\\_error.log"` (Windows).
 
-> `Level`: "Debug" | "Info" | "Warning" | "Error" | "None"
+> `level`: "Debug" | "Info" | "Warning" | "Error" | "None"
 
 Level of log. Default value is `"warning"`。
 
