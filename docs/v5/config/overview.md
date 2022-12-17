@@ -9,7 +9,7 @@
 在 V5 版本中，引入了新的配置格式。此配置格式旨在替换过去版本的配置格式。目前此格式仍处于草案阶段，可能会被随时更改。
 
 :::tip
-执行 `./v2ray run -c $configure_file_name -f jsonv5` 命令以运行您的配置文件。
+执行 `./v2ray run -c $configure_file_name -format jsonv5` 命令以运行您的配置文件。
 :::
 
 ```json

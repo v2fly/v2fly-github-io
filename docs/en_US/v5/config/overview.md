@@ -9,7 +9,7 @@ The document for V4 version of the config can be found [here](/en_US/config/over
 In the V5 major release, a new configuration schema for users is introduced. This configuration format is designed to replace the previous version of configuration format. Currently this format is in the drafting phase, and may change at any time.
 
 :::tip
-To run your configure file in V5, execute `./v2ray run -c $configure_file_name -f jsonv5`
+To run your configure file in V5, execute `./v2ray run -c $configure_file_name -format jsonv5`
 :::
 
 ```json
