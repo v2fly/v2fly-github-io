@@ -15,6 +15,8 @@
 
 > `security`: name of `<security>`
 
+It has to be one of supported Security Protocol.
+
 > `securitySettings`: settings of `<security>`
 
 > `socketSettings`: [SocketConfigObject](#SocketConfigObject)
@@ -26,7 +28,9 @@
 * [tcp](stream/tcp.md)
 
 ## TLS
-security.tls
+* Name: `tls`
+* Type: Security Protocol
+* ID: `security.tls`
 
 > `serverName`: string
 
@@ -73,3 +77,73 @@ The path for the Certificate file.
 > `keyFile`: string
 
 The path for the Certificate private key file.
+
+
+## uTLS
+* Name: `utls`
+* Type: Security Protocol
+* ID: `security.utls`
+
+uTLS is a fork of TLS aimed at trying to imitate the client hello fingerprint of popular TLS implementation to hide the client identity of a Go language program. (v5.2.0+)
+
+It is only supports client mode and in certain transports. If you use it in a context where it is not supported,  the process will crash.
+
+uTLS is supported in the following transports:
+- TCP
+- WebSocket
+
+When you are using uTLS in some transport, the APLN will be overridden for its correct function.  It may be a slightly different fingerprint than specified.
+
+> `tlsConfig`: [TLSConfig](#TLS)
+
+The Embedded TLS Setting for uTLS connections. Only some of its field are effective.
+
+Supported Fields:
+- Certificate Authority Settings (allowInsecure is ignored)
+
+> `imitate`: string
+
+The TLS client fingerprint to use for the uTLS connection.
+
+- `randomized`
+- `randomizedalpn`
+- `randomizednoalpn`
+- `firefox_auto`
+- `firefox_55`
+- `firefox_56`
+- `firefox_63`
+- `firefox_65`
+- `firefox_99`
+- `firefox_102`
+- `firefox_105`
+- `chrome_auto`
+- `chrome_58`
+- `chrome_62`
+- `chrome_70`
+- `chrome_72`
+- `chrome_83`
+- `chrome_87`
+- `chrome_96`
+- `chrome_100`
+- `chrome_102`
+- `ios_auto`
+- `ios_11_1`
+- `ios_12_1`
+- `ios_13`
+- `ios_14`
+- `android_11_okhttp`
+- `edge_auto`
+- `edge_85`
+- `edge_106`
+- `safari_auto`
+- `safari_16_0`
+- `360_auto`
+- `360_7_5`
+- `360_11_0`
+- `qq_auto`
+- `qq_11_1`
+
+> `noSNI`: bool
+
+Do not send Server Name Indication in the client hello. This may result in failed connection.
+
