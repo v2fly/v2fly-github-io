@@ -89,6 +89,74 @@ PEM 格式的私钥。
 
 密钥文件路径，如使用 OpenSSL 生成，后缀名为 .key。目前暂不支持需要密码的 key 文件。
 
+
+## uTLS
+* 名称: `utls`
+* 类型: 安全协议
+* ID: `security.utls`
+
+uTLS 是一个修改版本的 TLS 实现。 这个项目通过模仿常用 TLS 实现的客户端握手包以期减少 Go 语言程序的 TLS 客户端特征。  (v5.2.0+)
+
+此设置只在部分传输方式的客户端受到支持。如果您在尚不支持的部分使用了它，那么程序将会异常退出。
+
+您可以在以下传输方式中使用 uTLS:
+- TCP
+- WebSocket
+
+当您在部分传输方式中使用 uTLS 时，应用层协议协商的内容将被覆盖以便使该传输方式可以正常运作。这会导致客户端握手包的指纹和被模仿的指纹有些许不同。
+
+> `tlsConfig`: [TLSConfig](#TLS)
+
+嵌入的 TLS 设置，只有部分内容会被应用到 uTLS.
+
+受到支持的选项:
+- 证书办法机构设置 (allowInsecure 会被忽略)
+
+> `imitate`: string
+
+想要模拟的 TLS 客户端握手包指纹。
+
+- `randomized`
+- `randomizedalpn`
+- `randomizednoalpn`
+- `firefox_auto`
+- `firefox_55`
+- `firefox_56`
+- `firefox_63`
+- `firefox_65`
+- `firefox_99`
+- `firefox_102`
+- `firefox_105`
+- `chrome_auto`
+- `chrome_58`
+- `chrome_62`
+- `chrome_70`
+- `chrome_72`
+- `chrome_83`
+- `chrome_87`
+- `chrome_96`
+- `chrome_100`
+- `chrome_102`
+- `ios_auto`
+- `ios_11_1`
+- `ios_12_1`
+- `ios_13`
+- `ios_14`
+- `android_11_okhttp`
+- `edge_auto`
+- `edge_85`
+- `edge_106`
+- `safari_auto`
+- `safari_16_0`
+- `360_auto`
+- `360_7_5`
+- `360_11_0`
+- `qq_auto`
+- `qq_11_1`
+
+> `noSNI`: bool
+
+不发送服务器名称指示。可能会导致连接异常。
 ## SocketConfigObject
 
 ```json
