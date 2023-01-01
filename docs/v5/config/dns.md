@@ -109,7 +109,10 @@ DNS 处理流程示意图如下：
         "domain": "cloudflare.com",
         "proxiedDomain": "api.v2fly.org"
     }],
+    "domainMatcher": "mph",
     "queryStrategy": "UseIPv4",
+    "cacheStrategy": "enabled",
+    "fallbackStrategy": "enabled",
     "disableCache": false,
     "disableFallback": false,
     "disableFallbackIfMatch": true,
@@ -137,6 +140,14 @@ DNS 服务器列表。
 当地址中同时设置了多个 IP 和域名，则只会返回第一个域名，其余 IP 和域名均被忽略。【TODO】
 :::
 
+> `domainMatcher`: "linear" | "mph"
+
+选择要使用的域名匹配算法。(v5.2.0+)
+
+* `linear`：使用线性匹配算法，默认值；
+* `mph`：使用最小完美散列（minimal perfect hash）算法。
+  * 测试数据约 17 万条，匹配速度提升约 30%，内存占用减少约 15%
+
 > `queryStrategy`: "UseIP" | "UseIPv4" | "UseIPv6"
 
 DNS 查询所使用的网络类型。默认值为 `UseIP`，即 DNS 同时查询域名的 A 和 AAAA 记录。`UseIPv4` 和 `UseIPv6` 分别为只查询 A 记录、只查询 AAAA 记录。
@@ -149,13 +160,21 @@ DNS 查询所使用的网络类型。默认值为 `UseIP`，即 DNS 同时查询
 如果本选项设置为 `UseIPv4`，而 `freedom` 协议 `outbound` 中的 `domainStrategy` 选项设置为 `UseIPv6`，会导致从 `freedom` 协议 `outbound` 发出的连接的 DNS 查询被 Go 运行时接管，进而导致 DNS 泄漏；反之同理。
 :::
 
+> `cacheStrategy`: "enabled" | "disabled"
+
+DNS 缓存策略。默认为 `enabled`，即启用 DNS 缓存。`disabled` 为禁用 DNS 缓存。 (v5.2.0+)
+
 > `disableCache`: bool
 
-禁用 DNS 缓存。默认为 false，即为不禁用。
+禁用 DNS 缓存。默认为 false，即为不禁用。 (v5.2.0+ 弃用)
+
+> `fallbackStrategy`: "enabled" | "disabled" | "disabledifanymatch"
+
+DNS 回退（fallback）查询策略。默认为 `enabled`，即启用 DNS 回退（fallback）查询。`disabled` 为禁用 DNS 回退（fallback）查询。`disabledifanymatch` 为在 DNS 服务器的优先匹配域名列表命中时禁用 DNS 回退（fallback）查询。详情见 [DNS 处理流程](#dns-处理流程)。 (v5.2.0+)
 
 > `disableFallback`: bool
 
-禁用 DNS 回退（fallback）查询。默认为 false，即为不禁用。详情见 [DNS 处理流程](#dns-处理流程)。
+禁用 DNS 回退（fallback）查询。默认为 false，即为不禁用。详情见 [DNS 处理流程](#dns-处理流程)。 (v5.2.0+ 弃用)
 
 :::warning
 如果本选项设置为 `true`，则 [ServerObject](#serverobject) 中的 `skipFallback` 均不会生效。
@@ -163,7 +182,7 @@ DNS 查询所使用的网络类型。默认值为 `UseIP`，即 DNS 同时查询
 
 > `disableFallbackIfMatch`: bool
 
-禁用在 DNS 服务器的优先匹配域名列表命中时执行 DNS 回退（fallback）查询。
+禁用在 DNS 服务器的优先匹配域名列表命中时执行 DNS 回退（fallback）查询。 (v5.2.0+ 弃用)
 
 > `tag`: string
 
@@ -195,7 +214,10 @@ DNS 查询所使用的网络类型。默认值为 `UseIP`，即 DNS 同时查询
     }, {
         "filePath": "geoip.dat",
         "code": "private"
-    }]
+    }],
+    "queryStrategy": "UseIPv4",
+    "cacheStrategy": "enabled",
+    "fallbackStrategy": "enabled",
 }
 ```
 
@@ -232,6 +254,18 @@ DNS 服务器地址。
 一个 IP 范围列表。
 
 当配置此项时，V2Ray DNS 会对返回的 IP 进行校验，只返回满足 expectIPs 列表的地址。如果未配置此项，会原样返回 IP 地址。
+
+> `queryStrategy`: "UseIP" | "UseIPv4" | "UseIPv6"
+
+DNS 查询所使用的网络类型，默认使用上级公共配置。配置为 `UseIP` 时 DNS 同时查询域名的 A 和 AAAA 记录。`UseIPv4` 和 `UseIPv6` 分别为只查询 A 记录、只查询 AAAA 记录。(v5.2.0+)
+
+> `cacheStrategy`: "enabled" | "disabled"
+
+DNS 缓存策略，默认使用上级公共配置。 `enabled`，为启用 DNS 缓存。`disabled` 为禁用 DNS 缓存。详情见 [DNS 处理流程](#dns-处理流程)。(v5.2.0+)
+
+> `fallbackStrategy`: "enabled" | "disabled" | "disabledifanymatch"
+
+DNS 回退（fallback）查询策略，默认使用上级公共配置。 `enabled`，为启用 DNS 回退（fallback）查询。`disabled` 为禁用 DNS 回退（fallback）查询。`disabledifanymatch` 为在 DNS 服务器的优先匹配域名列表命中时禁用 DNS 回退（fallback）查询。详情见 [DNS 处理流程](#dns-处理流程)。 (v5.2.0+)
 
 ## EndpointObject
 
