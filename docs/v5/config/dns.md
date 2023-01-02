@@ -33,7 +33,7 @@ V2Ray 内建了一个 DNS 组件，其主要用途为：对目标地址（域名
   - 目前（2022 年 11 月 20 日），公共递归 DNS 服务中支持 DNS over QUIC 协议的有 `dns.adguard.com` 与 `dns.nextdns.io`。
 - 特殊项：
   - **localhost**：使用本机预设的 DNS 配置
-  - **FakeDNS**：使用 V2Ray 内建的 FakeDNS 服务器。详情见 [FakeDNS 服务器](fakedns.md)。
+  - **FakeDNS**：使用 V2Ray 内建的 FakeDNS 服务器。
 
 :::tip
 当使用 `localhost` 时，本机的 DNS 请求不受 V2Ray 控制，需要额外的配置才可以使 DNS 请求由 V2Ray 转发。
@@ -109,6 +109,18 @@ DNS 处理流程示意图如下：
         "domain": "cloudflare.com",
         "proxiedDomain": "api.v2fly.org"
     }],
+    "fakeDns": {
+        "pools": [
+            {
+                "ipPool": "198.18.0.0/15",
+                "lruSize": 65535
+            },
+                        {
+                "ipPool": "fc00::/18",
+                "lruSize": 65535
+            }
+        ]
+    },
     "domainMatcher": "mph",
     "queryStrategy": "USE_IP4",
     "cacheStrategy": "CacheEnabled",
@@ -139,6 +151,10 @@ DNS 服务器列表。
 :::tip
 当地址中同时设置了多个 IP 和域名，则只会返回第一个域名，其余 IP 和域名均被忽略。【TODO】
 :::
+
+> `fakeDns`: [FakeDnsObject](#FakeDnsObject)
+
+FakeDNS 公共配置，当 `nameServer` 中 `address` 为 `fakedns` 且无 `fakeDNS` 配置时，使用此配置。(v5.2.0+)
 
 > `domainMatcher`: "linear" | "mph"
 
@@ -211,6 +227,18 @@ DNS 回退（fallback）查询策略。默认为 `Enabled`，即启用 DNS 回�
         "filePath": "geoip.dat",
         "code": "private"
     }],
+    "fakeDns": {
+        "pools": [
+            {
+                "ipPool": "198.18.0.0/15",
+                "lruSize": 65535
+            },
+                        {
+                "ipPool": "fc00::/18",
+                "lruSize": 65535
+            }
+        ]
+    },
     "tag": "dns",
     "queryStrategy": "UseIPv4",
     "cacheStrategy": "CacheEnabled",
@@ -251,6 +279,10 @@ DNS 服务器地址。
 一个 IP 范围列表。
 
 当配置此项时，V2Ray DNS 会对返回的 IP 进行校验，只返回满足 expectIPs 列表的地址。如果未配置此项，会原样返回 IP 地址。
+
+> `fakeDns`: [FakeDnsObject](#FakeDnsObject)
+
+FakeDNS 配置，当该项配置时，FakeDNS 启用。当该项未被配置但 `address` 配置为 `fakedns` 时则使用上级公共配置。(v5.2.0+)
 
 > `tag`: string
 
@@ -392,4 +424,39 @@ IP 地址前缀匹配的长度，单位为比特。
 
 :::tip
 如果同时指定了 `ip` 和 `proxiedDomain`，将优先生效 `proxiedDomain`。
+:::
+
+## FakeDNSObject
+
+```json
+{
+    "pools": [
+        {
+            "ipPool": "198.18.0.0/15",
+            "lruSize": 65535
+        },
+        {
+            "ipPool": "fc00::/18",
+            "lruSize": 65535
+         }
+    ]
+}
+```
+
+> `pools`: [ [PoolObject](#PoolObject) ]
+
+IP 地址池配置。
+
+### PoolObject
+
+> `ipPool`: string
+
+FakeDNS 分配 IP 的地址空间。由 FakeDNS 分配的地址会符合这个 CIDR 表达式。
+
+> `lruSize`: number
+
+FakeDNS 所记忆的「IP - 域名映射」数量。当域名数量超过此数值时，会依据 [LRU](https://en.wikipedia.org/wiki/Cache_replacement_policies#Least_recently_used_(LRU)) 规则淘汰老旧域名。
+
+:::warning
+poolSize 必须小于或等于 ipPool 的地址总数，否则将无法启动。
 :::
