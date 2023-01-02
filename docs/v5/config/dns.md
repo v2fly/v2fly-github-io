@@ -215,6 +215,7 @@ DNS 回退（fallback）查询策略。默认为 `enabled`，即启用 DNS 回�
         "filePath": "geoip.dat",
         "code": "private"
     }],
+    "tag": "dns",
     "queryStrategy": "UseIPv4",
     "cacheStrategy": "enabled",
     "fallbackStrategy": "enabled",
@@ -254,6 +255,10 @@ DNS 服务器地址。
 一个 IP 范围列表。
 
 当配置此项时，V2Ray DNS 会对返回的 IP 进行校验，只返回满足 expectIPs 列表的地址。如果未配置此项，会原样返回 IP 地址。
+
+> `tag`: string
+
+默认使用上级公共配置。由此 DNS 发出的查询流量，除 `localhost` 和 `DOHL_` 模式外，都会带有此标识，可在路由使用 `inboundTag` 进行匹配。(v5.2.0+)
 
 > `queryStrategy`: "UseIP" | "UseIPv4" | "UseIPv6"
 
