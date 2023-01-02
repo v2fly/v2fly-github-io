@@ -81,7 +81,7 @@ DNS 处理流程示意图如下：
         "clientIp": "5.6.7.8",
         "skipFallback": true,
         "prioritizedDomain": [{
-            "type": "subdomain",
+            "type": "Subdomain",
             "domain": "youtube.com"
         }, {
             "type": "Keyword",
@@ -101,18 +101,18 @@ DNS 处理流程示意图如下：
     }],
     "clientIp": "1.2.3.4",
     "staticHosts": [{
-        "type": "full",
+        "type": "Full",
         "domain": "cloudflare.com",
         "ip": ["1.1.1.1", "1.0.0.1"]
     }, {
-        "type": "full",
+        "type": "Full",
         "domain": "cloudflare.com",
         "proxiedDomain": "api.v2fly.org"
     }],
     "domainMatcher": "mph",
-    "queryStrategy": "UseIPv4",
-    "cacheStrategy": "enabled",
-    "fallbackStrategy": "enabled",
+    "queryStrategy": "USE_IP4",
+    "cacheStrategy": "CacheEnabled",
+    "fallbackStrategy": "Enabled",
     "disableCache": false,
     "disableFallback": false,
     "disableFallbackIfMatch": true,
@@ -148,29 +148,25 @@ DNS 服务器列表。
 * `mph`：使用最小完美散列（minimal perfect hash）算法。
   * 测试数据约 17 万条，匹配速度提升约 30%，内存占用减少约 15%
 
-> `queryStrategy`: "UseIP" | "UseIPv4" | "UseIPv6"
+> `queryStrategy`: "USE_IP" | "USE_IP4" | "USE_IP6"
 
-DNS 查询所使用的网络类型。默认值为 `UseIP`，即 DNS 同时查询域名的 A 和 AAAA 记录。`UseIPv4` 和 `UseIPv6` 分别为只查询 A 记录、只查询 AAAA 记录。
+DNS 查询所使用的网络类型。默认值为 `USE_IP`，即 DNS 同时查询域名的 A 和 AAAA 记录。`USE_IP4` 和 `USE_IP6` 分别为只查询 A 记录、只查询 AAAA 记录。
 
 :::tip
-建议没有 IPv6 网络的用户，设置为 `UseIPv4`。本选项与 `freedom` 协议 `outbound` 中的 `domainStrategy` 选项优先级相同，建议同时设置为 `UseIPv4`。
+建议没有 IPv6 网络的用户，设置为 `USE_IP4`。
 :::
 
-:::warning
-如果本选项设置为 `UseIPv4`，而 `freedom` 协议 `outbound` 中的 `domainStrategy` 选项设置为 `UseIPv6`，会导致从 `freedom` 协议 `outbound` 发出的连接的 DNS 查询被 Go 运行时接管，进而导致 DNS 泄漏；反之同理。
-:::
+> `cacheStrategy`: "CacheEnabled" | "CacheDisabled"
 
-> `cacheStrategy`: "enabled" | "disabled"
-
-DNS 缓存策略。默认为 `enabled`，即启用 DNS 缓存。`disabled` 为禁用 DNS 缓存。 (v5.2.0+)
+DNS 缓存策略。默认为 `CacheEnabled`，即启用 DNS 缓存。`CacheDisabled` 为禁用 DNS 缓存。 (v5.2.0+)
 
 > `disableCache`: bool
 
 禁用 DNS 缓存。默认为 false，即为不禁用。 (v5.2.0+ 弃用)
 
-> `fallbackStrategy`: "enabled" | "disabled" | "disabledifanymatch"
+> `fallbackStrategy`: "Enabled" | "Disabled" | "DisabledIfAnyMatch"
 
-DNS 回退（fallback）查询策略。默认为 `enabled`，即启用 DNS 回退（fallback）查询。`disabled` 为禁用 DNS 回退（fallback）查询。`disabledifanymatch` 为在 DNS 服务器的优先匹配域名列表命中时禁用 DNS 回退（fallback）查询。详情见 [DNS 处理流程](#dns-处理流程)。 (v5.2.0+)
+DNS 回退（fallback）查询策略。默认为 `Enabled`，即启用 DNS 回退（fallback）查询。`Disabled` 为禁用 DNS 回退（fallback）查询。`DisabledIfAnyMatch` 为在 DNS 服务器的优先匹配域名列表命中时禁用 DNS 回退（fallback）查询。详情见 [DNS 处理流程](#dns-处理流程)。 (v5.2.0+)
 
 > `disableFallback`: bool
 
@@ -217,8 +213,8 @@ DNS 回退（fallback）查询策略。默认为 `enabled`，即启用 DNS 回�
     }],
     "tag": "dns",
     "queryStrategy": "UseIPv4",
-    "cacheStrategy": "enabled",
-    "fallbackStrategy": "enabled",
+    "cacheStrategy": "CacheEnabled",
+    "fallbackStrategy": "Enabled",
 }
 ```
 
@@ -264,13 +260,13 @@ DNS 服务器地址。
 
 DNS 查询所使用的网络类型，默认使用上级公共配置。配置为 `UseIP` 时 DNS 同时查询域名的 A 和 AAAA 记录。`UseIPv4` 和 `UseIPv6` 分别为只查询 A 记录、只查询 AAAA 记录。(v5.2.0+)
 
-> `cacheStrategy`: "enabled" | "disabled"
+> `cacheStrategy`: "CacheEnabled" | "CacheEnabled"
 
-DNS 缓存策略，默认使用上级公共配置。 `enabled`，为启用 DNS 缓存。`disabled` 为禁用 DNS 缓存。详情见 [DNS 处理流程](#dns-处理流程)。(v5.2.0+)
+DNS 缓存策略，默认使用上级公共配置。 `CacheEnabled`，为启用 DNS 缓存。`CacheEnabled` 为禁用 DNS 缓存。详情见 [DNS 处理流程](#dns-处理流程)。(v5.2.0+)
 
-> `fallbackStrategy`: "enabled" | "disabled" | "disabledifanymatch"
+> `fallbackStrategy`: "Enabled" | "Disabled" | "DisabledIfAnyMatch"
 
-DNS 回退（fallback）查询策略，默认使用上级公共配置。 `enabled`，为启用 DNS 回退（fallback）查询。`disabled` 为禁用 DNS 回退（fallback）查询。`disabledifanymatch` 为在 DNS 服务器的优先匹配域名列表命中时禁用 DNS 回退（fallback）查询。详情见 [DNS 处理流程](#dns-处理流程)。 (v5.2.0+)
+DNS 回退（fallback）查询策略，默认使用上级公共配置。 `Enabled`，为启用 DNS 回退（fallback）查询。`Disabled` 为禁用 DNS 回退（fallback）查询。`DisabledIfAnyMatch` 为在 DNS 服务器的优先匹配域名列表命中时禁用 DNS 回退（fallback）查询。详情见 [DNS 处理流程](#dns-处理流程)。 (v5.2.0+)
 
 ## EndpointObject
 
@@ -293,12 +289,12 @@ DNS 服务器端口，如 `53`。此项缺省时默认为 `53`。当使用 DOH�
 
 ```json
 {
-    "type": "subdomain",
+    "type": "Subdomain",
     "domain": "youtube.com"
 }
 ```
 
-> `type`: "full" | "subdomain" | "keyword" | "regex"
+> `type`: "Full" | "Subdomain" | "Keyword" | "Regex"
 
 `domain` 的匹配类型。
 
@@ -306,10 +302,10 @@ DNS 服务器端口，如 `53`。此项缺省时默认为 `53`。当使用 DOH�
 
 与 `type` 所对应的 domain 值。以下为 `type` 与`domain` 的对应关系：
 
-- **full**：当此域名完整匹配目标域名时，该规则生效。例如 `v2ray.com` 匹配 `v2ray.com` 但不匹配 `www.v2ray.com`。
-- **regex**：当 `domain` 所表示的正则表达式匹配目标域名时，该规则生效。例如 `\.goo.*\.com$` 匹配 `www.google.com`、`fonts.googleapis.com`，但不匹配 `google.com`。
-- **subdomain (推荐)**：当此域名是目标域名或其子域名时，该规则生效。例如 `v2ray.com` 匹配 `www.v2ray.com`、`v2ray.com`，但不匹配 `xv2ray.com`。
-- **keyword**：当此字符串匹配目标域名中任意部分，该规则生效。比如 `sina.com` 可以匹配 `sina.com`、`sina.com.cn`、`www.sina.com` 和 `www.sina.company`，但不匹配 `sina.cn`。
+- **Full**：当此域名完整匹配目标域名时，该规则生效。例如 `v2ray.com` 匹配 `v2ray.com` 但不匹配 `www.v2ray.com`。
+- **Regex**：当 `domain` 所表示的正则表达式匹配目标域名时，该规则生效。例如 `\.goo.*\.com$` 匹配 `www.google.com`、`fonts.googleapis.com`，但不匹配 `google.com`。
+- **Subdomain (推荐)**：当此域名是目标域名或其子域名时，该规则生效。例如 `v2ray.com` 匹配 `www.v2ray.com`、`v2ray.com`，但不匹配 `xv2ray.com`。
+- **Keyword**：当此字符串匹配目标域名中任意部分，该规则生效。比如 `sina.com` 可以匹配 `sina.com`、`sina.com.cn`、`www.sina.com` 和 `www.sina.company`，但不匹配 `sina.cn`。
 
 ## GeoIPObject
 
@@ -371,14 +367,14 @@ IP 地址前缀匹配的长度，单位为比特。
 
 ```json
 {
-    "type": "regex",
+    "type": "Regex",
     "domain": "cloudflare.com",
     "ip": ["1.1.1.1", "1.0.0.1"],
     "proxiedDomain": "api.v2fly.org"
 }
 ```
 
-> `type`: "full" | "subdomain" | "keyword" | "regex"
+> `type`: "Full" | "Subdomain" | "Keyword" | "Regex"
 
 `domain` 的匹配类型。
 
