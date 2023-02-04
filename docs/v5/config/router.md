@@ -37,15 +37,15 @@ V2Ray 内建了一个路由模块，可以将入站数据按需求由不同的�
 
 对应一个负载均衡器的标识。`balancerTag` 和 `tag` 须二选一。当同时指定时，`tag` 生效。
 
-> `domain`: [DomainObject](./geo.md#DomainObject)
+> `domain`: \[ [DomainObject](./geo.md#DomainObject) \]
 
 当匹配目标域名时，此规则生效。
 
-> `geoDomain`: [GeoDomain](./geo.md#GeoDomain)
+> `geoDomain`: \[ [GeoDomain](./geo.md#GeoDomain) \]
 
 当匹配目标域名时，此规则生效。
 
-> `geoip` : [GeoIP](./geo.md#GeoIP)
+> `geoip` : \[ [GeoIP](./geo.md#GeoIP) \]
 
 当匹配目标 IP 时，此规则生效。
 
@@ -61,7 +61,7 @@ V2Ray 内建了一个路由模块，可以将入站数据按需求由不同的�
 
 可选的值有 "tcp"、"udp" 或 "tcp,udp"，当连接方式是指定的方式时，此规则生效。
 
-> `sourceGeoip`: [GeoIP](./geo.md#GeoIP)
+> `sourceGeoip`: \[ [GeoIP](./geo.md#GeoIP) \]
 
 当匹配来源 IP 时，此规则生效。
 
