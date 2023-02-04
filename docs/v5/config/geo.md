@@ -42,15 +42,13 @@ GeoDomain 文件路径。
 
 ### DomainObject
 
-> `type` : "Plain" | "Regex" | "RootDomain" | "Full"
+> ["type","value"]
 
-域名匹配模式，可选值为：
+`type`：域名匹配模式，可选值为：
 
-* **Plain**：纯字符串匹配模式，当匹配目标域名中任意部分时，该规则生效。比如 `sina.com` 可以匹配 `sina.com`、`sina.com.cn`、`sina.company` 和 `www.sina.com`，但不匹配 `sina.cn`。
-* **Regex**：正则表达式匹配模式，当正则表达式匹配目标域名时，该规则生效。例如 `\.goo.*\.com$` 匹配 `www.google.com`、`fonts.googleapis.com`，但不匹配 `google.com`。
-* **RootDomain**：根域名匹配模式，当域名是目标域名或其子域名时，该规则生效。例如 `v2ray.com` 匹配 `www.v2ray.com`、`v2ray.com`，但不匹配 `xv2ray.com`。
-* **Full**：完整匹配模式，当域名完整匹配目标域名时，该规则生效。例如 `v2ray.com` 匹配 `v2ray.com` 但不匹配 `www.v2ray.com`。
+* `Plain`：纯字符串匹配模式，当匹配目标域名中任意部分时，该规则生效。比如 `sina.com` 可以匹配 `sina.com`、`sina.com.cn`、`sina.company` 和 `www.sina.com`，但不匹配 `sina.cn`。
+* `Regex`：正则表达式匹配模式，当正则表达式匹配目标域名时，该规则生效。例如 `\.goo.*\.com$` 匹配 `www.google.com`、`fonts.googleapis.com`，但不匹配 `google.com`。
+* `RootDomain`：根域名匹配模式，当域名是目标域名或其子域名时，该规则生效。例如 `v2ray.com` 匹配 `www.v2ray.com`、`v2ray.com`，但不匹配 `xv2ray.com`。
+* `Full`：完整匹配模式，当域名完整匹配目标域名时，该规则生效。例如 `v2ray.com` 匹配 `v2ray.com` 但不匹配 `www.v2ray.com`。
 
-> `value`: string
-
-匹配域名的值。
+`value`：匹配域名的值。
