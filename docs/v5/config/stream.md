@@ -159,6 +159,14 @@ uTLS 是一个修改版本的 TLS 实现。 这个项目通过模仿常用 TLS �
 不发送服务器名称指示。可能会导致连接异常。
 ## SocketConfigObject
 
+> `forceAlpn` : "TRANSPORT_PREFERENCE_TAKE_PRIORITY" | "NO_ALPN" | "UTLS_PRESET"
+
+控制连接的应用层协议协商 (ALPN) 扩展的数据来源。可以通过此设置来让连接的特征和被模拟的程序更相近。如果设置的内容不合适会导致连接失败。(v5.3.0+)
+
+- `TRANSPORT_PREFERENCE_TAKE_PRIORITY` : 默认值。优先使用用户在 TLS 设置中手动制定了 APLN 的值，否则使用传输协议的默认 ALPN 设置。
+- `NO_ALPN` : 不发送 ALPN TLS 扩展
+- `UTLS_PRESET`: 以 uTLS 的特征模板中的 ALPN 设置为准。
+
 ```json
 {
     "mark": 0,

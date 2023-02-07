@@ -147,3 +147,10 @@ The TLS client fingerprint to use for the uTLS connection.
 
 Do not send Server Name Indication in the client hello. This may result in failed connection.
 
+> `forceAlpn` : "TRANSPORT_PREFERENCE_TAKE_PRIORITY" | "NO_ALPN" | "UTLS_PRESET"
+
+Controls data source for Application-Layer Protocol Negotiation (ALPN) extension. You can use this setting to make connect resemble the imitated program better. In correct setting will result in connection failure. (v5.3.0+)
+
+- `TRANSPORT_PREFERENCE_TAKE_PRIORITY` : Default value. If user have set an ALPN at TLS setting, use that. Otherwise the default from transport will be used.
+- `NO_ALPN` : Do not send ALPN TLS extension.
+- `UTLS_PRESET`: Use value from uTLS template.
