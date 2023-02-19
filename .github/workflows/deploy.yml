@@ -22,7 +22,7 @@ jobs:
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v1
         with:
-          path: ${{ env.BUILD_PATH }}/docs/.vuepress/dist
+          path: docs/.vuepress/dist
 
   deploy:
     runs-on: ubuntu-latest
