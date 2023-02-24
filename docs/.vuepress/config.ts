@@ -46,6 +46,7 @@ export default defineUserConfig({
         docsRepo: 'v2fly/v2fly-github-io',
         logo: '/v2ray.png',
         docsDir: 'docs',
+        docsBranch: 'master',
         locales: {
             '/': {
                 selectLanguageText: 'Languages',
