@@ -55,7 +55,7 @@ security.tls
 
 在连接因为此策略失败时，会展示此证书链散列。不建议使用这种方式获得证书链散列值，因为在这种情况下您没有机会验证此时服务器提供的证书是否为真实证书。
 
-> `certificate`: [CertificateObject](#CertificateObject)
+> `certificate`: \[[CertificateObject](#CertificateObject)\]
 
 
 ### CertificateObject
