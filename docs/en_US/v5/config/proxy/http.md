@@ -24,3 +24,7 @@ The server address. Both IP and domain name is supported.
 > `port`: number
 
 The server port number.
+
+> `h1SkipWaitForReply`: bool
+
+Do not wait for server reply before sending the connection data. (v5.6.0+)

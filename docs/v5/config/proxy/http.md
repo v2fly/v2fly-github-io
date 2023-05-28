@@ -19,3 +19,7 @@ outbound.http
 > `port`: number
 
 服务器端口。
+
+> `h1SkipWaitForReply`: bool
+
+在服务器回复前发送连接数据。 (v5.6.0+)
