@@ -26,6 +26,8 @@ It has to be one of supported Security Protocol.
 * [WebSocket](stream/websocket.md)
 * [mKCP](stream/kcp.md)
 * [tcp](stream/tcp.md)
+* [QUIC](stream/quic.md)
+* [meek](stream/meek.md)
 
 ## TLS
 * Name: `tls`
