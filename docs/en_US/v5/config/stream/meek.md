@@ -7,7 +7,7 @@ This transport have low transfer performance and is only recommended when other 
 ## Meek Stream
 * Name: `meek`
 * Type: Transport Protocol
-* ID: `stream.ws`
+* ID: `stream.meek`
 
 > `url`: string
 
