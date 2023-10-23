@@ -7,3 +7,4 @@ V2Ray 内置了一些服务来补充 V2Ray 的主要功能。
 * [Stats 统计信息](service/stats.md)
 * [后台连接观测](service/backgroundObservatory.md)
 * [并发连接观测](service/burstObservatory.md)
+* [Tun](service/tun.md)

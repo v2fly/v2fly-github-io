@@ -205,6 +205,7 @@ export default defineUserConfig({
                                 '/v5/config/service/browser',
                                 '/v5/config/service/burstObservatory',
                                 '/v5/config/service/backgroundObservatory',
+                                '/v5/config/service/tun',
                             ],
                         }
                     ],
@@ -336,6 +337,7 @@ export default defineUserConfig({
                                 '/en_US/v5/config/service/browser',
                                 '/en_US/v5/config/service/burstObservatory',
                                 '/en_US/v5/config/service/backgroundObservatory',
+                                '/en_US/v5/config/service/tun',
                             ],
                         }
                     ],
