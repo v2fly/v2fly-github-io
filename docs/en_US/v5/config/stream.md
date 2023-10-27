@@ -28,6 +28,7 @@ It has to be one of supported Security Protocol.
 * [tcp](stream/tcp.md)
 * [QUIC](stream/quic.md)
 * [meek](stream/meek.md)
+* [httpupgrade](stream/httpupgrade.md)
 
 ## TLS
 * Name: `tls`

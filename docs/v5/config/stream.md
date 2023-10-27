@@ -33,6 +33,7 @@
 * [gRPC](stream/grpc.md)
 * [QUIC](stream/quic.md)
 * [meek](stream/meek.md)
+* [httpupgrade](stream/httpupgrade.md)
 
 
 ## TLS

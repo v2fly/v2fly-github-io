@@ -195,6 +195,7 @@ export default defineUserConfig({
                                 '/v5/config/stream/grpc',
                                 '/v5/config/stream/quic',
                                 '/v5/config/stream/meek',
+                                '/v5/config/stream/httpupgrade',
                             ],
                         },
                         {
@@ -327,6 +328,7 @@ export default defineUserConfig({
                                 '/en_US/v5/config/stream/kcp',
                                 '/en_US/v5/config/stream/quic',
                                 '/en_US/v5/config/stream/meek',
+                                '/en_US/v5/config/stream/httpupgrade',
                             ],
                         },
                         {
