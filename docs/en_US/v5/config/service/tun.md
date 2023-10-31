@@ -29,6 +29,7 @@ The ip address associated with tun. You will need to add them to tun on the oper
 
 > `routes`: [ [RouteObject](#RouteObject) ]
 
+The routes associated with tun. You will need to add them to tun on the operating system side as well.
 
 > `enablePromiscuousMode`: bool
 
