@@ -48,6 +48,9 @@ When this value is `None` , UDP connections will be split into streams based on 
 When this value is `Packet`, UDP connections from a single source connection will be encoded as UDP packet addr connection, which will be restored to its original form by a supported outbound as an Endpoint Independent Mapping UDP connection.
 This UDP behaviour is also known as FullCone or NAT1.
 
+> `sniffingSettings`: [SniffingObject](../inbound.md/#SniffingObject)
+
+The sniffing settings for the tun inbound. It allows the connection to be routed based on its content and metadata.（v5.11.0+）
 
 ### IPObject
 
