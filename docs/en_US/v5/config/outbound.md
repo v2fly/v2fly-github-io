@@ -58,6 +58,7 @@ Control whether how domain names in outgoing connection are processed. (v5.12.0+
 * [VMess](proxy/vmess.md)
 * [VLite](proxy/vlite.md)
 * [Shadowsocks](proxy/shadowsocks.md)
+* [Shadowsocks2022](proxy/shadowsocks2022.md)
 * [Freedom](proxy/freedom.md)
 * [Loopback](proxy/loopback.md)
 * [Blackhole](proxy/blackhole.md)

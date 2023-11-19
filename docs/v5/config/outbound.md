@@ -62,6 +62,7 @@ Mux 配置。
 * [VMess](proxy/vmess.md)
 * [VLite](proxy/vlite.md)
 * [Shadowsocks](proxy/shadowsocks.md)
+* [Shadowsocks2022](proxy/shadowsocks2022.md)
 * [Freedom](proxy/freedom.md)
 * [Loopback](proxy/loopback.md)
 * [Blackhole](proxy/blackhole.md)
