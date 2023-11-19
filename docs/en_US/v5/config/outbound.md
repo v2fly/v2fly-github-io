@@ -43,6 +43,15 @@ Forward Proxy(Proxy Chaining) settings.
 
 Connection multiplexor settings.
 
+> `domainStrategy`: [ "AsIs" | "UseIP" | "UseIP4" | "UseIP6" | "" ]
+
+Control whether how domain names in outgoing connection are processed. (v5.12.0+)
+
+- "AsIs" : Let operating system resolve it.
+- "UseIP" : Resolve it with built-in dns, and use any IP address.
+- "UseIP4" : Resolve it with built-in dns, and use any IPv4 address.
+- "UseIP6" : Resolve it with built-in dns, and use any IPv6 address.
+
 ## Supported Proxy Protocol
 
 * [SOCKS](proxy/socks.md)
