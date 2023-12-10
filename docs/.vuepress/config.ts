@@ -208,6 +208,7 @@ export default defineUserConfig({
                                 '/v5/config/service/burstObservatory',
                                 '/v5/config/service/backgroundObservatory',
                                 '/v5/config/service/tun',
+                                '/v5/config/service/subscription',
                             ],
                         }
                     ],
