@@ -58,6 +58,6 @@ The stream settings for the inbound. This determine how the protocol data is tra
 
 > `enabled`: true | false
 
-> `destOverride`: [ string ]
+> `destinationOverride`: [ string ]
 
 > `metadataOnly`: true | false
