@@ -57,7 +57,8 @@ export default defineUserConfig({
                 contributorsText: '贡献者',
                 navbar: [
                     { text: '快速开始', link: '/guide/start', },
-                    { text: '配置文档', link: '/v5/config/overview', },
+                    { text: '配置文档', link: '/config/overview', },
+                    { text: '配置文档 (v5, WIP)', link: '/v5/config/overview', },
                     { text: '工具列表', link: '/awesome/tools' },
                     { text: '开发手册', link: '/developer/intro/compile', },
                     { text: '新白话文指南', link: 'https://guide.v2fly.org/' },
@@ -223,7 +224,8 @@ export default defineUserConfig({
                 lastUpdatedText: 'Last Updated',
                 navbar: [
                     { text: 'Quick Start', link: '/en_US/guide/start', },
-                    { text: 'Config Reference', link: '/en_US/v5/config/overview', },
+                    { text: 'Config Reference', link: '/en_US/config/overview', },
+                    { text: 'Config Reference (v5, WIP)', link: '/en_US/v5/config/overview', },
                     { text: 'Tools', link: '/en_US/awesome/tools' },
                     { text: 'Developer Guide', link: '/en_US/developer/intro/compile', },
                     { text: 'New concise guide', link: 'https://guide.v2fly.org/' },
