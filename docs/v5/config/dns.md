@@ -292,9 +292,9 @@ FakeDNS 配置，当该项配置时，FakeDNS 启用。当该项未被配置但 
 
 DNS 查询所使用的网络类型，默认使用上级公共配置。配置为 `UseIP` 时 DNS 同时查询域名的 A 和 AAAA 记录。`UseIPv4` 和 `UseIPv6` 分别为只查询 A 记录、只查询 AAAA 记录。(v5.2.0+)
 
-> `cacheStrategy`: "CacheEnabled" | "CacheEnabled"
+> `cacheStrategy`: "CacheEnabled" | "CacheDisabled"
 
-DNS 缓存策略，默认使用上级公共配置。 `CacheEnabled`，为启用 DNS 缓存。`CacheEnabled` 为禁用 DNS 缓存。详情见 [DNS 处理流程](#dns-处理流程)。(v5.2.0+)
+DNS 缓存策略，默认使用上级公共配置。 `CacheEnabled`，为启用 DNS 缓存。`CacheDisabled` 为禁用 DNS 缓存。详情见 [DNS 处理流程](#dns-处理流程)。(v5.2.0+)
 
 > `fallbackStrategy`: "Enabled" | "Disabled" | "DisabledIfAnyMatch"
 
