@@ -132,7 +132,7 @@ DNS 处理流程示意图如下：
 }
 ```
 
-> `nameServer`: [ [NameServerObject](#NameServerObject) ]
+> `nameServer`: [ [NameServerObject](#nameserverobject) ]
 
 DNS 服务器列表。
 
@@ -144,7 +144,7 @@ DNS 服务器列表。
 此功能需要 DNS 服务器支持 EDNS Client Subnet（RFC7871）。
 :::
 
-> `staticHosts`: [ [HostMappingObject](#HostMappingObject) ]
+> `staticHosts`: [ [HostMappingObject](#hostmappingobject) ]
 
 静态域名映射。
 
@@ -152,7 +152,7 @@ DNS 服务器列表。
 当地址中同时设置了多个 IP 和域名，则只会返回第一个域名，其余 IP 和域名均被忽略。【TODO】
 :::
 
-> `fakeDns`: [FakeDnsObject](#FakeDnsObject)
+> `fakeDns`: [FakeDnsObject](#fakednsobject)
 
 FakeDNS 公共配置，当 `nameServer` 中 `address` 为 `fakedns` 且无 `fakeDNS` 配置时，使用此配置。(v5.2.0+)
 
@@ -246,7 +246,7 @@ DNS 回退（fallback）查询策略。默认为 `Enabled`，即启用 DNS 回�
 }
 ```
 
-> `address`: [EndpointObject](#EndpointObject)
+> `address`: [EndpointObject](#endpointobject)
 
 DNS 服务器地址。
 
@@ -270,17 +270,17 @@ DNS 服务器地址。
 如果 [DnsObject](#dnsobject) 中的 `disableFallback` 设置为 `true`，则本选项不会生效。
 :::
 
-> `prioritizedDomain`: \[ [PriorityDomainObject](#PriorityDomainObject) ]
+> `prioritizedDomain`: \[ [PriorityDomainObject](#prioritydomainobject) ]
 
 一个域名列表，此列表包含的域名，将优先使用此服务器进行查询。
 
-> `expectIPs`:\[ [GeoIPObject](#GeoIPObject) ]
+> `expectIPs`:\[ [GeoIPObject](#geoipobject) ]
 
 一个 IP 范围列表。
 
 当配置此项时，V2Ray DNS 会对返回的 IP 进行校验，只返回满足 expectIPs 列表的地址。如果未配置此项，会原样返回 IP 地址。
 
-> `fakeDns`: [FakeDnsObject](#FakeDnsObject)
+> `fakeDns`: [FakeDnsObject](#fakednsobject)
 
 FakeDNS 配置，当该项配置时，FakeDNS 启用。当该项未被配置但 `address` 配置为 `fakedns` 时则使用上级公共配置。(v5.2.0+)
 
@@ -364,7 +364,7 @@ DNS 服务器端口，如 `53`。此项缺省时默认为 `53`。当使用 DOH�
 
 从文件中加载 IP 时，所指定的文件路径。默认值为 `geoip.dat`。
 
-> `cidr`: [ [CIDRObject](#CIDRObject) ]
+> `cidr`: [ [CIDRObject](#cidrobject) ]
 
 [CIDR](https://en.wikipedia.org/wiki/Classless_Inter-Domain_Routing)：形如 `10.0.0.0/8`。
 
@@ -412,7 +412,7 @@ IP 地址前缀匹配的长度，单位为比特。
 
 > `domain`: string
 
-与 `type` 所对应的 domain 值。格式与 [PriorityDomainObject](#PriorityDomainObject) 相同。
+与 `type` 所对应的 domain 值。格式与 [PriorityDomainObject](#prioritydomainobject) 相同。
 
 > `ip`: [ string ]
 
@@ -443,7 +443,7 @@ IP 地址前缀匹配的长度，单位为比特。
 }
 ```
 
-> `pools`: [ [PoolObject](#PoolObject) ]
+> `pools`: [ [PoolObject](#poolobject) ]
 
 IP 地址池配置。
 
