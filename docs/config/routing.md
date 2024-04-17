@@ -47,7 +47,7 @@ V2Ray 内建了一个路由模块，可以将入站数据按需求由不同的�
 {
     "domainMatcher": "mph",
     "type": "field",
-    "domains": [
+    "domain": [
         "baidu.com",
         "qq.com",
         "geosite:cn",
@@ -89,7 +89,7 @@ V2Ray 内建了一个路由模块，可以将入站数据按需求由不同的�
 ```
 
 :::tip
-当多个属性同时指定时，这些属性需要同时满足，才可以使当前规则生效。即 `domains` 和 `ip` 规则需要分开使用。
+当多个属性同时指定时，这些属性需要同时满足，才可以使当前规则生效。即 `domain` 和 `ip` 规则需要分开使用。
 :::
 
 > `domainMatcher`: "linear" | "mph"
@@ -104,7 +104,7 @@ V2Ray 内建了一个路由模块，可以将入站数据按需求由不同的�
 
 目前只支持 `field` 这一个选项。
 
-> `domains`: \[string\]
+> `domain`: \[string\]
 
 一个数组，数组每一项是一个域名的匹配。有以下几种形式：
 
