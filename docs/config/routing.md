@@ -198,9 +198,7 @@ V2Ray 内建了一个路由模块，可以将入站数据按需求由不同的�
 {
     "tag": "balancer",
     "selector": [],
-    "strategy": {
-      "type": "random"
-    }
+    "strategy": {}
 }
 ```
 
@@ -220,7 +218,8 @@ V2Ray 内建了一个路由模块，可以将入站数据按需求由不同的�
 
 ```json
 {
-    "type": "random"
+    "type": "",
+    "settings": {}
 }
 ```
 
@@ -230,7 +229,25 @@ V2Ray 内建了一个路由模块，可以将入站数据按需求由不同的�
 
 可以填入的类型包括 `random` 以及 `leastPing` (v4.38.0+).
 
+> `settings`:  StrategyConfigObject
+
+根据策略类型不同参下。
+
+### StrategyRandomConfigObject
+
 `random` 会从出站中随机选出一个作为最终的出站连接。
+
+```json
+{
+    "aliveOnly": true
+}
+```
+
+> `aliveOnly`:  bool 
+
+(v5.15+) 未配置时默认为`false`。值为`true`时，根据观测记录，屏蔽不可用的出站。未被观测的出站默认可用。
+
+### StrategyLeastLoadConfigObject
 
 `leastPing` 会根据观测记录选择 HTTPS GET 请求完成时间最快的一个出站连接。
 
