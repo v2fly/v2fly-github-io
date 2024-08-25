@@ -327,7 +327,7 @@ TCP 保持活跃的数据包的发送间隔，以秒为单位（仅适用于 Lin
 
 是否启用多路径TCP（仅适用于Linux）。
 
-* `true`: MPTCP 已打开。如果另一端的主机不支持 MPTCP，MPTCP 将恢复使用 TCP。
-* `false`: MPTCP 已关闭。
+* `true`: 打开 MPTCP 。如果另一端的主机不支持 MPTCP，MPTCP 将回退为普通 TCP。
+* `false`: 关闭 MPTCP 。
 
 当此项不存在时，将使用系统默认设置。可用于入站和出站连接。
