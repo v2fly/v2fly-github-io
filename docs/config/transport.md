@@ -277,7 +277,8 @@ TLS 配置。TLS 由 Golang 提供，支持 TLS 1.3，不支持 DTLS。
     "tcpFastOpen": false,
     "tcpFastOpenQueueLength": 4096,
     "tproxy": "off",
-    "tcpKeepAliveInterval": 0
+    "tcpKeepAliveInterval": 0,
+    "mptcp": false
 }
 ```
 
@@ -321,3 +322,12 @@ TLS 配置。TLS 由 Golang 提供，支持 TLS 1.3，不支持 DTLS。
 TCP 保持活跃的数据包的发送间隔，以秒为单位（仅适用于 Linux）。 (v4.39.0+)
 
 0 代表保持默认值。
+
+> `mptcp`: true | false
+
+是否启用多路径TCP（仅适用于Linux）。
+
+* `true`: MPTCP 已打开。如果另一端的主机不支持 MPTCP，MPTCP 将恢复使用 TCP。
+* `false`: MPTCP 已关闭。
+
+当此项不存在时，将使用系统默认设置。可用于入站和出站连接。
