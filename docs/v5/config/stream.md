@@ -172,8 +172,10 @@ uTLS 是一个修改版本的 TLS 实现。 这个项目通过模仿常用 TLS �
 {
     "mark": 0,
     "tcpFastOpen": false,
+    "tcpFastOpenQueueLength": 4096,
     "tproxy": "off",
-    "tcpKeepAliveInterval": 0
+    "tcpKeepAliveInterval": 0,
+    "bindToDevice": "eth0"
 }
 ```
 ## SocketConfigObject
