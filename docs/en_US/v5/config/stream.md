@@ -167,7 +167,8 @@ Controls data source for Application-Layer Protocol Negotiation (ALPN) extension
     "tcpFastOpenQueueLength": 4096,
     "tproxy": "off",
     "tcpKeepAliveInterval": 0,
-    "bindToDevice": "eth0"
+    "bindToDevice": "eth0",
+    "mptcp": false
 }
 ```
 
@@ -215,3 +216,12 @@ The interval in seconds between sending TCP keep-alive packets (only for Linux).
 > `bindToDevice`: string
 
 Bind the connection to the specified network device (Linux: v5.0.6+, Windows/Darwin: v5.2.0+).
+
+> `mptcp`: true | false
+
+Whether to enable Multipath TCP (only for Linux).
+
+* `true`: MPTCP is turned on. If the host on the other side doesn't support MPTCP, MPTCP will fall back to using TCP.
+* `false`: MPTCP is turned off.
+
+When this item does not exist, the system default setting is used. Can be used for inbound and outbound connections.

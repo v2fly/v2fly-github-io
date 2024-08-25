@@ -177,7 +177,8 @@ uTLS 是一个修改版本的 TLS 实现。 这个项目通过模仿常用 TLS �
     "tcpFastOpenQueueLength": 4096,
     "tproxy": "off",
     "tcpKeepAliveInterval": 0,
-    "bindToDevice": "eth0"
+    "bindToDevice": "eth0",
+    "mptcp": false
 }
 ```
 
@@ -224,3 +225,12 @@ TCP 保持活跃的数据包的发送间隔，以秒为单位（仅适用于 Lin
 > `bindToDevice`: string
 
 将连接绑定到指定的网络设备（Linux: v5.0.6+, Windows/Darwin: v5.2.0+）。
+
+> `mptcp`: true | false
+
+是否启用多路径TCP（仅适用于Linux）。
+
+* `true`: 打开 MPTCP 。如果另一端的主机不支持 MPTCP，MPTCP 将回退为普通 TCP。
+* `false`: 关闭 MPTCP 。
+
+当此项不存在时，将使用系统默认设置。可用于入站和出站连接。
