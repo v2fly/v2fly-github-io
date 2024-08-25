@@ -278,6 +278,7 @@ TLS 配置。TLS 由 Golang 提供，支持 TLS 1.3，不支持 DTLS。
     "tcpFastOpenQueueLength": 4096,
     "tproxy": "off",
     "tcpKeepAliveInterval": 0,
+    "bindToDevice": "eth0",
     "mptcp": false
 }
 ```
@@ -322,6 +323,10 @@ TLS 配置。TLS 由 Golang 提供，支持 TLS 1.3，不支持 DTLS。
 TCP 保持活跃的数据包的发送间隔，以秒为单位（仅适用于 Linux）。 (v4.39.0+)
 
 0 代表保持默认值。
+
+> `bindToDevice`: string
+
+将连接绑定到指定的网络设备（Linux: v5.0.6+, Windows/Darwin: v5.2.0+）。
 
 > `mptcp`: true | false
 

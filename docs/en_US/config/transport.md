@@ -250,6 +250,7 @@ When `usage` is `"verify"`, both `keyFile` and `key` can be empty.
     "tcpFastOpenQueueLength": 4096,
     "tproxy": "off",
     "tcpKeepAliveInterval": 0,
+    "bindToDevice": "eth0",
     "mptcp": false
 }
 ```
@@ -294,6 +295,10 @@ When `followRedirect` is specified in [Dokodemo-door](protocols/dokodemo.md) and
 The interval in seconds between sending TCP keep-alive packets (only for Linux). (v4.39.0+)
 
 0 means keep the default value.
+
+> `bindToDevice`: string
+
+Bind the connection to the specified network device (Linux: v5.0.6+, Windows/Darwin: v5.2.0+).
 
 > `mptcp`: true | false
 
