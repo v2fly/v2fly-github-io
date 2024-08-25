@@ -23,7 +23,7 @@
 
 > `securitySettings`: settings of `<security>`
 
-> `socketSettings`: [SocketConfigObject](#SocketConfigObject)
+> `socketSettings`: [SocketConfigObject](#socketconfigobject)
 
 ## 支持的传输流协议
 
@@ -57,7 +57,7 @@ security.tls
 
 在连接因为此策略失败时，会展示此证书链散列。不建议使用这种方式获得证书链散列值，因为在这种情况下您没有机会验证此时服务器提供的证书是否为真实证书。
 
-> `certificate`: \[[CertificateObject](#CertificateObject)\]
+> `certificate`: \[[CertificateObject](#certificateobject)\]
 
 
 ### CertificateObject
@@ -107,7 +107,7 @@ uTLS 是一个修改版本的 TLS 实现。 这个项目通过模仿常用 TLS �
 
 当您在部分传输方式中使用 uTLS 时，应用层协议协商的内容将被覆盖以便使该传输方式可以正常运作。这会导致客户端握手包的指纹和被模仿的指纹有些许不同。
 
-> `tlsConfig`: [TLSConfig](#TLS)
+> `tlsConfig`: [TLSConfig](#tls)
 
 嵌入的 TLS 设置，只有部分内容会被应用到 uTLS.
 

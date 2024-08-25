@@ -21,7 +21,7 @@ Whether to enable browser forwarder.
 
 The header name for WebSocket Early Data. If not set, the early data will be send through path.
 
-> 'header': [ [Header](#Header) ]
+> 'header': [ [Header](#header) ]
 
 The header to be sent in HTTP request.
 

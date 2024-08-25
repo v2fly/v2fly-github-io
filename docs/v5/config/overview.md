@@ -66,11 +66,11 @@
 }
 ```
 
-> `access`: [LogSpecObject](#LogSpecObject)
+> `access`: [LogSpecObject](#logspecobject)
 
 访问日志设置。
 
-> `error`: [LogSpecObject](#LogSpecObject)
+> `error`: [LogSpecObject](#logspecobject)
 
 错误日志设置。
 

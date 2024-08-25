@@ -6,17 +6,17 @@ service.policy
 
 ## Policy
 
-> `system`: [SystemPolicyObject](#SystemPolicyObject)
+> `system`: [SystemPolicyObject](#systempolicyobject)
 
 V2Ray 全局系统策略。
 
-> `level`: map{string: [PolicyObject](#PolicyObject)}
+> `level`: map{string: [PolicyObject](#policyobject)}
 
-一组键值对，每个键是一个字符串形式的数字（JSON 的要求），比如 "0"、"1" 等，双引号不能省略，此数字对应用户等级。每一个值是一个 [PolicyObject](#PolicyObject)。
+一组键值对，每个键是一个字符串形式的数字（JSON 的要求），比如 "0"、"1" 等，双引号不能省略，此数字对应用户等级。每一个值是一个 [PolicyObject](#policyobject)。
 
 ### SystemPolicyObject
 
-> `stats`: [StatsObject](#StatsObject)
+> `stats`: [StatsObject](#statsobject)
 
 统计信息设置。
 
@@ -41,15 +41,15 @@ V2Ray 全局系统策略。
 
 ### PolicyObject
 
-> `timeout`: [TimeoutPolicyObject](#TimeoutPolicyObject)
+> `timeout`: [TimeoutPolicyObject](#timeoutpolicyobject)
 
 超时策略。
 
-> `stats`: [PolicyStatsObject](#PolicyStatsObject)
+> `stats`: [PolicyStatsObject](#policystatsobject)
 
 统计信息策略。
 
-> `buffer`: [BufferPolicyObject](#BufferPolicyObject)
+> `buffer`: [BufferPolicyObject](#bufferpolicyobject)
 
 内部缓存策略。
 

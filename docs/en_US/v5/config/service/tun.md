@@ -23,11 +23,11 @@ The mtu of the tun interface. The recommanded value is 1500.
 
 The inbound tag associated with tun generated traffic.
 
-> `ips`: [ [IPObject](#IPObject) ]
+> `ips`: [ [IPObject](#ipobject) ]
 
 The ip address associated with tun. You will need to add them to tun on the operating system side as well.
 
-> `routes`: [ [RouteObject](#RouteObject) ]
+> `routes`: [ [RouteObject](#routeobject) ]
 
 The routes associated with tun. You will need to add them to tun on the operating system side as well.
 

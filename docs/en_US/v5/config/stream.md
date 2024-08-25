@@ -19,7 +19,7 @@ It has to be one of supported Security Protocol.
 
 > `securitySettings`: settings of `<security>`
 
-> `socketSettings`: [SocketConfigObject](#SocketConfigObject)
+> `socketSettings`: [SocketConfigObject](#socketconfigobject)
 
 ### Supported Streams
 
@@ -51,7 +51,7 @@ Whether system level Certificate Authority Store should be trusted.
 
 Pinned Peer Certificate Chain SHA256 Hash. Should be represented in base64 format.
 
-> `certificate`: [[CertificateObject](#CertificateObject)]
+> `certificate`: [[CertificateObject](#certificateobject)]
 
 
 # CertificateObject
@@ -97,7 +97,7 @@ uTLS is supported in the following transports:
 
 When you are using uTLS in some transport, the APLN will be overridden for its correct function.  It may be a slightly different fingerprint than specified.
 
-> `tlsConfig`: [TLSConfig](#TLS)
+> `tlsConfig`: [TLSConfig](#tls)
 
 The Embedded TLS Setting for uTLS connections. Only some of its field are effective.
 

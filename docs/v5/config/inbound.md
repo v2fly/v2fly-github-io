@@ -43,7 +43,7 @@ v4.32.0+，支持填写 Unix domain socket，格式为绝对路径，形如 `"/d
 
 此入站连接的标识，用于在其它的配置中定位此连接。当其不为空时，其值必须在所有 `tag` 中唯一。
 
-> `sniffing`: [SniffingObject](#SniffingObject)
+> `sniffing`: [SniffingObject](#sniffingobject)
 
 入站连接的流量探测设置。流量探测允许路由根据连接的内容和元数据转发连接。
 

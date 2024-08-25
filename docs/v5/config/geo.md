@@ -2,7 +2,7 @@
 
 ## GeoIP
 
-> `cidr` : \[[CIDRObject](#CIDRObject)\]
+> `cidr` : \[[CIDRObject](#cidrobject)\]
 
 一个数组，数组中每一项是一个 [CIDR](https://zh.wikipedia.org/zh-hans/%E6%97%A0%E7%B1%BB%E5%88%AB%E5%9F%9F%E9%97%B4%E8%B7%AF%E7%94%B1) 地址块
 
@@ -30,7 +30,7 @@ CIDR 地址前缀。
 
 ## GeoDomain
 
-> `domain` : [DomainObject](#DomainObject)
+> `domain` : [DomainObject](#domainobject)
 
 > `code`: string
 
