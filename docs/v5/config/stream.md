@@ -168,6 +168,8 @@ uTLS 是一个修改版本的 TLS 实现。 这个项目通过模仿常用 TLS �
 - `NO_ALPN` : 不发送 ALPN TLS 扩展
 - `UTLS_PRESET`: 以 uTLS 的特征模板中的 ALPN 设置为准。
 
+## SocketConfigObject
+
 ```json
 {
     "mark": 0,
@@ -178,7 +180,6 @@ uTLS 是一个修改版本的 TLS 实现。 这个项目通过模仿常用 TLS �
     "bindToDevice": "eth0"
 }
 ```
-## SocketConfigObject
 
 > `mark`: number
 
