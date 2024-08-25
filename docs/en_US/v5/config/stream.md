@@ -157,3 +157,61 @@ Controls data source for Application-Layer Protocol Negotiation (ALPN) extension
 - `TRANSPORT_PREFERENCE_TAKE_PRIORITY` : Default value. If user have set an ALPN at TLS setting, use that. Otherwise the default from transport will be used.
 - `NO_ALPN` : Do not send ALPN TLS extension.
 - `UTLS_PRESET`: Use value from uTLS template.
+
+## SocketConfigObject
+
+```json
+{
+    "mark": 0,
+    "tcpFastOpen": false,
+    "tcpFastOpenQueueLength": 4096,
+    "tproxy": "off",
+    "tcpKeepAliveInterval": 0,
+    "bindToDevice": "eth0"
+}
+```
+
+> `mark`: number
+
+An integer. When its value is non-zero, mark SO_MARK on the outbound connection.
+
+* Only applicable to Linux systems.
+* Requires CAP_NET_ADMIN permission.
+
+> `tcpFastOpen`: true | false
+
+Whether to enable [TCP Fast Open](https://zh.wikipedia.org/wiki/TCP%E5%BF%AB%E9%80%9F%E6%89%93%E5%BC%80). When its value is `true`, TFO is forcibly turned on; when its value is `false`, TFO is forcibly turned off; when this item does not exist, the system default setting is used. Can be used for inbound and outbound connections.
+
+* Only available in the following versions (or later versions) of the operating system:
+  * Windows 10 (1604)
+  * Mac OS 10.11 / iOS 9
+  * Linux 3.16: The system is turned on by default and no configuration is required.
+  * FreeBSD 10.3
+
+> `tcpFastOpenQueueLength`: number
+
+[TCP Fast Open](https://zh.wikipedia.org/wiki/TCP%E5%BF%AB%E9%80%9F%E6%89%93%E5%BC%80) queue length for inbound connections. Default value is `4096`. Only available in Linux.
+
+> `tproxy`: "redirect" | "tproxy" | "off"
+
+Whether to enable transparent proxy (only for Linux).
+
+* `"redirect"`: Transparent proxy using Redirect mode. Only TCP/IPv4 and UDP connections are supported.
+* `"tproxy"`: Use TProxy mode transparent proxy. Supports TCP and UDP connections.
+* `"off"`: Turn off the transparent proxy.
+
+Transparent proxy requires Root or CAP\_NET\_ADMIN authority.
+
+:::tip
+When `followRedirect` is specified in [Dokodemo-door](proxy/dokodemo.md) and `sockopt.tproxy` is empty, the value of `sockopt.tproxy` will be set to `"redirect"`.
+:::
+
+> `tcpKeepAliveInterval`: number
+
+The interval in seconds between sending TCP keep-alive packets (only for Linux).
+
+0 means keep the default value.
+
+> `bindToDevice`: string
+
+Bind the connection to the specified network device (Linux: v5.0.6+, Windows/Darwin: v5.2.0+).
