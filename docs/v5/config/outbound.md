@@ -38,11 +38,11 @@ outbound
 
 底层传输配置。
 
-> `proxySettings`: [ProxyObject](#ProxyObject)
+> `proxySettings`: [ProxyObject](#proxyobject)
 
 出站代理配置。当出站代理生效时。
 
-> `mux`: [MuxObject](#MuxObject)
+> `mux`: [MuxObject](#muxobject)
 
 Mux 配置。
 

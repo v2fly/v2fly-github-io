@@ -23,11 +23,11 @@ tun 网络适配器的最大传输单元。建议设置为 1500.
 
 生成的流量的入站流量标签。
 
-> `ips`: [ [IPObject](#IPObject) ]
+> `ips`: [ [IPObject](#ipobject) ]
 
 tun 网络适配器的 IP 地址段。建议设置为私有地址段。
 
-> `routes`: [ [RouteObject](#RouteObject) ]
+> `routes`: [ [RouteObject](#routeobject) ]
 
 tun 网络适配器的路由表。建议设置为 `0.0.0.0/0` 和 `::/0` 以路由所有进入 tun 网络适配器的数据包。
 

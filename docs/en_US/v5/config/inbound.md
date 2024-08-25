@@ -35,7 +35,7 @@ The listening IP address for the inbound.
 
 The Tag of the inbound. This is used as an identifier for outbounds.
 
-> `sniffing`: [SniffingObject](#SniffingObject)
+> `sniffing`: [SniffingObject](#sniffingobject)
 
 The sniffing settings for the inbound. It allows the connection to be routed based on its content and metadata.
 

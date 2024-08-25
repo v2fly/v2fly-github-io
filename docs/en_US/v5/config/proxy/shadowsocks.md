@@ -9,7 +9,7 @@
 
 > `method` : string
 
-Encryption method，one of [supported encryption methods](#Supported Encryption Methods) .
+Encryption method，one of [supported encryption methods](#supported encryption methods) .
 
 > `password`: string
 
@@ -48,7 +48,7 @@ The server port number.
 
 > `method` : string
 
-Encryption method，one of [supported encryption methods](#Supported Encryption Methods) .
+Encryption method，one of [supported encryption methods](#supported encryption methods) .
 
 > `password`: string
 

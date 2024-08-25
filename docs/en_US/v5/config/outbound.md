@@ -35,11 +35,11 @@ The Tag of the outbound. This is used as an identifier for outbounds.
 
 The stream settings for the outbound. This determine how the protocol data is transferred.
 
-> `proxySettings`: [ProxyObject](#ProxyObject)
+> `proxySettings`: [ProxyObject](#proxyobject)
 
 Forward Proxy(Proxy Chaining) settings.
 
-> `mux`: [MuxObject](#MuxObject)
+> `mux`: [MuxObject](#muxobject)
 
 Connection multiplexor settings.
 

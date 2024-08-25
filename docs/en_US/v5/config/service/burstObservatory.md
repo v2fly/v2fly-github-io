@@ -7,7 +7,7 @@
 
 The selectors for outbound under observation
 
->`pingConfig`: [PingConfigObject](#PingConfigObject)
+>`pingConfig`: [PingConfigObject](#pingconfigobject)
 
 
 ### PingConfigObject

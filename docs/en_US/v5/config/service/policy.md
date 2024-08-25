@@ -5,17 +5,17 @@
 
 ### Policy
 
-> `system`: [SystemPolicyObject](#SystemPolicyObject)
+> `system`: [SystemPolicyObject](#systempolicyobject)
 
 The system level policies that determine the global level policies applied everywhere.
 
-> `level`: map of [PolicyObject](#PolicyObject)
+> `level`: map of [PolicyObject](#policyobject)
 
 The level based policy.
 
 ### SystemPolicyObject
 
-> `stats`: [StatsObject](#StatsObject)
+> `stats`: [StatsObject](#statsobject)
 
 The stats settings.
 
@@ -40,21 +40,21 @@ Whether the download data count from outbound should be recorded.
 
 ### PolicyObject
 
-> `timeout`: [TimeoutPolicyObject](#TimeoutPolicyObject)
+> `timeout`: [TimeoutPolicyObject](#timeoutpolicyobject)
 
-> `stats`: [PolicyStatsObject](#PolicyStatsObject)
+> `stats`: [PolicyStatsObject](#policystatsobject)
 
-> `buffer`: [BufferPolicyObject](#BufferPolicyObject)
+> `buffer`: [BufferPolicyObject](#bufferpolicyobject)
 
 ### TimeoutPolicyObject
 
-> `handshake`: [SecondObject](#SecondObject)
+> `handshake`: [SecondObject](#secondobject)
 
-> `connectionIdle`: [SecondObject](#SecondObject)
+> `connectionIdle`: [SecondObject](#secondobject)
 
-> `uplinkOnly`: [SecondObject](#SecondObject)
+> `uplinkOnly`: [SecondObject](#secondobject)
 
-> `downlinkOnly`: [SecondObject](#SecondObject)
+> `downlinkOnly`: [SecondObject](#secondobject)
 
 ### SecondObject
 

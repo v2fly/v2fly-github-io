@@ -6,7 +6,7 @@
 
 一个字符串数组，其中每一个字符串将用于和出站协议标识的前缀匹配。在以下几个出站协议标识中：`[ "a", "ab", "c", "ba" ]`，`"subjectSelector": ["a"]` 将匹配到 `[ "a", "ab" ]`。
 
->`pingConfig`: [PingConfigObject](#PingConfigObject)
+>`pingConfig`: [PingConfigObject](#pingconfigobject)
 
 ### PingConfigObject
 

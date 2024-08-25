@@ -25,7 +25,7 @@ Outbound proxy ID.
 
 > `services`: \[string\]
 
-The list of available APIs, see [API list](#Supported-api-list) for details.
+The list of available APIs, see [API list](#list-of-supported-apis) for details.
 
 ## List of supported APIs
 

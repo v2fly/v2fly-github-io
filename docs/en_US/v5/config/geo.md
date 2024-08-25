@@ -2,7 +2,7 @@
 
 ## GeoIP
 
-> `cidr` : [CIDRObject](#CIDRObject)
+> `cidr` : [CIDRObject](#cidrobject)
 
 > `inverseMatch` : true | false
 
@@ -19,7 +19,7 @@
 
 ## GeoDomain
 
-> `domain` : [DomainObject](#DomainObject)
+> `domain` : [DomainObject](#domainobject)
 
 > `code`: string
 

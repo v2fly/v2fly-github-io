@@ -11,9 +11,9 @@ service.router
 
 > `domainStrategy`: `AsIs` | `UseIp` | `IpIfNonMatch` | `IpOnDemand`
 
-> `rule`: [ [RuleObject](#RuleObject) ]
+> `rule`: [ [RuleObject](#ruleobject) ]
 
-> `balancingRule`: [ [BalancingRuleObject](#BalancingRuleObject) ]
+> `balancingRule`: [ [BalancingRuleObject](#balancingruleobject) ]
 
 ## RuleObject
 

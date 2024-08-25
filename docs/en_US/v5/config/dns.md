@@ -17,11 +17,11 @@ When a domain name list assigned by a DNS server matches the domain name current
 
 ![](/dns_flowchart_20210418.svg)
 
-> `nameServer`: [ [NameServerObject](#NameServerObject) ]
+> `nameServer`: [ [NameServerObject](#nameserverobject) ]
 
 A list of name servers.
 
-> `staticHosts`: [ [StaticHostsObject](#StaticHostsObject) ]
+> `staticHosts`: [ [StaticHostsObject](#statichostsobject) ]
 
 Host Mapping rules. This can be used to manually define DNS resolution results or transform DNS resolutions.
 
@@ -69,7 +69,7 @@ The client IP address indication send to the DNS Server. The server may return a
 
 Prevent fallback to this DNS Server.
 
-> `prioritizedDomain`: [ [PrioritizedDomainObject](#PrioritizedDomainObject) ]
+> `prioritizedDomain`: [ [PrioritizedDomainObject](#prioritizeddomainobject) ]
 
 The domains that should be send to this server. If the domain being queried match one of the specification, then the query will be send to this server first.
 
