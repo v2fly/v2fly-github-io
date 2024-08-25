@@ -247,7 +247,8 @@ When `usage` is `"verify"`, both `keyFile` and `key` can be empty.
 {
     "mark": 0,
     "tcpFastOpen": false,
-    "tproxy": "off"
+    "tproxy": "off",
+    "mptcp": false
 }
 ```
 
@@ -281,3 +282,12 @@ Transparent proxy requires Root or CAP\_NET\_ADMIN authority.
 :::tip
 When `followRedirect` is specified in [Dokodemo-door](protocols/dokodemo.md) and `sockopt.tproxy` is empty, the value of `sockopt.tproxy` will be set to `"redirect"`.
 :::
+
+> `mptcp`: true | false
+
+Whether to enable Multipath TCP (only for Linux).
+
+* `true`: MPTCP is turned on. If the host on the other side doesn't support MPTCP, MPTCP will fall back to using TCP.
+* `false`: MPTCP is turned off.
+
+When this item does not exist, the system default setting is used. Can be used for inbound and outbound connections.
