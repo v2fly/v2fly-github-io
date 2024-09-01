@@ -4,7 +4,8 @@
 Trojan is designed to operate in correctly configured TLS connections, as it does not provide encryption on its own.
 :::
 
-## Trojan Inbound
+## Trojan Inbound (simplified)
+
 * Name: `trojan`
 * Type: Inbound Protocol
 * ID: `inbound.trojan`
@@ -22,7 +23,8 @@ When this value is `None` , UDP connections will be split into streams based on 
 When this value is `Packet`, UDP connections from a single source connection will be encoded as UDP packet addr connection, which will be restored to its original form by a supported outbound as an Endpoint Independent Mapping UDP connection.
 This UDP behaviour is also known as FullCone or NAT1.
 
-## Trojan Outbound
+## Trojan Outbound (simplified)
+
 * Name: `trojan`
 * Type: Outbound Protocol
 * ID: `outbound.trojan`
@@ -38,3 +40,37 @@ The server port number.
 > `password`: string
 
 A password recognized by server.
+
+## Trojan Inbound (complete)
+
+* Name: `#v2ray.core.proxy.trojan.ServerConfig`
+
+> `users`: [[UserObject](../protocol/user.md#user)]
+
+> `packetEncoding`: \["None" | "Packet"\]
+
+> `fallbacks`: [[FallbackObject](#fallbackobject)]
+
+## Trojan Outbound (complete)
+
+* Name: `#v2ray.core.proxy.trojan.ClientConfig`
+
+> `server`: [[ServerEndpoint](../protocol/server_spec.md#serverendpoint)]
+
+## AccountObject
+
+> `@type`: "v2ray.core.proxy.trojan.Account"
+
+> `password`: string
+
+## FallbackObject
+
+> `alpn`: string
+
+> `path`: string
+
+> `type`: string
+
+> `dest`: string
+
+> `xver`: uint64
