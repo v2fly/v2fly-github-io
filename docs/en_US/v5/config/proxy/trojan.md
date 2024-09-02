@@ -10,6 +10,17 @@ Trojan is designed to operate in correctly configured TLS connections, as it doe
 * Type: Inbound Protocol
 * ID: `inbound.trojan`
 
+### Structure
+
+```json
+{
+  "users": [],
+  "packetEncoding": "None"
+}
+```
+
+### Fields
+
 > `users` : [string]
 
 A set of recognized password for this inbound.
@@ -29,6 +40,18 @@ This UDP behaviour is also known as FullCone or NAT1.
 * Type: Outbound Protocol
 * ID: `outbound.trojan`
 
+### Structure
+
+```json
+{
+  "address": "",
+  "port": 0,
+  "password": ""
+}
+```
+
+### Fields
+
 > `address`: string
 
 The server address. Both IP and domain name is supported.
@@ -45,6 +68,18 @@ A password recognized by server.
 
 * Name: `#v2ray.core.proxy.trojan.ServerConfig`
 
+### Structure
+
+```json
+{
+  "users": [],
+  "packetEncoding": "None",
+  "fallbacks": []
+}
+```
+
+### Fields
+
 > `users`: [[UserObject](../protocol/user.md#user)]
 
 > `packetEncoding`: \["None" | "Packet"\]
@@ -55,15 +90,48 @@ A password recognized by server.
 
 * Name: `#v2ray.core.proxy.trojan.ClientConfig`
 
+### Structure
+
+```json
+{
+  "server": []
+}
+```
+
 > `server`: [[ServerEndpoint](../protocol/server_spec.md#serverendpoint)]
 
 ## AccountObject
+
+### Structure
+
+```json
+{
+  "@type": "v2ray.core.proxy.trojan.Account",
+  "password": ""
+}
+```
+
+### Fields
 
 > `@type`: "v2ray.core.proxy.trojan.Account"
 
 > `password`: string
 
 ## FallbackObject
+
+### Structure
+
+```json
+{
+  "alpn": "",
+  "path": "",
+  "type": "",
+  "dest": "",
+  "xver": 0
+}
+```
+
+### Fields
 
 > `alpn`: string
 
