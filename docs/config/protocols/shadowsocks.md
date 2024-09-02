@@ -29,7 +29,9 @@ Shadowsocks 的配置分为两部分，`InboundConfigurationObject` 和 `Outboun
     "password": "密码",
     "level": 0,
     "network": "tcp",
-    "ivCheck": false
+    "ivCheck": false,
+    "udp": false,
+    "packetEncoding": "None"
 }
 ```
 
@@ -58,6 +60,16 @@ Shadowsocks 的配置分为两部分，`InboundConfigurationObject` 和 `Outboun
 是否启用 IV 检查功能。可以使某些 IV 重放攻击更加困难。 (4.37.0+)
 
 目前此功能默认不启用，但是在未来版本中会默认处于启用状态。
+
+> `udp`: true | false
+
+是否开启 UDP 协议的支持。默认值为 `false`。
+
+> `packetEncoding`: "None" | "Packet"
+
+UDP 包编码方式，默认值为 `None`。
+当该值为 `None` 时，UDP 将根据目标地址被映射 (Address and Port-Dependent Mapping)。
+当该值为 `Packet` 时，UDP 将被端点独立映射 (Endpoint Independent Mapping)，此 UDP 行为也被称为 FullCone 或 NAT1。
 
 ## OutboundConfigurationObject
 
