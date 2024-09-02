@@ -8,6 +8,17 @@ Trojan 被设计工作在正确配置的加密 TLS 隧道中。
 
 * 协议名称: `trojan`
 
+### 结构
+
+```json
+{
+  "users": [],
+  "packetEncoding": "None"
+}
+```
+
+### 字段
+
 > `users` : [string]
 
 一组服务器认可用户的密码。
@@ -21,6 +32,18 @@ UDP 包编码方式，默认值为 `None`。(v5.4.0+)
 ## Trojan 出站 (简化版)
 
 * 协议名称: `trojan`
+
+### 结构
+
+```json
+{
+  "address": "",
+  "port": 0,
+  "password": ""
+}
+```
+
+### 字段
 
 > `address`: string
 
@@ -38,6 +61,16 @@ UDP 包编码方式，默认值为 `None`。(v5.4.0+)
 
 * 协议名称: `#v2ray.core.proxy.trojan.ServerConfig`
 
+### 结构
+
+```json
+{
+  "server": []
+}
+```
+
+### 字段
+
 > `users`: [[UserObject](../protocol/user.md#userobject)]
 
 > `packetEncoding`: \["None" | "Packet"\]
@@ -52,11 +85,36 @@ UDP 包编码方式，默认值为 `None`。(v5.4.0+)
 
 ## AccountObject
 
+### 结构
+
+```json
+{
+  "@type": "v2ray.core.proxy.trojan.Account",
+  "password": ""
+}
+```
+
+### 字段
+
 > `@type`: "v2ray.core.proxy.trojan.Account"
 
 > `password`: string
 
 ## FallbackObject
+
+### 结构
+
+```json
+{
+  "alpn": "",
+  "path": "",
+  "type": "",
+  "dest": "",
+  "xver": 0
+}
+```
+
+### 字段
 
 > `alpn`: string
 
