@@ -26,7 +26,8 @@ Trojan 的配置分为两部分，`InboundConfigurationObject` 和 `OutboundConf
         {
             "dest": 80
         }
-    ]
+    ],
+    "packetEncoding": "None"
 }
 ```
 
@@ -37,6 +38,12 @@ Trojan 的配置分为两部分，`InboundConfigurationObject` 和 `OutboundConf
 > `fallbacks`: \[ [FallbackObject](#fallbackobject) \]
 
 一个数组，包含一系列强大的回落分流配置（可选）。
+
+> `packetEncoding`: "None" | "Packet"
+
+UDP 包编码方式，默认值为 `None`。
+当该值为 `None` 时，UDP 将根据目标地址被映射 (Address and Port-Dependent Mapping)。
+当该值为 `Packet` 时，UDP 将被端点独立映射 (Endpoint Independent Mapping)，此 UDP 行为也被称为 FullCone 或 NAT1。
 
 ### ClientObject
 
