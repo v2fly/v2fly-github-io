@@ -259,6 +259,9 @@ export default defineUserConfig({
                                 '/en_US/config/overview',
                                 '/en_US/config/dns',
                                 '/en_US/config/outbounds',
+                                '/en_US/config/transport',
+                                '/en_US/config/api',
+                                '/en_US/config/fakedns',
                             ],
                         },
                         {
@@ -268,6 +271,7 @@ export default defineUserConfig({
                                 '/en_US/config/protocols/dns',
                                 '/en_US/config/protocols/dokodemo',
                                 '/en_US/config/protocols/freedom',
+                                '/en_US/config/protocols/http',
                             ],
                         },
                         {
@@ -284,11 +288,15 @@ export default defineUserConfig({
                                 '/en_US/developer/intro/compile',
                                 '/en_US/developer/intro/design',
                                 '/en_US/developer/intro/guide',
+                                '/en_US/developer/intro/releasearchive',
+                                '/en_US/developer/intro/releasesigning',
                             ]
                         },
                         {
                             text: 'Protocol Details',
                             children: [
+                                '/en_US/developer/protocols/vmess',
+                                '/en_US/developer/protocols/mkcp',
                             ]
                         }
                     ],
