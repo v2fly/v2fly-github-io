@@ -43,7 +43,7 @@ tun 网络适配器的路由表。建议设置为 `0.0.0.0/0` 和 `::/0` 以路�
 
 UDP 包的编码方式，默认为 `None`。
 
-> `sniffingSettings`: [SniffingObject](../inbound.md/#SniffingObject)
+> `sniffingSettings`: [SniffingObject](../inbound.md#sniffingobject)
 
 tun 入站连接的流量探测设置。流量探测允许路由根据连接的内容和元数据转发连接。（v5.11.0+）
 
