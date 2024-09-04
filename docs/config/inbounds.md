@@ -56,7 +56,7 @@ v4.32.0+，支持填写 Unix domain socket，格式为绝对路径，形如 `"/d
 
 具体的配置内容，视协议不同而不同。详见每个协议中的 `InboundConfigurationObject`。
 
-> `streamSettings`: [StreamSettingsObject](transport.md#streamsettingsobject)。
+> `streamSettings`: [StreamSettingsObject](transport.md#streamsettingsobject)
 
 [底层传输配置](transport.md#streamsettingsobject)
 
