@@ -136,6 +136,18 @@ export default defineUserConfig({
                                 '/config/transport/grpc',
                             ],
                         },
+                        {
+                            text: '服务',
+                            children: [
+                                '/config/service/stats',
+                                '/config/service/policy',
+                                '/config/service/browser',
+                                '/config/service/burstObservatory',
+                                '/config/service/backgroundObservatory',
+                                '/config/service/tun',
+                                '/config/service/subscription',
+                            ],
+                        }
                     ],
                     '/developer/': [
                         {
@@ -281,6 +293,18 @@ export default defineUserConfig({
                             children: [
                             ],
                         },
+                        {
+                            text: 'Service',
+                            children: [
+                                '/en_US/config/service/stats',
+                                '/en_US/config/service/policy',
+                                '/en_US/config/service/browser',
+                                '/en_US/config/service/burstObservatory',
+                                '/en_US/config/service/backgroundObservatory',
+                                '/en_US/config/service/tun',
+                                '/en_US/config/service/subscription',
+                            ],
+                        }
                     ],
                     '/en_US/developer/': [
                         {
