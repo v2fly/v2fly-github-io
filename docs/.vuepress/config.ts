@@ -258,6 +258,7 @@ export default defineUserConfig({
                             children: [
                                 '/en_US/config/overview',
                                 '/en_US/config/dns',
+                                '/en_US/config/inbounds',
                                 '/en_US/config/outbounds',
                                 '/en_US/config/transport',
                                 '/en_US/config/api',
