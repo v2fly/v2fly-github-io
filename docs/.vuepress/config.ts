@@ -364,6 +364,7 @@ export default defineUserConfig({
                                 '/en_US/v5/config/stream/tcp',
                                 '/en_US/v5/config/stream/websocket',
                                 '/en_US/v5/config/stream/kcp',
+                                '/en_US/v5/config/stream/grpc',
                                 '/en_US/v5/config/stream/quic',
                                 '/en_US/v5/config/stream/meek',
                                 '/en_US/v5/config/stream/httpupgrade',
