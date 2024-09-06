@@ -58,6 +58,16 @@ The stream settings for the inbound. This determine how the protocol data is tra
 
 > `enabled`: true | false
 
+Whether to enable traffic detection.
+
 > `destOverride`: [ string ]
 
+When traffic is of the specified type, the destination of the current connection will be overridden with the destination included in the traffic.
+
+The `fakedns+others` setting will prioritize FakeDNS virtual DNS server matching. If the IP address is within the IP address range of the virtual DNS server but no corresponding domain name record is found, the matching results of `http` and `tls` are used. This option is only valid when `metadataOnly` is `false`.
+
 > `metadataOnly`: true | false
+
+Whether to use only metadata to detect the destination address without intercepting the traffic content. Only the metadata traffic destination detection module will be activated.
+
+If using only metadata to detect the destination address is turned off, the client must send data before the proxy server actually establishes a connection. This behavior is incompatible with protocols that require the server to initiate the first message, such as SMTP.
