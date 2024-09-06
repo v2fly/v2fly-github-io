@@ -156,6 +156,8 @@ export default defineUserConfig({
                                 '/developer/intro/compile',
                                 '/developer/intro/design',
                                 '/developer/intro/guide',
+                                '/developer/intro/releasearchive',
+                                '/developer/intro/releasesigning',
                             ]
                         },
                         {
@@ -229,11 +231,12 @@ export default defineUserConfig({
                 },
             },
             '/en_US/': {
-                selectLanguageName: 'English',
                 selectLanguageText: '选择语言',
+                selectLanguageName: 'English',
                 selectLanguageAriaLabel: '选择语言',
                 editLinkText: 'Edit this page on GitHub',
                 lastUpdatedText: 'Last Updated',
+                contributorsText: 'Contributors',
                 navbar: [
                     { text: 'Quick Start', link: '/en_US/guide/start', },
                     { text: 'Config Reference', link: '/en_US/config/overview', },
@@ -255,12 +258,14 @@ export default defineUserConfig({
                             text: 'Concept',
                             children: [
                                 'workflow',
+                                'command',
                             ],
                         },
                         {
                             text: 'More',
                             children: [
                                 'faq',
+                                'help',
                             ],
                         },
                     ],
@@ -269,12 +274,20 @@ export default defineUserConfig({
                             text: 'Config Reference',
                             children: [
                                 '/en_US/config/overview',
+                                '/en_US/config/env',
                                 '/en_US/config/dns',
+                                '/en_US/config/routing',
+                                '/en_US/config/policy',
                                 '/en_US/config/inbounds',
                                 '/en_US/config/outbounds',
                                 '/en_US/config/transport',
                                 '/en_US/config/api',
+                                '/en_US/config/stats',
+                                '/en_US/config/reverse',
+                                '/en_US/config/multiple_config',
                                 '/en_US/config/fakedns',
+                                '/en_US/config/browserforwarder',
+                                '/en_US/config/observatory',
                             ],
                         },
                         {
@@ -285,12 +298,25 @@ export default defineUserConfig({
                                 '/en_US/config/protocols/dokodemo',
                                 '/en_US/config/protocols/freedom',
                                 '/en_US/config/protocols/http',
+                                '/en_US/config/protocols/socks',
+                                '/en_US/config/protocols/vmess',
+                                '/en_US/config/protocols/shadowsocks',
+                                '/en_US/config/protocols/trojan',
+                                '/en_US/config/protocols/vless',
+                                '/en_US/config/protocols/loopback',
                             ],
                         },
                         {
                             text: 'Transport',
                             
                             children: [
+                                '/en_US/config/transport/tcp',
+                                '/en_US/config/transport/mkcp',
+                                '/en_US/config/transport/websocket',
+                                '/en_US/config/transport/h2',
+                                '/en_US/config/transport/quic',
+                                '/en_US/config/transport/domainsocket',
+                                '/en_US/config/transport/grpc',
                             ],
                         },
                         {
@@ -322,6 +348,7 @@ export default defineUserConfig({
                             children: [
                                 '/en_US/developer/protocols/vmess',
                                 '/en_US/developer/protocols/mkcp',
+                                '/en_US/developer/protocols/muxcool',
                             ]
                         }
                     ],
