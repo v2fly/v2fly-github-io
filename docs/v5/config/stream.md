@@ -27,9 +27,9 @@
 
 ## 支持的传输流协议
 
-* [mKCP](stream/kcp.md)
 * [TCP](stream/tcp.md)
 * [WebSocket](stream/websocket.md)
+* [mKCP](stream/kcp.md)
 * [gRPC](stream/grpc.md)
 * [QUIC](stream/quic.md)
 * [meek](stream/meek.md)

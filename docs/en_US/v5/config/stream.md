@@ -21,14 +21,17 @@ It has to be one of supported Security Protocol.
 
 > `socketSettings`: [SocketConfigObject](#socketconfigobject)
 
-### Supported Streams
+## Supported Streams
 
+* [TCP](stream/tcp.md)
 * [WebSocket](stream/websocket.md)
 * [mKCP](stream/kcp.md)
-* [tcp](stream/tcp.md)
+* [gRPC](stream/grpc.md)
 * [QUIC](stream/quic.md)
 * [meek](stream/meek.md)
 * [httpupgrade](stream/httpupgrade.md)
+* [Hysteria2](stream/hy2.md)
+
 
 ## TLS
 * Name: `tls`
@@ -59,7 +62,8 @@ This option allow TLS certificate verification to be turned off if the `pinnedPe
 
 > `certificate`: [[CertificateObject](#certificateobject)]
 
-# CertificateObject
+
+### CertificateObject
 
 > `usage` : string
 
