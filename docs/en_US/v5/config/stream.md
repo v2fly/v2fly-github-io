@@ -53,8 +53,11 @@ Pinned Peer Certificate Chain SHA256 Hash. Should be represented in base64 forma
 
 You can generate this value with `./v2ray tls certChainHash --cert <cert.pem>` (v5.18.0+)
 
-> `certificate`: [[CertificateObject](#certificateobject)]
+> `allowInsecureIfPinnedPeerCertificate` : bool
 
+This option allow TLS certificate verification to be turned off if the `pinnedPeerCertificateChainSha256` is set. If `pinnedPeerCertificateChainSha256` is not set, this option is ignored.
+
+> `certificate`: [[CertificateObject](#certificateobject)]
 
 # CertificateObject
 
