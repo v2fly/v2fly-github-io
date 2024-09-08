@@ -122,6 +122,7 @@ export default defineUserConfig({
                                 '/config/protocols/trojan',
                                 '/config/protocols/vless',
                                 '/config/protocols/loopback',
+                                '/config/protocols/hy2',
                             ],
                         },
                         {
@@ -134,6 +135,7 @@ export default defineUserConfig({
                                 '/config/transport/quic',
                                 '/config/transport/domainsocket',
                                 '/config/transport/grpc',
+                                '/config/transport/hy2',
                             ],
                         },
                         {
@@ -198,6 +200,7 @@ export default defineUserConfig({
                                 '/v5/config/proxy/shadowsocks',
                                 '/v5/config/proxy/shadowsocks2022',
                                 '/v5/config/proxy/trojan',
+                                '/v5/config/proxy/hy2',
                                 '/v5/config/proxy/vless',
                                 '/v5/config/proxy/loopback',
                             ],
@@ -212,6 +215,7 @@ export default defineUserConfig({
                                 '/v5/config/stream/quic',
                                 '/v5/config/stream/meek',
                                 '/v5/config/stream/httpupgrade',
+                                '/v5/config/stream/hy2',
                             ],
                         },
                         {

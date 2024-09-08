@@ -34,6 +34,7 @@
 * [QUIC](stream/quic.md)
 * [meek](stream/meek.md)
 * [httpupgrade](stream/httpupgrade.md)
+* [Hysteria2](stream/hy2.md)
 
 
 ## TLS
