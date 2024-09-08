@@ -51,6 +51,8 @@ Whether system level Certificate Authority Store should be trusted.
 
 Pinned Peer Certificate Chain SHA256 Hash. Should be represented in base64 format.
 
+You can generate this value with `./v2ray tls certChainHash --cert <cert.pem>` (v5.18.0+)
+
 > `certificate`: [[CertificateObject](#certificateobject)]
 
 

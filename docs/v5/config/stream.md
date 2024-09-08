@@ -55,6 +55,8 @@ security.tls
 
 使用 Base64 标准编码格式表示的远程服务器的证书链的SHA256散列值。在设置后，远程服务器的证书链的散列值必须为列表中的数值之一。
 
+此数值可以通过以下命令生成： `./v2ray tls certChainHash --cert <cert.pem>` (v5.18.0+)
+
 在连接因为此策略失败时，会展示此证书链散列。不建议使用这种方式获得证书链散列值，因为在这种情况下您没有机会验证此时服务器提供的证书是否为真实证书。
 
 > `certificate`: \[[CertificateObject](#certificateobject)\]
