@@ -308,11 +308,11 @@ export default defineUserConfig({
                                 '/en_US/config/protocols/trojan',
                                 '/en_US/config/protocols/vless',
                                 '/en_US/config/protocols/loopback',
+                                '/en_US/config/protocols/hy2',
                             ],
                         },
                         {
                             text: 'Transport',
-                            
                             children: [
                                 '/en_US/config/transport/tcp',
                                 '/en_US/config/transport/mkcp',
@@ -321,6 +321,7 @@ export default defineUserConfig({
                                 '/en_US/config/transport/quic',
                                 '/en_US/config/transport/domainsocket',
                                 '/en_US/config/transport/grpc',
+                                '/en_US/config/transport/hy2',
                             ],
                         },
                         {
@@ -374,19 +375,20 @@ export default defineUserConfig({
                         {
                             text: 'Proxy Protocol',
                             children: [
+                                '/en_US/v5/config/proxy/blackhole',
+                                '/en_US/v5/config/proxy/dns',
+                                '/en_US/v5/config/proxy/dokodemo',
+                                '/en_US/v5/config/proxy/freedom',
+                                '/en_US/v5/config/proxy/http',
                                 '/en_US/v5/config/proxy/socks',
                                 '/en_US/v5/config/proxy/vmess',
                                 '/en_US/v5/config/proxy/vlite',
                                 '/en_US/v5/config/proxy/shadowsocks',
                                 '/en_US/v5/config/proxy/shadowsocks2022',
-                                '/en_US/v5/config/proxy/http',
-                                '/en_US/v5/config/proxy/dokodemo',
-                                '/en_US/v5/config/proxy/freedom',
-                                '/en_US/v5/config/proxy/loopback',
-                                '/en_US/v5/config/proxy/blackhole',
-                                '/en_US/v5/config/proxy/dns',
                                 '/en_US/v5/config/proxy/trojan',
+                                '/en_US/v5/config/proxy/hy2',
                                 '/en_US/v5/config/proxy/vless',
+                                '/en_US/v5/config/proxy/loopback',
                             ],
                         },
                         {
@@ -399,6 +401,7 @@ export default defineUserConfig({
                                 '/en_US/v5/config/stream/quic',
                                 '/en_US/v5/config/stream/meek',
                                 '/en_US/v5/config/stream/httpupgrade',
+                                '/en_US/v5/config/stream/hy2',
                             ],
                         },
                         {
