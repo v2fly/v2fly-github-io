@@ -216,6 +216,7 @@ export default defineUserConfig({
                                 '/v5/config/stream/meek',
                                 '/v5/config/stream/httpupgrade',
                                 '/v5/config/stream/hy2',
+                                '/v5/config/stream/mekya',
                             ],
                         },
                         {
@@ -402,6 +403,7 @@ export default defineUserConfig({
                                 '/en_US/v5/config/stream/meek',
                                 '/en_US/v5/config/stream/httpupgrade',
                                 '/en_US/v5/config/stream/hy2',
+                                '/en_US/v5/config/stream/mekya',
                             ],
                         },
                         {
