@@ -1,8 +1,8 @@
 # mekya
 
-mekya(美咔) 是一种反审查协议，它将 mkcp 流量编码成普通的 HTTP 请求/响应。这将允许流量在大量平台上转发，以减轻 IP 阻断的影响。(v5.21.0+) 
+mekya(美咔) 是一种反审查协议，它将 mkcp 流量编码成普通的 HTTP 请求/响应。  mekya 允许流量在大量平台上转发，以减轻 IP 阻断的影响。(v5.21.0+) 
 
-相比于 meek 的顺序传输,此传输方式性能有所提升,得益于采用  mkcp 协议。
+mekya 采用 mkcp 协议,相比于 meek 的顺序传输,mekya传输方式性能有所提升。
 
 此传输协议已启用订阅。
 
@@ -13,37 +13,37 @@ mekya(美咔) 是一种反审查协议，它将 mkcp 流量编码成普通的 HT
 
 > `kcp`: [KCPSetting](kcp.md)
 
-应用于此传输方式的 mkcp 设置。
+应用mekya的 mkcp 设置。
 
 > `maxWriteSize`: number
 
-(仅限服务器)
+(仅限服务端)
 
 将写入单个响应的最大响应大小。
 
 > `maxWriteDurationMs`: number
 
-(仅限服务器)
+(仅限服务端)
 
-服务器将保持请求打开以进行写入的最长时间（毫秒）。
+服务端将保持请求打开以进行写入的最长时间（毫秒）。
 
 > `maxSimultaneousWriteConnection`: number
 
-(仅限服务器)
+(仅限服务端)
 
-服务器将保留打开以进行写入的未完成 HTTP 请求的最大数量。
+服务端将保留打开以进行写入的未完成 HTTP 请求的最大数量。
 
 > `packetWritingBuffer`: number
 
-(仅限服务器)
+(仅限服务端)
 
-服务器将保持请求打开以进行的数据包的最大数量。
+服务端将保持请求打开以进行的数据包的最大数量。
 
 > `url`: string
 
 (仅限客户端)
 
-服务器的 URL。
+服务端的 URL。
 
 > `maxWriteDelay`: number
 
@@ -75,6 +75,6 @@ mekya(美咔) 是一种反审查协议，它将 mkcp 流量编码成普通的 HT
 
 [mekya 客户端](https://github.com/v2fly/v2ray-core/blob/master/testing/scenarios/config/mekya_client.json)
 
-[mekya 服务器](https://github.com/v2fly/v2ray-core/blob/master/testing/scenarios/config/mekya_server.json)
+[mekya 服务端](https://github.com/v2fly/v2ray-core/blob/master/testing/scenarios/config/mekya_server.json)
 
 (本文档为机器翻译自英文版本后手工校对)
