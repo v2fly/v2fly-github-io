@@ -715,14 +715,12 @@
     "@vuepress/core" "2.0.0-beta.61"
     prismjs "^1.29.0"
 
-"@vuepress/plugin-register-components@^2.0.0-beta.61":
-  version "2.0.0-beta.61"
-  resolved "https://registry.yarnpkg.com/@vuepress/plugin-register-components/-/plugin-register-components-2.0.0-beta.61.tgz#b7b6b2fe81c70e40e3fe965d18fef76c315941e5"
-  integrity sha512-3sbJbiY8pZ3/M4TMfyhIn+aGAlXz+xR57I5k4NQnekzJjDxSiCmaet6FjUeUChX6/eREkVBlitfDvXq4t45RKw==
+"@vuepress/plugin-register-components@^2.0.0-rc.54":
+  version "2.0.0-rc.54"
+  resolved "https://registry.yarnpkg.com/@vuepress/plugin-register-components/-/plugin-register-components-2.0.0-rc.54.tgz#3ea0c396a3d828e871468a033216129e4c156d34"
+  integrity sha512-3EXVijNTZv8D33X1zKfP05CYSkkwYhzh+fsVlUMyScot2qUGGxcK1eFktjfueJmYuZpZmSXL82mVWtF2TkHE9A==
   dependencies:
-    "@vuepress/core" "2.0.0-beta.61"
-    "@vuepress/utils" "2.0.0-beta.61"
-    chokidar "^3.5.3"
+    chokidar "^3.6.0"
 
 "@vuepress/plugin-theme-data@2.0.0-beta.61":
   version "2.0.0-beta.61"
@@ -960,10 +958,10 @@ chalk@5.2.0, chalk@^5.0.0:
   resolved "https://registry.yarnpkg.com/chalk/-/chalk-5.2.0.tgz#249623b7d66869c673699fb66d65723e54dfcfb3"
   integrity sha512-ree3Gqw/nazQAPuJJEy+avdl7QfZMcUvmHIKgEZkGL+xOBzRvup5Hxo6LHuMceSxOabuJLJm5Yp/92R9eMmMvA==
 
-"chokidar@>=3.0.0 <4.0.0", chokidar@^3.5.3:
-  version "3.5.3"
-  resolved "https://registry.yarnpkg.com/chokidar/-/chokidar-3.5.3.tgz#1cf37c8707b932bd1af1ae22c0432e2acd1903bd"
-  integrity sha512-Dr3sfKRP6oTcjf2JmUmFJfeVMvXBdegxB0iVQ5eb2V10uFJUCAS8OByZdVAyVb8xXNz3GjjTgj9kLWsZTqE6kw==
+"chokidar@>=3.0.0 <4.0.0", chokidar@^3.5.3, chokidar@^3.6.0:
+  version "3.6.0"
+  resolved "https://registry.yarnpkg.com/chokidar/-/chokidar-3.6.0.tgz#197c6cc669ef2a8dc5e7b4d97ee4e092c3eb0d5b"
+  integrity sha512-7VT13fmjotKpGipCW9JEQAusEPE+Ei8nl6/g4FBAmIm0GOOLMua9NDDo/DWp0ZAxCr3cPq5ZpBqmPAQgDda2Pw==
   dependencies:
     anymatch "~3.1.2"
     braces "~3.0.2"
