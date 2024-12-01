@@ -54,3 +54,38 @@ outbound.shadowsocks
 ::: warning
 "none" 不加密方式下，服务器端不会验证 "password" 中的密码。一般需要加上 TLS 并在传输层使用安全配置，例如 WebSocket 配置较长的 path
 :::
+Shadowsocks+aes-256-gcm配置示例，这是一个最简单的配置，不是最佳实践，这个配置可以用于回国，但是切勿用于翻墙！
+```json
+{
+    "log": {
+        "access": "",
+        "error": "",
+        "loglevel": "info"
+    },
+    "inbounds": [
+        {
+            "port": 443,
+            "listen": "0.0.0.0",
+            "protocol": "shadowsocks",
+            "settings": {
+                "method": "aes-256-gcm", //这里使用`aes-256-gcm`加密方式，如果你的CPU不带aes加密指令集也可以使用`"chacha20-poly1305"` 或 `"chacha20-ietf-poly1305"`
+                "password": "ukrxmqlkYTnyyb5sgc8mqiDe5vMoFqRwxefqiigxfdzgigLASE=", //更改这里的密码，让他变得更加复杂
+                "network": "tcp,udp"
+            },
+            "sniffing": {
+                "enabled": false,//如果需要流量探测，请将其改为`true`
+                "destOverride": [
+                    "http",
+                    "tls"
+                ]
+            }
+        }
+    ],
+    "outbounds": [
+        {
+            "protocol": "freedom",
+            "settings": {}
+        }
+    ]
+}
+```
