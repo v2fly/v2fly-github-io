@@ -69,7 +69,7 @@ Shadowsocks+aes-256-gcm配置示例，这是一个最简单的配置，不是最
             "protocol": "shadowsocks",
             "settings": {
                 "method": "aes-256-gcm", //这里使用`aes-256-gcm`加密方式，如果你的CPU不带aes加密指令集也可以使用`"chacha20-poly1305"` 或 `"chacha20-ietf-poly1305"`
-                "password": "ukrxmqlkYTnyyb5sgc8mqiDe5vMoFqRwxefqiigxfdzgigLASE=", //更改这里的密码，让他变得更加复杂
+                "password": "ukrxmqlkYTnyyb5sgc8mqiDe5vMoFqRwxefqiigxfdzgigLASE=", //更改这里的密码，让它变得更加复杂
                 "network": "tcp,udp"
             },
             "sniffing": {
