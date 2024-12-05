@@ -280,7 +280,7 @@ Whether to enable [TCP Fast Open](https://zh.wikipedia.org/wiki/TCP%E5%BF%AB%E9%
 
 Whether to enable transparent proxy (only for Linux).
 
-* `"redirect"`: Transparent proxy using Redirect mode. Only TCP/IPv4 and UDP connections are supported.
+* `"redirect"`: Transparent proxy using Redirect mode. Only TCP connections are supported.
 * `"tproxy"`: Use TProxy mode transparent proxy. Supports TCP and UDP connections.
 * `"off"`: Turn off the transparent proxy.
 
