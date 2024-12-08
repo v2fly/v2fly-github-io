@@ -213,7 +213,7 @@ uTLS 是一个修改版本的 TLS 实现。 这个项目通过模仿常用 TLS �
 
 是否开启透明代理（仅适用于 Linux）。
 
-* `"redirect"`：使用 Redirect 模式的透明代理。支持 TCP 和 UDP 连接。
+* `"redirect"`：使用 Redirect 模式的透明代理。支持 TCP 连接。
 * `"tproxy"`：使用 TProxy 模式的透明代理。支持 TCP 和 UDP 连接。
 * `"off"`：关闭透明代理。
 
