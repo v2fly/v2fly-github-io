@@ -42,14 +42,12 @@
     :platforms="['mac']"
     description="【正在更新】MacOS平台的v2ray客户端 支持vmess,vless,ss,ssr协议,支持socks5协议,支持xlts"
 />
-
 <Tool
-    url="https://github.com/2dust/v2flyNG"
-    name="v2flyNG"
+    url="https://github.com/dyhkwong/Exclave"
+    name="Exclave（SagerNet的分支版本）"
     :platforms="['android']"
-    description="【正在更新】v2flyNG 是一个基于 V2Ray 的 Android 通用代理应用。"
+    description="【正在更新】SagerNet 是一个基于 V2Ray 的 Android 通用代理应用。"
 />
-
 <Tool
     url="https://github.com/2dust/v2rayNG"
     name="v2rayNG"
@@ -66,7 +64,7 @@ Tool
 
 <Tool
     url="https://github.com/SagerNet/SagerNet"
-    name="SagerNet"
+    name="SagerNet官方版"
     :platforms="['android']"
     description="【已停止更新】SagerNet 是一个基于 V2Ray 的 Android 通用代理应用。"
 />
