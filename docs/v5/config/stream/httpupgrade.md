@@ -16,3 +16,15 @@ HTTP 路径。
 > `host` : string
 
 HTTP 主机域名。
+
+> `maxEarlyData`: number
+
+所要发送的前置数据的最长长度。用于减少连接建立的时间。
+
+> `earlyDataHeaderName`: string
+> 
+发送的前置数据的 HTTP 头的名字，设置后启用基于 HTTP 头的前置数据。(v5.24.0)
+
+> `headers`: [ struct{ key, value string } ]
+
+自定义 HTTP 头，一个键值对，每个键表示一个 HTTP 头的名称，对应的值是字符串。默认值为空。(v5.24.0)

@@ -16,3 +16,25 @@ Look at its [pull request](https://github.com/v2fly/v2ray-core/pull/2541) for wo
 > `host` : string
 
 The host domain name for HTTP request.
+
+> `maxEarlyData`: number
+
+The max number of bytes of early data. (v5.24.0)
+
+> `earlyDataHeaderName`: string
+
+The header name for WebSocket Early Data. (v5.24.0)
+
+> 'header': [ [Header](#header) ]
+
+The header to be sent in HTTP request. (v5.24.0)
+
+## Header
+
+> 'key' : string
+
+The HTTP header key.
+
+> 'value' : string
+
+The HTTP header value.
