@@ -45,6 +45,7 @@ The 3 currently supported container formats are:
 - JsonFieldArray:  A superset of SIP008 or OOCv1 format. The document contains one or more array field at root object. And each item in the arrays is a server definition.
 - Yaml2Json+JsonFieldArray: A superset of Clash format. The document are converted to json from Yaml format and processed with JsonFieldArray.
 - DataURLSingle: A single server spec wrapped in DataURL. The media type must be "application/vnd.v2ray.subscription-singular" for it to be accepted.
+- URLLine: Files containing `newline` separated server definitions. (v5.25.0+)
 
 Use `v2ray engineering subscriptionEntriesExtract -input filename` to output a zipped file contains what would be captured by V2Ray's Subscription Container parser.
 
