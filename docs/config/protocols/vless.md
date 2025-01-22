@@ -6,7 +6,8 @@
 :::tip
 目前 VLESS 没有自带加密，请用于可靠信道，如 TLS。目前 VLESS 不支持分享。
 :::
-:::warning VLESS 已被弃用并且可能被移除。
+:::warning 
+VLESS 已被弃用并且可能被移除。
 
 请考虑使用 Trojan 作为替代品。 :::
 
