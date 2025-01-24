@@ -45,3 +45,6 @@ outbound.socks
 > `port`: number
 
 服务器端口。
+
+如果出现 `Unknown socks version: 72` 说明目标socks5服务器实现有误
+https://github.com/v2fly/v2ray-core/pull/2933
