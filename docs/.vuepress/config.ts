@@ -229,6 +229,7 @@ export default defineUserConfig({
                                 '/v5/config/service/backgroundObservatory',
                                 '/v5/config/service/tun',
                                 '/v5/config/service/subscription',
+                                '/v5/config/service/filesystemstorage',
                             ],
                         }
                     ],
@@ -416,6 +417,7 @@ export default defineUserConfig({
                                 '/en_US/v5/config/service/backgroundObservatory',
                                 '/en_US/v5/config/service/tun',
                                 '/en_US/v5/config/service/subscription',
+                                '/en_US/v5/config/service/filesystemstorage',
                             ],
                         }
                     ],
