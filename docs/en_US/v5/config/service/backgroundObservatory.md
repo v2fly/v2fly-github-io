@@ -1,7 +1,7 @@
 # Background Observatory
-* Name: `burstObservatory`
+* Name: `backgroundObservatory`
 * Type: Service
-* ID: `service.burstObservatory`
+* ID: `service.backgroundObservatory`
 
 > `subjectSelector`: string
 
