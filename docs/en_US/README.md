@@ -5,7 +5,7 @@ heroText: Project V
 tagline: Help you build your own dedicated communication network
 actions:
   - text: Quick Start →
-    link: /guide/start.html
+    link: /en_US/guide/start.html
     type: primary
 features:
 - title: Multiple Entries and Exits
@@ -38,6 +38,7 @@ We welcome your contributions to the project! Even if you don't know how to code
 - ⚙️ **Help Develop V2Fly**! Clone the repository, check out the code, and submit high-quality Pull requests!
 - 📆 **Community Maintenance** Help us create and maintain the V2Fly community!
 - ...and more!
+- ...If you have 2+ PRs, you can apply to join the V2Fly team!
 
 ## Licensing
 
