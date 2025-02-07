@@ -55,7 +55,7 @@
     description="【正在更新】v2rayNG 是一个基于 Xray 的 Android 通用代理应用。"
 />
 
-Tool
+<Tool
     url="https://github.com/netchx/netch"
     name="netch"
     :platforms="['win']"
