@@ -2,50 +2,52 @@
 home: true
 heroImage: /v2ray.png
 heroText: Project V
-tagline: Help you build an exclusive basic communication network
+tagline: Help you build your own dedicated communication network
 actions:
   - text: Quick Start →
     link: /en_US/guide/start.html
     type: primary
 features:
-- title: Multiple entrances and multiple exits
-  details: A V2Ray process can concurrently support multiple inbound and outbound protocols, and each protocol can work independently.
-- title: Customized routing
-  details: Inbound traffic can be sent from different outlets according to the configuration. Easily implement distribution by region or domain name to achieve optimal network performance.
-- title: Multi-protocol support
-  details: V2Ray can open multiple protocol support at the same time, including Socks, HTTP, Shadowsocks and VMess. The transmission carrier can be set separately for each protocol, such as TCP, mKCP and WebSocket.
-- title: Concealment
-  details: Nodes of V2Ray can be disguised as a normal website (HTTPS) to confuse its traffic with normal web traffic to avoid third-party interference.
-- title: Reverse proxy
-  details: Universal reverse proxy support can achieve intranet penetration.
-- title: Multi-platform support
-  details: All common platforms are natively supported, such as Windows, macOS and Linux, and third parties have already supported mobile platforms.
+- title: Multiple Entries and Exits
+  details: A single V2Ray process can concurrently support multiple inbound and outbound protocols, each operating independently.
+- title: Customizable Routing
+  details: Incoming traffic can be routed through different exits based on configuration. Easily implement traffic splitting by region or domain name to achieve optimal network performance.
+- title: Multi-Protocol Support
+  details: V2Ray can enable multiple protocols simultaneously, including Socks, HTTP, Shadowsocks, Trojan, Vmess, VLESS, and more. Each protocol can be configured with its own transport layer, such as TCP, mKCP, QUIC, gRPC, and WebSocket.
+- title: Stealth and Security
+  details: V2Ray nodes can masquerade as normal websites (HTTPS), blending their traffic with regular web traffic to avoid third-party interference, while providing packet obfuscation and replay protection features.
+- title: Load Balancing
+  details: Incoming traffic is automatically distributed to the most suitable exit points using probing strategies and weighted algorithms.
+- title: Multi-Platform Support
+  details: Native support for all common platforms including Windows, macOS, and Linux, with third-party support available for mobile platforms.
 footer: Licensed under CC-BY-SA 4.0 | Copyleft 2015-Present V2Fly Community
 ---
 
-## Who will lead the development of Project V
+## Who Leads Project V Development?
 
-We are a group of people who love freedom. We tend to remain anonymous and do not disclose any identifying information as much as possible.
+We are a group of freedom-loving individuals. We prefer to remain anonymous and disclose as little personal information as possible.
 
-You can use GitHub, Telegram, Email [discuss with us](guide/help.md).
+You can [discuss with us](guide/help.md) through GitHub, Telegram, or Email.
 
-## Contribution
+## Contributing
 
-Welcome to contribute to the project! Even if you don't know how to write code, there are still many ways to help improve it. Here are some examples:
+We welcome your contributions to the project! Even if you don't know how to code, there are many ways you can help improve the project. Here are some examples:
 
-- ⚙️ **Help develop V2Fly**! Clone the warehouse, check out the code, and submit a high-quality Pull request!
+- 🌐 **Translation**. Help translate V2Ray into more languages or improve the quality of existing translations.
+- 🐛 **Bug Reporting**. Report bugs or other issues encountered while using V2Ray by submitting an [issue](https://github.com/v2fly/v2ray-core)
+- ⚙️ **Help Develop V2Fly**! Clone the repository, check out the code, and submit high-quality Pull requests!
 - 📆 **Community Maintenance** Help us create and maintain the V2Fly community!
-- ...You can do more!
+- ...and more!
 - ...If you have 2+ PRs, you can apply to join the V2Fly team!
 
-## Authorization
+## Licensing
 
-- Core uses MIT License
-- The website ([v2fly.org](https://www.v2fly.org/)) is authorized under the [CC BY SA 4.0 International License Agreement](https://creativecommons.org/licenses/by-sa/4.0/deed.zh) .
-    * Including all visible text and pictures on the website.
-    * Include Project V icon files.
+- Core is licensed under the MIT License
+- The website ([v2fly.org](https://www.v2fly.org/)) is licensed under [CC BY SA 4.0 International License](https://creativecommons.org/licenses/by-sa/4.0/).
+    * Including all visible text content and images on the website.
+    * Including Project V icon files.
     * Including the source code used to generate the website, namely [v2fly/v2fly-github-io](https://github.com/v2fly/v2fly-github-io).
-- The copyright of the content created by a third party belongs to its creator. Project V waives ownership of this content.
-    * Including screenshots of Project V in use.
-    * Including the configuration files required to run Project V.
-    * Including the log files generated when Project V is running.
+- Content created by third parties remains the copyright of their respective creators. Project V waives all ownership of such content.
+    * Including screenshots taken during the use of Project V.
+    * Including configuration files required to run Project V.
+    * Including log files generated during Project V operation.
