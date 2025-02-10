@@ -30,6 +30,10 @@ The outbound tag to download the subscription document.
 
 The default time to fetch subscription document again. This time is not strictly honored.
 
+> `persistence`: bool
+
+Whether to enable persistent storage of subscription info. (v5.28.0+)
+
 Subscription Manager will 
 1. Check `ImportSources` from time to time to download subscription documents 
 2. Parse subscription documents with `Subscription Container` parsing components. The subscription documents will then be converted into individual server definitions.
