@@ -3,6 +3,7 @@ import {defaultTheme} from '@vuepress/theme-default'
 import {docsearchPlugin} from '@vuepress/plugin-docsearch'
 import {registerComponentsPlugin} from '@vuepress/plugin-register-components'
 import { getDirname, path } from '@vuepress/utils'
+import { viteBundler } from '@vuepress/bundler-vite'
 
 const __dirname = getDirname(import.meta.url)
 
@@ -41,6 +42,10 @@ export default defineUserConfig({
             description: 'Project V is a collection of tools that can help you build your own basic communication network',
         }
     },
+    bundler: viteBundler({
+        viteOptions: {},
+        vuePluginOptions: {},
+    }),
     theme: defaultTheme({
         repo: 'v2fly',
         docsRepo: 'v2fly/v2fly-github-io',
