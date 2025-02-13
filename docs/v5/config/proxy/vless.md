@@ -35,4 +35,43 @@ outbound.vless
 
 > `uuid`: string
 
-服务器认可的 VLESS 用户 ID，必须为合法的 UUID。
+服务器认可的 VLESS 用户 ID，必须为合法的 UUID。可以使用Linux命令 `uuidgen`或`./v2ray uuid`
+
+示例配置：
+VLESS+TCP+TLS，并且直接以freedom出站 配置示例：
+```json
+{
+  "log": {
+    "loglevel": "error"
+  },
+  "inbounds": [
+    {
+      "listen": "0.0.0.0",
+      "port": 443,
+      "protocol": "vless",
+      "settings": {
+        "clients": [
+          {
+            "id": "cc8bdfcd-2d85-4613-9d5e-6c56fcb7a1d3"
+          }
+        ],
+        "decryption": "none",
+                  "certificates": [
+            {
+              "certificateFile": "/path/to/fullchain.cer", //在这里使用自签名证书或者使用CA签发的证书
+              "keyFile": "/path/to/key.key"
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "outbounds": [
+    {
+      "tag": "direct",
+      "protocol": "freedom",
+      "settings": {}
+    }
+  ]
+```
+
