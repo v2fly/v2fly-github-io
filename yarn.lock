@@ -955,6 +955,18 @@
     gray-matter "^4.0.3"
     vue "^3.5.13"
 
+"@vuepress/helper@2.0.0-rc.77":
+  version "2.0.0-rc.77"
+  resolved "https://registry.yarnpkg.com/@vuepress/helper/-/helper-2.0.0-rc.77.tgz#68e29610116d9761b68ae9ea2c70e98ae2072376"
+  integrity sha512-ji65ce7DYIDBq+13jGFsWfgQb108juVrf9brUmtyaoS8/I/1reM7UqLIkqu0oFuwQan4XsXwUkq4iXxhMKI6cQ==
+  dependencies:
+    "@vue/shared" "^3.5.13"
+    "@vueuse/core" "^12.7.0"
+    cheerio "1.0.0"
+    fflate "^0.8.2"
+    gray-matter "^4.0.3"
+    vue "^3.5.13"
+
 "@vuepress/highlighter-helper@2.0.0-rc.71":
   version "2.0.0-rc.71"
   resolved "https://registry.yarnpkg.com/@vuepress/highlighter-helper/-/highlighter-helper-2.0.0-rc.71.tgz#7b82e1f911379fe46566665d94d889293f4f2a21"
@@ -1008,16 +1020,16 @@
     "@vueuse/core" "^12.5.0"
     vue "^3.5.13"
 
-"@vuepress/plugin-docsearch@^2.0.0-rc.19":
-  version "2.0.0-rc.76"
-  resolved "https://registry.yarnpkg.com/@vuepress/plugin-docsearch/-/plugin-docsearch-2.0.0-rc.76.tgz#646c12ec59c295b8664d163f483aa394c3c6a26b"
-  integrity sha512-mktiAbOM10cdRCcbzlaRc1MyEFcI27Sfif9cyipmfoAiAtt5BFu72F/i50BhLZA1nNjr3iiodFbWHCy7PWuXVg==
+"@vuepress/plugin-docsearch@^2.0.0-rc.77":
+  version "2.0.0-rc.77"
+  resolved "https://registry.yarnpkg.com/@vuepress/plugin-docsearch/-/plugin-docsearch-2.0.0-rc.77.tgz#c96edf23546a46c227c05f90a09c39da4fc992af"
+  integrity sha512-vf0EheeECdudQMbff/NZ8lUJqvA3ph/iOIbkMt8hnRfWCuOH9y7xhD1dX9WRYrKULrztAiNAkR4PrZ6z8JmKtQ==
   dependencies:
     "@docsearch/css" "^3.8.3"
     "@docsearch/js" "^3.8.3"
     "@docsearch/react" "^3.8.3"
-    "@vuepress/helper" "2.0.0-rc.74"
-    "@vueuse/core" "^12.5.0"
+    "@vuepress/helper" "2.0.0-rc.77"
+    "@vueuse/core" "^12.7.0"
     ts-debounce "^4.0.0"
     vue "^3.5.13"
 
@@ -1168,25 +1180,25 @@
     picocolors "^1.1.1"
     upath "^2.0.1"
 
-"@vueuse/core@^12.5.0":
-  version "12.5.0"
-  resolved "https://registry.yarnpkg.com/@vueuse/core/-/core-12.5.0.tgz#1321c75132c4f20f223e6313587ebeeec79957f2"
-  integrity sha512-GVyH1iYqNANwcahAx8JBm6awaNgvR/SwZ1fjr10b8l1HIgDp82ngNbfzJUgOgWEoxjL+URAggnlilAEXwCOZtg==
+"@vueuse/core@^12.5.0", "@vueuse/core@^12.7.0":
+  version "12.7.0"
+  resolved "https://registry.yarnpkg.com/@vueuse/core/-/core-12.7.0.tgz#b9c3880e9c01d9db86029c6a58412f1b1922497e"
+  integrity sha512-jtK5B7YjZXmkGNHjviyGO4s3ZtEhbzSgrbX+s5o+Lr8i2nYqNyHuPVOeTdM1/hZ5Tkxg/KktAuAVDDiHMraMVA==
   dependencies:
     "@types/web-bluetooth" "^0.0.20"
-    "@vueuse/metadata" "12.5.0"
-    "@vueuse/shared" "12.5.0"
+    "@vueuse/metadata" "12.7.0"
+    "@vueuse/shared" "12.7.0"
     vue "^3.5.13"
 
-"@vueuse/metadata@12.5.0":
-  version "12.5.0"
-  resolved "https://registry.yarnpkg.com/@vueuse/metadata/-/metadata-12.5.0.tgz#8f1778a2894bdda2bf458054377a379d40276306"
-  integrity sha512-Ui7Lo2a7AxrMAXRF+fAp9QsXuwTeeZ8fIB9wsLHqzq9MQk+2gMYE2IGJW48VMJ8ecvCB3z3GsGLKLbSasQ5Qlg==
+"@vueuse/metadata@12.7.0":
+  version "12.7.0"
+  resolved "https://registry.yarnpkg.com/@vueuse/metadata/-/metadata-12.7.0.tgz#17a263927204962ec045095c83f62c81db085a46"
+  integrity sha512-4VvTH9mrjXqFN5LYa5YfqHVRI6j7R00Vy4995Rw7PQxyCL3z0Lli86iN4UemWqixxEvYfRjG+hF9wL8oLOn+3g==
 
-"@vueuse/shared@12.5.0":
-  version "12.5.0"
-  resolved "https://registry.yarnpkg.com/@vueuse/shared/-/shared-12.5.0.tgz#b93af7ab0fd6a8d879808c9bf37d540dac01da13"
-  integrity sha512-vMpcL1lStUU6O+kdj6YdHDixh0odjPAUM15uJ9f7MY781jcYkIwFA4iv2EfoIPO6vBmvutI1HxxAwmf0cx5ISQ==
+"@vueuse/shared@12.7.0":
+  version "12.7.0"
+  resolved "https://registry.yarnpkg.com/@vueuse/shared/-/shared-12.7.0.tgz#0c573789069818a2e25ddae3ab64b536c614537b"
+  integrity sha512-coLlUw2HHKsm7rPN6WqHJQr18WymN4wkA/3ThFaJ4v4gWGWAQQGK+MJxLuJTBs4mojQiazlVWAKNJNpUWGRkNw==
   dependencies:
     vue "^3.5.13"
 
