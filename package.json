@@ -11,7 +11,7 @@
     "docs/**/*.{md,markdown}": "lint-md"
   },
   "devDependencies": {
-    "@vuepress/plugin-docsearch": "^2.0.0-rc.19",
+    "@vuepress/plugin-docsearch": "^2.0.0-rc.78",
     "@vuepress/plugin-register-components": "^2.0.0-rc.19",
     "lint-staged": "^15.4.3",
     "sass-embedded": "^1.83.4",
