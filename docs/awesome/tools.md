@@ -46,7 +46,7 @@
     url="https://github.com/dyhkwong/Exclave"
     name="Exclave（SagerNet的分支版本）"
     :platforms="['android']"
-    description="【正在更新】SagerNet 是一个基于 V2Ray 的 Android 通用代理应用。"
+    description="【正在更新】源自 SagerNet 的代理客户端，由 v2ray-core 的硬分叉提供支持。"
 />
 <Tool
     url="https://github.com/2dust/v2rayNG"
@@ -66,7 +66,7 @@
     url="https://github.com/SagerNet/SagerNet"
     name="SagerNet官方版"
     :platforms="['android']"
-    description="【已停止更新】SagerNet 是一个基于 V2Ray 的 Android 通用代理应用。"
+    description="【已停止更新】Sagernet是一个包含v2ray-core的Android代理客户端，并能通过添加插件支持Brook、Hysteria、Naiveproxy、Mieru等多种代理协议"
 />
 
 ## 路由规则
