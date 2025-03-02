@@ -59,14 +59,14 @@
     url="https://github.com/netchx/netch"
     name="netch"
     :platforms="['win']"
-    description="【更新缓慢】以简洁为主的客户端，仅支持Windows，支持Socks5，Shadowsocks，ShadowsocksR，WireGuard，Trojan，VMess，VLESS协议"
+    description="【更新缓慢】以简洁为主的客户端，仅支持Windows，支持Socks5，Shadowsocks，ShadowsocksR，WireGuard，Trojan，VMess，VLESS协议。"
 />
 
 <Tool
     url="https://github.com/SagerNet/SagerNet"
     name="SagerNet官方版"
     :platforms="['android']"
-    description="【已停止更新】Sagernet是一个包含v2ray-core的Android代理客户端，并能通过添加插件支持Brook、Hysteria、Naiveproxy、Mieru等多种代理协议"
+    description="【已停止更新】Sagernet是一个包含 v2ray-core 的Android代理客户端，并能通过添加插件支持Brook、Hysteria、Naiveproxy、Mieru等多种代理协议。"
 />
 
 ## 路由规则
