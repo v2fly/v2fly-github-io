@@ -6,42 +6,75 @@
 
 <Uuid />
 
-There is a third-party UUID generator [uuidgenerator.net](https://www.uuidgenerator.net).
-
+There's also a third-party UUID generator [uuidgenerator.net](https://www.uuidgenerator.net)
 
 ## Third-party GUI Clients
-
-
-<Tool
-    url="https://github.com/2dust/v2rayNG"
-    name="V2RayNG"
-    :platforms="['android']"
-    description="V2RayNG is an Android APP based on V2Ray core, VPN connections can be created with VMess."
-/>
 
 <Tool
     url="https://github.com/2dust/v2rayN"
     name="V2rayN"
     :platforms="['win']"
-    description="V2RayN is a V2Ray client running on Windows."
-/>
-
-<Tool
-    url="https://github.com/yanue/V2rayU"
-    name="V2rayU"
-    :platforms="['mac']"
-    description="V2rayU，a macOS client based on V2Ray core. It's programmed with Swift 4.2, supporting for VMess, Shadowsocks, SOCKS5 and other protocols. Subscription, QR code, importing from clipboard, custom config and QR sharing features are also supported."
+    description="[Actively Updated] V2RayN is a Windows client based on V2Ray, Singbox, and other cores."
 />
 
 <Tool
     url="https://github.com/Qv2ray/Qv2ray"
     name="Qv2ray"
     :platforms="['linux','win','mac']"
-    description="Cross-platform client based on V2Ray Core, supporting Linux, Windows and macOS, with SSR / Trojan / Trojan-Go / NaiveProxy plugin support. No batched speed test, no automatic update, and not for beginners."
+    description="[Discontinued] Cross-platform V2Ray client supporting Linux, Windows, macOS. Can support SSR / Trojan / Trojan-Go / NaiveProxy and other protocols through plugin system"
+/>
+
+<Tool
+    url="https://github.com/MatsuriDayo/nekoray"
+    name="nekoray"
+    :platforms="['linux','win','mac']"
+    description="[Actively Updated] Supports SOCKS (4/4a/5), HTTP(S), Shadowsocks, VMess, VLESS, Trojan, TUIC, NaïveProxy (Custom Core), Hysteria2 (Custom Core or sing-box), Custom Outbound, Custom Config, Custom Core, v2ray Core"
+/>
+
+<Tool
+    url="https://github.com/v2rayA/v2rayA"
+    name="v2rayA"
+    :platforms="['linux','win','mac']"
+    description="[Actively Updated] Web GUI based cross-platform V2Ray client, supports global transparent proxy on Linux and system proxy on other platforms."
+/>
+
+<Tool
+    url="https://github.com/yanue/V2rayU/tree/master"
+    name="v2rayU"
+    :platforms="['mac']"
+    description="[Actively Updated] v2ray client for MacOS platform supporting vmess, vless, ss, ssr protocols, socks5 protocol, and xlts"
+/>
+
+<Tool
+    url="https://github.com/dyhkwong/Exclave"
+    name="Exclave (SagerNet Fork)"
+    :platforms="['android']"
+    description="[Actively Updated] A proxy client derived from SagerNet, powered by a hard fork of v2ray-core."
+/>
+
+<Tool
+    url="https://github.com/2dust/v2rayNG"
+    name="v2rayNG"
+    :platforms="['android']"
+    description="[Actively Updated] v2rayNG is an Android universal proxy application based on Xray."
+/>
+
+<Tool
+    url="https://github.com/netchx/netch"
+    name="netch"
+    :platforms="['win']"
+    description="[Slow Updates] A client focusing on simplicity, Windows only, supports Socks5, Shadowsocks, ShadowsocksR, WireGuard, Trojan, VMess, VLESS protocols."
+/>
+
+<Tool
+    url="https://github.com/SagerNet/SagerNet"
+    name="SagerNet Official"
+    :platforms="['android']"
+    description="[Discontinued] Sagernet is an Android proxy client containing v2ray-core and can support multiple proxy protocols like Brook, Hysteria, Naiveproxy, Mieru through plugins."
 />
 
 ## Routing Rules
 
 > V2Ray Rules Dat
 
-Enhanced edition of V2Ray routing rules files, a good replacement for official `geoip.dat` and `geosite.dat` [@Loyalsoldier/v2ray-rules-dat](https://github.com/Loyalsoldier/v2ray-rules-dat)
+Enhanced version of V2Ray routing rules file, can replace official `geoip.dat` and `geosite.dat` [@Loyalsoldier/v2ray-rules-dat](https://github.com/Loyalsoldier/v2ray-rules-dat)
