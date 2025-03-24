@@ -40,7 +40,7 @@
     url="https://github.com/yanue/V2rayU/tree/master"
     name="v2rayU"
     :platforms="['mac']"
-    description="【正在更新】MacOS平台的v2ray客户端 支持vmess,vless,ss,ssr协议,支持socks5协议,支持xlts"
+    description="【已停止更新】MacOS平台的v2ray客户端 支持vmess,vless,ss,ssr协议,支持socks5协议,支持xlts"
 />
 <Tool
     url="https://github.com/dyhkwong/Exclave"
