@@ -28,7 +28,7 @@ There's also a third-party UUID generator [uuidgenerator.net](https://www.uuidge
     url="https://github.com/MatsuriDayo/nekoray"
     name="nekoray"
     :platforms="['linux','win','mac']"
-    description="[Actively Updated] Supports SOCKS (4/4a/5), HTTP(S), Shadowsocks, VMess, VLESS, Trojan, TUIC, NaïveProxy (Custom Core), Hysteria2 (Custom Core or sing-box), Custom Outbound, Custom Config, Custom Core, v2ray Core"
+    description="[Disocntinued] Supports SOCKS (4/4a/5), HTTP(S), Shadowsocks, VMess, VLESS, Trojan, TUIC, NaïveProxy (Custom Core), Hysteria2 (Custom Core or sing-box), Custom Outbound, Custom Config, Custom Core, v2ray Core"
 />
 
 <Tool
@@ -42,7 +42,7 @@ There's also a third-party UUID generator [uuidgenerator.net](https://www.uuidge
     url="https://github.com/yanue/V2rayU/tree/master"
     name="v2rayU"
     :platforms="['mac']"
-    description="[Actively Updated] v2ray client for MacOS platform supporting vmess, vless, ss, ssr protocols, socks5 protocol, and xlts"
+    description="[Disocntinued] v2ray client for MacOS platform supporting vmess, vless, ss, ssr protocols, socks5 protocol, and xlts"
 />
 
 <Tool
@@ -50,13 +50,6 @@ There's also a third-party UUID generator [uuidgenerator.net](https://www.uuidge
     name="Exclave (SagerNet Fork)"
     :platforms="['android']"
     description="[Actively Updated] A proxy client derived from SagerNet, powered by a hard fork of v2ray-core."
-/>
-
-<Tool
-    url="https://github.com/2dust/v2rayNG"
-    name="v2rayNG"
-    :platforms="['android']"
-    description="[Actively Updated] v2rayNG is an Android universal proxy application based on Xray."
 />
 
 <Tool
@@ -70,7 +63,7 @@ There's also a third-party UUID generator [uuidgenerator.net](https://www.uuidge
     url="https://github.com/SagerNet/SagerNet"
     name="SagerNet Official"
     :platforms="['android']"
-    description="[Discontinued] Sagernet is an Android proxy client containing v2ray-core and can support multiple proxy protocols like Brook, Hysteria, Naiveproxy, Mieru through plugins."
+    description="[Disocntinued] Sagernet is an Android proxy client containing v2ray-core and can support multiple proxy protocols like Brook, Hysteria, Naiveproxy, Mieru through plugins."
 />
 
 ## Routing Rules
