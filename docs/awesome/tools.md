@@ -27,7 +27,7 @@
     url="https://github.com/MatsuriDayo/nekoray"
     name="nekoray"
     :platforms="['linux','win','mac']"
-    description="【正在更新】支持SOCKS (4/4a/5),HTTP(S),Shadowsocks,VMess,VLESS,Trojan,TUIC,NaïveProxy ( Custom Core ),Hysteria2 ( Custom Core or sing-box ),Custom Outbound,Custom Config,Custom Core,v2ray Core"
+    description="【已停止更新】支持SOCKS (4/4a/5),HTTP(S),Shadowsocks,VMess,VLESS,Trojan,TUIC,NaïveProxy ( Custom Core ),Hysteria2 ( Custom Core or sing-box ),Custom Outbound,Custom Config,Custom Core,v2ray Core"
 />
 
 <Tool
