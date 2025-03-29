@@ -39,15 +39,8 @@ There's also a third-party UUID generator [uuidgenerator.net](https://www.uuidge
 />
 
 <Tool
-    url="https://github.com/yanue/V2rayU/tree/master"
-    name="v2rayU"
-    :platforms="['mac']"
-    description="[Discontinued] v2ray client for MacOS platform supporting vmess, vless, ss, ssr protocols, socks5 protocol, and xlts"
-/>
-
-<Tool
     url="https://github.com/dyhkwong/Exclave"
-    name="Exclave (SagerNet Fork)"
+    name="Exclave (Sagernet Fork)"
     :platforms="['android']"
     description="[Actively Updated] A proxy client derived from SagerNet, powered by a hard fork of v2ray-core."
 />
