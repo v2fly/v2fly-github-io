@@ -37,12 +37,6 @@
     description="【正在更新】基于 web GUI 的跨平台 V2Ray 客户端，在 Linux 上支持全局透明代理，其他平台上支持系统代理。"
 />
 <Tool
-    url="https://github.com/yanue/V2rayU/tree/master"
-    name="v2rayU"
-    :platforms="['mac']"
-    description="【已停止更新】MacOS平台的v2ray客户端 支持vmess,vless,ss,ssr协议,支持socks5协议,支持xlts"
-/>
-<Tool
     url="https://github.com/dyhkwong/Exclave"
     name="Exclave（SagerNet的分支版本）"
     :platforms="['android']"
