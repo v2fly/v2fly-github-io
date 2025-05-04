@@ -45,13 +45,13 @@ V2Ray 内建了一个 DNS 组件，其主要用途为：对目标地址（域名
 :::
 
 :::warning
-如果在 Linux 设备上使用 DNS over QUIC，可能需要调整接收缓冲区大小，下面的命令将其设置为 2.5 MB
+如果在 Linux 设备上使用 DNS over QUIC，可能需要调整接收缓冲区大小，下面的命令将其设置为 7.5 MB
 
 ```shell
-sysctl -w net.core.rmem_max=2500000
+sysctl -w net.core.rmem_max=7500000
 ```
 
-Reference: [https://github.com/lucas-clemente/quic-go/wiki/UDP-Receive-Buffer-Size](https://github.com/lucas-clemente/quic-go/wiki/UDP-Receive-Buffer-Size)
+Reference: [https://github.com/lucas-clemente/quic-go/wiki/UDP-Receive-Buffer-Size](https://github.com/quic-go/quic-go/wiki/UDP-Buffer-Sizes)
 :::
 
 ## DNS 处理流程
