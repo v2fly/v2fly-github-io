@@ -66,6 +66,22 @@ security.tls
 
 > `certificate`: \[[CertificateObject](#certificateobject)\]
 
+> `echConfig` : string
+
+配置对应serverName域名的ech config。
+
+如果ech config不是固定的，则此选项不是特别有用，建议改用下方的echDOHserver选项。
+
+示例："securitySettings": { "echConfig": "AFj+DQBUAAAgACAJSBrX4ZNnpgYFsaF+sUabAbsO+y2Bs61D6nmHEw7dRgAkAAEAAQABAAIAAQADAAIAAQACAAIAAgADAAMAAQADAAIAAwADAAV4LmNvbQAA" }
+
+> `echDOHserver` : string
+
+如果未设置`echConfig`，则使用此服务器查询对应serverName域名的ech config。
+
+如果设置了`echConfig`，此选项没有效果。
+
+示例："securitySettings": { "echDOHserver": "https://1.1.1.1/dns-query" }
+
 
 ### CertificateObject
 
