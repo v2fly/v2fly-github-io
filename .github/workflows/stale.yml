@@ -15,3 +15,5 @@ jobs:
         repo-token: ${{ secrets.GITHUB_TOKEN }}
         stale-issue-label: 'no-issue-activity'
         stale-pr-label: 'no-pr-activity'
+        exempt-pr-labels: 'planned'
+        exempt-issue-labels: 'planned'
