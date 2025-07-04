@@ -174,11 +174,11 @@ where `uniformRandom` is a variable `∈ [0,1)` and subject to uniform random di
 
 ## Header
 
-> 'key' : string
+> `key` : string
 
 The HTTP header key.
 
-> 'value' : string
+> `value` : string
 
 The HTTP header value.
 
