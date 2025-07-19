@@ -59,6 +59,13 @@ There's also a third-party UUID generator [uuidgenerator.net](https://www.uuidge
     description="[Discontinued] Sagernet is an Android proxy client containing v2ray-core and can support multiple proxy protocols like Brook, Hysteria, Naiveproxy, Mieru through plugins."
 />
 
+<Tool
+    url="https://github.com/AnyPortal/AnyPortal"
+    name="AnyPortal"
+    :platforms="['linux','win','mac','android']"
+    description="[Actively Updated] AnyPortal runs on full v2ray-core (and its forks), supports Tun2socks, system proxy, remote auto update, etc."
+/>
+
 ## Routing Rules
 
 > V2Ray Rules Dat
