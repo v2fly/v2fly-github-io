@@ -91,6 +91,14 @@ The embedded traffic generator to produce tls traffic on demand. This setting is
 
 An embedded traffic generator is currently recommended for most setup.
 
+> `connectionEnrolment` : [Connection Enrolment Setting](#connection-enrolment-setting)
+
+This setting controls connection enrolment system to avoid detection based on redirection attack
+
+> `sequenceWatermarkingEnabled`: bool
+
+Whether to enable sequence watermarking to avoid detection based on TLS frame reordering between inserted frames.
+
 ## Traffic Generator Setting
 
 > `securitySettings`: special
@@ -189,3 +197,22 @@ The HTTP header value.
 Whether transport layer padding is enabled.
 
 This value must be same for both inbound and outbound.
+
+
+## Connection Enrolment Setting
+
+> `primaryIngressOutbound` : string
+
+::: tip
+This value is only used in inbound.
+:::
+
+The outbound tag for primary connection enrolment connections. Client's primary egress outbound should connect to here.
+
+> `primaryEgressOutbound` : string
+
+::: tip
+This value is only used in outbound.
+:::
+
+The outbound tag for primary connection enrolment connections. Should be connect to primary ingress outbound on server.
