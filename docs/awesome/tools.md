@@ -57,6 +57,13 @@
     description="【已停止更新】Sagernet是一个包含 v2ray-core 的Android代理客户端，并能通过添加插件支持Brook、Hysteria、Naiveproxy、Mieru等多种代理协议。"
 />
 
+<Tool
+    url="https://github.com/AnyPortal/AnyPortal"
+    name="AnyPortal"
+    :platforms="['linux','win','mac','android']"
+    description="【正在更新】 AnyPortal使用完整v2ray（及其fork）核心, 支持Tun2socks, 系统代理, 自动更新等。"
+/>
+
 ## 路由规则
 
 > V2Ray Rules Dat
