@@ -19,7 +19,7 @@ Hysteria2 可以作为传输层与 Vmess、Shadowsocks、Trojan 搭配使用，�
 
 ## Hysteria2Object
 
-`Hysteria2Object` 对应传输配置的 `hysteria2Settings` 项。
+`Hysteria2Object` 对应传输配置的 `hy2Settings` 项。
 
 ```json
 {
