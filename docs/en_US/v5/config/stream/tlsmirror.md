@@ -216,3 +216,13 @@ This value is only used in outbound.
 :::
 
 The outbound tag for primary connection enrolment connections. Should be connect to primary ingress outbound on server.
+
+If it is left empty, then a self-enrolment will be attempted to create enrollment connection over itself. Bootstrap enrollment method must be configured. (v5.42.0+, engineering evaluation phase)
+
+> `bootstrap_egress_config` : [ special ]
+
+An array of egress configs. Engineering setting. (v5.42.0+)
+
+> `bootstrap_ingress_config` : [ special ]
+
+An array of ingress configs. Engineering setting. (v5.42.0+)
