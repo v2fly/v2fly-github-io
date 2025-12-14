@@ -7,10 +7,8 @@
   "level": 0,
   "email": "",
   "account": {
-    {
-      "@type": "v2ray.core.proxy.trojan.Account",
-      "password": ""
-    }
+    "@type": "v2ray.core.proxy.trojan.Account",
+    "password": ""
   }
 }
 ```
