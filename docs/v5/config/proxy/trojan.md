@@ -124,6 +124,10 @@ UDP 包编码方式，默认值为 `None`。(v5.4.0+)
 
 > `type`: string
 
+网络协议. "tcp", "tcp4" (仅IPv4), "tcp6" (仅IPv6).
+
 > `dest`: string
+
+目标地址, 格式为 "host:port", ex: "127.0.0.1:80" .
 
 > `xver`: uint64

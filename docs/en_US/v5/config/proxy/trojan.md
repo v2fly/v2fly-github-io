@@ -139,6 +139,10 @@ A password recognized by server.
 
 > `type`: string
 
+The network protocol to use. Common values include "tcp", "tcp4" (IPv4 only), "tcp6" (IPv6 only).
+
 > `dest`: string
+
+The destination address, typically in the form of "host:port", ex: "127.0.0.1:80" .
 
 > `xver`: uint64
