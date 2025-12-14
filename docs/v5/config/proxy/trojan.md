@@ -65,7 +65,9 @@ UDP 包编码方式，默认值为 `None`。(v5.4.0+)
 
 ```json
 {
-  "server": []
+  "users": [],
+  "packetEncoding": "None",
+  "fallbacks": []
 }
 ```
 
