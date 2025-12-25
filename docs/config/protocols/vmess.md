@@ -17,7 +17,7 @@ VMess 的配置分为两部分，`InboundConfigurationObject`和`OutboundConfigu
 
 ## OutboundConfigurationObject
 
-```json
+![1000026759](https://github.com/user-attachments/assets/6d2969cf-e79f-47f2-a981-d5d96c425b26)``json
 {
     "vnext": [
         {
