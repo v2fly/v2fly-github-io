@@ -75,12 +75,13 @@ What's new?
 
 The V2Ray Docker Image is also available:
 
-* [v2fly/v2fly-core](https://hub.docker.com/r/v2fly/v2fly-core): The `latest` tag will be updated following [v2fly](https://github.com/v2fly/docker-fly)'s latest release. Other versions will be released using the version's tag, e.g. `4.27.0`.
+* [ghcr.io/v2fly/v2ray:latest-extra](https://github.com/v2fly/v2ray-core/pkgs/container/v2ray/625429681?tag=latest-extra): The `latest-extra` tag will be automatically updated with the latest release. Other versions will be released using the version's tag, e.g. `4.27.0`.
 
 The Structure of Docker Image:
 
-* `/etc/v2ray/config.json`: Config File
-* `/usr/bin/v2ray/v2ray`: V2Ray Main Process
-* `/usr/bin/v2ray/v2ctl`: V2Ctl Commandline Tools
-* `/usr/bin/v2ray/geoip.dat`: GeoIP Data
-* `/usr/bin/v2ray/geosite.dat`: GeoSite Data
+* `/opt/v2ray/etc/config.json`: Config File
+* `/opt/v2ray/bin/v2ray`: V2Ray Main Process
+* `/opt/v2ray/share/geoip.dat`: GeoIP Data
+* `/opt/v2ray/share/geosite.dat`: GeoSite Data
+
+* [v2fly/v2fly-core](https://hub.docker.com/r/v2fly/v2fly-core): The docker hub image is manually built in [v2fly](https://github.com/v2fly/docker), so it is not recommended due to the possibility of lacking updates. 
