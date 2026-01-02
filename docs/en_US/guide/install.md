@@ -75,7 +75,7 @@ What's new?
 
 The V2Ray Docker Image is also available:
 
-* [ghcr.io/v2fly/v2ray:latest-extra](https://github.com/v2fly/v2ray-core/pkgs/container/v2ray/625429681?tag=latest-extra): The `latest-extra` tag will be automatically updated with the latest release. Other versions will be released using the version's tag, e.g. `4.27.0`.
+* V2Ray provides a precompiled Docker image for the Linux platform: [ghcr.io/v2fly/v2ray:latest-extra](https://github.com/v2fly/v2ray-core/pkgs/container/v2ray/625429681?tag=latest-extra): The `latest-extra` tag will be automatically updated with the latest release. Other versions will be released using the version's tag, e.g. `4.27.0`.
 
 The Structure of Docker Image:
 
