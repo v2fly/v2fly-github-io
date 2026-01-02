@@ -190,7 +190,6 @@ AES-GCM 要求 Key-Nonce 组合不重复。由于其中使用了 EAuID、Nonce �
   * X：保留；
 * 余量 P：在校验值之前加入 P 字节的随机值；
 * 加密方式：指定数据部分的加密方式：
-  * 0x00：Legacy（等同于 0x01）；
   * 0x01：Legacy (AES-128-CFB)；
   * 0x03：AES-128-GCM；
   * 0x04：ChaCha20-Poly1305；
