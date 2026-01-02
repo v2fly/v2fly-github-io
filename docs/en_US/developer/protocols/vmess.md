@@ -190,7 +190,6 @@ Where:
   * X: Reserved;
 * Margin P: Add P random bytes before the checksum;
 * Encryption method: Specifies the encryption method for the data section:
-  * 0x00: Legacy (equivalent to 0x01);
   * 0x01: Legacy (AES-128-CFB);
   * 0x03: AES-128-GCM;
   * 0x04: ChaCha20-Poly1305;
