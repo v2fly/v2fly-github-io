@@ -1,42 +1,100 @@
-# Stream
+# Stream 传输方式
+
+传输方式（Transport）定义了数据在网络中的传输形式。V2Ray 支持多种传输协议，可以根据不同的网络环境和需求选择合适的传输方式。
+
+## 配置结构
 
 ```json
 {
-  "transport":"tcp",
-  "transportSettings":{},
-  "security":"none",
-  "securitySettings":{}
+  "transport": "tcp",
+  "transportSettings": {},
+  "security": "none",
+  "securitySettings": {},
+  "socketSettings": {}
 }
 ```
 
 > `transport`: name of `<transport>`
 
-传输层协议名称。
+传输层协议名称。可选值见[支持的传输协议](#支持的传输流协议)。
 
 > `transportSettings`: settings of `<transport>`
 
-传输层协议设置。
+传输层协议设置。具体配置取决于所选的传输协议。
 
 > `security`: name of `<security>`
 
-<!-- 传输层安全协议名称，支持的选项有 `"none"` 表示不使用传输层安全（默认值），`"tls"` 表示使用 [TLS](https://en.wikipedia.org/wiki/Transport_Layer_Security)。 -->
+传输层安全协议名称，支持的选项有：
+* `"none"`：不使用传输层加密（默认值）
+* `"tls"`：使用 [TLS](https://en.wikipedia.org/wiki/Transport_Layer_Security) 加密
+* `"reality"`：使用 Reality 协议（v5.1.0+）
 
 > `securitySettings`: settings of `<security>`
 
+安全层协议设置。具体配置取决于所选的安全协议。
+
 > `socketSettings`: [SocketConfigObject](#socketconfigobject)
+
+底层 Socket 配置，用于调整连接的底层参数。
 
 ## 支持的传输流协议
 
-* [TCP](stream/tcp.md)
-* [WebSocket](stream/websocket.md)
-* [mKCP](stream/kcp.md)
-* [gRPC](stream/grpc.md)
-* [QUIC](stream/quic.md)
-* [meek](stream/meek.md)
-* [httpupgrade](stream/httpupgrade.md)
-* [Hysteria2](stream/hy2.md)
+V2Ray 支持以下传输协议：
 
+### 基础传输协议
 
+* **[TCP](stream/tcp.md)** - 标准 TCP 连接，最稳定可靠
+* **[WebSocket](stream/websocket.md)** - 基于 HTTP 的 WebSocket，广泛兼容
+* **[HTTP/2 (gRPC)](stream/grpc.md)** - 基于 gRPC 的传输，性能好
+
+### 专用传输协议
+
+* **[mKCP](stream/kcp.md)** - 基于 KCP 的 UDP 传输，适合弱网环境
+* **[QUIC](stream/quic.md)** - 基于 QUIC 的传输，低延迟
+* **[HTTPUpgrade](stream/httpupgrade.md)** - HTTP 协议升级，类似 WebSocket 但更高效
+
+### 特殊用途协议
+
+* **[meek](stream/meek.md)** - 基于 CDN 的流量转发，高度隐蔽
+* **[mekya](stream/mekya.md)** - meek 的变体
+* **[Hysteria2](stream/hy2.md)** - 专为弱网优化的高性能传输
+
+## 传输协议选择指南
+
+### 按使用场景选择
+
+| 场景 | 推荐协议 | 说明 |
+|------|---------|------|
+| 一般使用 | TCP + TLS | 最稳定，兼容性好 |
+| CDN 加速 | WebSocket + TLS | 可使用 CDN，隐藏真实 IP |
+| 反向代理后 | WebSocket / gRPC | 兼容大部分反向代理 |
+| 弱网环境 | mKCP / Hysteria2 | 专为弱网优化 |
+| 低延迟需求 | QUIC | UDP 传输，延迟低 |
+| 高度隐蔽 | meek | 流量通过 CDN，难以识别 |
+
+### 按网络环境选择
+
+1. **稳定网络**：TCP、WebSocket、gRPC
+2. **不稳定网络**：mKCP、QUIC、Hysteria2
+3. **受限网络**：WebSocket、HTTPUpgrade、meek
+4. **高速网络**：gRPC、QUIC、Hysteria2
+
+### 协议特性对比
+
+| 协议 | 基础协议 | CDN支持 | 性能 | 隐蔽性 | 难度 |
+|------|---------|---------|------|--------|------|
+| TCP | TCP | ❌ | ⭐⭐⭐ | ⭐⭐ | ⭐ |
+| WebSocket | TCP/HTTP | ✅ | ⭐⭐⭐ | ⭐⭐⭐⭐ | ⭐⭐ |
+| gRPC | TCP/HTTP2 | ✅ | ⭐⭐⭐⭐ | ⭐⭐⭐⭐ | ⭐⭐⭐ |
+| HTTPUpgrade | TCP/HTTP | ✅ | ⭐⭐⭐⭐ | ⭐⭐⭐⭐ | ⭐⭐ |
+| mKCP | UDP | ❌ | ⭐⭐⭐⭐ | ⭐⭐ | ⭐⭐⭐ |
+| QUIC | UDP | ❌ | ⭐⭐⭐⭐ | ⭐⭐⭐ | ⭐⭐⭐ |
+| meek | HTTP/CDN | ✅ | ⭐⭐ | ⭐⭐⭐⭐⭐ | ⭐⭐⭐⭐ |
+| Hysteria2 | UDP/QUIC | ❌ | ⭐⭐⭐⭐⭐ | ⭐⭐⭐ | ⭐⭐⭐ |
+
+## 安全层配置
+
+传输协议通常需要配合安全层使用以保证数据安全。
 ## TLS
 security.tls
 
