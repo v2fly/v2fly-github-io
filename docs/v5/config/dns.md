@@ -149,7 +149,7 @@ DNS 服务器列表。
 静态域名映射。
 
 :::tip
-当地址中同时设置了多个 IP 和域名，则只会返回第一个域名，其余 IP 和域名均被忽略。【TODO】
+当地址中同时设置了多个 IP 和域名时，查询将返回第一个域名的解析结果，其余的 IP 地址和域名将被忽略。建议每个 HostMappingObject 只配置单一的 IP 列表或单一的代理域名。
 :::
 
 > `fakeDns`: [FakeDnsObject](#fakednsobject)
