@@ -141,7 +141,6 @@ export default defineUserConfig({
                                 '/config/transport/domainsocket',
                                 '/config/transport/grpc',
                                 '/config/transport/hy2',
-                                '/config/transport/tlsmirror',
                             ],
                         },
                         {
@@ -223,6 +222,7 @@ export default defineUserConfig({
                                 '/v5/config/stream/httpupgrade',
                                 '/v5/config/stream/hy2',
                                 '/v5/config/stream/mekya',
+                                '/v5/config/stream/tlsmirror',
                             ],
                         },
                         {
@@ -330,7 +330,6 @@ export default defineUserConfig({
                                 '/en_US/config/transport/domainsocket',
                                 '/en_US/config/transport/grpc',
                                 '/en_US/config/transport/hy2',
-                                '/en_US/config/transport/tlsmirror',
                             ],
                         },
                         {
@@ -412,6 +411,7 @@ export default defineUserConfig({
                                 '/en_US/v5/config/stream/httpupgrade',
                                 '/en_US/v5/config/stream/hy2',
                                 '/en_US/v5/config/stream/mekya',
+                                '/en_US/v5/config/stream/tlsmirror',
                             ],
                         },
                         {
