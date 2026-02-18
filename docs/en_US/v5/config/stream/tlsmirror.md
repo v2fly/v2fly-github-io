@@ -6,6 +6,29 @@ This protocol is currently unreleased and is currently in developer preview phas
 
 TLSMirror is a looks like TLS protocol that designed to look like a port forwarder or SNI proxy while covertly transport payload traffic mixed with untouched carrier traffic. (unreleased)
 
+::: info
+TLSMirror has a machine-generated specification from source code: [TLSMirror Spec](https://gist.github.com/xiaokangwang/622dffd24ec144a11260dd1b8baf7dc0#file-tlsmirror-spec-md).
+:::
+
+## Protocol Architecture
+
+TLSMirror operates by maintaining a carrier TLS connection between a forwarded client and forwarded server, while covertly inserting encrypted payload traffic into the same connection. The architecture involves four entities:
+
+1. **Forwarded Client**: An external TLS client (e.g., a web browser) initiating the connection.
+2. **TLSMirror Client**: Receives the carrier connection and forwards it to TLSMirror Server.
+3. **TLSMirror Server**: Receives the forwarded connection and forwards it to the forwarded server.
+4. **Forwarded Server**: The real destination server (e.g., target.example.com).
+
+### Key Design Principle: No Handshake Modification
+
+TLSMirror does **NOT** modify any TLS handshake messages. Handshake records pass through without modification, meaning carrier traffic remains bit-identical to legitimate TLS traffic during the handshake. This allows any TLS client to generate carrier traffic without leaving fingerprints.
+
+### Basic Operation
+
+The TLSMirror client and server parse the TLS stream into individual frames and insert additional encrypted application data frames containing payload traffic. Both TLSMirror endpoints attempt to decrypt each application data frame:
+
+- **Success**: The frame contains payload data for the application handler (consumed by TLSMirror, NOT forwarded).
+- **Failure**: The frame is from the forwarded client/server and is passed through transparently.
 
 ## TLSMirror Setting
 
@@ -25,6 +48,10 @@ This value must be same for both inbound and outbound.
 
 You can generate this value with the following command:
 `cat /dev/urandom|head -c 32|base64`
+
+or
+
+`v2ray engineering generate-random-data -length 32`
 
 
 > `forwardTag` : string
@@ -54,7 +81,18 @@ A list of cipher suites identifiers that uses an explicit nonce in its encrypted
 
 This value should be encoded in base 10 numbers, notwithstanding its typical notation of 2 hex encoded octets.
 
+
+**Recommended Values:**
+`[156, 157, 158, 159, 160, 161, 162, 163, 164, 165, 166, 167, 168, 169, 170, 171, 172, 173, 49195, 49196, 49197, 49198, 49199, 49200, 49201, 49202, 49290, 49291, 49293, 49316, 49317, 49318, 49319, 49320, 49321, 49322, 49323, 49324, 49325, 49326, 49327, 52392, 52393, 52394, 52395, 52396, 52397, 52398]`
+
+These values cover a comprehensive set of TLS 1.2 cipher suites that utilize an explicit nonce (such as AES-GCM and AES-CCM). Including this full list ensures that TLSMirror can correctly identify and process application data records across a wide variety of legitimate carrier traffic, preventing connection failures or detection due to incorrect record parsing.
+
+
 This value must be same for both inbound and outbound.
+
+::: note
+For TLS 1.2, TLSMirror expects the initial nonce to be 0. Does not work with all TLS implementations. It is recommended to test this yourself.
+:::
 
 ::: danger
 This `explicitNonceCiphersuites` value must be correctly configured or the traffic will either break down or become identifiable.
@@ -62,7 +100,11 @@ This `explicitNonceCiphersuites` value must be correctly configured or the traff
 
 > `transportLayerPadding`: [TransportLayerPadding](#transport-layer-padding-setting)
 
-The transport layer padding setting. This feature is currently not fully implemented, unset this field if forward compatibility is not required.  
+The transport layer padding setting. This feature is currently not fully implemented, unset this field if forward compatibility is not required.
+
+**Padding Format:**
+- **With Data (length > 4)**: `[application_data][padding][4-byte data_length]`
+- **Data-length only (length <= 4)**: `[padding_only]`
 
 > `deferInstanceDerivedWriteTime`: [Time Spec](#time-spec)
 ::: tip
@@ -72,6 +114,9 @@ This value is typically only useful for inbound.
 A randomized time to wait before writing data back, if response if generate by v2ray instance.
 
 This is used to break timing attack that measure the time for each round trip to discover pattern, as instance generated reply is faster than proxied traffic.
+
+**Delay Calculation:**
+`delay = baseNanoseconds + random(0, uniformRandomMultiplierNanoseconds)`
 
 
 > `carrierConnectionTag`: string
@@ -98,6 +143,11 @@ This setting controls connection enrolment system to avoid detection based on re
 > `sequenceWatermarkingEnabled`: bool
 
 Whether to enable sequence watermarking to avoid detection based on TLS frame reordering between inserted frames.
+
+**Watermarking Mechanism:**
+- **Purpose**: Defeats frame reordering attacks by making frames position-dependent.
+- **Application**: Applies XChaCha20 encryption to the last 16 bytes of application_data and alert records.
+- **Timing**: Enabled **AFTER** the first inserted payload frame. The first frame is used to initialize the watermarking stream.
 
 ## Traffic Generator Setting
 
@@ -226,3 +276,60 @@ An array of egress configs. Engineering setting. (v5.42.0+)
 > `bootstrap_ingress_config` : [ special ]
 
 An array of ingress configs. Engineering setting. (v5.42.0+)
+
+
+> `bootstrapEgressUrl` : [ string ]
+
+::: tip
+This value is only used in outbound.
+:::
+
+The URL to bootstrap egress connection enrolment. (v5.46.0+)
+
+You can convert this url to and from json format with the following command:
+
+`v2ray engineering tlsmirror-enrollment-link -mode json|link`
+
+where the mode specify the output format, json or link. It accept stdin as input and output to stdout by default.
+
+> `bootstrapIngressUrl` : [ string ]
+
+::: tip
+This value is only used in inbound.
+:::
+
+The URL to bootstrap ingress connection enrolment. (v5.46.0+)
+
+
+### Enrollment Security
+
+Connection enrollment prevents **redirection attacks** where an attacker redirects the carrier connection directly to the forwarded server. Without enrollment:
+1. The forwarded server would receive TLSMirror's encrypted payload frames.
+2. Decryption would fail, prompting the server to reject the connection.
+3. This rejection pattern allows censors to identify and block TLSMirror users.
+
+Enrollment ensures the client only sends payload data if the TLSMirror Server is confirmed to be handling the connection.
+
+### Control Domain Convention
+
+Bootstrap enrollment verification requests use a special control domain:
+`{server_identifier_hex}.tlsmirror-controlconnection.v2fly.arpa`
+
+### Server Inverse Role
+
+Server Inverse Role simplifies deployment by having the TLSMirror server **poll** a relay server for enrollment requests instead of waiting for inbound requests.
+
+**Benefits:**
+- Simplified configuration (no separate enrollment inbound handler needed).
+- No control domain routing required on the server side (if used exclusively).
+- Multiple TLSMirror servers can share a common relay.
+
+The polling mechanism runs in a background worker and uses the same `enrollmentProcessor` as normal enrollment.
+
+### Hosted Enrolment Provider
+
+We provide a hosted service to provide these bootstrap URLs for personal use. You can find the service at `https://v2cloudapi.v2fly.org/`, which requires login with Github. This website also generate a pair of configuration files as an example. 
+
+This service generate a pair of inverse role roundtripper enrolment configurations.
+
+(This document contain machine generated content, and was verified by author.)

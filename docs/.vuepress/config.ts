@@ -1,7 +1,7 @@
-import {defineUserConfig} from 'vuepress'
-import {defaultTheme} from '@vuepress/theme-default'
-import {docsearchPlugin} from '@vuepress/plugin-docsearch'
-import {registerComponentsPlugin} from '@vuepress/plugin-register-components'
+import { defineUserConfig } from 'vuepress'
+import { defaultTheme } from '@vuepress/theme-default'
+import { docsearchPlugin } from '@vuepress/plugin-docsearch'
+import { registerComponentsPlugin } from '@vuepress/plugin-register-components'
 import { getDirname, path } from '@vuepress/utils'
 import { viteBundler } from '@vuepress/bundler-vite'
 
@@ -141,6 +141,7 @@ export default defineUserConfig({
                                 '/config/transport/domainsocket',
                                 '/config/transport/grpc',
                                 '/config/transport/hy2',
+                                '/config/transport/tlsmirror',
                             ],
                         },
                         {
@@ -329,6 +330,7 @@ export default defineUserConfig({
                                 '/en_US/config/transport/domainsocket',
                                 '/en_US/config/transport/grpc',
                                 '/en_US/config/transport/hy2',
+                                '/en_US/config/transport/tlsmirror',
                             ],
                         },
                         {
