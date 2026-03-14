@@ -66,3 +66,4 @@ Control whether how domain names in outgoing connection are processed. (v5.12.0+
 * [Trojan](proxy/trojan.md)
 * [HTTP](proxy/http.md)
 * [VLESS](proxy/vless.md)
+* [WireGuard](proxy/wireguard.md)

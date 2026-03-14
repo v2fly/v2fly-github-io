@@ -397,6 +397,7 @@ export default defineUserConfig({
                                 '/en_US/v5/config/proxy/hy2',
                                 '/en_US/v5/config/proxy/vless',
                                 '/en_US/v5/config/proxy/loopback',
+                                '/en_US/v5/config/proxy/wireguard',
                             ],
                         },
                         {
