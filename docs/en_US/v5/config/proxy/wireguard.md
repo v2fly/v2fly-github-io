@@ -364,3 +364,5 @@ The following example sends all traffic through a single WireGuard peer.
 * In a simple client configuration these two sets usually match, but they are not the same field and should not be confused.
 * If you only use IPv4, remove the IPv6 addresses and routes from both `allowedIps` and `stack`.
 * `settings.domainStrategy` is used by this outbound's TCP path. For UDP destinations that may still be domain names, use the outer outbound `domainStrategy` with values such as `"UseIP"`, `"UseIP4"`, or `"UseIP6"`.
+
+(This document is machine generated, and checked by author.)
