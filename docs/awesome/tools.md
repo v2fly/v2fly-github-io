@@ -64,6 +64,13 @@
     description="【正在更新】 AnyPortal使用完整v2ray（及其fork）核心, 支持Tun2socks, 系统代理, 自动更新等。"
 />
 
+<Tool
+    url="https://github.com/Clash-FX/ClashFX"
+    name="ClashFX"
+    :platforms="['mac']"
+    description="【正在更新】基于 mihomo 内核的 macOS 代理客户端，支持 TUN 增强模式（系统级全局流量接管）、规则路由、VMess/VLESS/Trojan/Shadowsocks/Hysteria2 协议，原生支持 Apple Silicon（M1-M4）。"
+/>
+
 ## 路由规则
 
 > V2Ray Rules Dat
