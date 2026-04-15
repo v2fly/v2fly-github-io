@@ -65,6 +65,13 @@
 />
 
 <Tool
+    url="https://github.com/ClashX-Pro/ClashX"
+    name="ClashX"
+    :platforms="['mac']"
+    description="【正在更新】经典 macOS 规则代理客户端，原 yichengchen/clashX 的维护分支，已修复 macOS 15 Sequoia 兼容性问题，支持 VMess/Shadowsocks/Trojan/Socks5 协议及订阅管理。"
+/>
+
+<Tool
     url="https://github.com/Clash-FX/ClashFX"
     name="ClashFX"
     :platforms="['mac']"
