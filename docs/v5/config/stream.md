@@ -33,6 +33,7 @@
 * [gRPC](stream/grpc.md)
 * [QUIC](stream/quic.md)
 * [meek](stream/meek.md)
+* [Google Docs Viewer](stream/gdocsviewer.md)
 * [httpupgrade](stream/httpupgrade.md)
 * [Hysteria2](stream/hy2.md)
 
