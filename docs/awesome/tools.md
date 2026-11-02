@@ -64,6 +64,13 @@
     description="【正在更新】 AnyPortal使用完整v2ray（及其fork）核心, 支持Tun2socks, 系统代理, 自动更新等。"
 />
 
+<Tool
+    url="https://github.com/arminsameti/Keyway"
+    name="Keyway"
+    :platforms="['mac']"
+    description="【正在更新】 原生 macOS 客户端（SwiftUI），可使用 Xray-core、sing-box 或 v2ray-core 作为核心。支持 VMess、VLESS、Trojan、Shadowsocks、代理链、系统代理和 TUN 模式。"
+/>
+
 ## 路由规则
 
 > V2Ray Rules Dat

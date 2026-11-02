@@ -66,6 +66,13 @@ There's also a third-party UUID generator [uuidgenerator.net](https://www.uuidge
     description="[Actively Updated] AnyPortal runs on full v2ray-core (and its forks), supports Tun2socks, system proxy, remote auto update, etc."
 />
 
+<Tool
+    url="https://github.com/arminsameti/Keyway"
+    name="Keyway"
+    :platforms="['mac']"
+    description="[Actively Updated] Native macOS client (SwiftUI) that runs Xray-core, sing-box or v2ray-core. Supports VMess, VLESS, Trojan, Shadowsocks, proxy chaining, system proxy and TUN mode."
+/>
+
 ## Routing Rules
 
 > V2Ray Rules Dat
